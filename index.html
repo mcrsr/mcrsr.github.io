@@ -637,6 +637,323 @@ public class SampleClass1 extends Base{
 	}
 }
                       </pre>
+                      <div>
+                        <h1>Working with iFrames and frames</h1>
+                        <p>Frames are a now deprecated means of building a site layout from multiple documents on the same domain. You are unlikely to work with them unless you are working with an pre HTML5 webapp. Iframes allow the insertion of a document from an entirely different domain, and are still commonly used.
+
+                          If you need to work with frames or iframes, WebDriver allows you to work with them in the same way. Consider a button within an iframe. If we inspect the element using the browser development tools, we might see the following:</p>
+<pre>
+<code>
+&lt;div id=&quot;modal&quot;&gt;
+  &lt;iframe id=&quot;buttonframe&quot; name=&quot;myframe&quot;  src=&quot;https://seleniumhq.github.io&quot;&gt;
+    &lt;button&gt;Click here&lt;/button&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+</code>
+</pre>
+<p>If it was not for the iframe we would expect to click on the button using something like:</p>
+<pre>
+//This won't work
+driver.findElement(By.tagName("button")).click();
+</pre>
+<p>
+  However, if there are no buttons outside of the iframe, you might instead get a no such element error. This happens because Selenium is only aware of the elements in the top level document. To interact with the button, we will need to first switch to the frame, in a similar way to how we switch windows. WebDriver offers three ways of switching to a frame.
+</p>
+<h3>Using a WebElement </h3>
+<p>Switching using a WebElement is the most flexible option. You can find the frame using your preferred selector and switch to it.</p>
+<pre>
+  <code>
+//Store the web element
+WebElement iframe = driver.findElement(By.cssSelector("#modal>iframe"));
+
+//Switch to the frame
+driver.switchTo().frame(iframe);
+
+//Now we can click the button
+driver.findElement(By.tagName("button")).click();
+  </code>
+</pre>
+<h3>Using a name or ID </h3>
+<p>If your frame or iframe has an id or name attribute, this can be used instead. If the name or ID is not unique on the page, then the first one found will be switched to.</p>
+<pre>
+  <code>
+    //Using the ID
+driver.switchTo().frame("buttonframe");
+
+//Or using the name instead
+driver.switchTo().frame("myframe");
+
+//Now we can click the button
+driver.findElement(By.tagName("button")).click();
+  </code>
+</pre>
+<h3>Using an index </h3>
+<p>It is also possible to use the index of the frame, such as can be queried using window.frames in JavaScript.</p>
+<pre>
+  <code>
+    // Switches to the second frame
+driver.switchTo().frame(1);
+  </code>
+</pre>
+<h3>Leaving a frame </h3>
+<p>To leave an iframe or frameset, switch back to the default content like so:</p>
+<pre>
+  <code>
+    // Return to the top level
+driver.switchTo().defaultContent();
+  </code>
+</pre>
+                      </div>
+<div>
+  <h1>Working with windows and tabs</h1>
+  <h2>Windows and tabs </h2>
+  <h3>Get window handle </h3>
+  <p>WebDriver does not make the distinction between windows and tabs. If your site opens a new tab or window, Selenium will let you work with it using a window handle. Each window has a unique identifier which remains persistent in a single session. You can get the window handle of the current window by using:</p>
+  <pre>driver.getWindowHandle();</pre>
+  <h3>Switching windows or tabs </h3>
+  <p>Clicking a link which opens in a new window will focus the new window or tab on screen, but WebDriver will not know which window the Operating System considers active. To work with the new window you will need to switch to it. If you have only two tabs or windows open, and you know which window you start with, by the process of elimination you can loop over both windows or tabs that WebDriver can see, and switch to the one which is not the original.
+
+    However, Selenium 4 provides a new api NewWindow which creates a new tab (or) new window and automatically switches to it.</p>
+    <pre>
+      <code>
+        //Store the ID of the original window
+String originalWindow = driver.getWindowHandle();
+
+//Check we don't have other windows open already
+assert driver.getWindowHandles().size() == 1;
+
+//Click the link which opens in a new window
+driver.findElement(By.linkText("new window")).click();
+
+//Wait for the new window or tab
+wait.until(numberOfWindowsToBe(2));
+
+//Loop through until we find a new window handle
+for (String windowHandle : driver.getWindowHandles()) {
+    if(!originalWindow.contentEquals(windowHandle)) {
+        driver.switchTo().window(windowHandle);
+        break;
+    }
+}
+
+//Wait for the new tab to finish loading content
+wait.until(titleIs("Selenium documentation"));
+  
+      </code>
+    </pre>
+    <h3>Closing a window or tab </h3>
+    <p>When you are finished with a window or tab and it is not the last window or tab open in your browser, you should close it and switch back to the window you were using previously. Assuming you followed the code sample in the previous section you will have the previous window handle stored in a variable. Put this together and you will get:</p>
+    <pre>
+      <code>
+//Close the tab or window
+driver.close();
+
+//Switch back to the old tab or window
+driver.switchTo().window(originalWindow);
+  
+      </code>
+    </pre>
+    <p>Forgetting to switch back to another window handle after closing a window will leave WebDriver executing on the now closed page, and will trigger a No Such Window Exception. You must switch back to a valid window handle in order to continue execution.</p>
+    <h3>Quitting the browser at the end of a session </h3>
+    <p>When you are finished with the browser session you should call quit, instead of close:</p>
+    <pre>
+      <code>driver.quit();</code>
+    </pre>
+    <pre>
+Quit will:
+Close all the windows and tabs associated with that WebDriver session
+Close the browser process
+Close the background driver process
+Notify Selenium Grid that the browser is no longer in use so it can be used by another session (if you are using Selenium Grid)
+
+Failure to call quit will leave extra background processes and ports running on your machine which could cause you problems later.
+    </pre>
+    <p>If not running WebDriver in a test context, you may consider using try / finally which is offered by most languages so that an exception will still clean up the WebDriver session.</p>
+    <pre>
+      <code>
+        try {
+          //WebDriver code here...
+      } finally {
+          driver.quit();
+      }      
+      </code>
+    </pre>
+</div>
+<div>
+  <h1>Working with select list elements</h1>
+  <h4>Select lists have special behaviors compared to other elements.</h4>
+  <p>Select elements can require quite a bit of boilerplate code to automate. To reduce this, and make your tests cleaner, there is a Select class in the Selenium support package. To use it, you will need the following import statement:</p>
+  <pre>import org.openqa.selenium.support.ui.Select;</pre>
+  <p>You are then able to create a Select object using a WebElement that references a &lt;select&gt; element.</p>
+    <pre>
+      <code>
+WebElement selectElement = driver.findElement(By.id("selectElementID"));
+Select selectObject = new Select(selectElement);
+      </code>
+    </pre>
+    <pre>
+      <code>
+&lt;select&gt;
+ &lt;option value=value1&gt;Bread&lt;/option&gt;
+ &lt;option value=value2 selected&gt;Milk&lt;/option&gt;
+ &lt;option value=value3&gt;Cheese&lt;/option&gt;
+&lt;/select&gt;
+      </code>
+    </pre>
+    <pre>
+      <code>
+// Return a List&lt;WebElement&gt; of options that have been selected
+List&lt;WebElement&gt; allSelectedOptions = selectObject.getAllSelectedOptions();
+
+// Return a WebElement referencing the first selection option found by walking down the DOM
+WebElement firstSelectedOption = selectObject.getFirstSelectedOption();
+
+// Return a ListWebElement of options that the select element contains
+List&lt;WebElement&gt; allAvailableOptions = selectObject.getOptions();
+
+// Deselect an option based upon the select element's internal index
+selectObject.deselectByIndex(1);
+
+// Deselect an option based upon its value attribute
+selectObject.deselectByValue("value1");
+
+// Deselect an option based upon its text
+selectObject.deselectByVisibleText("Bread");
+
+// Deselect all selected option elements
+selectObject.deselectAll();
+
+//Finally, some select elements allow you to select more than one option. You can find out if your select element is one of these by using:
+Boolean doesThisAllowMultipleSelections = selectObject.isMultiple();                                      
+      </code>
+    </pre>
+</div>
+<div>
+  <h1>Information about web elements</h1>
+  <pre>
+    What you can learn about an element.
+
+There are a number of details you can query about a specific element
+  </pre>
+  <h2>Is Displayed </h2>
+  <p>This method is used to check if the connected Element is displayed on a webpage. Returns a Boolean value, True if the connected element is displayed in the current browsing context else returns false.</p>
+  <p>This functionality is mentioned in, but not defined by the w3c specification due to the impossibility of covering all potential conditions. As such, Selenium cannot expect drivers to implement this functionality directly, and now relies on executing a large JavaScript function directly. This function makes many approximations about an element’s nature and relationship in the tree to return a value.</p>
+  <pre>
+    <code>
+// Navigate to the url
+driver.get('https://www.google.com');
+
+// Get boolean value for is element display
+boolean isButtonVisible = driver.findElement(By.css("[name='login']")).isDisplayed();
+    </code>
+  </pre>
+  <h2>Is Enabled </h2>
+  <p>This method is used to check if the connected Element is enabled or disabled on a webpage. Returns a boolean value, True if the connected element is enabled in the current browsing context else returns false.</p>
+  <pre>
+    <code>
+      //navigates to url
+      driver.get("https://www.google.com/");
+    
+      //returns true if element is enabled else returns false
+      boolean value = driver.findElement(By.name("btnK")).isEnabled();    
+    </code>
+  </pre>
+  <h2>Is Selected </h2>
+  <p>This method determines if the referenced Element is Selected or not. This method is widely used on Check boxes, radio buttons, input elements, and option elements.
+    Returns a boolean value, True if referenced element is selected in the current browsing context else returns false.</p>
+    <pre>
+      <code>
+        //navigates to url
+        driver.get("https://the-internet.herokuapp.com/checkboxes");
+       
+        //returns true if element is checked else returns false
+        boolean value = driver.findElement(By.cssSelector("input[type='checkbox']:first-of-type")).isSelected();       
+      </code>
+    </pre>
+    <h2>Tag Name </h2>
+    <p>It is used to fetch the TagName of the referenced Element which has the focus in the current browsing context.</p>
+    <pre>
+      <code>
+        //navigates to url
+        driver.get("https://www.example.com");
+       
+        //returns TagName of the element
+        String value = driver.findElement(By.cssSelector("h1")).getTagName();       
+      </code>
+    </pre>
+    <h2>Size and Position </h2>
+    <pre>
+      It is used to fetch the dimensions and coordinates of the referenced element.
+
+The fetched data body contain the following details:
+
+    X-axis position from the top-left corner of the element
+    y-axis position from the top-left corner of the element
+    Height of the element
+    Width of the element
+    </pre>
+    <pre>
+      <code>
+// Navigate to url
+driver.get("https://www.example.com");
+
+// Returns height, width, x and y coordinates referenced element
+Rectangle res =  driver.findElement(By.cssSelector("h1")).getRect();
+
+// Rectangle class provides getX,getY, getWidth, getHeight methods
+System.out.println(res.getX());  
+      </code>
+    </pre>
+    <h2>Get CSS Value </h2>
+    <p>Retrieves the value of specified computed style property of an element in the current browsing context.</p>
+    <pre>
+      <code>
+// Navigate to Url
+driver.get("https://www.example.com");
+
+// Retrieves the computed style property 'color' of linktext
+String cssValue = driver.findElement(By.linkText("More information...")).getCssValue("color");
+      </code>
+    </pre>
+    <h2>Text Content </h2>
+    <p>Retrieves the rendered text of the specified element.</p>
+    <pre>
+      <code>
+// Navigate to url
+driver.get("https://example.com");
+
+// Retrieves the text of the element
+String text = driver.findElement(By.cssSelector("h1")).getText();
+      </code>
+    </pre>
+    <br><br>
+    <pre>
+      <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Rough {
+
+	public static void main(String[] args) {
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.selenium.dev/documentation/webdriver/elements/information/");
+		System.out.println(driver.findElement(By.id("size-and-position")).getClass());
+		System.out.println(driver.findElement(By.id("size-and-position")).getTagName());
+		System.out.println(driver.findElement(By.id("size-and-position")).getText());
+		System.out.println(driver.findElement(By.id("size-and-position")).getLocation());
+		System.out.println(driver.findElement(By.id("size-and-position")).getSize());
+		driver.quit();
+	}
+}
+        </code>
+    </pre>
+
+</div>
 
       </div>
       <div class="column side" style="background-color:#ccc;">Column</div>
