@@ -7,12 +7,514 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="./css/style.css">
     <title>Hello, world!</title>
   </head>
   <body>
-    <h1>Selenium</h1>
-    <img src="./images/Selenium-symbol-Se-square-periodic-table-some.jpg" alt="selenium image">
+    <div class="header">
+      <h1>Header</h1>
+    </div>
+
+    <div class="row">
+      <div class="column side" style="background-color:#aaa;">Column</div>
+      <div class="column middle" style="background-color:#bbb;">
+        <h2>Handling Alerts in Selenium</h2>
+        <pre>
+          package org.openqa.selenium;
+
+          public interface Alert {
+            void dismiss();
+            void accept();
+            String getText();
+            void sendKeys(String keysToSend);
+          }
+        </pre>
+        <h2>Window alert()</h2>
+        <h3>Definition and Usage</h3>
+        <p>The alert() method displays an alert box with a message and an OK button.</p>
+        <p>The alert() method is used when you want information to come through to the user.</p>
+        <h3>Note</h3>
+        <p>The alert box takes the focus away from the current window, and forces the user to read the message.</p>
+        <p>Do not overuse this method. It prevents the user from accessing other parts of the page until the alert box is closed.</p>
+        <img src="./images/alert.png" alt="alert">
+        <br><br>
+        <pre>
+          import java.util.concurrent.TimeUnit;
+          import org.openqa.selenium.By;
+          import org.openqa.selenium.WebDriver;
+          import org.openqa.selenium.chrome.ChromeDriver;
+          import io.github.bonigarcia.wdm.WebDriverManager;
+
+          public class AlertExample1 {
+            public static void main(String[] args) throws Exception {
+              WebDriverManager.chromedriver().setup();
+              WebDriver driver = new ChromeDriver();
+              driver.manage().window().maximize();
+              driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+              driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_alert");
+              driver.switchTo().frame("iframeResult");
+              Thread.sleep(2000);
+              driver.findElement(By.xpath("//button[text()='Try it']")).click();
+              Thread.sleep(2000);
+              driver.switchTo().alert().accept();
+              Thread.sleep(2000);
+              driver.quit();
+            }
+        }
+        </pre>
+        <h3>Window confirm()</h3>
+        <p>The confirm() method displays a dialog box with a message, an OK button, and a Cancel button.
+          The confirm() method returns true if the user clicked "OK", otherwise false.
+          </p>
+          <h3>Note</h3>
+          <p>A confirm box is often used if you want the user to verify or accept something.
+            A confirm box takes the focus away from the current window, and forces the user to read the message.
+            Do not overuse this method. It prevents the user from accessing other parts of the page until the box is closed.
+            </p>
+            <img src="./images/confirm.png" alt="confirm">
+            <br><br>
+            <pre>
+              import java.util.concurrent.TimeUnit;
+              import org.openqa.selenium.By;
+              import org.openqa.selenium.WebDriver;
+              import org.openqa.selenium.chrome.ChromeDriver;
+              import io.github.bonigarcia.wdm.WebDriverManager;
+
+              public class AlertExample1 {
+                public static void main(String[] args) throws Exception {
+                  WebDriverManager.chromedriver().setup();
+                  WebDriver driver = new ChromeDriver();
+                  driver.manage().window().maximize();
+                  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                  driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_confirm3");
+                  driver.switchTo().frame("iframeResult");
+                  Thread.sleep(2000);
+                  driver.findElement(By.xpath("//button[text()='Try it']")).click();
+                  Thread.sleep(2000);
+                  driver.switchTo().alert().accept();
+                  Thread.sleep(2000);
+                  driver.findElement(By.xpath("//button[text()='Try it']")).click();
+                  Thread.sleep(2000);
+                  driver.switchTo().alert().dismiss();
+                  Thread.sleep(2000);
+                  driver.quit();
+                }
+              }
+            </pre>
+            <h3>Window prompt()</h3>
+            <h4>Definition and Usage</h4>
+            <p>The prompt() method displays a dialog box that prompts the user for input.
+              The prompt() method returns the input value if the user clicks "OK", otherwise it returns null.
+              </p>
+              <h4>Note</h4>
+              <p>A prompt box is used if you want the user to input a value.
+                When a prompt box pops up, the user will have to click either "OK" or "Cancel" to proceed.
+                Do not overuse this method. It prevents the user from accessing other parts of the page until the box is closed.
+                </p>
+                <img src="./images/prompt.png" alt="prompt">
+                <br><br>
+                <pre>
+                  import java.util.concurrent.TimeUnit;
+                  import org.openqa.selenium.By;
+                  import org.openqa.selenium.WebDriver;
+                  import org.openqa.selenium.chrome.ChromeDriver;
+                  import io.github.bonigarcia.wdm.WebDriverManager;
+
+                  public class AlertExample3 {
+                    public static void main(String[] args) throws Exception {
+                      WebDriverManager.chromedriver().setup();
+                      WebDriver driver = new ChromeDriver();
+                      driver.manage().window().maximize();
+                      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                      driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_prompt");
+                      driver.switchTo().frame("iframeResult");
+                      Thread.sleep(2000);
+                      driver.findElement(By.xpath("//button[text()='Try it']")).click();
+                      Thread.sleep(2000);
+                      System.out.println(driver.switchTo().alert().getText());
+                      driver.switchTo().alert().sendKeys("ranga swami reddy");
+                      Thread.sleep(2000);
+                      driver.switchTo().alert().accept();
+                      Thread.sleep(2000);
+                      driver.quit();
+                    }
+                  }
+                </pre>
+                <h2>Navigation</h2>
+                <pre>
+                  interface Navigation {
+                    
+                    void back();
+                
+                    void forward();
+                
+                    void to(String url);
+                
+                    void to(URL url);
+                
+                    void refresh();
+                  }                
+                </pre>
+                <br><br>
+                <pre>
+                  import java.util.concurrent.TimeUnit;
+                  import org.openqa.selenium.By;
+                  import org.openqa.selenium.WebDriver;
+                  import org.openqa.selenium.chrome.ChromeDriver;
+                  import io.github.bonigarcia.wdm.WebDriverManager;
+
+                  public class NavigationExample1 {
+                    public static void main(String[] args) throws Exception {
+                      WebDriverManager.chromedriver().setup();
+                      WebDriver driver = new ChromeDriver();
+                      driver.manage().window().maximize();
+                      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                      driver.navigate().to("https://www.w3schools.com/html/default.asp");
+                      Thread.sleep(1000);
+                      System.out.println(driver.getCurrentUrl());
+                      driver.findElement(By.xpath("//a[text()='Next ❯']")).click();
+                      Thread.sleep(1000);
+                      System.out.println(driver.getCurrentUrl());
+                      driver.findElement(By.xpath("//a[text()='Next ❯']")).click();
+                      Thread.sleep(1000);
+                      System.out.println(driver.getCurrentUrl());
+                      driver.navigate().back();
+                      Thread.sleep(1000);
+                      System.out.println(driver.getCurrentUrl());
+                      driver.navigate().forward();
+                      Thread.sleep(1000);
+                      System.out.println(driver.getCurrentUrl());
+                      driver.navigate().refresh();
+                      Thread.sleep(1000);
+                      driver.quit();
+                    }
+                  }
+                </pre>
+                <h2>Window Handling</h2>
+                <pre>
+                  nterface Window {
+    
+                    void setSize(Dimension targetSize);
+                
+                    void setPosition(Point targetPosition);
+                
+                    Dimension getSize();
+                
+                    Point getPosition();
+                
+                    void maximize();
+                
+                    void fullscreen();
+                  }                
+                </pre>
+                <br><br>
+                <pre>
+                  import java.util.concurrent.TimeUnit;
+                  import org.openqa.selenium.Dimension;
+                  import org.openqa.selenium.Point;
+                  import org.openqa.selenium.WebDriver;
+                  import org.openqa.selenium.chrome.ChromeDriver;
+                  import io.github.bonigarcia.wdm.WebDriverManager;
+
+                  public class WindowExample1 {
+                    public static void main(String[] args) throws Exception {
+                      WebDriverManager.chromedriver().setup();
+                      WebDriver driver = new ChromeDriver();
+                      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                      driver.get("https://www.w3schools.com");
+                      Thread.sleep(1000);
+                      System.out.println("Before changing the position: "+driver.manage().window().getPosition());
+                      driver.manage().window().setPosition(new Point(20, 65));
+                      Thread.sleep(1000);
+                      System.out.println("Aftre changing the position: "+driver.manage().window().getPosition());
+                      System.out.println("Before changing the size: "+driver.manage().window().getSize());
+                      Thread.sleep(1000);
+                      driver.manage().window().setSize(new Dimension(800, 900));
+                      System.out.println("After changing the size: "+driver.manage().window().getSize());
+                      Thread.sleep(1000);
+                      driver.manage().window().maximize();
+                      Thread.sleep(1000);
+                      driver.manage().window().fullscreen();
+                      Thread.sleep(1000);
+                      driver.quit();
+                    }
+                  }
+                </pre>
+                <h2>Cookies</h2>
+                <p>Cookies let you store user information in web pages.
+                </p>
+                <h3>What are Cookies?</h3>
+                <p>Cookies are data, stored in small text files, on your computer.
+                  When a web server has sent a web page to a browser, the connection is shut down, and the server forgets everything about the user.
+                  Cookies were invented to solve the problem "how to remember information about the user":
+                  When a user visits a web page, his/her name can be stored in a cookie.
+                  Next time the user visits the page, the cookie "remembers" his/her name.
+                  Cookies are saved in name-value pairs like:
+                  username = John Doe
+                  When a browser requests a web page from a server, cookies belonging to the page are added to the request. This way the server gets the necessary data to "remember" information about users.
+                  </p>
+                  <p>HTTP cookies (also called web cookies, Internet cookies, browser cookies, or simply cookies) are small blocks of data created by a web server while a user is browsing a website and placed on the user's computer or other device by the user's web browser. Cookies are placed on the device used to access a website, and more than one cookie may be placed on a user's device during a session.
+                  </p>
+                  <pre>
+                    Method and Description
+                    addCookie(Cookie cookie)                  Add a specific cookie.
+                    deleteAllCookies()                        Delete all the cookies for the current domain.
+                    deleteCookie(Cookie cookie)               Delete a cookie from the browser's "cookie jar".
+                    deleteCookieNamed(java.lang.String name)  Delete the named cookie from the current domain.
+                    getCookieNamed(java.lang.String name)     Get a cookie with a given name.
+                    getCookies()                              Get all the cookies for the current domain.
+                  </pre>
+                  <br><br>
+                  <pre>
+                    import java.util.concurrent.TimeUnit;
+                    import org.openqa.selenium.Cookie;
+                    import org.openqa.selenium.WebDriver;
+                    import org.openqa.selenium.chrome.ChromeDriver;
+                    import io.github.bonigarcia.wdm.WebDriverManager;
+
+                    public class CookieExample1 {
+                      public static void main(String[] args) throws Exception {
+                        WebDriverManager.chromedriver().setup();
+                        WebDriver driver = new ChromeDriver();
+                        driver.manage().window().maximize();
+                        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                        driver.get("https://www.w3schools.com");
+                        System.out.println(driver.manage().getCookies());
+                        driver.manage().addCookie(new Cookie("testername", "mcrsr"));
+                        System.out.println(driver.manage().getCookieNamed("testername"));
+                        driver.manage().deleteCookieNamed("testername");
+                        System.out.println(driver.manage().getCookieNamed("testername"));
+                        Cookie testerCookie = new Cookie("testrname","mcrsr");
+                        driver.manage().addCookie(testerCookie);
+                        System.out.println(driver.manage().getCookies());
+                        driver.manage().deleteCookie(testerCookie);
+                        System.out.println(driver.manage().getCookies());
+                        driver.manage().deleteAllCookies();
+                        System.out.println(driver.manage().getCookies());
+                        driver.quit();
+                      }
+                    }
+
+                  </pre>
+                  <h2>TimeOuts</h2>
+                  <p>An interface for managing timeout behavior for WebDriver instances.</p>
+                  <table>
+                    <tr>
+                      <th>Method</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td>implicitlyWait(long time, java.util.concurrent.TimeUnit unit)</td>
+                      <td>Specifies the amount of time the driver should wait when searching for an element if it is not immediately present.</td>
+                    </tr>
+                    <tr>
+                      <td>pageLoadTimeout(long time, java.util.concurrent.TimeUnit unit)</td>
+                      <td>Sets the amount of time to wait for a page load to complete before throwing an error.</td>
+                    </tr>
+                    <tr>
+                      <td>setScriptTimeout(long time, java.util.concurrent.TimeUnit unit)</td>
+                      <td>Sets the amount of time to wait for an asynchronous script to finish execution before throwing an error.</td>
+                    </tr>
+                  </table>
+                  <p>implicitlyWait
+                    WebDriver.Timeouts implicitlyWait(long time,
+                                                      java.util.concurrent.TimeUnit unit)
+                    Specifies the amount of time the driver should wait when searching for an element if it is not immediately present.
+                    When searching for a single element, the driver should poll the page until the element has been found, or this timeout expires before throwing a NoSuchElementException. When searching for multiple elements, the driver should poll the page until at least one element has been found or this timeout has expired.
+                    Increasing the implicit wait timeout should be used judiciously as it will have an adverse effect on test run time, especially when used with slower location strategies like XPath.
+                    </p>
+                    <pre>
+                      import java.util.concurrent.TimeUnit;
+                      import org.openqa.selenium.WebDriver;
+                      import org.openqa.selenium.chrome.ChromeDriver;
+                      import io.github.bonigarcia.wdm.WebDriverManager;
+
+                      public class TimeOutsExample1 {
+                        public static void main(String[] args) throws Exception {
+                          WebDriverManager.chromedriver().setup();
+                          WebDriver driver = new ChromeDriver();
+                          driver.manage().window().maximize();
+                          driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                          driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+                          driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
+                          driver.get("https://www.w3schools.com");
+                          driver.quit();
+                        }
+                      }
+                    </pre>
+                    <br><br>
+                    <h3>Scripttimeout example:</h3>
+                    <pre>
+                      import java.util.concurrent.TimeUnit;
+                      import org.openqa.selenium.JavascriptExecutor;
+                      import org.openqa.selenium.WebDriver;
+                      import org.openqa.selenium.chrome.ChromeDriver;
+                      import io.github.bonigarcia.wdm.WebDriverManager;
+
+                      public class ScriptTimeoutExample1 {
+                        public static void main(String[] args) throws Exception {
+                          WebDriver driver = null;
+                          try {
+                            WebDriverManager.chromedriver().setup();
+                            driver = new ChromeDriver();
+                            driver.manage().window().maximize();
+                            driver.manage().timeouts().setScriptTimeout(5, TimeUnit.SECONDS);
+                            driver.get("https://www.w3schools.com");
+                            JavascriptExecutor jse = ((JavascriptExecutor)driver);
+                            jse.executeAsyncScript("setTimeout(()=>{alert('Hello from alert');},6000)");
+                          }catch (Exception e) {
+                            e.printStackTrace();
+                          }
+                          driver.quit();
+                        }
+                      }
+                    </pre>
+                    <br><br>
+                    <p>If you run the above program you will get following error:</p>
+                    <p>org.openqa.selenium.ScriptTimeoutException: script timeout</p>
+                    <h3>PageLoadTimeout Example:</h3>
+                    <pre>
+                      import java.util.concurrent.TimeUnit;
+                      import org.openqa.selenium.WebDriver;
+                      import org.openqa.selenium.chrome.ChromeDriver;
+                      import io.github.bonigarcia.wdm.WebDriverManager;
+
+                      public class PageLoadTimeoutExample2 {
+                        public static void main(String[] args) throws Exception {
+                          WebDriver driver = null;
+                          try {
+                            WebDriverManager.chromedriver().setup();
+                            driver = new ChromeDriver();
+                            driver.manage().window().maximize();
+                            driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+                            driver.get("https://mediadistribution.espn.com/");
+                          }catch (Exception e) {
+                            e.printStackTrace();
+                          }
+                          driver.quit();
+                        }
+                      }
+                    </pre>
+                    <p>If you run the above program you will get the following error
+                      </p>
+                      <p>org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 2.023</p>
+                      <h2>Screenshots:</h2>
+                      <h3>WebDriver Screenshot:</h3>
+                      <pre>
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.concurrent.TimeUnit;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ScreenshotExample1 {
+	public static void main(String[] args) throws Exception {
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("https://www.w3schools.com/");
+		
+		File imageAsFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(imageAsFile, new File("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/imageAsFile.jpg"));
+		
+		byte[] imageAsBytes = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+		FileOutputStream fos = new FileOutputStream("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/imageAsBytes.jpg");
+		fos.write(imageAsBytes);
+		fos.close();
+		
+		String imageAsBase64 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+		
+		
+		driver.quit();
+	}
+}
+                      </pre>
+                      <h3>WebElement Screenshot:</h3>
+                      <pre>
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.concurrent.TimeUnit;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ScreenshotExample2 {
+	public static void main(String[] args) throws Exception {
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("https://www.w3schools.com/");
+		
+		WebElement searchBtn = driver.findElement(By.xpath("//form[@class='example']"));
+		
+		File imageAsFile = ((TakesScreenshot)searchBtn).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(imageAsFile, new File("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/imageAsFile.jpg"));
+		
+		byte[] imageAsBytes = ((TakesScreenshot)searchBtn).getScreenshotAs(OutputType.BYTES);
+		FileOutputStream fos = new FileOutputStream("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/imageAsBytes.jpg");
+		fos.write(imageAsBytes);
+		fos.close();
+		
+		String imageAsBase64 = ((TakesScreenshot)searchBtn).getScreenshotAs(OutputType.BASE64);
+		
+		
+		driver.quit();
+	}
+}
+
+                      </pre>
+                      <h3>Full Page Screenshot:</h3>
+                      <p>Selenium does not support full page screenshots. We can use the Ashot library for full page screenshot.</p>
+                      <pre>
+import java.io.File;
+import java.util.concurrent.TimeUnit;
+import javax.imageio.ImageIO;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
+
+public class ScreenshotExample3 {
+	public static void main(String[] args) throws Exception {
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("https://www.w3schools.com/");
+		
+		Screenshot fullPageScreeshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
+		ImageIO.write(fullPageScreeshot.getImage(), "jpg", new File("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/fullPageScreeshot.jpg"));
+		
+		
+		driver.quit();
+	}
+}
+
+                      </pre>
+
+      </div>
+      <div class="column side" style="background-color:#ccc;">Column</div>
+    </div>
+
+    <div class="footer">
+      <p>Footer</p>
+    </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
