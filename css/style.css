@@ -1,6 +1,10 @@
 * {
     box-sizing: border-box;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
   
   body {
     font-family: Arial, Helvetica, sans-serif;
@@ -19,6 +23,7 @@
     float: left;
     padding: 10px;
     height: auto; /* Should be removed. Only for demonstration */
+
   }
   
   /* Left and right column */
@@ -66,4 +71,26 @@
   
   tr:nth-child(even) {
     background-color: #dddddd;
+  }
+
+  figure {
+    border: 1px #cccccc solid;
+    padding: 4px;
+    margin: auto;
+  }
+  
+  figcaption {
+    background-color: black;
+    color: white;
+    font-style: italic;
+    padding: 2px;
+    text-align: center;
+  }
+
+  pre code {
+    background-color: black;
+    border: 1px solid #999;
+    display: inline-block;
+    padding: 20px;
+    color: white;
   }

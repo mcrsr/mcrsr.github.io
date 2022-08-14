@@ -22,16 +22,20 @@
       </ul>
       </div>
       <div class="column middle" style="background-color:white;">
-        <h2>Handling Alerts in Selenium</h2>
+        
+        <div id="handlingAlertsInSelenium">
+          <h2>Handling Alerts in Selenium</h2>
         <pre>
-          package org.openqa.selenium;
+          <code>
+            package org.openqa.selenium;
 
-          public interface Alert {
-            void dismiss();
-            void accept();
-            String getText();
-            void sendKeys(String keysToSend);
-          }
+            public interface Alert {
+              void dismiss();
+              void accept();
+              String getText();
+              void sendKeys(String keysToSend);
+            }
+          </code>
         </pre>
         <h2>Window alert()</h2>
         <h3>Definition and Usage</h3>
@@ -43,7 +47,8 @@
         <img src="./images/alert.png" alt="alert">
         <br><br>
         <pre>
-          import java.util.concurrent.TimeUnit;
+          <code>
+            import java.util.concurrent.TimeUnit;
           import org.openqa.selenium.By;
           import org.openqa.selenium.WebDriver;
           import org.openqa.selenium.chrome.ChromeDriver;
@@ -65,6 +70,7 @@
               driver.quit();
             }
         }
+          </code>
         </pre>
         <h3>Window confirm()</h3>
         <p>The confirm() method displays a dialog box with a message, an OK button, and a Cancel button.
@@ -78,7 +84,8 @@
             <img src="./images/confirm.png" alt="confirm">
             <br><br>
             <pre>
-              import java.util.concurrent.TimeUnit;
+              <code>
+                import java.util.concurrent.TimeUnit;
               import org.openqa.selenium.By;
               import org.openqa.selenium.WebDriver;
               import org.openqa.selenium.chrome.ChromeDriver;
@@ -104,6 +111,7 @@
                   driver.quit();
                 }
               }
+              </code>
             </pre>
             <h3>Window prompt()</h3>
             <h4>Definition and Usage</h4>
@@ -118,6 +126,7 @@
                 <img src="./images/prompt.png" alt="prompt">
                 <br><br>
                 <pre>
+                  <code>
                   import java.util.concurrent.TimeUnit;
                   import org.openqa.selenium.By;
                   import org.openqa.selenium.WebDriver;
@@ -143,24 +152,30 @@
                       driver.quit();
                     }
                   }
+                  </code>
                 </pre>
+        </div>
+
                 <h2>Navigation</h2>
                 <pre>
-                  interface Navigation {
+                  <code>
+                    interface Navigation {
                     
-                    void back();
-                
-                    void forward();
-                
-                    void to(String url);
-                
-                    void to(URL url);
-                
-                    void refresh();
-                  }                
+                      void back();
+                  
+                      void forward();
+                  
+                      void to(String url);
+                  
+                      void to(URL url);
+                  
+                      void refresh();
+                    }
+                  </code>                
                 </pre>
                 <br><br>
                 <pre>
+                  <code>
                   import java.util.concurrent.TimeUnit;
                   import org.openqa.selenium.By;
                   import org.openqa.selenium.WebDriver;
@@ -193,26 +208,30 @@
                       driver.quit();
                     }
                   }
+                  </code>
                 </pre>
                 <h2>Window Handling</h2>
                 <pre>
-                  nterface Window {
+                  <code>
+                    nterface Window {
     
-                    void setSize(Dimension targetSize);
-                
-                    void setPosition(Point targetPosition);
-                
-                    Dimension getSize();
-                
-                    Point getPosition();
-                
-                    void maximize();
-                
-                    void fullscreen();
-                  }                
+                      void setSize(Dimension targetSize);
+                  
+                      void setPosition(Point targetPosition);
+                  
+                      Dimension getSize();
+                  
+                      Point getPosition();
+                  
+                      void maximize();
+                  
+                      void fullscreen();
+                    }
+                  </code>                
                 </pre>
                 <br><br>
                 <pre>
+                  <code>
                   import java.util.concurrent.TimeUnit;
                   import org.openqa.selenium.Dimension;
                   import org.openqa.selenium.Point;
@@ -243,6 +262,7 @@
                       driver.quit();
                     }
                   }
+                  </code>
                 </pre>
                 <h2>Cookies</h2>
                 <p>Cookies let you store user information in web pages.
@@ -270,6 +290,7 @@
                   </pre>
                   <br><br>
                   <pre>
+                    <code>
                     import java.util.concurrent.TimeUnit;
                     import org.openqa.selenium.Cookie;
                     import org.openqa.selenium.WebDriver;
@@ -298,7 +319,7 @@
                         driver.quit();
                       }
                     }
-
+                    </code>
                   </pre>
                   <h2>TimeOuts</h2>
                   <p>An interface for managing timeout behavior for WebDriver instances.</p>
@@ -328,6 +349,7 @@
                     Increasing the implicit wait timeout should be used judiciously as it will have an adverse effect on test run time, especially when used with slower location strategies like XPath.
                     </p>
                     <pre>
+                      <code>
                       import java.util.concurrent.TimeUnit;
                       import org.openqa.selenium.WebDriver;
                       import org.openqa.selenium.chrome.ChromeDriver;
@@ -345,10 +367,12 @@
                           driver.quit();
                         }
                       }
+                      </code>
                     </pre>
                     <br><br>
                     <h3>Scripttimeout example:</h3>
                     <pre>
+                      <code>
                       import java.util.concurrent.TimeUnit;
                       import org.openqa.selenium.JavascriptExecutor;
                       import org.openqa.selenium.WebDriver;
@@ -372,12 +396,14 @@
                           driver.quit();
                         }
                       }
+                      </code>
                     </pre>
                     <br><br>
                     <p>If you run the above program you will get following error:</p>
                     <p>org.openqa.selenium.ScriptTimeoutException: script timeout</p>
                     <h3>PageLoadTimeout Example:</h3>
                     <pre>
+                      <code>
                       import java.util.concurrent.TimeUnit;
                       import org.openqa.selenium.WebDriver;
                       import org.openqa.selenium.chrome.ChromeDriver;
@@ -398,6 +424,7 @@
                           driver.quit();
                         }
                       }
+                      </code>
                     </pre>
                     <p>If you run the above program you will get the following error
                       </p>
@@ -405,6 +432,7 @@
                       <h2>Screenshots:</h2>
                       <h3>WebDriver Screenshot:</h3>
                       <pre>
+<code>
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.concurrent.TimeUnit;
@@ -438,9 +466,11 @@ public class ScreenshotExample1 {
 		driver.quit();
 	}
 }
+</code>
                       </pre>
                       <h3>WebElement Screenshot:</h3>
                       <pre>
+<code>
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.concurrent.TimeUnit;
@@ -478,11 +508,13 @@ public class ScreenshotExample2 {
 		driver.quit();
 	}
 }
+</code>
 
                       </pre>
                       <h3>Full Page Screenshot:</h3>
                       <p>Selenium does not support full page screenshots. We can use the Ashot library for full page screenshot.</p>
                       <pre>
+<code>
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
@@ -508,12 +540,14 @@ public class ScreenshotExample3 {
 		driver.quit();
 	}
 }
+</code>
 
                       </pre>
                       <h1>How to take screenshot for all failed test cases</h1>
                       <p>for this demo i cread 3 classes</p>
                       <p>Base.java</p>
                       <pre>
+<code>
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -546,10 +580,12 @@ public class Base {
     FileUtils.copyFile(image, new File("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/"+dateString+".jpg"));
   }
 }
+</code>
                       </pre>
                       <br><br>
                       <p>CustomListener.java</p>
                       <pre>
+<code>
 import java.io.IOException;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -597,10 +633,12 @@ public class CustomListener  extends Base implements ITestListener{
 	}
 
 }
+</code>
                       </pre>
                       <br><br>
                       <p>SampleClass1.java</p>
                       <pre>
+<code>
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -640,6 +678,7 @@ public class SampleClass1 extends Base{
 		driver.quit();
 	}
 }
+</code>
                       </pre>
                       <div>
                         <h1>Working with iFrames and frames</h1>
@@ -720,7 +759,7 @@ driver.switchTo().defaultContent();
     However, Selenium 4 provides a new api NewWindow which creates a new tab (or) new window and automatically switches to it.</p>
     <pre>
       <code>
-        //Store the ID of the original window
+//Store the ID of the original window
 String originalWindow = driver.getWindowHandle();
 
 //Check we don't have other windows open already
@@ -1811,6 +1850,7 @@ public class ExceptionExample9 {
 
     <div class="footer">
       <p>Footer</p>
+      <button onclick="window.scrollTo(0,0);">scroll to top</button>
     </div>
 
 

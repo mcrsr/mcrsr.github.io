@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Selenium</title>
+  </head>
+  <body>
+    <div class="header">
+        <h2>Header</h2>
+      </div>
+      
+      <div class="row">
+        <div class="column side" style="background-color:#aaa;">
+        <ul>
+            <li><a href="./selenium.html#highlightWebElement">How to highlight WebElement using JavaScriptExecutor in selenium java</a></li>
+            <li><a href="./selenium.html#seleniumArchitecture">Selenium WebDriver Architecure(selenium 3)</a></li>
+            <li><a href="./selenium.html#What_is_the_DOM">What is HTML DOM</a></li>
+            <li><a href="./corejava.html#How_to_find_broken_links&Images_using_Selenium_Webdriver">How to find broken links & Images using Selenium Webdriver</a></li>
+        </ul>
+        </div>
+        <div class="column middle" style="background-color:white">
+        
+
+            <div id="highlightWebElement">
+                <h1>How to highlight WebElement using JavaScriptExecutor in selenium java</h1>
+                <pre>
+                    <code>
+import java.io.File;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Rough {
+
+	public static void main(String[] args) throws Exception{
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("https://www.w3schools.com/");
+		File beforeHighlight = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(beforeHighlight, new File("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/beforeHighlight.jpg"));
+		WebElement heading = driver.findElement(By.xpath("//h1[text()='Learn to Code']"));
+		JavascriptExecutor jse = ((JavascriptExecutor)driver);
+		jse.executeScript("arguments[0].style.border='5px solid white'", heading);
+		File afterHighlight = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(beforeHighlight, new File("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/afterHighlight.jpg"));
+		driver.quit();
+	}
+}
+                    </code>
+                </pre>
+                <p>If you run the above program we will get two Screenshots before and after highlighting the elemnt.</p>
+                <figure>
+                    <img src="./images/beforeHighlight.jpg" alt="before highlight element" width="100%" height="100%">
+                    <figcaption style="">Fig: Before highlighting the element</figcaption>
+                </figure>
+                <figure>
+                    <img src="./images/afterHighlight.jpg" alt="after highlight element" width="100%" height="100%">
+                    <figcaption>Fig: After highlighting the element</figcaption>
+                </figure>
+            </div>
+        
+            <div id="seleniumArchitecture">
+                <h1>Selenium WebDriver Architecure(selenium 3)</h1>
+                <iframe width="100%" height="450" src="https://www.youtube.com/embed/Z6yTeEqgJ1I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <a href="https://naveenautomationlabs.com/selenium-webdriver-architecture-overview-webdriver-apis/">Selenium WebDriver Architecure(selenium 3)</a>
+            </div>
+
+            <div id="What_is_the_DOM">
+                <h1>What is the DOM</h1>
+                <p> The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as nodes and objects; that way, programming languages can interact with the page. </p>
+                <p>A web page is a document that can be either displayed in the browser window or as the HTML source. In both cases, it is the same document but the Document Object Model (DOM) representation allows it to be manipulated. As an object-oriented representation of the web page, it can be modified with a scripting language such as JavaScript.</p>
+                <p>DOM is a way to represent the webpage in a structured hierarchical way so that it will become easier for programmers and users to glide through the document. With DOM, we can easily access and manipulate tags, IDs, classes, Attributes, or Elements of HTML using commands or methods provided by the Document object. Using DOM, the JavaScript gets access to HTML as well as CSS of the web page and can also add behavior to the HTML elements. so basically Document Object Model is an API that represents and interacts with HTML or XML documents.</p>
+                <h4>Why DOM is required?</h4>
+                <p>HTML is used to structure the web pages and Javascript is used to add behavior to our web pages. When an HTML file is loaded into the browser, the javascript can not understand the HTML document directly. So, a corresponding document is created(DOM). DOM is basically the representation of the same HTML document but in a different format with the use of objects. Javascript interprets DOM easily i.e javascript can not understand the tags(&lt;h1&gt;H&lt;/h1&gt;) in HTML document but can understand object h1 in DOM. Now, Javascript can access each of the objects (h1, p, etc) by using different functions.</p>
+                <img src="./images/Dom-Tree-of-An-Example-Web-Page.png" alt="html dom tree">
+            </div>
+
+            <div id="How_to_find_broken_links&Images_using_Selenium_Webdriver">
+                <h1>How to find broken links & Images using Selenium Webdriver</h1>
+
+            </div>
+
+        </div>
+        <div class="column side" style="background-color:#ccc;">Column</div>
+      </div>
+      
+      <div class="footer">
+        <p>Footer</p>
+      </div>
+      
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
