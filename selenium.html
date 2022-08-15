@@ -3,40 +3,480 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Selenium</title>
+    <title>Selenium Tutorial</title>
   </head>
   <body>
     <div class="header">
-        <h2>Header</h2>
+      <h1>Header</h1>
+    </div>
+
+    <div class="row">
+      <div class="column side" style="background-color:#aaa;">
+      <ul>
+        <li><a href="/corejava.html">core java tutorial</a></li>
+        <li><a href="./extentreports.html">extent reports</a></li>
+      </ul>
       </div>
-      
-      <div class="row">
-        <div class="column side" style="background-color:#aaa;">
-        <ul>
-            <li><a href="./selenium.html#highlightWebElement">How to highlight WebElement using JavaScriptExecutor in selenium java</a></li>
-            <li><a href="./selenium.html#seleniumArchitecture">Selenium WebDriver Architecure(selenium 3)</a></li>
-            <li><a href="./selenium.html#What_is_the_DOM">What is HTML DOM</a></li>
-            <li><a href="./corejava.html#How_to_find_broken_links&Images_using_Selenium_Webdriver">How to find broken links & Images using Selenium Webdriver</a></li>
-        </ul>
-        </div>
-        <div class="column middle" style="background-color:white">
+      <div class="column middle" style="background-color:white;">
         
+        <div id="handlingAlertsInSelenium">
+          <h2>Handling Alerts in Selenium</h2>
+        <pre>
+          <code>
+            package org.openqa.selenium;
 
-            <div id="highlightWebElement">
-                <h1>How to highlight WebElement using JavaScriptExecutor in selenium java</h1>
+            public interface Alert {
+              void dismiss();
+              void accept();
+              String getText();
+              void sendKeys(String keysToSend);
+            }
+          </code>
+        </pre>
+        <h2>Window alert()</h2>
+        <h3>Definition and Usage</h3>
+        <p>The alert() method displays an alert box with a message and an OK button.</p>
+        <p>The alert() method is used when you want information to come through to the user.</p>
+        <h3>Note</h3>
+        <p>The alert box takes the focus away from the current window, and forces the user to read the message.</p>
+        <p>Do not overuse this method. It prevents the user from accessing other parts of the page until the alert box is closed.</p>
+        <img src="./images/alert.png" alt="alert">
+        <br><br>
+        <pre>
+          <code>
+            import java.util.concurrent.TimeUnit;
+          import org.openqa.selenium.By;
+          import org.openqa.selenium.WebDriver;
+          import org.openqa.selenium.chrome.ChromeDriver;
+          import io.github.bonigarcia.wdm.WebDriverManager;
+
+          public class AlertExample1 {
+            public static void main(String[] args) throws Exception {
+              WebDriverManager.chromedriver().setup();
+              WebDriver driver = new ChromeDriver();
+              driver.manage().window().maximize();
+              driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+              driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_alert");
+              driver.switchTo().frame("iframeResult");
+              Thread.sleep(2000);
+              driver.findElement(By.xpath("//button[text()='Try it']")).click();
+              Thread.sleep(2000);
+              driver.switchTo().alert().accept();
+              Thread.sleep(2000);
+              driver.quit();
+            }
+        }
+          </code>
+        </pre>
+        <h3>Window confirm()</h3>
+        <p>The confirm() method displays a dialog box with a message, an OK button, and a Cancel button.
+          The confirm() method returns true if the user clicked "OK", otherwise false.
+          </p>
+          <h3>Note</h3>
+          <p>A confirm box is often used if you want the user to verify or accept something.
+            A confirm box takes the focus away from the current window, and forces the user to read the message.
+            Do not overuse this method. It prevents the user from accessing other parts of the page until the box is closed.
+            </p>
+            <img src="./images/confirm.png" alt="confirm">
+            <br><br>
+            <pre>
+              <code>
+                import java.util.concurrent.TimeUnit;
+              import org.openqa.selenium.By;
+              import org.openqa.selenium.WebDriver;
+              import org.openqa.selenium.chrome.ChromeDriver;
+              import io.github.bonigarcia.wdm.WebDriverManager;
+
+              public class AlertExample1 {
+                public static void main(String[] args) throws Exception {
+                  WebDriverManager.chromedriver().setup();
+                  WebDriver driver = new ChromeDriver();
+                  driver.manage().window().maximize();
+                  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                  driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_confirm3");
+                  driver.switchTo().frame("iframeResult");
+                  Thread.sleep(2000);
+                  driver.findElement(By.xpath("//button[text()='Try it']")).click();
+                  Thread.sleep(2000);
+                  driver.switchTo().alert().accept();
+                  Thread.sleep(2000);
+                  driver.findElement(By.xpath("//button[text()='Try it']")).click();
+                  Thread.sleep(2000);
+                  driver.switchTo().alert().dismiss();
+                  Thread.sleep(2000);
+                  driver.quit();
+                }
+              }
+              </code>
+            </pre>
+            <h3>Window prompt()</h3>
+            <h4>Definition and Usage</h4>
+            <p>The prompt() method displays a dialog box that prompts the user for input.
+              The prompt() method returns the input value if the user clicks "OK", otherwise it returns null.
+              </p>
+              <h4>Note</h4>
+              <p>A prompt box is used if you want the user to input a value.
+                When a prompt box pops up, the user will have to click either "OK" or "Cancel" to proceed.
+                Do not overuse this method. It prevents the user from accessing other parts of the page until the box is closed.
+                </p>
+                <img src="./images/prompt.png" alt="prompt">
+                <br><br>
                 <pre>
-                    <code>
-import java.io.File;
-import java.util.concurrent.TimeUnit;
+                  <code>
+                  import java.util.concurrent.TimeUnit;
+                  import org.openqa.selenium.By;
+                  import org.openqa.selenium.WebDriver;
+                  import org.openqa.selenium.chrome.ChromeDriver;
+                  import io.github.bonigarcia.wdm.WebDriverManager;
 
+                  public class AlertExample3 {
+                    public static void main(String[] args) throws Exception {
+                      WebDriverManager.chromedriver().setup();
+                      WebDriver driver = new ChromeDriver();
+                      driver.manage().window().maximize();
+                      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                      driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_prompt");
+                      driver.switchTo().frame("iframeResult");
+                      Thread.sleep(2000);
+                      driver.findElement(By.xpath("//button[text()='Try it']")).click();
+                      Thread.sleep(2000);
+                      System.out.println(driver.switchTo().alert().getText());
+                      driver.switchTo().alert().sendKeys("ranga swami reddy");
+                      Thread.sleep(2000);
+                      driver.switchTo().alert().accept();
+                      Thread.sleep(2000);
+                      driver.quit();
+                    }
+                  }
+                  </code>
+                </pre>
+        </div>
+
+                <h2>Navigation</h2>
+                <pre>
+                  <code>
+                    interface Navigation {
+                    
+                      void back();
+                  
+                      void forward();
+                  
+                      void to(String url);
+                  
+                      void to(URL url);
+                  
+                      void refresh();
+                    }
+                  </code>                
+                </pre>
+                <br><br>
+                <pre>
+                  <code>
+                  import java.util.concurrent.TimeUnit;
+                  import org.openqa.selenium.By;
+                  import org.openqa.selenium.WebDriver;
+                  import org.openqa.selenium.chrome.ChromeDriver;
+                  import io.github.bonigarcia.wdm.WebDriverManager;
+
+                  public class NavigationExample1 {
+                    public static void main(String[] args) throws Exception {
+                      WebDriverManager.chromedriver().setup();
+                      WebDriver driver = new ChromeDriver();
+                      driver.manage().window().maximize();
+                      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                      driver.navigate().to("https://www.w3schools.com/html/default.asp");
+                      Thread.sleep(1000);
+                      System.out.println(driver.getCurrentUrl());
+                      driver.findElement(By.xpath("//a[text()='Next ❯']")).click();
+                      Thread.sleep(1000);
+                      System.out.println(driver.getCurrentUrl());
+                      driver.findElement(By.xpath("//a[text()='Next ❯']")).click();
+                      Thread.sleep(1000);
+                      System.out.println(driver.getCurrentUrl());
+                      driver.navigate().back();
+                      Thread.sleep(1000);
+                      System.out.println(driver.getCurrentUrl());
+                      driver.navigate().forward();
+                      Thread.sleep(1000);
+                      System.out.println(driver.getCurrentUrl());
+                      driver.navigate().refresh();
+                      Thread.sleep(1000);
+                      driver.quit();
+                    }
+                  }
+                  </code>
+                </pre>
+                <h2>Window Handling</h2>
+                <pre>
+                  <code>
+                    nterface Window {
+    
+                      void setSize(Dimension targetSize);
+                  
+                      void setPosition(Point targetPosition);
+                  
+                      Dimension getSize();
+                  
+                      Point getPosition();
+                  
+                      void maximize();
+                  
+                      void fullscreen();
+                    }
+                  </code>                
+                </pre>
+                <br><br>
+                <pre>
+                  <code>
+                  import java.util.concurrent.TimeUnit;
+                  import org.openqa.selenium.Dimension;
+                  import org.openqa.selenium.Point;
+                  import org.openqa.selenium.WebDriver;
+                  import org.openqa.selenium.chrome.ChromeDriver;
+                  import io.github.bonigarcia.wdm.WebDriverManager;
+
+                  public class WindowExample1 {
+                    public static void main(String[] args) throws Exception {
+                      WebDriverManager.chromedriver().setup();
+                      WebDriver driver = new ChromeDriver();
+                      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                      driver.get("https://www.w3schools.com");
+                      Thread.sleep(1000);
+                      System.out.println("Before changing the position: "+driver.manage().window().getPosition());
+                      driver.manage().window().setPosition(new Point(20, 65));
+                      Thread.sleep(1000);
+                      System.out.println("Aftre changing the position: "+driver.manage().window().getPosition());
+                      System.out.println("Before changing the size: "+driver.manage().window().getSize());
+                      Thread.sleep(1000);
+                      driver.manage().window().setSize(new Dimension(800, 900));
+                      System.out.println("After changing the size: "+driver.manage().window().getSize());
+                      Thread.sleep(1000);
+                      driver.manage().window().maximize();
+                      Thread.sleep(1000);
+                      driver.manage().window().fullscreen();
+                      Thread.sleep(1000);
+                      driver.quit();
+                    }
+                  }
+                  </code>
+                </pre>
+                <h2>Cookies</h2>
+                <p>Cookies let you store user information in web pages.
+                </p>
+                <h3>What are Cookies?</h3>
+                <p>Cookies are data, stored in small text files, on your computer.
+                  When a web server has sent a web page to a browser, the connection is shut down, and the server forgets everything about the user.
+                  Cookies were invented to solve the problem "how to remember information about the user":
+                  When a user visits a web page, his/her name can be stored in a cookie.
+                  Next time the user visits the page, the cookie "remembers" his/her name.
+                  Cookies are saved in name-value pairs like:
+                  username = John Doe
+                  When a browser requests a web page from a server, cookies belonging to the page are added to the request. This way the server gets the necessary data to "remember" information about users.
+                  </p>
+                  <p>HTTP cookies (also called web cookies, Internet cookies, browser cookies, or simply cookies) are small blocks of data created by a web server while a user is browsing a website and placed on the user's computer or other device by the user's web browser. Cookies are placed on the device used to access a website, and more than one cookie may be placed on a user's device during a session.
+                  </p>
+                  <pre>
+                    Method and Description
+                    addCookie(Cookie cookie)                  Add a specific cookie.
+                    deleteAllCookies()                        Delete all the cookies for the current domain.
+                    deleteCookie(Cookie cookie)               Delete a cookie from the browser's "cookie jar".
+                    deleteCookieNamed(java.lang.String name)  Delete the named cookie from the current domain.
+                    getCookieNamed(java.lang.String name)     Get a cookie with a given name.
+                    getCookies()                              Get all the cookies for the current domain.
+                  </pre>
+                  <br><br>
+                  <pre>
+                    <code>
+                    import java.util.concurrent.TimeUnit;
+                    import org.openqa.selenium.Cookie;
+                    import org.openqa.selenium.WebDriver;
+                    import org.openqa.selenium.chrome.ChromeDriver;
+                    import io.github.bonigarcia.wdm.WebDriverManager;
+
+                    public class CookieExample1 {
+                      public static void main(String[] args) throws Exception {
+                        WebDriverManager.chromedriver().setup();
+                        WebDriver driver = new ChromeDriver();
+                        driver.manage().window().maximize();
+                        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                        driver.get("https://www.w3schools.com");
+                        System.out.println(driver.manage().getCookies());
+                        driver.manage().addCookie(new Cookie("testername", "mcrsr"));
+                        System.out.println(driver.manage().getCookieNamed("testername"));
+                        driver.manage().deleteCookieNamed("testername");
+                        System.out.println(driver.manage().getCookieNamed("testername"));
+                        Cookie testerCookie = new Cookie("testrname","mcrsr");
+                        driver.manage().addCookie(testerCookie);
+                        System.out.println(driver.manage().getCookies());
+                        driver.manage().deleteCookie(testerCookie);
+                        System.out.println(driver.manage().getCookies());
+                        driver.manage().deleteAllCookies();
+                        System.out.println(driver.manage().getCookies());
+                        driver.quit();
+                      }
+                    }
+                    </code>
+                  </pre>
+                  <h2>TimeOuts</h2>
+                  <p>An interface for managing timeout behavior for WebDriver instances.</p>
+                  <table>
+                    <tr>
+                      <th>Method</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td>implicitlyWait(long time, java.util.concurrent.TimeUnit unit)</td>
+                      <td>Specifies the amount of time the driver should wait when searching for an element if it is not immediately present.</td>
+                    </tr>
+                    <tr>
+                      <td>pageLoadTimeout(long time, java.util.concurrent.TimeUnit unit)</td>
+                      <td>Sets the amount of time to wait for a page load to complete before throwing an error.</td>
+                    </tr>
+                    <tr>
+                      <td>setScriptTimeout(long time, java.util.concurrent.TimeUnit unit)</td>
+                      <td>Sets the amount of time to wait for an asynchronous script to finish execution before throwing an error.</td>
+                    </tr>
+                  </table>
+                  <p>implicitlyWait
+                    WebDriver.Timeouts implicitlyWait(long time,
+                                                      java.util.concurrent.TimeUnit unit)
+                    Specifies the amount of time the driver should wait when searching for an element if it is not immediately present.
+                    When searching for a single element, the driver should poll the page until the element has been found, or this timeout expires before throwing a NoSuchElementException. When searching for multiple elements, the driver should poll the page until at least one element has been found or this timeout has expired.
+                    Increasing the implicit wait timeout should be used judiciously as it will have an adverse effect on test run time, especially when used with slower location strategies like XPath.
+                    </p>
+                    <pre>
+                      <code>
+                      import java.util.concurrent.TimeUnit;
+                      import org.openqa.selenium.WebDriver;
+                      import org.openqa.selenium.chrome.ChromeDriver;
+                      import io.github.bonigarcia.wdm.WebDriverManager;
+
+                      public class TimeOutsExample1 {
+                        public static void main(String[] args) throws Exception {
+                          WebDriverManager.chromedriver().setup();
+                          WebDriver driver = new ChromeDriver();
+                          driver.manage().window().maximize();
+                          driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                          driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+                          driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
+                          driver.get("https://www.w3schools.com");
+                          driver.quit();
+                        }
+                      }
+                      </code>
+                    </pre>
+                    <br><br>
+                    <h3>Scripttimeout example:</h3>
+                    <pre>
+                      <code>
+                      import java.util.concurrent.TimeUnit;
+                      import org.openqa.selenium.JavascriptExecutor;
+                      import org.openqa.selenium.WebDriver;
+                      import org.openqa.selenium.chrome.ChromeDriver;
+                      import io.github.bonigarcia.wdm.WebDriverManager;
+
+                      public class ScriptTimeoutExample1 {
+                        public static void main(String[] args) throws Exception {
+                          WebDriver driver = null;
+                          try {
+                            WebDriverManager.chromedriver().setup();
+                            driver = new ChromeDriver();
+                            driver.manage().window().maximize();
+                            driver.manage().timeouts().setScriptTimeout(5, TimeUnit.SECONDS);
+                            driver.get("https://www.w3schools.com");
+                            JavascriptExecutor jse = ((JavascriptExecutor)driver);
+                            jse.executeAsyncScript("setTimeout(()=>{alert('Hello from alert');},6000)");
+                          }catch (Exception e) {
+                            e.printStackTrace();
+                          }
+                          driver.quit();
+                        }
+                      }
+                      </code>
+                    </pre>
+                    <br><br>
+                    <p>If you run the above program you will get following error:</p>
+                    <p>org.openqa.selenium.ScriptTimeoutException: script timeout</p>
+                    <h3>PageLoadTimeout Example:</h3>
+                    <pre>
+                      <code>
+                      import java.util.concurrent.TimeUnit;
+                      import org.openqa.selenium.WebDriver;
+                      import org.openqa.selenium.chrome.ChromeDriver;
+                      import io.github.bonigarcia.wdm.WebDriverManager;
+
+                      public class PageLoadTimeoutExample2 {
+                        public static void main(String[] args) throws Exception {
+                          WebDriver driver = null;
+                          try {
+                            WebDriverManager.chromedriver().setup();
+                            driver = new ChromeDriver();
+                            driver.manage().window().maximize();
+                            driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+                            driver.get("https://mediadistribution.espn.com/");
+                          }catch (Exception e) {
+                            e.printStackTrace();
+                          }
+                          driver.quit();
+                        }
+                      }
+                      </code>
+                    </pre>
+                    <p>If you run the above program you will get the following error
+                      </p>
+                      <p>org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 2.023</p>
+                      <h2>Screenshots:</h2>
+                      <h3>WebDriver Screenshot:</h3>
+                      <pre>
+<code>
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.concurrent.TimeUnit;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ScreenshotExample1 {
+	public static void main(String[] args) throws Exception {
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("https://www.w3schools.com/");
+		
+		File imageAsFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(imageAsFile, new File("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/imageAsFile.jpg"));
+		
+		byte[] imageAsBytes = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+		FileOutputStream fos = new FileOutputStream("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/imageAsBytes.jpg");
+		fos.write(imageAsBytes);
+		fos.close();
+		
+		String imageAsBase64 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+		
+		
+		driver.quit();
+	}
+}
+</code>
+                      </pre>
+                      <h3>WebElement Screenshot:</h3>
+                      <pre>
+<code>
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -45,67 +485,1375 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Rough {
-
-	public static void main(String[] args) throws Exception{
-		
+public class ScreenshotExample2 {
+	public static void main(String[] args) throws Exception {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("https://www.w3schools.com/");
-		File beforeHighlight = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(beforeHighlight, new File("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/beforeHighlight.jpg"));
-		WebElement heading = driver.findElement(By.xpath("//h1[text()='Learn to Code']"));
-		JavascriptExecutor jse = ((JavascriptExecutor)driver);
-		jse.executeScript("arguments[0].style.border='5px solid white'", heading);
-		File afterHighlight = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(beforeHighlight, new File("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/afterHighlight.jpg"));
+		
+		WebElement searchBtn = driver.findElement(By.xpath("//form[@class='example']"));
+		
+		File imageAsFile = ((TakesScreenshot)searchBtn).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(imageAsFile, new File("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/imageAsFile.jpg"));
+		
+		byte[] imageAsBytes = ((TakesScreenshot)searchBtn).getScreenshotAs(OutputType.BYTES);
+		FileOutputStream fos = new FileOutputStream("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/imageAsBytes.jpg");
+		fos.write(imageAsBytes);
+		fos.close();
+		
+		String imageAsBase64 = ((TakesScreenshot)searchBtn).getScreenshotAs(OutputType.BASE64);
+		
+		
 		driver.quit();
 	}
 }
-                    </code>
-                </pre>
-                <p>If you run the above program we will get two Screenshots before and after highlighting the elemnt.</p>
-                <figure>
-                    <img src="./images/beforeHighlight.jpg" alt="before highlight element" width="100%" height="100%">
-                    <figcaption style="">Fig: Before highlighting the element</figcaption>
-                </figure>
-                <figure>
-                    <img src="./images/afterHighlight.jpg" alt="after highlight element" width="100%" height="100%">
-                    <figcaption>Fig: After highlighting the element</figcaption>
-                </figure>
-            </div>
-        
-            <div id="seleniumArchitecture">
-                <h1>Selenium WebDriver Architecure(selenium 3)</h1>
-                <iframe width="100%" height="450" src="https://www.youtube.com/embed/Z6yTeEqgJ1I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <a href="https://naveenautomationlabs.com/selenium-webdriver-architecture-overview-webdriver-apis/">Selenium WebDriver Architecure(selenium 3)</a>
-            </div>
+</code>
 
-            <div id="What_is_the_DOM">
-                <h1>What is the DOM</h1>
-                <p> The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as nodes and objects; that way, programming languages can interact with the page. </p>
-                <p>A web page is a document that can be either displayed in the browser window or as the HTML source. In both cases, it is the same document but the Document Object Model (DOM) representation allows it to be manipulated. As an object-oriented representation of the web page, it can be modified with a scripting language such as JavaScript.</p>
-                <p>DOM is a way to represent the webpage in a structured hierarchical way so that it will become easier for programmers and users to glide through the document. With DOM, we can easily access and manipulate tags, IDs, classes, Attributes, or Elements of HTML using commands or methods provided by the Document object. Using DOM, the JavaScript gets access to HTML as well as CSS of the web page and can also add behavior to the HTML elements. so basically Document Object Model is an API that represents and interacts with HTML or XML documents.</p>
-                <h4>Why DOM is required?</h4>
-                <p>HTML is used to structure the web pages and Javascript is used to add behavior to our web pages. When an HTML file is loaded into the browser, the javascript can not understand the HTML document directly. So, a corresponding document is created(DOM). DOM is basically the representation of the same HTML document but in a different format with the use of objects. Javascript interprets DOM easily i.e javascript can not understand the tags(&lt;h1&gt;H&lt;/h1&gt;) in HTML document but can understand object h1 in DOM. Now, Javascript can access each of the objects (h1, p, etc) by using different functions.</p>
-                <img src="./images/Dom-Tree-of-An-Example-Web-Page.png" alt="html dom tree">
-            </div>
+                      </pre>
+                      <h3>Full Page Screenshot:</h3>
+                      <p>Selenium does not support full page screenshots. We can use the Ashot library for full page screenshot.</p>
+                      <pre>
+<code>
+import java.io.File;
+import java.util.concurrent.TimeUnit;
+import javax.imageio.ImageIO;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
-            <div id="How_to_find_broken_links&Images_using_Selenium_Webdriver">
-                <h1>How to find broken links & Images using Selenium Webdriver</h1>
+public class ScreenshotExample3 {
+	public static void main(String[] args) throws Exception {
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("https://www.w3schools.com/");
+		
+		Screenshot fullPageScreeshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
+		ImageIO.write(fullPageScreeshot.getImage(), "jpg", new File("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/fullPageScreeshot.jpg"));
+		
+		
+		driver.quit();
+	}
+}
+</code>
 
-            </div>
+                      </pre>
+                      <h1>How to take screenshot for all failed test cases</h1>
+                      <p>for this demo i cread 3 classes</p>
+                      <p>Base.java</p>
+                      <pre>
+<code>
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
-        </div>
-        <div class="column side" style="background-color:#ccc;">Column</div>
+public class Base {
+
+  public static WebDriver driver;
+  
+  public void initialization() {
+    WebDriverManager.chromedriver().setup();
+    driver = new ChromeDriver();
+    driver.manage().window().maximize();
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    driver.get("https://opensource-demo.orangehrmlive.com/");
+  }
+  
+  public void takeScreenshot() throws IOException {
+    Date date = new Date();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss_SSS");
+    String dateString = sdf.format(date);
+    File image = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+    FileUtils.copyFile(image, new File("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/"+dateString+".jpg"));
+  }
+}
+</code>
+                      </pre>
+                      <br><br>
+                      <p>CustomListener.java</p>
+                      <pre>
+<code>
+import java.io.IOException;
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+public class CustomListener  extends Base implements ITestListener{
+
+	public void onTestStart(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onTestSuccess(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onTestFailure(ITestResult result) {
+		try {
+			takeScreenshot();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void onTestSkipped(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onStart(ITestContext context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onFinish(ITestContext context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
+</code>
+                      </pre>
+                      <br><br>
+                      <p>SampleClass1.java</p>
+                      <pre>
+<code>
+import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+@Listeners(CustomListener.class)
+public class SampleClass1 extends Base{
+	
+	@BeforeMethod
+	public void setUp() {
+		initialization();
+	}
+	
+	@DataProvider
+	public Object[][] loginDataProvider() {
+		
+		return new Object[][] {
+			{"admin123","admin123"},
+			{"Admin","admin123"},
+			{"Admin","admin456"}
+		};
+	}
+	
+	@Test(dataProvider = "loginDataProvider")
+	public void loginTest(String username,String password) {
+		driver.findElement(By.id("txtUsername")).sendKeys(username);
+		driver.findElement(By.id("txtPassword")).sendKeys(password);
+		driver.findElement(By.id("btnLogin")).submit();
+		Assert.assertTrue(driver.findElement(By.id("welcome")).isDisplayed());
+	}
+	
+	@AfterMethod
+	public void tearDown() {
+		driver.quit();
+	}
+}
+</code>
+                      </pre>
+                      <div>
+                        <h1>Working with iFrames and frames</h1>
+                        <p>Frames are a now deprecated means of building a site layout from multiple documents on the same domain. You are unlikely to work with them unless you are working with an pre HTML5 webapp. Iframes allow the insertion of a document from an entirely different domain, and are still commonly used.
+
+                          If you need to work with frames or iframes, WebDriver allows you to work with them in the same way. Consider a button within an iframe. If we inspect the element using the browser development tools, we might see the following:</p>
+<pre>
+<code>
+&lt;div id=&quot;modal&quot;&gt;
+  &lt;iframe id=&quot;buttonframe&quot; name=&quot;myframe&quot;  src=&quot;https://seleniumhq.github.io&quot;&gt;
+    &lt;button&gt;Click here&lt;/button&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+</code>
+</pre>
+<p>If it was not for the iframe we would expect to click on the button using something like:</p>
+<pre>
+//This won't work
+driver.findElement(By.tagName("button")).click();
+</pre>
+<p>
+  However, if there are no buttons outside of the iframe, you might instead get a no such element error. This happens because Selenium is only aware of the elements in the top level document. To interact with the button, we will need to first switch to the frame, in a similar way to how we switch windows. WebDriver offers three ways of switching to a frame.
+</p>
+<h3>Using a WebElement </h3>
+<p>Switching using a WebElement is the most flexible option. You can find the frame using your preferred selector and switch to it.</p>
+<pre>
+  <code>
+//Store the web element
+WebElement iframe = driver.findElement(By.cssSelector("#modal>iframe"));
+
+//Switch to the frame
+driver.switchTo().frame(iframe);
+
+//Now we can click the button
+driver.findElement(By.tagName("button")).click();
+  </code>
+</pre>
+<h3>Using a name or ID </h3>
+<p>If your frame or iframe has an id or name attribute, this can be used instead. If the name or ID is not unique on the page, then the first one found will be switched to.</p>
+<pre>
+  <code>
+    //Using the ID
+driver.switchTo().frame("buttonframe");
+
+//Or using the name instead
+driver.switchTo().frame("myframe");
+
+//Now we can click the button
+driver.findElement(By.tagName("button")).click();
+  </code>
+</pre>
+<h3>Using an index </h3>
+<p>It is also possible to use the index of the frame, such as can be queried using window.frames in JavaScript.</p>
+<pre>
+  <code>
+    // Switches to the second frame
+driver.switchTo().frame(1);
+  </code>
+</pre>
+<h3>Leaving a frame </h3>
+<p>To leave an iframe or frameset, switch back to the default content like so:</p>
+<pre>
+  <code>
+    // Return to the top level
+driver.switchTo().defaultContent();
+  </code>
+</pre>
+                      </div>
+<div>
+  <h1>Working with windows and tabs</h1>
+  <h2>Windows and tabs </h2>
+  <h3>Get window handle </h3>
+  <p>WebDriver does not make the distinction between windows and tabs. If your site opens a new tab or window, Selenium will let you work with it using a window handle. Each window has a unique identifier which remains persistent in a single session. You can get the window handle of the current window by using:</p>
+  <pre>driver.getWindowHandle();</pre>
+  <h3>Switching windows or tabs </h3>
+  <p>Clicking a link which opens in a new window will focus the new window or tab on screen, but WebDriver will not know which window the Operating System considers active. To work with the new window you will need to switch to it. If you have only two tabs or windows open, and you know which window you start with, by the process of elimination you can loop over both windows or tabs that WebDriver can see, and switch to the one which is not the original.
+
+    However, Selenium 4 provides a new api NewWindow which creates a new tab (or) new window and automatically switches to it.</p>
+    <pre>
+      <code>
+//Store the ID of the original window
+String originalWindow = driver.getWindowHandle();
+
+//Check we don't have other windows open already
+assert driver.getWindowHandles().size() == 1;
+
+//Click the link which opens in a new window
+driver.findElement(By.linkText("new window")).click();
+
+//Wait for the new window or tab
+wait.until(numberOfWindowsToBe(2));
+
+//Loop through until we find a new window handle
+for (String windowHandle : driver.getWindowHandles()) {
+    if(!originalWindow.contentEquals(windowHandle)) {
+        driver.switchTo().window(windowHandle);
+        break;
+    }
+}
+
+//Wait for the new tab to finish loading content
+wait.until(titleIs("Selenium documentation"));
+  
+      </code>
+    </pre>
+    <h3>Closing a window or tab </h3>
+    <p>When you are finished with a window or tab and it is not the last window or tab open in your browser, you should close it and switch back to the window you were using previously. Assuming you followed the code sample in the previous section you will have the previous window handle stored in a variable. Put this together and you will get:</p>
+    <pre>
+      <code>
+//Close the tab or window
+driver.close();
+
+//Switch back to the old tab or window
+driver.switchTo().window(originalWindow);
+  
+      </code>
+    </pre>
+    <p>Forgetting to switch back to another window handle after closing a window will leave WebDriver executing on the now closed page, and will trigger a No Such Window Exception. You must switch back to a valid window handle in order to continue execution.</p>
+    <h3>Quitting the browser at the end of a session </h3>
+    <p>When you are finished with the browser session you should call quit, instead of close:</p>
+    <pre>
+      <code>driver.quit();</code>
+    </pre>
+    <pre>
+Quit will:
+Close all the windows and tabs associated with that WebDriver session
+Close the browser process
+Close the background driver process
+Notify Selenium Grid that the browser is no longer in use so it can be used by another session (if you are using Selenium Grid)
+
+Failure to call quit will leave extra background processes and ports running on your machine which could cause you problems later.
+    </pre>
+    <p>If not running WebDriver in a test context, you may consider using try / finally which is offered by most languages so that an exception will still clean up the WebDriver session.</p>
+    <pre>
+      <code>
+        try {
+          //WebDriver code here...
+      } finally {
+          driver.quit();
+      }      
+      </code>
+    </pre>
+</div>
+<div>
+  <h1>Working with select list elements</h1>
+  <h4>Select lists have special behaviors compared to other elements.</h4>
+  <p>Select elements can require quite a bit of boilerplate code to automate. To reduce this, and make your tests cleaner, there is a Select class in the Selenium support package. To use it, you will need the following import statement:</p>
+  <pre>import org.openqa.selenium.support.ui.Select;</pre>
+  <p>You are then able to create a Select object using a WebElement that references a &lt;select&gt; element.</p>
+    <pre>
+      <code>
+WebElement selectElement = driver.findElement(By.id("selectElementID"));
+Select selectObject = new Select(selectElement);
+      </code>
+    </pre>
+    <pre>
+      <code>
+&lt;select&gt;
+ &lt;option value=value1&gt;Bread&lt;/option&gt;
+ &lt;option value=value2 selected&gt;Milk&lt;/option&gt;
+ &lt;option value=value3&gt;Cheese&lt;/option&gt;
+&lt;/select&gt;
+      </code>
+    </pre>
+    <pre>
+      <code>
+// Return a List&lt;WebElement&gt; of options that have been selected
+List&lt;WebElement&gt; allSelectedOptions = selectObject.getAllSelectedOptions();
+
+// Return a WebElement referencing the first selection option found by walking down the DOM
+WebElement firstSelectedOption = selectObject.getFirstSelectedOption();
+
+// Return a ListWebElement of options that the select element contains
+List&lt;WebElement&gt; allAvailableOptions = selectObject.getOptions();
+
+// Deselect an option based upon the select element's internal index
+selectObject.deselectByIndex(1);
+
+// Deselect an option based upon its value attribute
+selectObject.deselectByValue("value1");
+
+// Deselect an option based upon its text
+selectObject.deselectByVisibleText("Bread");
+
+// Deselect all selected option elements
+selectObject.deselectAll();
+
+//Finally, some select elements allow you to select more than one option. You can find out if your select element is one of these by using:
+Boolean doesThisAllowMultipleSelections = selectObject.isMultiple();                                      
+      </code>
+    </pre>
+</div>
+<div>
+  <h1>Information about web elements</h1>
+  <pre>
+    What you can learn about an element.
+
+There are a number of details you can query about a specific element
+  </pre>
+  <h2>Is Displayed </h2>
+  <p>This method is used to check if the connected Element is displayed on a webpage. Returns a Boolean value, True if the connected element is displayed in the current browsing context else returns false.</p>
+  <p>This functionality is mentioned in, but not defined by the w3c specification due to the impossibility of covering all potential conditions. As such, Selenium cannot expect drivers to implement this functionality directly, and now relies on executing a large JavaScript function directly. This function makes many approximations about an element’s nature and relationship in the tree to return a value.</p>
+  <pre>
+    <code>
+// Navigate to the url
+driver.get('https://www.google.com');
+
+// Get boolean value for is element display
+boolean isButtonVisible = driver.findElement(By.css("[name='login']")).isDisplayed();
+    </code>
+  </pre>
+  <h2>Is Enabled </h2>
+  <p>This method is used to check if the connected Element is enabled or disabled on a webpage. Returns a boolean value, True if the connected element is enabled in the current browsing context else returns false.</p>
+  <pre>
+    <code>
+      //navigates to url
+      driver.get("https://www.google.com/");
+    
+      //returns true if element is enabled else returns false
+      boolean value = driver.findElement(By.name("btnK")).isEnabled();    
+    </code>
+  </pre>
+  <h2>Is Selected </h2>
+  <p>This method determines if the referenced Element is Selected or not. This method is widely used on Check boxes, radio buttons, input elements, and option elements.
+    Returns a boolean value, True if referenced element is selected in the current browsing context else returns false.</p>
+    <pre>
+      <code>
+        //navigates to url
+        driver.get("https://the-internet.herokuapp.com/checkboxes");
+       
+        //returns true if element is checked else returns false
+        boolean value = driver.findElement(By.cssSelector("input[type='checkbox']:first-of-type")).isSelected();       
+      </code>
+    </pre>
+    <h2>Tag Name </h2>
+    <p>It is used to fetch the TagName of the referenced Element which has the focus in the current browsing context.</p>
+    <pre>
+      <code>
+        //navigates to url
+        driver.get("https://www.example.com");
+       
+        //returns TagName of the element
+        String value = driver.findElement(By.cssSelector("h1")).getTagName();       
+      </code>
+    </pre>
+    <h2>Size and Position </h2>
+    <pre>
+      It is used to fetch the dimensions and coordinates of the referenced element.
+
+The fetched data body contain the following details:
+
+    X-axis position from the top-left corner of the element
+    y-axis position from the top-left corner of the element
+    Height of the element
+    Width of the element
+    </pre>
+    <pre>
+      <code>
+// Navigate to url
+driver.get("https://www.example.com");
+
+// Returns height, width, x and y coordinates referenced element
+Rectangle res =  driver.findElement(By.cssSelector("h1")).getRect();
+
+// Rectangle class provides getX,getY, getWidth, getHeight methods
+System.out.println(res.getX());  
+      </code>
+    </pre>
+    <h2>Get CSS Value </h2>
+    <p>Retrieves the value of specified computed style property of an element in the current browsing context.</p>
+    <pre>
+      <code>
+// Navigate to Url
+driver.get("https://www.example.com");
+
+// Retrieves the computed style property 'color' of linktext
+String cssValue = driver.findElement(By.linkText("More information...")).getCssValue("color");
+      </code>
+    </pre>
+    <h2>Text Content </h2>
+    <p>Retrieves the rendered text of the specified element.</p>
+    <pre>
+      <code>
+// Navigate to url
+driver.get("https://example.com");
+
+// Retrieves the text of the element
+String text = driver.findElement(By.cssSelector("h1")).getText();
+      </code>
+    </pre>
+    <br><br>
+    <pre>
+      <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Rough {
+
+	public static void main(String[] args) {
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.selenium.dev/documentation/webdriver/elements/information/");
+		System.out.println(driver.findElement(By.id("size-and-position")).getClass());
+		System.out.println(driver.findElement(By.id("size-and-position")).getTagName());
+		System.out.println(driver.findElement(By.id("size-and-position")).getText());
+		System.out.println(driver.findElement(By.id("size-and-position")).getLocation());
+		System.out.println(driver.findElement(By.id("size-and-position")).getSize());
+		driver.quit();
+	}
+}
+        </code>
+    </pre>
+</div>
+<div id="waits">
+<h1>Waits</h1>
+<p>WebDriver can generally be said to have a blocking API. Because it is an out-of-process library that instructs the browser what to do, and because the web platform has an intrinsically asynchronous nature, WebDriver does not track the active, real-time state of the DOM. This comes with some challenges that we will discuss here.</p>
+<p>From experience, most intermittent issues that arise from use of Selenium and WebDriver are connected to race conditions that occur between the browser and the user’s instructions. An example could be that the user instructs the browser to navigate to a page, then gets a no such element error when trying to find an element.</p>
+<p>Consider the following document:</p>
+<pre>
+  <code>
+&lt;!doctype html&gt;
+&lt;meta charset=utf-8&gt;
+&lt;title&gt;Race Condition Example&lt;/title&gt;
+
+&lt;script&gt;
+  var initialised = false;
+  window.addEventListener(&quot;load&quot;, function() {
+    var newElement = document.createElement(&quot;p&quot;);
+    newElement.textContent = &quot;Hello from JavaScript!&quot;;
+    document.body.appendChild(newElement);
+    initialised = true;
+  });
+&lt;/script&gt;
+  </code>
+</pre>
+<p>The WebDriver instructions might look innocent enough:</p>
+<pre>
+  <code>
+driver.get("file:///race_condition.html");
+WebElement element = driver.findElement(By.tagName("p"));
+assertEquals(element.getText(), "Hello from JavaScript!");  
+  </code>
+</pre>
+<p>The issue here is that the default page load strategy used in WebDriver listens for the document.readyState to change to "complete" before returning from the call to navigate. Because the p element is added after the document has completed loading, this WebDriver script might be intermittent. It “might” be intermittent because no guarantees can be made about elements or events that trigger asynchronously without explicitly waiting—or blocking—on those events.</p>
+<p>Fortunately, the normal instruction set available on the WebElement interface—such as WebElement.click and WebElement.sendKeys—are guaranteed to be synchronous, in that the function calls will not return (or the callback will not trigger in callback-style languages) until the command has been completed in the browser. The advanced user interaction APIs, Keyboard and Mouse, are exceptions as they are explicitly intended as “do what I say” asynchronous commands.</p>
+<p>Waiting is having the automated task execution elapse a certain amount of time before continuing with the next step.</p>
+<p>To overcome the problem of race conditions between the browser and your WebDriver script, most Selenium clients ship with a wait package. When employing a wait, you are using what is commonly referred to as an explicit wait.</p>
+<h2>Explicit wait </h2>
+<p>Explicit waits are available to Selenium clients for imperative, procedural languages. They allow your code to halt program execution, or freeze the thread, until the condition you pass it resolves. The condition is called with a certain frequency until the timeout of the wait is elapsed. This means that for as long as the condition returns a falsy value, it will keep trying and waiting.</p>
+<p>Since explicit waits allow you to wait for a condition to occur, they make a good fit for synchronising the state between the browser and its DOM, and your WebDriver script.</p>
+<p>To remedy our buggy instruction set from earlier, we could employ a wait to have the findElement call wait until the dynamically added element from the script has been added to the DOM:</p>
+<pre>
+  <code>
+WebDriver driver = new ChromeDriver();
+driver.get("https://google.com/ncr");
+driver.findElement(By.name("q")).sendKeys("cheese" + Keys.ENTER);
+// Initialize and wait till element(link) became clickable - timeout in 10 seconds
+WebElement firstResult = new WebDriverWait(driver, Duration.ofSeconds(10))
+        .until(ExpectedConditions.elementToBeClickable(By.xpath("//a/h3")));
+// Print the first result
+System.out.println(firstResult.getText());
+  </code>
+</pre>
+<p>We pass in the condition as a function reference that the wait will run repeatedly until its return value is truthy. A “truthful” return value is anything that evaluates to boolean true in the language at hand, such as a string, number, a boolean, an object (including a WebElement), or a populated (non-empty) sequence or list. That means an empty list evaluates to false. When the condition is truthful and the blocking wait is aborted, the return value from the condition becomes the return value of the wait.</p>
+<p>With this knowledge, and because the wait utility ignores no such element errors by default, we can refactor our instructions to be more concise:</p>
+<pre>
+  <code>
+WebElement foo = new WebDriverWait(driver, Duration.ofSeconds(3))
+          .until(driver -> driver.findElement(By.name("q")));
+assertEquals(foo.getText(), "Hello from JavaScript!");  
+  </code>
+</pre>
+<h3>Options</h3>
+<p>The wait condition can be customised to match your needs. Sometimes it is unnecessary to wait the full extent of the default timeout, as the penalty for not hitting a successful condition can be expensive.</p>
+<p>The wait lets you pass in an argument to override the timeout:</p>
+<pre>
+  <code>
+    new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.elementToBeClickable(By.xpath("//a/h3")));
+  </code>
+</pre>
+<h1>Expected conditions </h1>
+<p>Because it is quite a common occurrence to have to synchronise the DOM and your instructions, most clients also come with a set of predefined expected conditions. As might be obvious by the name, they are conditions that are predefined for frequent wait operations.</p>
+<p>The conditions available in the different language bindings vary, but this is a non-exhaustive list of a few:</p>
+<pre>
+  alertIsPresent()
+  elementSelectionStateToBe()
+  elementToBeClickable()
+  elementToBeSelected()
+  frameToBeAvaliableAndSwitchToIt()
+  invisibilityOfTheElementLocated()
+  invisibilityOfElementWithText()
+  presenceOfAllElementsLocatedBy()
+  presenceOfElementLocated()
+  textToBePresentInElement()
+  textToBePresentInElementLocated()
+  textToBePresentInElementValue()
+  titleIs()
+  titleContains()
+  visibilityOf()
+  visibilityOfAllElements()
+  visibilityOfAllElementsLocatedBy()
+  visibilityOfElementLocated()
+</pre>
+<p>For all available conditions please check <a href="https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/support/ui/ExpectedConditions.html">official page</a></p>
+<p>To use Explicit Wait in test scripts, import the following packages into the script.</p>
+<pre>
+  <code>
+import org.openqa.selenium.support.ui.ExpectedConditions
+import org.openqa.selenium.support.ui.WebDriverWait
+  </code>
+</pre>
+<p>Then, Initialize A Wait Object using WebDriverWait Class.</p>
+<pre><code>WebDriverWait wait = new WebDriverWait(driver,30);</code></pre>
+<h2>Implicit wait </h2>
+<p>There is a second type of wait that is distinct from explicit wait called implicit wait. By implicitly waiting, WebDriver polls the DOM for a certain duration when trying to find any element. This can be useful when certain elements on the webpage are not available immediately and need some time to load.</p>
+<p>Implicit waiting for elements to appear is disabled by default and will need to be manually enabled on a per-session basis. Mixing explicit waits and implicit waits will cause unintended consequences, namely waits sleeping for the maximum time even if the element is available or condition is true.</p>
+<p>Warning: Do not mix implicit and explicit waits. Doing so can cause unpredictable wait times. For example, setting an implicit wait of 10 seconds and an explicit wait of 15 seconds could cause a timeout to occur after 20 seconds.</p>
+<p>An implicit wait is to tell WebDriver to poll the DOM for a certain amount of time when trying to find an element or elements if they are not immediately available. The default setting is 0, meaning disabled. Once set, the implicit wait is set for the life of the session.</p>
+<pre>
+  <code>
+WebDriver driver = new FirefoxDriver();
+driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+driver.get("http://somedomain/url_that_delays_loading");
+WebElement myDynamicElement = driver.findElement(By.id("myDynamicElement"));
+  </code>
+</pre>
+<H2>FluentWait</H2>
+<P>FluentWait instance defines the maximum amount of time to wait for a condition, as well as the frequency with which to check the condition.</P>
+<P>Users may configure the wait to ignore specific types of exceptions whilst waiting, such as NoSuchElementException when searching for an element on the page.</P>
+<pre>
+  <code>
+// Waiting 30 seconds for an element to be present on the page, checking
+// for its presence once every 5 seconds.
+Wait&lt;WebDriver&gt; wait = new FluentWait&lt;WebDriver&gt;(driver)
+  .withTimeout(Duration.ofSeconds(30))
+  .pollingEvery(Duration.ofSeconds(5))
+  .ignoring(NoSuchElementException.class);
+
+WebElement foo = wait.until(new Function&lt;WebDriver, WebElement&gt;() {
+  public WebElement apply(WebDriver driver) {
+    return driver.findElement(By.id(&quot;foo&quot;));
+  }
+});
+  </code>
+</pre>
+</div>
+<div id="selenium-exceptions">
+  <h1>Exceptions</h1>
+  <h2>ElementClickInterceptedException</h2>
+  <pre>
+
+Package org.openqa.selenium
+Class ElementClickInterceptedException
+
+    java.lang.Object
+        java.lang.Throwable
+            java.lang.Exception
+                java.lang.RuntimeException
+                    org.openqa.selenium.WebDriverException
+                        org.openqa.selenium.InvalidElementStateException
+                            org.openqa.selenium.ElementNotInteractableException
+                                org.openqa.selenium.ElementClickInterceptedException 
+  </pre>
+  <p>Indicates that a click could not be properly executed because the target element was obscured in some way.</p>
+  <p>ElementClickInterceptedException occurs when the target element that you want to click is overlaid by some other element in the web page.</p>
+  <img src="./images/Screenshot_2022-08-14_12-04-24.png" alt="ElementClickInterceptedException" style="width: 100%;height: 100%;">
+  <p>In the above image whenever i tried to click on the Book Store Application tab i will get ElementClickInterceptedException because of that below add. The add covers the above tab.</p>
+  <pre>
+    <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ElementClickInterceptedExceptionExample1 {
+
+	public static void main(String[] args) {
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://demoqa.com/");
+		WebElement bookStoreApplicationBtn = driver.findElement(By.xpath("//*[text()='Book Store Application']"));
+		bookStoreApplicationBtn.click();
+	}
+
+}
+    </code>
+  </pre>
+  <br><br>
+  <img src="./images/Screenshot_2022-08-14_12-10-52.png" alt="ElementClickInterceptedException" style="width: 100%;height: 100%;">
+  <p>We can Overcome this problem by using JavaScriptExecutor</p>
+  <pre>
+    <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ElementClickInterceptedExceptionExample1 {
+
+	public static void main(String[] args) {
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://demoqa.com/");
+		WebElement bookStoreApplicationBtn = driver.findElement(By.xpath("//*[text()='Book Store Application']"));
+		JavascriptExecutor jse = ((JavascriptExecutor)driver);
+		jse.executeScript("arguments[0].click()", bookStoreApplicationBtn);
+		driver.quit();
+	}
+
+}
+    </code>
+  </pre>
+  <br><br><hr>
+  <pre>
+    <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ElementClickInterceptedExceptionExample1 {
+
+	public static void main(String[] args) {
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://demoqa.com/");
+		WebElement bookStoreApplicationBtn = driver.findElement(By.xpath("//*[text()='Book Store Application']"));
+		JavascriptExecutor jse = ((JavascriptExecutor)driver);
+		jse.executeScript("arguments[0].scrollIntoView()", bookStoreApplicationBtn);
+		bookStoreApplicationBtn.click();
+		driver.quit();
+	}
+
+}
+    </code>
+  </pre>
+  <h2>ElementNotInteractableException</h2>
+  <p>Thrown to indicate that although a WebElement is present on the DOM, it is not in a state that can be interacted with. This includes an element that is not displayed or whose center point can not be scrolled into the viewport.</p>
+  <pre>
+
+Package org.openqa.selenium
+Class ElementNotInteractableException
+
+    java.lang.Object
+        java.lang.Throwable
+            java.lang.Exception
+                java.lang.RuntimeException
+                    org.openqa.selenium.WebDriverException
+                        org.openqa.selenium.InvalidElementStateException
+                            org.openqa.selenium.ElementNotInteractableException 
+  </pre>
+  <p>For This Exception we can follow the above methods.</p>
+  <h2>InvalidElementStateException</h2>
+  <pre>
+
+Package org.openqa.selenium
+Class InvalidElementStateException
+
+    java.lang.Object
+        java.lang.Throwable
+            java.lang.Exception
+                java.lang.RuntimeException
+                    org.openqa.selenium.WebDriverException
+                        org.openqa.selenium.InvalidElementStateException 
+  </pre>
+  <p>Indicates that a WebElement is in a state that means actions cannot be performed with it. For example, attempting to clear an element that isn’t both editable and resettable.</p>
+  <img src="./images/Screenshot_2022-08-14_12-36-59.png" alt="InvalidElementStateException" width="100%" height="100%">
+  <p>In the above ficture there is Click Me button when ever i tried to use clear method instead of click method we will get InvalidElementStateException.</p>
+  <pre>
+    <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample3 {
+
+	public static void main(String[] args) {
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://demoqa.com/buttons");
+		WebElement interactionsBtn = driver.findElement(By.xpath("//button[text()='Click Me']"));
+		interactionsBtn.clear();
+		driver.quit();
+	}
+
+}
+    </code>
+  </pre>
+  <img src="./images/Screenshot_2022-08-14_12-39-59.png" alt="InvalidElementStateException" width="100%" height="100%">
+  <pre>
+    <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample3 {
+
+	public static void main(String[] args) {
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://demoqa.com/buttons");
+		WebElement interactionsBtn = driver.findElement(By.xpath("//button[text()='Click Me']"));
+		interactionsBtn.click();
+		driver.quit();
+	}
+
+}
+    </code>
+  </pre>
+  <img src="./images/Screenshot_2022-08-14_12-45-10.png" alt="InvalidElementStateException" width="100%" height="100%">
+  <p>When we try to perform sendKeys on password field then it will throw InvalidElementStateException in Selenium Webdriver.</p>
+  <pre>
+    <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample4 {
+
+	public static void main(String[] args) throws Exception {
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://seleniumpractise.blogspot.com/2016/09/how-to-work-with-disable-textbox-or.html");
+		WebElement interactionsBtn = driver.findElement(By.id("pass"));
+		interactionsBtn.sendKeys("password123");
+		driver.quit();
+	}
+
+}
+    </code>
+  </pre> 
+  <p>The solution javascript</p>
+  <pre>
+    <code>
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample4 {
+
+	public static void main(String[] args) throws Exception {
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://seleniumpractise.blogspot.com/2016/09/how-to-work-with-disable-textbox-or.html");
+
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("document.getElementById('pass').value = 'password123';");
+		
+		Thread.sleep(2000);
+		
+		driver.quit();
+	}
+
+}
+    </code>
+  </pre>
+  <br><br>
+  <pre>
+    <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample4 {
+
+	public static void main(String[] args) throws Exception {
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://seleniumpractise.blogspot.com/2016/09/how-to-work-with-disable-textbox-or.html");
+		WebElement interactionsBtn = driver.findElement(By.id("pass"));
+		Select select = new Select(interactionsBtn);
+		select.selectByIndex(0);
+
+		Thread.sleep(2000);
+		
+		driver.quit();
+	}
+
+}
+    </code>
+  </pre>
+  <img src="./images/Screenshot_2022-08-14_12-57-45.png" alt="UnexpectedTagNameException" width="100%" height="100%">
+  <hr>
+  <h2>NoAlertPresentException</h2>
+  <pre>
+
+Package org.openqa.selenium
+Class NoAlertPresentException
+
+    java.lang.Object
+        java.lang.Throwable
+            java.lang.Exception
+                java.lang.RuntimeException
+                    org.openqa.selenium.WebDriverException
+                        org.openqa.selenium.NotFoundException
+                            org.openqa.selenium.NoAlertPresentException 
+  </pre>
+  <p>Indicates that a user has tried to access an alert when one is not present.</p>
+  <img src="./images/Screenshot_2022-08-14_13-03-30.png" alt="NoAlertPresentException" width="100%" height="100%">
+  <p>In the above page there is no alert but i going accept the alert button</p>
+  <pre>
+    <code>
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample5 {
+
+	public static void main(String[] args){
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.w3schools.com/");
+		driver.switchTo().alert().accept();
+		driver.quit();
+	}
+    </code>
+  </pre>
+  <img src="./images/Screenshot_2022-08-14_13-06-41.png" alt="NoAlertPresentException" width="100%" height="100%">
+  <hr>
+  <img src="./images/Screenshot_2022-08-14_13-14-21.png" alt="NoAlertPresentException" width="100%" height="100%">
+  <p>In the above picture there is second click me button when we click that button alert will apper after some time but whever i tried to accet ommediately we will get get error.</p>
+  <pre>
+    <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample6 {
+
+	public static void main(String[] args){
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://demoqa.com/alerts");
+		driver.findElement(By.id("timerAlertButton")).click();
+		driver.switchTo().alert().accept();
+		driver.quit();
+	}
+
+}
+    </code>
+  </pre>
+  <img src="./images/Screenshot_2022-08-14_13-17-21.png" alt="NoAlertPresentException" width="100%" height="100%">
+  <pre>
+    <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample6 {
+
+	public static void main(String[] args){
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://demoqa.com/alerts");
+		driver.findElement(By.id("timerAlertButton")).click();
+		new WebDriverWait(driver, 10).until(ExpectedConditions.alertIsPresent());
+		driver.switchTo().alert().accept();
+		driver.quit();
+	}
+
+}
+    </code>
+  </pre>
+  <h2>NoSuchFrameException</h2>
+  <p>Thrown by WebDriver.switchTo().frame(int frameIndex) and WebDriver.switchTo().frame(String frameName).</p>
+  <p>HTML Iframes </p>
+  <p>An HTML iframe is used to display a web page within a web page.</p>
+  <img src="./images/Screenshot_2022-08-14_14-01-13.png" alt="NoSuchFrameException" width="100%" height="100%">
+  <p>In the above picture there is try it button now iam going click that button.</p>
+  <pre>
+    <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample7 {
+
+	public static void main(String[] args){
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_alert");
+		driver.findElement(By.xpath("//button[text()='Try it']")).click();
+		new WebDriverWait(driver, 10).until(ExpectedConditions.alertIsPresent());
+		driver.switchTo().alert().accept();
+		driver.quit();
+	}
+
+}
+    </code>
+  </pre>
+  <img src="./images/Screenshot_2022-08-14_14-06-54.png" alt="NoSuchElementException" width="100%" height="100%">
+  <p>Even the button xpath is correct i got NoSuchElementException why because element is inside the frame first we have to move insde the frame then click. </p>
+  <p>If you enter a wrong frame name or id element you will get NoSuchFrameException</p>
+  <p>check the above image frame name is "iframeResult" but purposely iam enetring wrong name</p>
+  <pre>
+    <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample7 {
+
+	public static void main(String[] args){
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_alert");
+		driver.switchTo().frame("iframeResult2");//Wring frame name
+		driver.findElement(By.xpath("//button[text()='Try it']")).click();
+		new WebDriverWait(driver, 10).until(ExpectedConditions.alertIsPresent());
+		driver.switchTo().alert().accept();
+		driver.quit();
+	}
+
+}
+    </code>
+  </pre>
+  <img src="./images/Screenshot_2022-08-14_14-13-13.png" alt="NoSuchFrameException" width="100%" height="100%">
+  <pre>
+    <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample7 {
+
+	public static void main(String[] args){
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_alert");
+		driver.switchTo().frame("iframeResult");//correct frame name
+		driver.findElement(By.xpath("//button[text()='Try it']")).click();
+		new WebDriverWait(driver, 10).until(ExpectedConditions.alertIsPresent());
+		driver.switchTo().alert().accept();
+		driver.quit();
+	}
+
+}
+    </code>
+  </pre>
+  <img src="./images/Screenshot_2022-08-14_14-19-14.png" alt="NoSuchFrameException" width="100%" height="100%">
+  <p>If you want het h1 tag text from the above screen it inside in nested frame so we have to switch two frames</p>
+  <pre>
+    <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample7 {
+
+	public static void main(String[] args){
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.w3schools.com/html/tryit.asp?filename=tryhtml_iframe_height_width");
+		driver.switchTo().frame("iframeResult");//outer frame
+		driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@src='demo_iframe.htm']")));//inner frame
+		System.out.println(driver.findElement(By.xpath("//h1[text()='This page is displayed in an iframe']")).getText());
+
+		driver.quit();
+	}
+
+}
+    </code>
+  </pre>
+  <h2>NoSuchSessionException</h2>
+  <p>Thrown by any command being called after WebDriver.quit().</p>
+  <pre>
+
+Package org.openqa.selenium
+Class NoSuchSessionException
+
+    java.lang.Object
+        java.lang.Throwable
+            java.lang.Exception
+                java.lang.RuntimeException
+                    org.openqa.selenium.WebDriverException
+                        org.openqa.selenium.NoSuchSessionException 
+  </pre>
+  <pre>
+    <code>
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample7 {
+
+	public static void main(String[] args){
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.w3schools.com/");
+		driver.quit();
+		driver.getCurrentUrl(); //driver already closed
+	}
+
+}
+    </code>
+  </pre>
+  <img src="./images/Screenshot_2022-08-14_14-29-37.png" alt="NoSuchSessionException" width="100%" height="100%">
+  <h2>NoSuchWindowException</h2>
+  <pre>
+
+Package org.openqa.selenium
+Class NoSuchWindowException
+
+    java.lang.Object
+        java.lang.Throwable
+            java.lang.Exception
+                java.lang.RuntimeException
+                    org.openqa.selenium.WebDriverException
+                        org.openqa.selenium.NotFoundException
+                            org.openqa.selenium.NoSuchWindowException 
+  </pre>
+  <p>Thrown by WebDriver.switchTo().window(String windowName).</p>
+  <p>If you are to swith thw windo which is not available or wrong window/tab you will get NoSuchWindowException</p>
+  <pre>
+    <code>
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample8 {
+
+	public static void main(String[] args){
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.w3schools.com/");
+		driver.switchTo().window("solomonwindow"); //wrong windo name
+		driver.quit();
+	}
+
+}
+    </code>
+  </pre>
+  <img src="./images/Screenshot_2022-08-14_14-38-11.png" alt="NoSuchWindowException" width="100%" height="100%">
+  <h2>StaleElementReferenceException</h2>
+  <pre>
+
+Package org.openqa.selenium
+Class StaleElementReferenceException
+
+    java.lang.Object
+        java.lang.Throwable
+            java.lang.Exception
+                java.lang.RuntimeException
+                    org.openqa.selenium.WebDriverException
+                        org.openqa.selenium.StaleElementReferenceException 
+  </pre>
+  <p>Indicates that a reference to an element is now "stale" --- the element no longer appears on the DOM of the page.</p>
+  <p>Stale means old, decayed, no longer fresh. Stale Element means an old element or no longer available element. Assume there is an element that is found on a web page referenced as a WebElement in WebDriver. If the DOM changes then the WebElement goes stale. If we try to interact with an element which is staled then the StaleElementReferenceException is thrown.</p>
+  <h3>Common Causes</h3>
+  <pre>
+    A stale element reference exception is thrown in one of two cases, the first being more common than the second:
+
+    The element has been deleted entirely.
+    The element is no longer attached to the DOM.
+  </pre>
+  <h4>The Element has been deleted</h4>
+  <p>The most frequent cause of this is that page that the element was part of has been refreshed, or the user has navigated away to another page. A less common, but still common cause is where a JS library has deleted an element and replaced it with one with the same ID or attributes. In this case, although the replacement elements may look identical they are different; the driver has no way to determine that the replacements are actually what's expected.</p>
+  <p>If the element has been replaced with an identical one, a useful strategy is to look up the element again. If you do this automatically, be aware that you may well be opening your tests to a race condition and potential flakiness. For example, given the code:</p>
+  <pre>
+    <code>
+      WebElement element = driver.findElement(By.id("example"));
+      String text = element.getText();
+    </code>
+  </pre>
+  <p>If element.getText returns before the element is removed from the DOM you'll get one result. If, however, the element is removed from the DOM and your code does an automatic lookup for the element again before element.getText a different result may be returned.</p>
+  <h4>The Element is not Attached to the DOM</h4>
+  <p>A common technique used for simulating a tabbed UI in a web app is to prepare DIVs for each tab, but only attach one at a time, storing the rest in variables. In this case, it's entirely possible that your code might have a reference to an element that is no longer attached to the DOM (that is, that has an ancestor which is document.documentElement).</p>
+  <p>If WebDriver throws a stale element exception in this case, even though the element still exists, the reference is lost. You should discard the current reference you hold and replace it, possibly by locating the element again once it is attached to the DOM.</p>
+  <h4>How To Overcome Stale Element Reference Exception in Selenium:</h4>
+  <h5>Solution 1: Refreshing the web page</h5>
+  <pre>
+    <code>
+driver.navigate().refersh();
+driver.findElement(By.xpath("xpath here")).click();
+    </code>
+  </pre>
+  <h5>Solution 2: Using Try Catch Block</h5>
+  <pre>
+    <code>
+// Using for loop, it tries for 3 times. 
+// If the element is located for the first time then it breaks from the for loop nad comeout of the loop
+for(int i=0; i<=2;i++){
+  try{
+     driver.findElement(By.xpath("xpath here")).click();
+     break;
+  }
+  catch(Exception e){
+     Sysout(e.getMessage());
+  }
+}
+    </code>
+  </pre>
+  <h5>Solution 3: Using ExpectedConditions.refreshed</h5>
+  <p>Wait for the element till it gets available</p>
+    <p>wait.until(ExpectedConditions.presenceOfElementLocated(By.id("table")));</p>
+    <p>Use ExpectedConditions.refreshed to avoid StaleElementReferenceException and retrieve the element again. This method updates the element by redrawing it and we can access the referenced element.</p>
+    <p>wait.until(ExpectedConditions.refreshed(ExpectedConditions.stalenessOf("table")));</p>
+    <h5>Solution 4: Using POM</h5>
+    <p>We can handle Stale Element Reference Exception by using POM.</p>
+    <p>We could avoid StaleElementException using POM. In POM, we use initElements() method which loads the element but it won’t initialize elements. initElements() takes latest address. It initializes during run time when we try to perform any action on an element. This process is also known as Lazy Initialization.</p>
+    <pre>
+      <code>
+        public boolean retryingFindClick(By by) {
+          boolean result = false;
+          int attempts = 0;
+          while(attempts < 2) {
+              try {
+                  driver.findElement(by).click();
+                  result = true;
+                  break;
+              } catch(StaleElementException e) {
+              }
+              attempts++;
+          }
+          return result;
+      }
+      </code>
+    </pre>
+    <pre>
+      <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample9 {
+
+	public static void main(String[] args){
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.w3schools.com/");
+		WebElement w3loginbtn = driver.findElement(By.id("w3loginbtn"));
+		System.out.println(w3loginbtn.getText());
+		driver.navigate().refresh();
+		System.out.println(w3loginbtn.getText());
+		driver.quit();
+	}
+
+}
+      </code>
+    </pre>
+    <img src="./images/Screenshot_2022-08-14_14-58-51.png" alt="StaleElementReferenceException" width="100%" height="100%">
+    <pre>
+      <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample9 {
+
+	public static void main(String[] args){
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.w3schools.com/");
+		WebElement w3loginbtn;
+		w3loginbtn = driver.findElement(By.id("w3loginbtn"));
+		System.out.println(w3loginbtn.getText());
+		driver.navigate().refresh();
+		try {
+			System.out.println(w3loginbtn.getText());
+		}catch (StaleElementReferenceException e) {
+			w3loginbtn = driver.findElement(By.id("w3loginbtn"));
+			System.out.println(w3loginbtn.getText());
+		}
+		driver.quit();
+	}
+
+}
+      </code>
+    </pre>
+</div>
       </div>
-      
-      <div class="footer">
-        <p>Footer</p>
-      </div>
-      
+      <div class="column side" style="background-color:#ccc;">Column</div>
+    </div>
+
+    <div class="footer">
+      <p>Footer</p>
+      <button onclick="window.scrollTo(0,0);">scroll to top</button>
+    </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
