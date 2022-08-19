@@ -1,26 +1,24 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/testng.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>extent reports</title>
-  </head>
-  <body>
-    <div class="header">
-        <h2>Header</h2>
-    </div>
+    </head>
+    <body>
 
-    <div class="row">
-        <div class="column side" style="background-color:#aaa;">Column</div>
-
-        <div class="column middle" style="background-color:white">
+        <div id="mySidepanel" class="sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="#whatIsTestNg" onclick="closeNav()">What Is TestNG?</a>
         
-            <h1>Extent Reports</h1>
+        </div>
+
+        <button class="openbtn" onclick="openNav()">☰</button>  
+        
+        <h1>Extent Reports</h1>
             <pre>
                 <code>
 import java.io.File;
@@ -127,6 +125,7 @@ public class ExtentReportsExample2 {
             </pre>
             <p><a href="./reports/extentreport2.html">reports</a>for the above program.</p>
             <pre>
+                <code>
 HTML Formatting Elements
 
 Formatting elements were designed to display special types of text:
@@ -141,68 +140,69 @@ Formatting elements were designed to display special types of text:
 &lt;ins&gt;     - Inserted text
 &lt;sub&gt;     - Subscript text
 &lt;sup&gt;     - Superscript text
+                </code>
             </pre>
             <h2>Attaching screenshots to reports</h2>
             <pre>
                 <code>
-                    import java.io.File;
-                    import java.io.IOException;
-                    import java.text.SimpleDateFormat;
-                    import java.util.Date;
-                    
-                    import org.apache.commons.io.FileUtils;
-                    import org.openqa.selenium.OutputType;
-                    import org.openqa.selenium.TakesScreenshot;
-                    import org.openqa.selenium.WebDriver;
-                    import org.openqa.selenium.chrome.ChromeDriver;
-                    
-                    import com.aventstack.extentreports.ExtentReports;
-                    import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-                    
-                    import io.github.bonigarcia.wdm.WebDriverManager;
-                    
-                    public class ExtentReportsExample4 {
-                    
-                        static WebDriver driver;
-                        
-                        public static void main(String[] args) throws Exception {
-                            
-                            WebDriverManager.chromedriver().setup();
-                            driver = new ChromeDriver();
-                            driver.manage().window().maximize();
-                            driver.get("https://www.w3schools.com/");
-                            
-                            ExtentReports extentReports = new ExtentReports();
-                            ExtentSparkReporter reporter = new ExtentSparkReporter(new File("/home/ranga/eclipse-workspace-testng/TestingPractice/extentreports/extentreport4.html"));
-                            extentReports.attachReporter(reporter);
-                            
-                            extentReports.createTest("Test 1","Test 1 description")
-                            .info("info message")
-                            .addScreenCaptureFromPath(takeScreenshotAsFile());
-                            
-                            extentReports.createTest("Test 2","Test 2 Descrition")
-                            .info("info message")
-                            .addScreenCaptureFromBase64String(takeScreenshotAsBase64());
-                            
-                            extentReports.flush();
-                            
-                            driver.quit();
-                    
-                        }
-                        
-                        public static String takeScreenshotAsFile() throws IOException {
-                            File srcImage = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-                            String destImage =new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss_SSS").format(new Date());
-                            File destFile = new File("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/"+destImage+".jpg");
-                            FileUtils.copyFile(srcImage, destFile);
-                            return destFile.getAbsolutePath();
-                        }
-                        
-                        public static String takeScreenshotAsBase64() throws IOException {
-                            return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
-                        }
-                    
-                    }
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExtentReportsExample4 {
+
+    static WebDriver driver;
+    
+    public static void main(String[] args) throws Exception {
+        
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://www.w3schools.com/");
+        
+        ExtentReports extentReports = new ExtentReports();
+        ExtentSparkReporter reporter = new ExtentSparkReporter(new File("/home/ranga/eclipse-workspace-testng/TestingPractice/extentreports/extentreport4.html"));
+        extentReports.attachReporter(reporter);
+        
+        extentReports.createTest("Test 1","Test 1 description")
+        .info("info message")
+        .addScreenCaptureFromPath(takeScreenshotAsFile());
+        
+        extentReports.createTest("Test 2","Test 2 Descrition")
+        .info("info message")
+        .addScreenCaptureFromBase64String(takeScreenshotAsBase64());
+        
+        extentReports.flush();
+        
+        driver.quit();
+
+    }
+    
+    public static String takeScreenshotAsFile() throws IOException {
+        File srcImage = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        String destImage =new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss_SSS").format(new Date());
+        File destFile = new File("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/"+destImage+".jpg");
+        FileUtils.copyFile(srcImage, destFile);
+        return destFile.getAbsolutePath();
+    }
+    
+    public static String takeScreenshotAsBase64() throws IOException {
+        return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+    }
+
+}
                 </code>
             </pre>
             <p>open <a href="./reports/extentreport4.html">reports for the above programme.</a></p>
@@ -343,19 +343,19 @@ public class ExtentReportsExample6 {
             <p>added some details in json file lik below</p>
             <pre>
                 <code>
-                    {
-                        "theme": "DARK",
-                        "encoding": "utf-8",
-                        "protocol": "HTTPS",
-                        "timelineEnabled": false,
-                        "offlineMode": true,
-                        "thumbnailForBase64": false,
-                        "documentTitle": "Docunet Title New",
-                        "reportName": "Report Name",
-                        "timeStampFormat": "MMM dd, yyyy HH:mm:ss a",
-                        "js": "",
-                        "css": ".badge-primary{background-color: #3f8f1b}"
-                      }
+{
+    "theme": "DARK",
+    "encoding": "utf-8",
+    "protocol": "HTTPS",
+    "timelineEnabled": false,
+    "offlineMode": true,
+    "thumbnailForBase64": false,
+    "documentTitle": "Docunet Title New",
+    "reportName": "Report Name",
+    "timeStampFormat": "MMM dd, yyyy HH:mm:ss a",
+    "js": "",
+    "css": ".badge-primary{background-color: #3f8f1b}"
+}
                 </code>
             </pre>
             <pre>
@@ -534,18 +534,18 @@ public class ExtentReportsExample9 {
             </pre>
             <p>The above programme generate 3 reports</p>                
         </div>
+        
 
-        <div class="column side" style="background-color:#ccc;">Column</div>
-    </div>
+        <script>hljs.highlightAll();</script>
+        <script>
+        function openNav() {
+        document.getElementById("mySidepanel").style.width = "250px";
+        }
 
-
-    <div class="footer">
-        <p>Footer</p>
-    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
-</html>
+        function closeNav() {
+        document.getElementById("mySidepanel").style.width = "0";
+        }
+        </script>
+   
+    </body>
+</html> 

@@ -14,6 +14,13 @@ body {
     transition: 0.5s;
     padding-top: 60px;
   }
+
+  .header {
+    background-color: #f1f1f1;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+  }
   
   .sidepanel a {
     padding: 8px 8px 8px 32px;
@@ -50,11 +57,11 @@ body {
     background-color:#444;
   }
 
-  pre code {
+  /* pre code {
     background-color: black;
     border: 1px solid #999;
     display: block;
     padding: 20px;
     color: white;
     overflow: scroll;
-  }
+  } */

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/testng.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+
+
+    </head>
+    <body>
+        <div class="header">
+            <h1>REST API</h1>
+        </div>
+
+        <div id="mySidepanel" class="sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="#WhatisREST" onclick="closeNav()">What is REST?</a>
+        <a href="#ArchitecturalConstraints" onclick="closeNav()">Architectural Constraints</a>
+        
+        </div>
+
+        <button class="openbtn" onclick="openNav()">☰</button>
+        
+        <div id="WhyAPITesting">
+            <h1>API Testing: What It Is, Why It’s Important & How to Do It</h1>
+            <p>The global API testing market is projected to reach 1.8 billion USD by 2026, up from 641.6 Million in 2020, according to a report by Global Industry Analysts Inc.</p>
+            <p>This market growth corresponds to the rise in cloud applications and interconnected platforms that require application programming interfaces (APIs). More APIs mean more testing to determine that they meet expectations for functionality, reliability, performance, and security. Without this testing, an API may fail to perform as expected, which can impact many softwares and services.</p>
+            <p>please refer the following links</p>
+            <ul>
+                <li><a href="https://www.prnewswire.com/news-releases/global-industry-analysts-predicts-the-world-api-testing-market-to-reach-1-8-billion-by-2026--301364974.html">Global Industry Analysts Predicts the World API Testing Market to Reach $1.8 Billion by 2026</a></li>
+                <li><a href="https://www.strategyr.com/market-report-api-testing-forecasts-global-industry-analysts-inc.asp">API Testing World market report MCP 10331</a></li>
+            </ul>
+            <h2>What is API testing?</h2>
+            <p>API testing is the process of sending requests to an API and monitoring the responses to ensure its behaving as expected. API testing is designed to assess the functionality, reliability, performance, and security of an API, and is therefore an essential part of the API development lifecycle.</p>
+            <p>Software application development is dominated by the three-layered architecture approach, which is an architecture made up of a presentation layer, business logic layer, and database layer.</p>
+            <img src="./images/API Testing-2.jpg" alt="api testing" width="100%">
+            <p>The business logic layer contains the core functionality, or components, of the application. It must take information inputted by the user from the presentation layer, query the database layer and transform that data according to the business logic, and present the results back to the user via the presentation layer. But the business logic layer must also communicate with other applications as well as human users. To do so, it uses an API.</p>
+            <img src="./images/API Testing3.jpg" alt="api testing" width="100%">
+            <p>So API testing is designed to validate the business logic as well as the performance, security, and other aspects of the application. API testing does not focus on the individual components of an application, like unit testing, or the look and feel of the application, like user interface (UI) testing, but on what the application does.</p>
+            <img src="./images/API Testing4.jpg" alt="api testing" width="100%">
+            <h4>Types of API Testing</h4>
+            <ul>
+                <li>API Documentation testing</li>
+                <li>Functional testing. These API tests are designed to check that an API returns the right response for a given request.</li>
+                <li>Load testing. This type of API test gauges how an API handles a large volume of requests over a short period.</li>
+                <li>Runtime and error detection testing. These API tests are designed to evaluate the actual running of the API and typically focus on monitoring, execution errors, resource leaks, or error detection.</li>
+                <li>Security testing. These tests assess how an API responds to and resists cyberattacks.</li>
+                <li>Penetration Testing. Penetration tests involve users with limited API knowledge trying to attack the API, which enables testers to assess the threat vector from an outside perspective.</li>
+                <li>Fuzz Testing. This type of API test sends a large number of randomized requests to see if your API responds with errors, processes any of these inputs incorrectly, or crashes.</li>
+                <li>Validation testing. Validation tests are run late in the testing stage to verify the behavior and efficiency of the API.</li>
+            </ul>
+            <h4>Why is API testing important?</h4>
+            <p>API testing is important for ensuring that your API performs as expected when faced with a wide variety of expected and unexpected requests. This process is designed to not only test the API’s functionality — but also its reliability, performance, and security.</p>
+            <p>API testing is also important because it offers several advantages over other types of testing, like unit and UI testing.</p>
+            <p>For example, unit tests are designed to verify the functionality of individual components within a single application whereas API tests are designed to verify that all system components function as intended. This broader test coverage makes it easier to identify any bugs in the unit, database, and server levels.</p>
+            <p>API tests are also faster to run and more isolated than UI tests, which makes it quicker and easier to identify and resolve bugs. According to data from Andersen Lab, a UI test runs for approximately seven minutes while an API test runs for 12 seconds. Meaning, an API test is about 35 times faster than a UI test.</p>
+            <p>Perhaps most importantly, API testing allows developer operations, quality assurance, development, and other teams to begin testing an application’s core functionality before the user interface is ready. This enables them to identify any errors or weaknesses early on in the development process. If identified later in the process, these errors and weaknesses in the build can be costly to fix, requiring large amounts of code to be rewritten and significantly delaying the product’s release.</p>
+            <h4>How to Do API Testing</h4>
+            <h5>1. Review the API specification.</h5>
+            <p>Before you start testing, you need to first understand the purpose of the API, how the API functions, and what results to expect when using the API. To do so, you can review the API specification.</p>
+            <p>For example, if you’re testing an HTTP API, then you can review the OpenAPI specification, which defines a standard, programming language-agnostic interface description for HTTP APIs. This specification details all the HTTP API’s objects, values, and parameters, how the objects are called, what each object does, and how they can be used together. The section below details how the Request Body Object is supposed to function, what its fixed fields are, what to expect when using this function, and request body examples.</p>
+            <h5>2. Determine API testing requirements.</h5>
+            <p>Next, you need to determine the testing requirements of the API. This will require you to understand the API’s target consumer, its features and functions, and the workflow of the application as well as the aspects, priorities, and problems you’re testing for. For example, maybe you want to verify that HTTP headers are as expected or that a response is received within a reasonable period of time, as defined by the test plan.</p>
+            <p>You’ll also need to know the desired output — which could be a 2XX HTTP status code or a JSON object, for example.</p>
+            <h5>3. Define input parameters.</h5>
+            <p>Before calling an API, you must define input parameters. These parameters pass needed information to the API to enable it to perform its function and therefore are necessary for determining whether the API performs as expected. For example, a REST API can accept header, query, and rest body parameters, among other input parameter types.</p>
+            <p>Before beginning API testing, it’s important to plan out all possible input combinations.</p>
+            <h5>4. Create positive and negative tests.</h5>
+            <p>To assess whether an API functions as expected, you should run a combination of positive and negative tests.</p>
+            <p>Positive tests are designed to check the basic functionality of the API using required parameters as well as extra functionality using optional parameters.</p>
+            <p>Negative tests are designed to check how the API responds to prohibited operations using valid and invalid user input, like trying to input a username that already exists or a username that is null.</p>
+            <h5>5. Select an API testing tool.</h5>
+            <p>Now you’re ready to select an API testing tool that can help automate or simplify the API testing process. When evaluating different API testing tools, it’s important to know what kind of API you’ll be testing, what kind of tests you’ll be running, and what your budget is.</p>
+            <h2>10 Best API Testing Tools for Building Functional, Secure Applications</h2>
+            <ul>
+                <li>Postman</li>
+                <li>KarateDSL</li>
+                <li>Rest Assured</li>
+                <li>SoapUI</li>
+                <li>Fiddler</li>
+                <li>Katalon Studio</li>
+                <li>Assertible</li>
+                <li>Tricentis Tosca</li>
+                <li>Swagger</li>
+                <li>Apache JMeter</li>
+            </ul>
+            <p>for more info please refer <a href="https://blog.hubspot.com/website/api-testing">API Testing: What It Is, Why It’s Important & How to Do It</a></p>
+        </div>
+
+        <div id="WhatisanAPI">
+            <h1>What is an API? (Application Programming Interface)</h1>
+            <p>API is the acronym for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other. Each time you use an app like Facebook, send an instant message, or check the weather on your phone, you’re using an API.</p>
+            <h2>What Is an Example of an API?</h2>
+            <p>When you use an application on your mobile phone, the application connects to the Internet and sends data to a server. The server then retrieves that data, interprets it, performs the necessary actions and sends it back to your phone. The application then interprets that data and presents you with the information you wanted in a readable way. This is what an API is - all of this happens via API.</p>
+            <p>Imagine you’re sitting at a table in a restaurant with a menu of choices to order from. The kitchen is the part of the “system” that will prepare your order. What is missing is the critical link to communicate your order to the kitchen and deliver your food back to your table. That’s where the waiter or API comes in. The waiter is the messenger – or API – that takes your request or order and tells the kitchen – the system – what to do. Then the waiter delivers the response back to you; in this case, it is the food.</p>
+            <p>Here is a real-life API example. You may be familiar with the process of searching flights online. Just like the restaurant, you have a variety of options to choose from, including different cities, departure and return dates, and more. Let us imagine that you’re booking you are flight on an airline website. You choose a departure city and date, a return city and date, cabin class, as well as other variables. In order to book your flight, you interact with the airline’s website to access their database and see if any seats are available on those dates and what the costs might be.</p>
+
+        </div>
+        
+        <div id="WhatisREST">
+            <h1>What is REST?</h1>
+            <p>Representational state transfer is a software architectural style that describes a uniform interface between physically separate components, often across the Internet in a Client-Server architecture. ---Wikipedia</p>
+            <p>REST stands for Representational State Transfer, a term coined by Roy Fielding in 2000. It is an architecture style for designing loosely coupled applications over the network, that is often used in the development of web services.</p>
+            <p>REST does not enforce any rule regarding how it should be implemented at the lower level, it just put high-level design guidelines and leaves us to think of our own implementation.</p>
+            <img src="./images/Rest-API.png" alt="rest api" width="100%">
+        </div>
+
+        <div id="ArchitecturalConstraints">
+            <h1>Architectural Constraints</h1>
+            <p>REST defines 6 architectural constraints which make any web service – a truly RESTful API.</p>
+            <ul>
+                <li>Uniform interface</li>
+                <li>Client–server</li>
+                <li>Stateless</li>
+                <li>Cacheable</li>
+                <li>Layered system</li>
+                <li>Code on demand (optional)</li>
+            </ul>
+            <h2>Uniform interface</h2>
+            <p>A resource in the system should have only one logical URI, and that should provide a way to fetch related or additional data.</p>
+            <p>Any single resource should not be too large and contain each and everything in its representation. Whenever relevant, a resource should contain links (HATEOAS) pointing to relative URIs to fetch related information.</p>
+            <h2>Client–server</h2>
+            <H5>What uis client?</H5>
+            <p>A client is a computer hardware or software that access a service made available by a server.</p>
+            <h5>What is server?</h5>
+            <p>A server is a physical computer dedicated to run services to server the needs of the coputers. Depending on the service that is running it colud be a File server,database server, print server and web server.</p>
+            <p>This constraint essentially means that client applications and server applications MUST be able to evolve separately without any dependency on each other. A client should know only resource URIs, and that’s all. Today, this is standard practice in web development, so nothing fancy is required from your side. Keep it simple.</p>
+            <p>Servers and clients may also be replaced and developed independently, as long as the interface between them is not altered.</p>
+            <h2>Stateless</h2>
+            <img src="./images/ghajini.jpg" alt="ghajini" width="100%">
+            <p>Make all client-server interactions stateless. The server will not store anything about the latest HTTP request the client made. It will treat every request as new. No session, no history.</p>
+            <p>If the client application needs to be a stateful application for the end-user, where the user logs in once and does other authorized operations after that, then each request from the client should contain all the information necessary to service the request – including authentication and authorization details.</p>
+            <p>No client context shall be stored on the server between requests. The client is responsible for managing the state of the application.</p>
+            <h2>Cacheable</h2>
+            <img src="./images/ghajini2.jpg" alt="ghajini" width="100%">
+            <p>In today’s world, the caching of data and responses is of utmost importance wherever they are applicable/possible. Caching brings performance improvement for the client-side and better scope for scalability for a server because the load has been reduced.</p>
+            <p>In REST, caching shall be applied to resources when applicable, and then these resources MUST declare themselves cacheable. Caching can be implemented on the server or client-side.</p>
+            <p>Well-managed caching partially or completely eliminates some client-server interactions, further improving scalability and performance.</p>
+            <h2>Layered system</h2>
+            <img src="./images/rest_api_layered_system.png" alt="rest api layered system" width="100%">
+            <p>REST allows you to use a layered system architecture where you deploy the APIs on server A, and store data on server B and authenticate requests in Server C, for example. A client cannot ordinarily tell whether it is connected directly to the end server or an intermediary along the way.</p>
+            <h2>Code on demand (optional)</h2>
+            <p>Well, this constraint is optional. Most of the time, you will be sending the static representations of resources in the form of XML or JSON. But when you need to, you are free to return executable code to support a part of your application, e.g., clients may call your API to get a UI widget rendering code. It is permitted.</p>
+            <pre>
+                <p>URI examples</p>
+                <code>
+http://www.appdomain.com/users
+http://www.appdomain.com/users?size=20&page=5
+http://www.appdomain.com/users/123
+http://www.appdomain.com/users/123/address
+                </code>
+            </pre>
+            <p>refer the <a href="https://restfulapi.net/rest-architectural-constraints/">link</a></p>
+        </div>
+
+        <div id="HTTPrequestmethods">
+            <h1>HTTP request methods</h1>
+            <p>HTTP defines a set of request methods to indicate the desired action to be performed for a given resource. Although they can also be nouns, these request methods are sometimes referred to as HTTP verbs. Each of them implements a different semantic, but some common features are shared by a group of them: e.g. a request method can be safe, idempotent, or cacheable.</p>
+            <h2>GET</h2>
+            <p>The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.</p>
+            <h4>Syntax</h4>
+            <pre>
+                <code>
+                    GET /index.html
+                </code>
+            </pre>
+            <h2>HEAD</h2>
+            <p>The HTTP HEAD method requests the headers that would be returned if the HEAD request's URL was instead requested with the HTTP GET method. For example, if a URL might produce a large download, a HEAD request could read its Content-Length header to check the filesize without actually downloading the file.</p>
+            <p><b>Warning:</b> A response to a HEAD method should not have a body. If it has one anyway, that body must be ignored: any representation headers that might describe the erroneous body are instead assumed to describe the response which a similar GET request would have received.</p>
+            <h4>Syntax</h4>
+            <pre>
+                <code>
+                    HEAD /index.html
+                </code>
+            </pre>
+            <h2>POST</h2>
+            <p>The POST method submits an entity to the specified resource, often causing a change in state or side effects on the server.</p>
+            <p>The HTTP POST method sends data to the server. The type of the body of the request is indicated by the Content-Type header.</p>
+            <p>The difference between PUT and POST is that PUT is idempotent: calling it once or several times successively has the same effect (that is no side effect), where successive identical POST may have additional effects, like passing an order several times.</p>
+            <p>A POST request is typically sent via an HTML form and results in a change on the server. In this case, the content type is selected by putting the adequate string in the enctype attribute of the &lt;form&gt; element or the formenctype attribute of the &lt;input&gt; or &lt;button&gt; elements:</p>
+            <ul>
+                <li>application/x-www-form-urlencoded: the keys and values are encoded in key-value tuples separated by '&', with a '=' between the key and the value. Non-alphanumeric characters in both keys and values are percent encoded: this is the reason why this type is not suitable to use with binary data (use multipart/form-data instead)</li>
+                <li>multipart/form-data: each value is sent as a block of data ("body part"), with a user agent-defined delimiter ("boundary") separating each part. The keys are given in the Content-Disposition header of each part.</li>
+                <li>text/plain</li>
+            </ul>
+            <p>When the POST request is sent via a method other than an HTML form — like via an XMLHttpRequest — the body can take any type. As described in the HTTP 1.1 specification, POST is designed to allow a uniform method to cover the following functions:</p>
+            <ul>
+                <li>Annotation of existing resources</li>
+                <li>Posting a message to a bulletin board, newsgroup, mailing list, or similar group of articles;</li>
+                <li>Adding a new user through a signup modal;</li>
+                <li>Providing a block of data, such as the result of submitting a form, to a data-handling process;</li>
+                <li>Extending a database through an append operation.</li>
+            </ul>
+            <p>A simple form using the default application/x-www-form-urlencoded content type:</p>
+            <pre>
+                <code>
+POST /test HTTP/1.1
+Host: foo.example
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 27
+
+field1=value1&field2=value2
+                </code>
+            </pre>
+            <p>A form using the multipart/form-data content type:</p>
+            <pre>
+                <code>
+POST /test HTTP/1.1
+Host: foo.example
+Content-Type: multipart/form-data;boundary="boundary"
+
+--boundary
+Content-Disposition: form-data; name="field1"
+
+value1
+--boundary
+Content-Disposition: form-data; name="field2"; filename="example.txt"
+
+value2
+--boundary--
+                </code>
+            </pre>
+            <h2>PUT</h2>
+            <p>The HTTP PUT request method creates a new resource or replaces a representation of the target resource with the request payload.</p>
+            <p>The difference between PUT and POST is that PUT is idempotent: calling it once or several times successively has the same effect (that is no side effect), whereas successive identical POST requests may have additional effects, akin to placing an order several times.</p>
+            <h4>Syntax</h4>
+            <pre>
+                <code>
+PUT /new.html HTTP/1.1
+Host: example.com
+Content-type: text/html
+Content-length: 16
+
+&lt;p&gt;New File&lt;/p&gt;
+                </code>
+            </pre>
+            <h4>Responses</h4>
+            <p>If the target resource does not have a current representation and the PUT request successfully creates one, then the origin server must inform the user agent by sending a 201 (Created) response.</p>
+            <pre>
+                <code>
+HTTP/1.1 201 Created
+Content-Location: /new.html
+                </code>
+            </pre>
+            <p>If the target resource does have a current representation and that representation is successfully modified in accordance with the state of the enclosed representation, then the origin server must send either a 200 (OK) or a 204 (No Content) response to indicate successful completion of the request.</p>
+            <pre>
+                <code>
+HTTP/1.1 204 No Content
+Content-Location: /existing.html
+                </code>
+            </pre>
+            <h2>DELETE</h2>
+            <p> The HTTP DELETE request method deletes the specified resource. </p>
+            <h4>Syntax</h4>
+            <pre>
+                <code>
+DELETE /file.html HTTP/1.1
+                </code>
+            </pre>
+            <h4>Request</h4>
+            <pre>
+                <code>
+DELETE /file.html HTTP/1.1
+Host: example.com
+                </code>
+            </pre>
+            <h4>Response</h4>
+            <p> If a DELETE method is successfully applied, there are several response status codes possible: </p>
+            <ul>
+                <li> A 202 (Accepted) status code if the action will likely succeed but has not yet been enacted. </li>
+                <li> A 204 (No Content) status code if the action has been enacted and no further information is to be supplied. </li>
+                <li> A 200 (OK) status code if the action has been enacted and the response message includes a representation describing the status. </li>
+            </ul>
+            <h2>PATCH</h2>
+            <p>The HTTP PATCH request method applies partial modifications to a resource.</p>
+            <p>PATCH is somewhat analogous to the "update" concept found in CRUD (in general, HTTP is different than CRUD, and the two should not be confused).</p>
+            <p>A PATCH request is considered a set of instructions on how to modify a resource. Contrast this with PUT; which is a complete representation of a resource.</p>
+            <p>A PATCH is not necessarily idempotent, although it can be. Contrast this with PUT; which is always idempotent. The word "idempotent" means that any number of repeated, identical requests will leave the resource in the same state. For example if an auto-incrementing counter field is an integral part of the resource, then a PUT will naturally overwrite it (since it overwrites everything), but not necessarily so for PATCH.</p>
+            <h4>Request</h4>
+            <pre>
+                <code>
+PATCH /file.txt HTTP/1.1
+Host: www.example.com
+Content-Type: application/example
+If-Match: "e0023aa4e"
+Content-Length: 100
+
+[description of changes]
+                </code>
+            </pre>
+            <h4>Response</h4>
+            <pre>
+                <code>
+HTTP/1.1 204 No Content
+Content-Location: /file.txt
+ETag: "e0023aa4f"
+                </code>
+            </pre>
+        </div>
+        
+        <div id="HTTPresponsestatuscodes">
+            <h1>HTTP response status codes</h1>
+            <p> HTTP response status codes indicate whether a specific HTTP request has been successfully completed. Responses are grouped in five classes: </p>
+            <ul>
+                <li>Information responses(100-199)</li>
+                <li>Successful responses(200-299)</li>
+                <li>Redirection messages(300-399)</li>
+                <li>Client error responses(400-499)</li>
+                <li>Server error responses(500-599)</li>
+            </ul>
+            <h2>Successful responses</h2>
+            <h4>200 OK</h4>
+            <p>The request succeeded. The result meaning of "success" depends on the HTTP method:</p>
+            <ul>
+                <li>GET: The resource has been fetched and transmitted in the message body.</li>
+                <li>HEAD: The representation headers are included in the response without any message body.</li>
+                <li>PUT or POST: The resource describing the result of the action is transmitted in the message body.</li>
+                <li>TRACE: The message body contains the request message as received by the server.</li>
+            </ul>
+            <h4>201 Created</h4>
+            <p>The request succeeded, and a new resource was created as a result. This is typically the response sent after POST requests, or some PUT requests.</p>
+            <h4>202 Accepted</h4>
+            <p>The request has been received but not yet acted upon. It is noncommittal, since there is no way in HTTP to later send an asynchronous response indicating the outcome of the request. It is intended for cases where another process or server handles the request, or for batch processing.</p>
+            <h4>204 No Content</h4>
+            <p>There is no content to send for this request, but the headers may be useful. The user agent may update its cached headers for this resource with the new ones.</p>
+            <h2>Redirection messages</h2>
+            <h4>301 Moved Permanently</h4>
+            <p>The URL of the requested resource has been changed permanently. The new URL is given in the response.</p>
+            <h4>302 Found</h4>
+            <p>This response code means that the URI of requested resource has been changed temporarily. Further changes in the URI might be made in the future. Therefore, this same URI should be used by the client in future requests.</p>
+            <h2>Client error responses</h2>
+            <h4>400 Bad Request</h4>
+            <p>The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).</p>
+            <h4>401 Unauthorized</h4>
+            <p>Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.</p>
+            <h4>403 Forbidden</h4>
+            <p>The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.</p>
+            <h4>404 Not Found</h4>
+            <p>The server can not find the requested resource. In the browser, this means the URL is not recognized. In an API, this can also mean that the endpoint is valid but the resource itself does not exist. Servers may also send this response instead of 403 Forbidden to hide the existence of a resource from an unauthorized client. This response code is probably the most well known due to its frequent occurrence on the web.</p>
+            <h4>405 Method Not Allowed</h4>
+            <p>The request method is known by the server but is not supported by the target resource. For example, an API may not allow calling DELETE to remove a resource.</p>
+            <h4>408 Request Timeout</h4>
+            <p>This response is sent on an idle connection by some servers, even without any previous request by the client. It means that the server would like to shut down this unused connection. This response is used much more since some browsers, like Chrome, Firefox 27+, or IE9, use HTTP pre-connection mechanisms to speed up surfing. Also note that some servers merely shut down the connection without sending this message.</p>
+            <h4>409 Conflict</h4>
+            <p>This response is sent when a request conflicts with the current state of the server.</p>
+            <h4>411 Length Required</h4>
+            <p>Server rejected the request because the Content-Length header field is not defined and the server requires it.</p>
+            <h4>422 Unprocessable Entity</h4>
+            <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
+            <h4>429 Too Many Requests</h4>
+            <p>The user has sent too many requests in a given amount of time ("rate limiting").</p>
+            <h2>Server error responses</h2>
+            <h4>500 Internal Server Error</h4>
+            <p>The server has encountered a situation it does not know how to handle.</p>
+            <h4>502 Bad Gateway</h4>
+            <p>This error response means that the server, while working as a gateway to get a response needed to handle the request, got an invalid response.</p>
+            <h4>503 Service Unavailable</h4>
+            <p>The server is not ready to handle the request. Common causes are a server that is down for maintenance or that is overloaded. Note that together with this response, a user-friendly page explaining the problem should be sent. This response should be used for temporary conditions and the Retry-After HTTP header should, if possible, contain the estimated time before the recovery of the service. The webmaster must also take care about the caching-related headers that are sent along with this response, as these temporary condition responses should usually not be cached.</p>
+            <h4>504 Gateway Timeout</h4>
+            <p>This error response is given when the server is acting as a gateway and cannot get a response in time.</p>
+            <p>for complete list of <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">HTTP status codes</a></p>            
+        </div>
+
+        <script>
+        function openNav() {
+        document.getElementById("mySidepanel").style.width = "250px";
+        }
+
+        function closeNav() {
+        document.getElementById("mySidepanel").style.width = "0";
+        }
+        </script>
+   
+    </body>
+</html> 
