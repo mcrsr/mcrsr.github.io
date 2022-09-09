@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/samplepage.css">
+    <title>Sample Page</title>
+</head>
+<body>
+    <form action="#">
+        <label for="username">Name:</label>
+        <input type="text" name="username" id="username" /><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email"/><br>
+        <label for="dob">DOB:</label>
+        <input type="date" name="dob" id="dob" /><br>
+        <p>Pick days for classes</p>
+        <input type="checkbox" name="monday" id="monday">
+        <label for="monday">Monday</label>
+        <input type="checkbox" name="tuesday" id="tuesday">
+        <label for="tuesday">Tuesday</label>
+        <input type="checkbox" name="wednessday" id="wednessday">
+        <label for="wednessday">Wednessday</label>
+        <input type="checkbox" name="thursday" id="thursday">
+        <label for="thursday">Thursday</label>
+        <input type="checkbox" name="friday" id="friday">
+        <label for="friday">Friday</label>
+        <input type="checkbox" name="saturday" id="saturday">
+        <label for="saturday">Saturday</label>
+        <input type="checkbox" name="sunday" id="sunday">
+        <label for="sunday">Sunday</label><br>
+        <label for="color">Color</label>
+        <input type="color" name="color" id="color" /><br>
+        <label for="datetime">Datetime</label>
+        <input type="datetime" name="datetime" id="datetime" /><br>
+        <label for="datetimelocal">Datetimelocal</label>
+        <input type="datetime-local" name="datetimelocal" id="datetimelocal" /><br>
+        <label for="file1">Select File</label>
+        <input type="file" name="file1" id="file1" /><br>
+        <label for="file2">Select files</label>
+        <input type="file" name="file2" id="file2" multiple /><br>
+        <input type="hidden" name="hidden" id="hidden" value="Yes I am hidden" /><br>
+        <!-- <input type="image" src="" alt=""> -->
+        <label for="month">Month</label>
+        <input type="month" name="month" id="month" /><br>
+        <label for="number">Number</label>
+        <input type="number" name="number" id="number" /><br>
+        <p>select your gender</p>
+        <input type="radio" name="gender" id="male" />
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="female" />
+        <label for="female">Female</label>
+        <input type="radio" name="gender" id="others" />
+        <label for="others">Others</label><br>
+        <label for="range">Range</label>
+        <input type="range" name="range" id="range" /><br>
+        <label for="telephone">Telephone</label>
+        <input type="tel" name="telephone" id="telephone" /><br>
+        <label for="time">Time</label>
+        <input type="time" name="time" id="time" /><br>
+        <label for="url">Url</label>
+        <input type="url" name="url" id="url" /><br>
+        <label for="week">Week</label>
+        <input type="week" name="week" id="week" /><br>
+    </form>
+    <div id="alerts">
+        <button id="alert1" onclick="alert('Yes I am Simple Alert Box');">simple alert</button>
+        <button id="alert2" onclick="confirm('Are you sure?');">Alert with Ok and Cancel</button>
+        <button id="alert3" onclick="prompt('Please enter your name');">Alert with text field</button>
+    </div>
+    <div>
+        <div>
+            <p>Enabled or Disabled</p>
+            <button id="enabled1">Enabled</button>
+            <button id="disabled1" disabled>Disabled</button>
+        </div>
+        <div>
+            <p>Displayed or Hidden</p>
+            <button id="displayed1">Displayed</button>
+            <button id="hidden1" hidden>Hidden</button>
+        </div>
+        <div>
+            <p>Checkd or Unchecked</p>
+            <label for="checkbox1">unchecked</label>
+            <input type="checkbox" name="checkbox1" id="checkbox1" />
+            <label for="checkbox2">checked</label>
+            <input type="checkbox" name="checkbox2" id="checkbox2" checked />
+        </div>
+    </div>
+    <div>
+        <p>Buttons:</p>
+        <button id="hiddenButton" hidden>Hidden Button</button>
+        <button id="disabledButton" disabled>Visible Button and not clickable</button>
+        <button id="enabledButton">Enabled Button</button>
+        <button id="clickableAfter5Seconds">Clickable after 5 seconds</button>
+    </div>
+
+    <div>
+        <div>
+            <p>Select one option</p>
+            <select name="select1" id="select1">
+                <option value="one">One</option>
+                <option value="two">Two</option>
+                <option value="three">Three</option>
+                <option value="four">Four</option>
+                <option value="five">Five</option>
+                <option value="six">Six</option>
+                <option value="seven">Seven</option>
+                <option value="eight">Eight</option>
+                <option value="nine">Nine</option>
+                <option value="ten">Ten</option>
+            </select>
+        </div>
+        <div>
+            <p>Select multiple options</p>
+            <select name="select2" id="select2" multiple>
+                <option value="one">One</option>
+                <option value="two">Two</option>
+                <option value="three">Three</option>
+                <option value="four">Four</option>
+                <option value="five">Five</option>
+                <option value="six">Six</option>
+                <option value="seven">Seven</option>
+                <option value="eight">Eight</option>
+                <option value="nine">Nine</option>
+                <option value="ten">Ten</option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <button id="btn2" onclick="btn2Function();">Click</button>
+        <p id="btn2Response"></p>
+        <button id="btn3" onclick="btn3Function();" ondblclick="btn3Function2();">Duble Click</button>
+        <p id="btn3Response"></p>
+        <button id="btn4" onclick="btn4Function();" ondblclick="btn4Function2();" oncontextmenu="btn4Function3();">Right Click</button>
+        <p id="btn4Response"></p>
+    </div>
+    <div>
+        <button id="btn5" onmousedown="mouseDown();" onmouseup="mouseUp()">Mouse Down and Up</button>
+        <p id="btn5Response"></p>
+        <button id="btn6" onmouseenter="mouseEnter();" onmouseleave="mouseLeave();">Mouse In And Out</button>
+        <p id="btn6Response"></p>
+        <div id="div2" onclick="showCoords(event)" style="width: 500px;height: 300px; border: 1px solid black;" >   
+            <p >click me on different places</p>
+            <p id="dvi2Response" ></p>
+        </div>
+        <div id="div3" onmousemove="showCoords2(event)" style="width: 500px;height: 300px; border: 1px solid black;" >   
+            <p >click me on different places</p>
+            <p id="dvi3Response" ></p>
+        </div>
+    </div>
+
+    <div id="div4">
+        <h2>Drag and Drop</h2>
+        <p>Drag the image back and forth between the two div elements.</p>
+
+        <div id="div1in4" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <img src="./images/img_w3slogo.gif" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+        </div>
+
+        <div id="div2in4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </div>
+
+    <div>
+        <p><a href="https://jqueryui.com/draggable/">please practice</a></p>
+    </div>
+
+    <script src="./js/samplepage.js"></script>
+</body>
+</html>
