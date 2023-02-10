@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Clean Blog - Start Bootstrap Theme</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1>Man must explore, and this is exploration at its greatest</h1>
+                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+                        <span class="meta">
+                            Posted by
+                            <a href="#!">Start Bootstrap</a>
+                            on August 24, 2022
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Post Content-->
+    <article class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div id="selenium-exceptions">
+                        <h1>Exceptions</h1>
+                        <h2>ElementClickInterceptedException</h2>
+                        <pre>
+                                <code>
+Package org.openqa.selenium
+Class ElementClickInterceptedException
+
+    java.lang.Object
+        java.lang.Throwable
+            java.lang.Exception
+                java.lang.RuntimeException
+                    org.openqa.selenium.WebDriverException
+                        org.openqa.selenium.InvalidElementStateException
+                            org.openqa.selenium.ElementNotInteractableException
+                                org.openqa.selenium.ElementClickInterceptedException 
+                                </code>
+                            </pre>
+                        <p>Indicates that a click could not be properly executed because the target element was obscured
+                            in some way.</p>
+                        <p>ElementClickInterceptedException occurs when the target element that you want to click is
+                            overlaid by some other element in the web page.</p>
+                        <img src="./images/Screenshot_2022-08-14_12-04-24.png" alt="ElementClickInterceptedException"
+                            style="width: 100%;height: 100%;">
+                        <p>In the above image whenever i tried to click on the Book Store Application tab i will get
+                            ElementClickInterceptedException because of that below add. The add covers the above tab.
+                        </p>
+                        <pre>
+                              <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ElementClickInterceptedExceptionExample1 {
+
+    public static void main(String[] args) {
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://demoqa.com/");
+        WebElement bookStoreApplicationBtn = driver.findElement(By.xpath("//*[text()='Book Store Application']"));
+        bookStoreApplicationBtn.click();
+    }
+
+}
+                              </code>
+                            </pre>
+                        <br><br>
+                        <img src="./images/Screenshot_2022-08-14_12-10-52.png" alt="ElementClickInterceptedException"
+                            style="width: 100%;height: 100%;">
+                        <p>We can Overcome this problem by using JavaScriptExecutor</p>
+                        <pre>
+                              <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ElementClickInterceptedExceptionExample1 {
+
+    public static void main(String[] args) {
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://demoqa.com/");
+        WebElement bookStoreApplicationBtn = driver.findElement(By.xpath("//*[text()='Book Store Application']"));
+        JavascriptExecutor jse = ((JavascriptExecutor)driver);
+        jse.executeScript("arguments[0].click()", bookStoreApplicationBtn);
+        driver.quit();
+    }
+
+}
+                                </code>
+                            </pre>
+                        <br><br>
+                        <hr>
+                        <pre>
+                              <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ElementClickInterceptedExceptionExample1 {
+
+    public static void main(String[] args) {
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://demoqa.com/");
+        WebElement bookStoreApplicationBtn = driver.findElement(By.xpath("//*[text()='Book Store Application']"));
+        JavascriptExecutor jse = ((JavascriptExecutor)driver);
+        jse.executeScript("arguments[0].scrollIntoView()", bookStoreApplicationBtn);
+        bookStoreApplicationBtn.click();
+        driver.quit();
+    }
+
+}
+                              </code>
+                            </pre>
+                        <h2>ElementNotInteractableException</h2>
+                        <p>Thrown to indicate that although a WebElement is present on the DOM, it is not in a state
+                            that can be interacted with. This includes an element that is not displayed or whose center
+                            point can not be scrolled into the viewport.</p>
+                        <pre>
+                                <code>
+Package org.openqa.selenium
+Class ElementNotInteractableException
+
+    java.lang.Object
+        java.lang.Throwable
+            java.lang.Exception
+                java.lang.RuntimeException
+                    org.openqa.selenium.WebDriverException
+                        org.openqa.selenium.InvalidElementStateException
+                            org.openqa.selenium.ElementNotInteractableException
+                                </code>
+                            </pre>
+                        <p>For This Exception we can follow the above methods.</p>
+                        <h2>InvalidElementStateException</h2>
+                        <pre>
+                                <code>
+Package org.openqa.selenium
+Class InvalidElementStateException
+
+    java.lang.Object
+        java.lang.Throwable
+            java.lang.Exception
+                java.lang.RuntimeException
+                    org.openqa.selenium.WebDriverException
+                        org.openqa.selenium.InvalidElementStateException 
+                                </code>
+                            </pre>
+                        <p>Indicates that a WebElement is in a state that means actions cannot be performed with it. For
+                            example, attempting to clear an element that isn’t both editable and resettable.</p>
+                        <img src="./images/Screenshot_2022-08-14_12-36-59.png" alt="InvalidElementStateException"
+                            width="100%">
+                        <p>In the above ficture there is Click Me button when ever i tried to use clear method instead
+                            of click method we will get InvalidElementStateException.</p>
+                        <pre>
+                              <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample3 {
+
+    public static void main(String[] args) {
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://demoqa.com/buttons");
+        WebElement interactionsBtn = driver.findElement(By.xpath("//button[text()='Click Me']"));
+        interactionsBtn.clear();
+        driver.quit();
+    }
+
+}
+                              </code>
+                            </pre>
+                        <img src="./images/Screenshot_2022-08-14_12-39-59.png" alt="InvalidElementStateException"
+                            width="100%">
+                        <pre>
+                              <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample3 {
+
+    public static void main(String[] args) {
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://demoqa.com/buttons");
+        WebElement interactionsBtn = driver.findElement(By.xpath("//button[text()='Click Me']"));
+        interactionsBtn.click();
+        driver.quit();
+    }
+
+}
+                              </code>
+                            </pre>
+                        <img src="./images/Screenshot_2022-08-14_12-45-10.png" alt="InvalidElementStateException"
+                            width="100%">
+                        <p>When we try to perform sendKeys on password field then it will throw
+                            InvalidElementStateException in Selenium Webdriver.</p>
+                        <pre>
+                              <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample4 {
+
+    public static void main(String[] args) throws Exception {
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("http://seleniumpractise.blogspot.com/2016/09/how-to-work-with-disable-textbox-or.html");
+        WebElement interactionsBtn = driver.findElement(By.id("pass"));
+        interactionsBtn.sendKeys("password123");
+        driver.quit();
+    }
+
+}
+                              </code>
+                            </pre>
+                        <p>The solution javascript</p>
+                        <pre>
+                              <code>
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample4 {
+
+    public static void main(String[] args) throws Exception {
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("http://seleniumpractise.blogspot.com/2016/09/how-to-work-with-disable-textbox-or.html");
+
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("document.getElementById('pass').value = 'password123';");
+        
+        Thread.sleep(2000);
+        
+        driver.quit();
+    }
+
+}
+                              </code>
+                            </pre>
+                        <br><br>
+                        <pre>
+                              <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample4 {
+
+    public static void main(String[] args) throws Exception {
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("http://seleniumpractise.blogspot.com/2016/09/how-to-work-with-disable-textbox-or.html");
+        WebElement interactionsBtn = driver.findElement(By.id("pass"));
+        Select select = new Select(interactionsBtn);
+        select.selectByIndex(0);
+
+        Thread.sleep(2000);
+        
+        driver.quit();
+    }
+
+}
+                              </code>
+                            </pre>
+                        <img src="./images/Screenshot_2022-08-14_12-57-45.png" alt="UnexpectedTagNameException"
+                            width="100%">
+                        <hr>
+                        <h2>NoAlertPresentException</h2>
+                        <pre>
+                                <code>
+Package org.openqa.selenium
+Class NoAlertPresentException
+
+    java.lang.Object
+        java.lang.Throwable
+            java.lang.Exception
+                java.lang.RuntimeException
+                    org.openqa.selenium.WebDriverException
+                        org.openqa.selenium.NotFoundException
+                            org.openqa.selenium.NoAlertPresentException 
+                                </code>
+                            </pre>
+                        <p>Indicates that a user has tried to access an alert when one is not present.</p>
+                        <img src="./images/Screenshot_2022-08-14_13-03-30.png" alt="NoAlertPresentException"
+                            width="100%">
+                        <p>In the above page there is no alert but i going accept the alert button</p>
+                        <pre>
+                              <code>
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample5 {
+
+    public static void main(String[] args){
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://www.w3schools.com/");
+        driver.switchTo().alert().accept();
+        driver.quit();
+    }
+}
+                              </code>
+                            </pre>
+                        <img src="./images/Screenshot_2022-08-14_13-06-41.png" alt="NoAlertPresentException"
+                            width="100%">
+                        <hr>
+                        <img src="./images/Screenshot_2022-08-14_13-14-21.png" alt="NoAlertPresentException"
+                            width="100%">
+                        <p>In the above picture there is second click me button when we click that button alert will
+                            apper after some time but whever i tried to accet ommediately we will get get error.</p>
+                        <pre>
+                            <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample6 {
+
+    public static void main(String[] args){
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://demoqa.com/alerts");
+        driver.findElement(By.id("timerAlertButton")).click();
+        driver.switchTo().alert().accept();
+        driver.quit();
+    }
+
+}
+                            </code>
+                        </pre>
+                        <img src="./images/Screenshot_2022-08-14_13-17-21.png" alt="NoAlertPresentException"
+                            width="100%">
+                        <pre>
+                              <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample6 {
+
+    public static void main(String[] args){
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://demoqa.com/alerts");
+        driver.findElement(By.id("timerAlertButton")).click();
+        new WebDriverWait(driver, 10).until(ExpectedConditions.alertIsPresent());
+        driver.switchTo().alert().accept();
+        driver.quit();
+    }
+
+}
+                              </code>
+                            </pre>
+                        <h2>NoSuchFrameException</h2>
+                        <p>Thrown by WebDriver.switchTo().frame(int frameIndex) and WebDriver.switchTo().frame(String
+                            frameName).</p>
+                        <p>HTML Iframes </p>
+                        <p>An HTML iframe is used to display a web page within a web page.</p>
+                        <img src="./images/Screenshot_2022-08-14_14-01-13.png" alt="NoSuchFrameException" width="100%">
+                        <p>In the above picture there is try it button now iam going click that button.</p>
+                        <pre>
+                              <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample7 {
+
+    public static void main(String[] args){
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_alert");
+        driver.findElement(By.xpath("//button[text()='Try it']")).click();
+        new WebDriverWait(driver, 10).until(ExpectedConditions.alertIsPresent());
+        driver.switchTo().alert().accept();
+        driver.quit();
+    }
+
+}
+                              </code>
+                            </pre>
+                        <img src="./images/Screenshot_2022-08-14_14-06-54.png" alt="NoSuchElementException"
+                            width="100%">
+                        <p>Even the button xpath is correct i got NoSuchElementException why because element is inside
+                            the frame first we have to move insde the frame then click. </p>
+                        <p>If you enter a wrong frame name or id element you will get NoSuchFrameException</p>
+                        <p>check the above image frame name is "iframeResult" but purposely iam enetring wrong name</p>
+                        <pre>
+                              <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample7 {
+
+    public static void main(String[] args){
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_alert");
+        driver.switchTo().frame("iframeResult2");//Wring frame name
+        driver.findElement(By.xpath("//button[text()='Try it']")).click();
+        new WebDriverWait(driver, 10).until(ExpectedConditions.alertIsPresent());
+        driver.switchTo().alert().accept();
+        driver.quit();
+    }
+
+}
+                              </code>
+                            </pre>
+                        <img src="./images/Screenshot_2022-08-14_14-13-13.png" alt="NoSuchFrameException" width="100%">
+                        <pre>
+                              <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample7 {
+
+    public static void main(String[] args){
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_alert");
+        driver.switchTo().frame("iframeResult");//correct frame name
+        driver.findElement(By.xpath("//button[text()='Try it']")).click();
+        new WebDriverWait(driver, 10).until(ExpectedConditions.alertIsPresent());
+        driver.switchTo().alert().accept();
+        driver.quit();
+    }
+
+}
+                              </code>
+                            </pre>
+                        <img src="./images/Screenshot_2022-08-14_14-19-14.png" alt="NoSuchFrameException" width="100%">
+                        <p>If you want het h1 tag text from the above screen it inside in nested frame so we have to
+                            switch two frames</p>
+                        <pre>
+                              <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample7 {
+
+    public static void main(String[] args){
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://www.w3schools.com/html/tryit.asp?filename=tryhtml_iframe_height_width");
+        driver.switchTo().frame("iframeResult");//outer frame
+        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@src='demo_iframe.htm']")));//inner frame
+        System.out.println(driver.findElement(By.xpath("//h1[text()='This page is displayed in an iframe']")).getText());
+
+        driver.quit();
+    }
+
+}
+                              </code>
+                            </pre>
+                        <h2>NoSuchSessionException</h2>
+                        <p>Thrown by any command being called after WebDriver.quit().</p>
+                        <pre>
+                                <code>
+Package org.openqa.selenium
+Class NoSuchSessionException
+
+    java.lang.Object
+        java.lang.Throwable
+            java.lang.Exception
+                java.lang.RuntimeException
+                    org.openqa.selenium.WebDriverException
+                        org.openqa.selenium.NoSuchSessionException
+                                </code> 
+                            </pre>
+                        <pre>
+                              <code>
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample7 {
+
+    public static void main(String[] args){
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://www.w3schools.com/");
+        driver.quit();
+        driver.getCurrentUrl(); //driver already closed
+    }
+
+}
+                              </code>
+                            </pre>
+                        <img src="./images/Screenshot_2022-08-14_14-29-37.png" alt="NoSuchSessionException"
+                            width="100%">
+                        <h2>NoSuchWindowException</h2>
+                        <pre>
+                                <code>
+Package org.openqa.selenium
+Class NoSuchWindowException
+
+    java.lang.Object
+        java.lang.Throwable
+            java.lang.Exception
+                java.lang.RuntimeException
+                    org.openqa.selenium.WebDriverException
+                        org.openqa.selenium.NotFoundException
+                            org.openqa.selenium.NoSuchWindowException
+                                </code> 
+                            </pre>
+                        <p>Thrown by WebDriver.switchTo().window(String windowName).</p>
+                        <p>If you are to swith thw windo which is not available or wrong window/tab you will get
+                            NoSuchWindowException</p>
+                        <pre>
+                              <code>
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample8 {
+
+    public static void main(String[] args){
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://www.w3schools.com/");
+        driver.switchTo().window("solomonwindow"); //wrong windo name
+        driver.quit();
+    }
+
+}
+                              </code>
+                            </pre>
+                        <img src="./images/Screenshot_2022-08-14_14-38-11.png" alt="NoSuchWindowException" width="100%">
+                        <h2>StaleElementReferenceException</h2>
+                        <pre>
+                                <code>
+Package org.openqa.selenium
+Class StaleElementReferenceException
+
+    java.lang.Object
+        java.lang.Throwable
+            java.lang.Exception
+                java.lang.RuntimeException
+                    org.openqa.selenium.WebDriverException
+                        org.openqa.selenium.StaleElementReferenceException
+                                </code> 
+                            </pre>
+                        <p>Indicates that a reference to an element is now "stale" --- the element no longer appears on
+                            the DOM of the page.</p>
+                        <p>Stale means old, decayed, no longer fresh. Stale Element means an old element or no longer
+                            available element. Assume there is an element that is found on a web page referenced as a
+                            WebElement in WebDriver. If the DOM changes then the WebElement goes stale. If we try to
+                            interact with an element which is staled then the StaleElementReferenceException is thrown.
+                        </p>
+                        <h3>Common Causes</h3>
+                        <p>A stale element reference exception is thrown in one of two cases, the first being more
+                            common than the second:</p>
+                        <ul>
+                            <li>The element has been deleted entirely.</li>
+                            <li>The element is no longer attached to the DOM.</li>
+                        </ul>
+                        <h4>The Element has been deleted</h4>
+                        <p>The most frequent cause of this is that page that the element was part of has been refreshed,
+                            or the user has navigated away to another page. A less common, but still common cause is
+                            where a JS library has deleted an element and replaced it with one with the same ID or
+                            attributes. In this case, although the replacement elements may look identical they are
+                            different; the driver has no way to determine that the replacements are actually what's
+                            expected.</p>
+                        <p>If the element has been replaced with an identical one, a useful strategy is to look up the
+                            element again. If you do this automatically, be aware that you may well be opening your
+                            tests to a race condition and potential flakiness. For example, given the code:</p>
+                        <pre>
+                              <code>
+WebElement element = driver.findElement(By.id("example"));
+String text = element.getText();
+                              </code>
+                            </pre>
+                        <p>If element.getText returns before the element is removed from the DOM you'll get one result.
+                            If, however, the element is removed from the DOM and your code does an automatic lookup for
+                            the element again before element.getText a different result may be returned.</p>
+                        <h4>The Element is not Attached to the DOM</h4>
+                        <p>A common technique used for simulating a tabbed UI in a web app is to prepare DIVs for each
+                            tab, but only attach one at a time, storing the rest in variables. In this case, it's
+                            entirely possible that your code might have a reference to an element that is no longer
+                            attached to the DOM (that is, that has an ancestor which is document.documentElement).</p>
+                        <p>If WebDriver throws a stale element exception in this case, even though the element still
+                            exists, the reference is lost. You should discard the current reference you hold and replace
+                            it, possibly by locating the element again once it is attached to the DOM.</p>
+                        <h4>How To Overcome Stale Element Reference Exception in Selenium:</h4>
+                        <h5>Solution 1: Refreshing the web page</h5>
+                        <pre>
+                              <code>
+driver.navigate().refersh();
+driver.findElement(By.xpath("xpath here")).click();
+                              </code>
+                            </pre>
+                        <h5>Solution 2: Using Try Catch Block</h5>
+                        <pre>
+                              <code>
+// Using for loop, it tries for 3 times. 
+// If the element is located for the first time then it breaks from the for loop nad comeout of the loop
+for(int i=0; i<=2;i++){
+  try{
+     driver.findElement(By.xpath("xpath here")).click();
+     break;
+  }
+  catch(Exception e){
+     Sysout(e.getMessage());
+  }
+}
+                              </code>
+                            </pre>
+                        <h5>Solution 3: Using ExpectedConditions.refreshed</h5>
+                        <p>Wait for the element till it gets available</p>
+                        <pre>
+                                <code>
+wait.until(ExpectedConditions.presenceOfElementLocated(By.id("table")));
+                                </code>
+                              </pre>
+                        <p>Use ExpectedConditions.refreshed to avoid StaleElementReferenceException and retrieve the
+                            element again. This method updates the element by redrawing it and we can access the
+                            referenced element.</p>
+                        <pre>
+                                <code>
+wait.until(ExpectedConditions.refreshed(ExpectedConditions.stalenessOf("table")));
+                                </code>
+                              </pre>
+                        <h5>Solution 4: Using POM</h5>
+                        <p>We can handle Stale Element Reference Exception by using POM.</p>
+                        <p>We could avoid StaleElementException using POM. In POM, we use initElements() method which
+                            loads the element but it won’t initialize elements. initElements() takes latest address. It
+                            initializes during run time when we try to perform any action on an element. This process is
+                            also known as Lazy Initialization.</p>
+                        <pre>
+                                <code>
+public boolean retryingFindClick(By by) {
+  boolean result = false;
+  int attempts = 0;
+  while(attempts < 2) {
+      try {
+        driver.findElement(by).click();
+        result = true;
+        break;
+      } catch(StaleElementException e) {
+      }
+      attempts++;
+  }
+  return result;
+}
+                                </code>
+                              </pre>
+                        <pre>
+                                <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample9 {
+
+    public static void main(String[] args){
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://www.w3schools.com/");
+        WebElement w3loginbtn = driver.findElement(By.id("w3loginbtn"));
+        System.out.println(w3loginbtn.getText());
+        driver.navigate().refresh();
+        System.out.println(w3loginbtn.getText());
+        driver.quit();
+    }
+
+}
+                                </code>
+                              </pre>
+                        <img src="./images/Screenshot_2022-08-14_14-58-51.png" alt="StaleElementReferenceException"
+                            width="100%">
+                        <pre>
+                                <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExceptionExample9 {
+
+    public static void main(String[] args){
+        
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://www.w3schools.com/");
+        WebElement w3loginbtn;
+        w3loginbtn = driver.findElement(By.id("w3loginbtn"));
+        System.out.println(w3loginbtn.getText());
+        driver.navigate().refresh();
+        try {
+            System.out.println(w3loginbtn.getText());
+        }catch (StaleElementReferenceException e) {
+            w3loginbtn = driver.findElement(By.id("w3loginbtn"));
+            System.out.println(w3loginbtn.getText());
+        }
+        driver.quit();
+    }
+
+}
+                                </code>
+                              </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <!-- Footer-->
+    <footer class="border-top">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2022</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

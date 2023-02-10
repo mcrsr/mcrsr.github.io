@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Clean Blog - Start Bootstrap Theme</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1>Man must explore, and this is exploration at its greatest</h1>
+                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+                        <span class="meta">
+                            Posted by
+                            <a href="#!">Start Bootstrap</a>
+                            on August 24, 2022
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Post Content-->
+    <article class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div id="ConnecttoMySQLwithJDBCdriver">
+                        <h1>Connect to MySQL with JDBC driver</h1>
+                        <p>The MySQL JDBC driver is available in the Maven central repository.</p>
+                        <pre>
+                                <code>
+                        &lt;dependency&gt;
+                        &lt;groupId&gt;mysql&lt;/groupId&gt;
+                        &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+                        &lt;version&gt;8.0.30&lt;/version&gt;
+                        &lt;/dependency&gt;
+                                </code>
+                            </pre>
+                        <pre>
+                                <code>
+                        import java.sql.Connection;
+                        import java.sql.DriverManager;
+                        import java.sql.SQLException;
+                        
+                        public class JDBCExample {
+                        
+                        public static void main(String[] args) {
+                        
+                        try(Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", "root", "ranga123")){
+                            if(conn != null) System.out.println("Connected to the database!");
+                            else System.out.println("Failed to make connection!");
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        
+                        }
+                        
+                        }
+                                </code>
+                            </pre>
+                        <p>mysql table structure</p>
+                        <pre>
+                                <code>
+                        CREATE TABLE test(
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        gender CHAR NOT NULL CHECK(gender in ('f','F','m','M','o','O')),
+                        name VARCHAR(255) NOT NULL,
+                        address TEXT NOT NULL,
+                        age TINYINT NOT NULL,
+                        phone INT NOT NULL,
+                        salary DOUBLE NOT NULL,
+                        dob DATE NOT NULL,
+                        createdat DATETIME DEFAULT CURRENT_DATE,
+                        updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+                        );
+                        
+                        ALTER TABLE test MODIFY phone BIGINT NOT NULL;
+                        
+                        insert into test(gender,name,address,age,phone,salary,dob) values('f','john sena','usa',41,9630125478,96321458.15,'1985-1-12');
+                        insert into test(gender,name,address,age,phone,salary,dob) values('m','john Doe','usa',41,9656125478,96661458.15,'1985-1-12');
+                        insert into test(gender,name,address,age,phone,salary,dob) values('m','john Jenny','canada',42,6666125478,62361458.15,'1985-1-12');
+                                </code>
+                            </pre>
+                        <pre>
+                                <code>
+                        import java.sql.Connection;
+                        import java.sql.Date;
+                        import java.sql.DriverManager;
+                        import java.sql.PreparedStatement;
+                        import java.sql.ResultSet;
+                        import java.sql.SQLException;
+                        import java.sql.Timestamp;
+                        
+                        class Employee{
+                        
+                        private String name;
+                        private int age;
+                        private Date dob;
+                        private Timestamp createdAt;
+                        private Double salary;
+                        private long phone;
+                        private String gender;
+                        
+                        public String getName() {
+                        return name;
+                        }
+                        public void setName(String name) {
+                        this.name = name;
+                        }
+                        public int getAge() {
+                        return age;
+                        }
+                        public void setAge(int age) {
+                        this.age = age;
+                        }
+                        public Date getDob() {
+                        return dob;
+                        }
+                        public void setDob(Date dob) {
+                        this.dob = dob;
+                        }
+                        public Timestamp getCreatedAt() {
+                        return createdAt;
+                        }
+                        public void setCreatedAt(Timestamp createdAt) {
+                        this.createdAt = createdAt;
+                        }
+                        public Double getSalary() {
+                        return salary;
+                        }
+                        public void setSalary(Double salary) {
+                        this.salary = salary;
+                        }
+                        public long getPhone() {
+                        return phone;
+                        }
+                        public void setPhone(long phone) {
+                        this.phone = phone;
+                        }
+                        public String getGender() {
+                        return gender;
+                        }
+                        public void setGender(String gender) {
+                        this.gender = gender;
+                        }
+                        
+                        
+                        
+                        }
+                        
+                        public class JDBCExample2 {
+                        
+                        public static void main(String[] args) {
+                        
+                        try(Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", "root", "ranga123")){
+                            if(conn != null) System.out.println("Connected to the database!");
+                            else System.out.println("Failed to make connection!");
+                            try {
+                                PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM test");
+                                ResultSet resultSet = preparedStatement.executeQuery();
+                                while(resultSet.next()) {
+                                    int id = resultSet.getInt("id");
+                                    int age = resultSet.getInt("age");
+                                    String gender = resultSet.getString("gender");
+                                    String name = resultSet.getString("name");
+                                    double salary = resultSet.getDouble("salary");
+                                    long phone = resultSet.getLong("phone");
+                                    Date dob = resultSet.getDate("dob");
+                                    Timestamp createdat = resultSet.getTimestamp("createdat");
+                                    
+                                    Employee john = new Employee();
+                                    john.setAge(age);
+                                    john.setCreatedAt(createdat);
+                                    john.setDob(dob);
+                                    john.setGender(gender);
+                                    john.setName(name);
+                                    john.setPhone(phone);
+                                    john.setSalary(salary);
+                                    
+                                    System.out.println("Name    : "+john.getName());
+                                    System.out.println("Age     : "+john.getAge());
+                                    System.out.println("Gender  : "+john.getGender());
+                                    System.out.println("Dob     : "+john.getDob());
+                                    System.out.println("Phone   : "+john.getPhone());
+                                    System.out.println("Salary  : "+john.getSalary());
+                                    System.out.println("CeatedAt: "+john.getSalary());
+                                    System.out.println("*********************************");
+                                }
+                            }catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        
+                        }
+                        }
+                                </code>
+                            </pre>
+                        <p>output like below</p>
+                        <pre>
+                                <code>
+                        Connected to the database!
+                        Name    : john sena
+                        Age     : 41
+                        Gender  : f
+                        Dob     : 1985-01-12
+                        Phone   : 9630125478
+                        Salary  : 9.632145815E7
+                        CeatedAt: 9.632145815E7
+                        *********************************
+                        Name    : john Doe
+                        Age     : 41
+                        Gender  : m
+                        Dob     : 1985-01-12
+                        Phone   : 9656125478
+                        Salary  : 9.666145815E7
+                        CeatedAt: 9.666145815E7
+                        *********************************
+                        Name    : john Jenny
+                        Age     : 42
+                        Gender  : m
+                        Dob     : 1985-01-12
+                        Phone   : 6666125478
+                        Salary  : 6.236145815E7
+                        CeatedAt: 6.236145815E7
+                        *********************************
+                        
+                                </code>
+                            </pre>
+                        <h6>Record Insertion</h6>
+                        <pre>
+                                <code>
+                        import java.sql.Connection;
+                        import java.sql.DriverManager;
+                        import java.sql.PreparedStatement;
+                        import java.sql.SQLException;
+                        
+                        public class JDBCExample3 {
+                        
+                        public static void main(String[] args) {
+                        
+                        try(Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", "root", "ranga123")){
+                            if(conn != null) System.out.println("Connected to the database!");
+                            else System.out.println("Failed to make connection!");
+                            
+                            PreparedStatement preparedStatement = conn.prepareStatement("insert into test(gender,name,address,age,phone,salary,dob) values('m','john kims','usa mexico',56,6667725478,6236458.15,'1982-10-12')");
+                            int resultSet = preparedStatement.executeUpdate();
+                            System.out.println(resultSet+" Record(s) inserted.");
+                            
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        
+                        }
+                        
+                        }
+                                </code>
+                            </pre>
+                        <p>output</p>
+                        <pre>
+                                <code>
+                        Connected to the database!
+                        1 Record(s) inserted.
+                                </code>
+                            </pre>
+                        <h6>REcord Updation</h6>
+                        <pre>
+                                <code>
+                        import java.sql.Connection;
+                        import java.sql.DriverManager;
+                        import java.sql.PreparedStatement;
+                        import java.sql.SQLException;
+                        
+                        public class JDBCExample4 {
+                        
+                        public static void main(String[] args) {
+                        
+                        try(Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", "root", "ranga123")){
+                            if(conn != null) System.out.println("Connected to the database!");
+                            else System.out.println("Failed to make connection!");
+                            
+                            PreparedStatement preparedStatement = conn.prepareStatement("update test set address='This is the new address' where phone=6667725478");
+                            int resultSet = preparedStatement.executeUpdate();
+                            System.out.println(resultSet+" Record(s) Updated.");
+                            
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        
+                        }
+                        
+                        }
+                                </code>
+                            </pre>
+                        <p>output</p>
+                        <pre>
+                                <code>
+                        Connected to the database!
+                        1 Record(s) Updated.
+                                </code>
+                            </pre>
+                        <pre>
+                                <code>
+                        import java.sql.Connection;
+                        import java.sql.DriverManager;
+                        import java.sql.PreparedStatement;
+                        import java.sql.SQLException;
+                        
+                        public class JDBCExample7 {
+                        
+                        public static void main(String[] args) {
+                        
+                        try(Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", "root", "ranga123")){
+                            if(conn != null) System.out.println("Connected to the database!");
+                            else System.out.println("Failed to make connection!");
+                            
+                            PreparedStatement preparedStatement = conn.prepareStatement("update test set address=? where name=?");
+                            preparedStatement.setString(1, "This is the new address");
+                            preparedStatement.setString(2, "john sena");
+                            int resultSet = preparedStatement.executeUpdate();
+                            System.out.println(resultSet+" Record(s) Updated.");
+                            
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        
+                        }
+                        
+                        }
+                                </code>
+                            </pre>
+                        <p>Record Deletion</p>
+                        <pre>
+                                <code>
+                        import java.sql.Connection;
+                        import java.sql.DriverManager;
+                        import java.sql.PreparedStatement;
+                        import java.sql.SQLException;
+                        
+                        public class JDBCExample5 {
+                        
+                        public static void main(String[] args) {
+                        
+                        try(Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", "root", "ranga123")){
+                            if(conn != null) System.out.println("Connected to the database!");
+                            else System.out.println("Failed to make connection!");
+                            
+                            PreparedStatement preparedStatement = conn.prepareStatement("delete from  test  where phone=6667725478");
+                            int resultSet = preparedStatement.executeUpdate();
+                            System.out.println(resultSet+" Record(s) Deleted.");
+                            
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        
+                        }
+                        
+                        }
+                                </code>
+                            </pre>
+                        <p>output</p>
+                        <pre>
+                                <code>
+                        Connected to the database!
+                        1 Record(s) Deleted.
+                                </code>
+                            </pre>
+                        <pre>
+                                <code>
+                        import java.sql.Connection;
+                        import java.sql.DriverManager;
+                        import java.sql.PreparedStatement;
+                        import java.sql.SQLException;
+                        
+                        public class JDBCExample6 {
+                        
+                        public static void main(String[] args) {
+                        
+                        try(Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", "root", "ranga123")){
+                            if(conn != null) System.out.println("Connected to the database!");
+                            else System.out.println("Failed to make connection!");
+                            
+                            PreparedStatement preparedStatement = conn.prepareStatement("delete from  test  where phone=?");
+                            preparedStatement.setLong(1, 9656125478l);
+                            int resultSet = preparedStatement.executeUpdate();
+                            System.out.println(resultSet+" Record(s) Deleted.");
+                            
+                            
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        
+                        }
+                        
+                        }
+                                </code>
+                            </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <!-- Footer-->
+    <footer class="border-top">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2022</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

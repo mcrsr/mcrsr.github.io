@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Clean Blog - Start Bootstrap Theme</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1>Man must explore, and this is exploration at its greatest</h1>
+                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+                        <span class="meta">
+                            Posted by
+                            <a href="#!">Start Bootstrap</a>
+                            on August 24, 2022
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Post Content-->
+    <article class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div id="highlightWebElement">
+                        <h1>How to highlight WebElement using JavaScriptExecutor in selenium java</h1>
+                        <pre>
+                            <code>
+import java.io.File;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Rough {
+
+public static void main(String[] args) throws Exception{
+
+WebDriverManager.chromedriver().setup();
+WebDriver driver = new ChromeDriver();
+driver.manage().window().maximize();
+driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+driver.get("https://www.w3schools.com/");
+File beforeHighlight = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+FileUtils.copyFile(beforeHighlight, new File("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/beforeHighlight.jpg"));
+WebElement heading = driver.findElement(By.xpath("//h1[text()='Learn to Code']"));
+JavascriptExecutor jse = ((JavascriptExecutor)driver);
+jse.executeScript("arguments[0].style.border='5px solid white'", heading);
+File afterHighlight = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+FileUtils.copyFile(beforeHighlight, new File("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/afterHighlight.jpg"));
+driver.quit();
+}
+}
+                            </code>
+                        </pre>
+                        <p>If you run the above program we will get two Screenshots before and after highlighting the
+                            elemnt.</p>
+                        <figure>
+                            <img src="./images/beforeHighlight.jpg" alt="before highlight element" width="100%">
+                            <figcaption>Fig: Before highlighting the element</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="./images/afterHighlight.jpg" alt="after highlight element" width="100%">
+                            <figcaption>Fig: After highlighting the element</figcaption>
+                        </figure>
+                    </div>
+                    <div id="seleniumArchitecture">
+                        <h1>Selenium WebDriver Architecure(selenium 3)</h1>
+                        <iframe width="100%" height="450" src="https://www.youtube.com/embed/Z6yTeEqgJ1I"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                        <a
+                            href="https://naveenautomationlabs.com/selenium-webdriver-architecture-overview-webdriver-apis/">Selenium
+                            WebDriver Architecure(selenium 3)</a>
+                    </div>
+
+                    <div id="What_is_the_DOM">
+                        <h1>What is the DOM</h1>
+                        <p> The Document Object Model (DOM) is a programming interface for web documents. It represents
+                            the page so that programs can change the document structure, style, and content. The DOM
+                            represents the document as nodes and objects; that way, programming languages can interact
+                            with the page. </p>
+                        <p>A web page is a document that can be either displayed in the browser window or as the HTML
+                            source. In both cases, it is the same document but the Document Object Model (DOM)
+                            representation allows it to be manipulated. As an object-oriented representation of the web
+                            page, it can be modified with a scripting language such as JavaScript.</p>
+                        <p>DOM is a way to represent the webpage in a structured hierarchical way so that it will become
+                            easier for programmers and users to glide through the document. With DOM, we can easily
+                            access and manipulate tags, IDs, classes, Attributes, or Elements of HTML using commands or
+                            methods provided by the Document object. Using DOM, the JavaScript gets access to HTML as
+                            well as CSS of the web page and can also add behavior to the HTML elements. so basically
+                            Document Object Model is an API that represents and interacts with HTML or XML documents.
+                        </p>
+                        <h4>Why DOM is required?</h4>
+                        <p>HTML is used to structure the web pages and Javascript is used to add behavior to our web
+                            pages. When an HTML file is loaded into the browser, the javascript can not understand the
+                            HTML document directly. So, a corresponding document is created(DOM). DOM is basically the
+                            representation of the same HTML document but in a different format with the use of objects.
+                            Javascript interprets DOM easily i.e javascript can not understand the
+                            tags(&lt;h1&gt;H&lt;/h1&gt;) in HTML document but can understand object h1 in DOM. Now,
+                            Javascript can access each of the objects (h1, p, etc) by using different functions.</p>
+                        <img src="./images/Dom-Tree-of-An-Example-Web-Page.png" alt="html dom tree" width="100%">
+                    </div>
+                    <div id="SeleniumHeadlessBrowserTesting">
+                        <h1>Selenium Headless Browser Testing</h1>
+                        <pre>
+                            <code>
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class HeadlessBrowserTest {
+
+    @Test
+    public void testChromeBrowser() {
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options  = new ChromeOptions();
+        options.setHeadless(true);
+        WebDriver driver = new ChromeDriver(options);
+        driver.get("https://www.google.com/");
+        Assert.assertEquals(driver.getTitle(), "Google");
+        driver.quit();
+    }
+    
+    @Test
+    public void testFirefoxBrowser() {
+        WebDriverManager.firefoxdriver().setup();
+        FirefoxOptions options = new FirefoxOptions();
+        options.setHeadless(true);
+        WebDriver driver = new FirefoxDriver(options);
+        driver.get("https://www.google.com/");
+        Assert.assertEquals(driver.getTitle(), "Google");
+        driver.quit();
+    }
+    
+    
+}
+                            </code>
+                        </pre>
+                    </div>
+
+                    <div id="HowtohandleSSLcertificateerrorusingSeleniumWebDriver">
+                        <h1>How to handle SSL certificate error using Selenium WebDriver?</h1>
+                        <pre>
+                            <code>
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class SSLCertificateExample {
+
+    @Test
+    public void testChromeBrowser() {
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options  = new ChromeOptions();
+        options.setAcceptInsecureCerts(true);
+        WebDriver driver = new ChromeDriver(options);
+        driver.get("https://expired.badssl.com/");
+        Assert.assertEquals(driver.getTitle(), "expired.badssl.com");
+        driver.quit();
+    }
+    
+    @Test
+    public void testFirefoxBrowser() {
+        WebDriverManager.firefoxdriver().setup();
+        FirefoxOptions options = new FirefoxOptions();
+        options.setAcceptInsecureCerts(true);
+        WebDriver driver = new FirefoxDriver(options);
+        driver.get("https://expired.badssl.com/");
+        Assert.assertEquals(driver.getTitle(), "expired.badssl.com");
+        driver.quit();
+    }
+}
+                            </code>
+                        </pre>
+                    </div>
+
+                    <div id="ngWebDriver">
+                        <h4><a href="https://github.com/paul-hammant/ngWebDriver">ngWebDriver</a></h4>
+                    </div>
+
+                    <div id="Howtocheckpostgresuserandpassword">
+                        <h1>How to check postgres user and password?</h1>
+                        <p>Open a Terminal and do sudo su postgres. Now, after entering your admin password, you are
+                            able to launch psql and do</p>
+                        <pre>
+                            <code>
+CREATE USER yourname WITH SUPERUSER PASSWORD 'yourpassword';
+                            </code>
+                        </pre>
+                        <p>This creates a new admin user. If you want to list the existing users, you could also do </p>
+                        <pre>
+                            <code>
+\du
+                            </code>
+                        </pre>
+                        <p>to list all users and then </p>
+                        <pre>
+                            <code>
+ALTER USER yourusername WITH PASSWORD 'yournewpass';
+                            </code>
+                        </pre>
+                    </div>
+
+                    <div>
+                        <pre>
+                            <code>
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.Assert;
+import org.testng.AssertJUnit;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Example5 {
+
+    public WebDriver driver;
+    public Actions actions;
+    public JavascriptExecutor jse;
+    
+    @BeforeMethod
+    public void setUp() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get("https://jqueryui.com/");
+        actions = new Actions(driver);
+        jse = ((JavascriptExecutor)driver);
+        
+    }
+    
+    @Test
+    public void dragableTest() {
+        driver.findElement(By.xpath("//*[contains(text(),'Draggable')]")).click();
+        WebElement iframe = driver.findElement(By.xpath("//iframe[@class='demo-frame']"));
+        driver.switchTo().frame(iframe);
+        WebElement draggable = driver.findElement(By.id("draggable"));
+        Point beforeDraggingElementLocation = draggable.getLocation();
+        actions.clickAndHold(draggable).moveByOffset(draggable.getLocation().getX()+10, draggable.getLocation().getY()+10).perform();
+        Point afterDraggingElementLocation = draggable.getLocation();
+        Assert.assertFalse(beforeDraggingElementLocation.equals(afterDraggingElementLocation));
+    }
+    
+    @Test
+    public void droppableTest() throws Exception {
+        driver.findElement(By.xpath("//*[contains(text(),'Droppable')]")).click();
+        WebElement iframe = driver.findElement(By.xpath("//iframe[@class='demo-frame']"));
+        driver.switchTo().frame(iframe);
+        WebElement draggable = driver.findElement(By.id("draggable"));
+        WebElement droppable = driver.findElement(By.id("droppable"));
+        System.out.println("Before dragging location: "+draggable.getLocation());
+        Thread.sleep(2000);
+        actions.dragAndDrop(draggable, droppable).perform();
+        Thread.sleep(2000);
+        System.out.println("After dragging location: "+draggable.getLocation());
+    }
+    
+    @Test
+    public void resizableTest() throws Exception {
+        driver.findElement(By.xpath("//*[contains(text(),'Resizable')]")).click();
+        WebElement iframe = driver.findElement(By.xpath("//iframe[@class='demo-frame']"));
+        driver.switchTo().frame(iframe);
+        WebElement resizableElement = driver.findElement(By.xpath("//*[contains(@class,'ui-icon-gripsmall-diagonal-se')]"));
+        WebElement resizable = driver.findElement(By.id("resizable"));
+        System.out.println("Before size: "+resizable.getSize());
+        Thread.sleep(2000);
+        actions.clickAndHold(resizableElement).moveByOffset(resizableElement.getLocation().getX()+15, resizableElement.getLocation().getY()+20).perform();
+        Thread.sleep(2000);
+        System.out.println("After size: "+resizable.getSize());
+    }
+    
+    @Test
+    public void selectableTest() throws Exception {
+        driver.findElement(By.xpath("//*[contains(text(),'Selectable')]")).click();
+        WebElement iframe = driver.findElement(By.xpath("//iframe[@class='demo-frame']"));
+        driver.switchTo().frame(iframe);
+        WebElement item1 = driver.findElement(By.xpath("//*[@id='selectable']//*[text()='Item 1']"));
+        WebElement item3 = driver.findElement(By.xpath("//*[@id='selectable']//*[text()='Item 3']"));
+        WebElement item5 = driver.findElement(By.xpath("//*[@id='selectable']//*[text()='Item 5']"));
+        WebElement item7 = driver.findElement(By.xpath("//*[@id='selectable']//*[text()='Item 7']"));
+        Thread.sleep(2000);
+        actions.keyDown(Keys.CONTROL).click(item1).click(item3).click(item5).click(item7).keyUp(Keys.CONTROL).perform();
+        Thread.sleep(2000);
+    }
+    
+    @Test(enabled = false)
+    public void sortableTest() throws Exception {
+        driver.findElement(By.xpath("//*[contains(text(),'Sortable')]")).click();
+        WebElement iframe = driver.findElement(By.xpath("//iframe[@class='demo-frame']"));
+        driver.switchTo().frame(iframe);
+        WebElement item2 = driver.findElement(By.xpath("//*[@id='sortable']//*[text()='Item 2']"));
+        Thread.sleep(2000);
+        actions.moveToElement(item2).clickAndHold().moveByOffset(0, item2.getLocation().getY()+50).release().perform();
+        Thread.sleep(2000);
+    }
+    
+    @Test
+    public void accordionTest() throws Exception {
+        driver.findElement(By.xpath("//*[text()='Accordion']")).click();
+        WebElement iframe = driver.findElement(By.xpath("//iframe[@class='demo-frame']"));
+        driver.switchTo().frame(iframe);
+        WebElement item1 = driver.findElement(By.xpath("//h3[@id='ui-id-1']"));
+        WebElement item2 = driver.findElement(By.xpath("//h3[@id='ui-id-3']"));
+        WebElement item3 = driver.findElement(By.xpath("//h3[@id='ui-id-5']"));
+        WebElement item4 = driver.findElement(By.xpath("//h3[@id='ui-id-7']"));
+        Thread.sleep(1000);
+        item2.click();
+        Thread.sleep(1000);
+        item3.click();
+        Thread.sleep(1000);
+        item4.click();
+        Thread.sleep(1000);
+        item3.click();
+        Thread.sleep(1000);
+        item2.click();
+        Thread.sleep(1000);
+        item1.click();
+        Thread.sleep(1000);
+    }
+    
+    @Test
+    public void autocompleteTest() throws Exception {
+        driver.findElement(By.xpath("//*[text()='Autocomplete']")).click();
+        WebElement iframe = driver.findElement(By.xpath("//iframe[@class='demo-frame']"));
+        driver.switchTo().frame(iframe);
+        WebElement tags = driver.findElement(By.id("tags"));
+        Thread.sleep(1000);
+        tags.sendKeys("a");
+        Thread.sleep(1000);
+        driver.findElement(By.id("ui-id-2")).click();
+        Thread.sleep(1000);
+    }
+    
+    @Parameters({"day","month","year","expected"})
+    @Test(enabled = true)
+    public void datepickerTest(@Optional("2") String day,@Optional("March") String month,@Optional("2022") String year,@Optional("03/02/2022") String expected) throws Exception {
+        driver.findElement(By.xpath("//*[text()='Datepicker']")).click();
+        WebElement iframe = driver.findElement(By.xpath("//iframe[@class='demo-frame']"));
+        driver.switchTo().frame(iframe);
+        WebElement datepicker = driver.findElement(By.id("datepicker"));
+        datepicker.click();
+        while(true) {
+driver.findElement(By.xpath("//*[@title='Prev']")).click();
+if(driver.findElement(By.xpath("//*[@class='ui-datepicker-title']")).getText().contains(month) && driver.findElement(By.xpath("//*[@class='ui-datepicker-title']")).getText().contains(year)) {
+    
+    for(int i=1;i<=5;i++) {
+        for(int j=1;j<=7;j++) {
+            if(driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/table/tbody/tr["+i+"]/td["+j+"]")).getText().equalsIgnoreCase(day)) {
+                driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/table/tbody/tr["+i+"]/td["+j+"]")).click();
+                break;
+            }
+        }
+    }
+    
+    break;
+}
+        }
+        String date =(String)jse.executeScript("return arguments[0].value",datepicker);
+        System.out.println("Date: "+date);
+        AssertJUnit.assertEquals(date, expected);
+    }
+    
+    
+    @AfterMethod
+    public void tearDown() {
+        driver.quit();
+    }
+    
+}
+                            </code>
+                        </pre>
+                    </div>
+
+                    <div id="flakytest ">
+                        <h1>flaky test </h1>
+                        <p>A ﬂaky test is an analysis of web application code that fails to produce the same result each
+                            time the same analysis is run. Whenever new code is written to develop or update computer
+                            software, a web page or an app, it needs to be tested throughout the development process to
+                            make sure the application does what it’s supposed to do when it’s released for use.
+                            Logically, when put through the same test over and over, the code will produce the same
+                            result -- the application will either work properly every time, thus passing the test, or
+                            fail to work properly every time, thus failing the test.</p>
+                        <p>However, seemingly at random, occasionally the same test of the same code will produce
+                            diﬀerent results. Sometimes it will show that the code passed the test and the application
+                            worked as planned, and sometimes it will show that the code failed the test and didn’t work
+                            as planned. When the test fails to produce a consistent result, the test is deemed ﬂaky.</p>
+                        <p>Flaky tests can be caused by various factors:</p>
+                        <ul>
+                            <li>an issue with the newly-written code</li>
+                            <li>an issue with the test itself</li>
+                            <li>some external factor compromising the test results</li>
+                        </ul>
+                        <p>Once a test is deemed ﬂaky, there are diﬀerent approaches to dealing with the muddled
+                            results. Some developers will ignore the ﬂakiness entirely, assuming that the issue is with
+                            the test and not with the newly-written code. Others will rerun their test multiple times
+                            and only go back to investigate further if the test fails a certain number of times in a
+                            row, indicating to them a true failure.</p>
+                        <p>However, the safest approach -- the only way to truly ﬁnd out whether there is a bug in the
+                            code -- is to halt the development of the application, fully investigate the cause of the
+                            ﬂaky test and resolve it. If left unresolved and there truly is an issue with the code, one
+                            problem has the potential to wind up leading to another and another as more is built onto
+                            the faulty code.</p>
+                        <p>When investigating the cause of a ﬂaky test, the developer will need to gather data to try to
+                            discover diﬀerences within the seemingly random results in order to isolate the cause of the
+                            failed tests. The code should be re-examined, as should the test itself, and if no issues
+                            are found then external factors will need to be looked at to see if they might be at the
+                            core of the problem. The developer might look at whether the tests that passed were run at a
+                            certain time of day whereas the ones that failed were run at a diﬀerent time of day, whether
+                            certain programs were running on the developer’s computer at the same time of failed tests
+                            that weren’t running when the tests passed or whether the tests that failed did so at the
+                            same point in the test or at diﬀerent times during the test.</p>
+                        <p>Sometimes, the cause of the ﬂaky test is simple to diagnose and can be quickly ﬁxed. That’s
+                            the best-case scenario. Other times, there is no easy ﬁx, and though potentially costly and
+                            time-consuming, the developer may need to delete the test and rewrite it from scratch in
+                            order to ensure the accuracy of the test results.</p>
+                        <p>Unfortunately, ﬂaky tests are not uncommon -- Google, for example, reports that 16 percent of
+                            its tests show some level of ﬂakiness. They can bring production to a temporary standstill,
+                            but they can be dealt with, and they can be resolved.</p>
+                    </div>
+
+                    <div>
+                        <pre>
+                            <code>
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Example1Test {
+
+    public static void main(String[] args) {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://demoqa.com/browser-windows");
+        String parentWindow = driver.getWindowHandle();
+        driver.findElement(By.id("windowButton")).click();
+        Set<String> windowHandles = driver.getWindowHandles();
+        System.out.println(driver.getCurrentUrl());
+        System.out.println(driver.getTitle());
+        for(String window: windowHandles) {
+            if(!window.equals(parentWindow)) {
+                driver.switchTo().window(window);
+            }
+        }
+        System.out.println(driver.getCurrentUrl());
+        System.out.println(driver.getTitle());
+        driver.quit();
+        System.out.println(driver.getCurrentUrl());
+        System.out.println(driver.getTitle());
+        
+    }
+    
+}
+                            </code>
+                        </pre>
+                        <p>output</p>
+                        <pre>
+                            <code>
+Starting ChromeDriver 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307}) on port 57543
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Aug 30, 2022 12:42:29 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+Aug 30, 2022 12:42:29 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Found exact CDP implementation for version 104
+https://demoqa.com/browser-windows
+ToolsQA
+https://demoqa.com/sample
+
+Exception in thread "main" org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'ranga', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.18.0-kali5-amd64', java.version: '17.0.3'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, getCurrentUrl {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 104.0.5112.101, chrome: {chromedriverVersion: 104.0.5112.79 (3cf3e8c8a07d..., userDataDir: /tmp/.com.google.Chrome.TRk4Lb}, goog:chromeOptions: {debuggerAddress: localhost:34003}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: LINUX, proxy: Proxy(), se:cdp: ws://localhost:34003/devtoo..., se:cdpVersion: 104.0.5112.101, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+    at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:145)
+    at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+    at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+    at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+    at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+    at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:606)
+    at org.openqa.selenium.remote.RemoteWebDriver.getCurrentUrl(RemoteWebDriver.java:322)
+    at rough.Example1Test.main(Example1Test.java:31)
+                            </code>
+                        </pre>
+                    </div>
+
+                    <div>
+                        <pre>
+                            <code>
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Example1Test {
+
+    public static void main(String[] args) {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://demoqa.com/browser-windows");
+        String parentWindow = driver.getWindowHandle();
+        driver.findElement(By.id("windowButton")).click();
+        Set<String> windowHandles = driver.getWindowHandles();
+        System.out.println(driver.getCurrentUrl());
+        System.out.println(driver.getTitle());
+        for(String window: windowHandles) {
+            if(!window.equals(parentWindow)) {
+                driver.switchTo().window(window);
+            }
+        }
+        System.out.println(driver.getCurrentUrl());
+        System.out.println(driver.getTitle());
+        driver.close();
+        System.out.println(driver.getCurrentUrl());
+        System.out.println(driver.getTitle());
+        
+    }
+    
+}
+                            </code>
+                        </pre>
+                        <p>output</p>
+                        <pre>
+                            <code>
+Starting ChromeDriver 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307}) on port 39491
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Aug 30, 2022 12:48:00 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+Aug 30, 2022 12:48:00 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Found exact CDP implementation for version 104
+https://demoqa.com/browser-windows
+ToolsQA
+https://demoqa.com/sample
+
+Exception in thread "main" org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=104.0.5112.101)
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'ranga', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.18.0-kali5-amd64', java.version: '17.0.3'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d65f3f571a7bee201e7b32335f4e0883, getCurrentUrl {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 104.0.5112.101, chrome: {chromedriverVersion: 104.0.5112.79 (3cf3e8c8a07d..., userDataDir: /tmp/.com.google.Chrome.VvTdNn}, goog:chromeOptions: {debuggerAddress: localhost:39839}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: LINUX, proxy: Proxy(), se:cdp: ws://localhost:39839/devtoo..., se:cdpVersion: 104.0.5112.101, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: d65f3f571a7bee201e7b32335f4e0883
+    at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+    at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+    at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+    at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+    at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+    at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+    at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+    at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+    at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+    at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+    at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+    at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+    at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+    at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:606)
+    at org.openqa.selenium.remote.RemoteWebDriver.getCurrentUrl(RemoteWebDriver.java:322)
+    at rough.Example1Test.main(Example1Test.java:31)
+                            </code>
+                        </pre>
+                    </div>
+
+                    <div>
+                        <pre>
+                            <code>
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Example1Test {
+
+    public static void main(String[] args) {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://demoqa.com/browser-windows");
+        String parentWindow = driver.getWindowHandle();
+        driver.findElement(By.id("windowButton")).click();
+        Set<String> windowHandles = driver.getWindowHandles();
+        System.out.println(driver.getCurrentUrl());
+        System.out.println(driver.getTitle());
+        for(String window: windowHandles) {
+            if(!window.equals(parentWindow)) {
+                driver.switchTo().window(window);
+            }
+        }
+        System.out.println(driver.getCurrentUrl());
+        System.out.println(driver.getTitle());
+        driver.close();
+        driver.switchTo().window(parentWindow);
+        System.out.println(driver.getCurrentUrl());
+        System.out.println(driver.getTitle());
+        
+    }
+    
+}
+                            </code>
+                        </pre>
+                        <p>output</p>
+                        <pre>
+                            <code>
+https://demoqa.com/browser-windows
+ToolsQA
+https://demoqa.com/sample
+
+https://demoqa.com/browser-windows
+ToolsQA
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <!-- Footer-->
+    <footer class="border-top">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2022</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

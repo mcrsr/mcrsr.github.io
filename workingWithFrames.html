@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Clean Blog - Start Bootstrap Theme</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1>Man must explore, and this is exploration at its greatest</h1>
+                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+                        <span class="meta">
+                            Posted by
+                            <a href="#!">Start Bootstrap</a>
+                            on August 24, 2022
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Post Content-->
+    <article class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <h1>Working with iFrames and frames</h1>
+                    <p>Frames are a now deprecated means of building a site layout from multiple documents on the same
+                        domain. You are unlikely to work with them unless you are working with an pre HTML5 webapp.
+                        Iframes allow the insertion of a document from an entirely different domain, and are still
+                        commonly used.
+
+                        If you need to work with frames or iframes, WebDriver allows you to work with them in the same
+                        way. Consider a button within an iframe. If we inspect the element using the browser development
+                        tools, we might see the following:</p>
+                    <pre>
+<code>
+&lt;div id=&quot;modal&quot;&gt;
+  &lt;iframe id=&quot;buttonframe&quot; name=&quot;myframe&quot;  src=&quot;https://seleniumhq.github.io&quot;&gt;
+    &lt;button&gt;Click here&lt;/button&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+</code>
+</pre>
+                    <p>If it was not for the iframe we would expect to click on the button using something like:</p>
+                    <pre>
+  <code>
+//This won't work
+driver.findElement(By.tagName("button")).click();
+  </code>
+</pre>
+                    <p>
+                        However, if there are no buttons outside of the iframe, you might instead get a no such element
+                        error. This happens because Selenium is only aware of the elements in the top level document. To
+                        interact with the button, we will need to first switch to the frame, in a similar way to how we
+                        switch windows. WebDriver offers three ways of switching to a frame.
+                    </p>
+                    <h3>Using a WebElement </h3>
+                    <p>Switching using a WebElement is the most flexible option. You can find the frame using your
+                        preferred selector and switch to it.</p>
+                    <pre>
+  <code>
+//Store the web element
+WebElement iframe = driver.findElement(By.cssSelector("#modal>iframe"));
+
+//Switch to the frame
+driver.switchTo().frame(iframe);
+
+//Now we can click the button
+driver.findElement(By.tagName("button")).click();
+  </code>
+</pre>
+                    <h3>Using a name or ID </h3>
+                    <p>If your frame or iframe has an id or name attribute, this can be used instead. If the name or ID
+                        is not unique on the page, then the first one found will be switched to.</p>
+                    <pre>
+  <code>
+    //Using the ID
+driver.switchTo().frame("buttonframe");
+
+//Or using the name instead
+driver.switchTo().frame("myframe");
+
+//Now we can click the button
+driver.findElement(By.tagName("button")).click();
+  </code>
+</pre>
+                    <h3>Using an index </h3>
+                    <p>It is also possible to use the index of the frame, such as can be queried using window.frames in
+                        JavaScript.</p>
+                    <pre>
+  <code>
+    // Switches to the second frame
+driver.switchTo().frame(1);
+  </code>
+</pre>
+                    <h3>Leaving a frame </h3>
+                    <p>To leave an iframe or frameset, switch back to the default content like so:</p>
+                    <pre>
+  <code>
+    // Return to the top level
+driver.switchTo().defaultContent();
+  </code>
+</pre>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </article>
+    <!-- Footer-->
+    <footer class="border-top">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2022</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

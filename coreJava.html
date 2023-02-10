@@ -1,42 +1,90 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/css/testng.css">
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script>
-        <title>Core Java</title>
-    </head>
-    <body>
+<html lang="en">
 
-        <div id="mySidepanel" class="sidepanel">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a href="#controlstatements" onclick="closeNav()">control statements</a>
-        
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <title>Core Java</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1>Man must explore, and this is exploration at its greatest</h1>
+                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+                        <span class="meta">
+                            Posted by
+                            <a href="#!">Start Bootstrap</a>
+                            on August 24, 2022
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Post Content-->
+    <article class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
 
-        <button class="openbtn" onclick="openNav()">☰</button>  
-        
-        
-        <div id="controlstatements">
-            <h1>control statements</h1>
-            <h2>Selection Statement</h2>
-            <ul>
-                <li>if</li>
-                <li>if else</li>
-                <li>nested if else</li>
-                <li>if else if</li>
-                <li>switch</li>
-            </ul>
-            <pre>
+                    <div id="controlstatements">
+                        <h1>control statements</h1>
+                        <h2>Selection Statement</h2>
+                        <ul>
+                            <li>if</li>
+                            <li>if else</li>
+                            <li>nested if else</li>
+                            <li>if else if</li>
+                            <li>switch</li>
+                        </ul>
+                        <pre>
                 <code>
 if(condition) {
 			
 }
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 if(condition) {
 			
@@ -45,7 +93,7 @@ if(condition) {
 }
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 if(condition) {
     if(condition) {
@@ -62,7 +110,7 @@ if(condition) {
 }
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 if(condition1) {
 			
@@ -75,7 +123,7 @@ if(condition1) {
 }
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 switch(expression) {
     case 1:
@@ -96,20 +144,20 @@ switch(expression) {
 }
                 </code>
             </pre>
-            <h2>Iteration statements</h2>
-            <ul>
-                <li>for</li>
-                <li>while</li>
-                <li>do while</li>
-            </ul>
-            <pre>
+                        <h2>Iteration statements</h2>
+                        <ul>
+                            <li>for</li>
+                            <li>while</li>
+                            <li>do while</li>
+                        </ul>
+                        <pre>
                 <code>
 for(initialization;condition;increment/decrement) {
     statements;
 }
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 while(condition) {
     statements;
@@ -117,7 +165,7 @@ while(condition) {
 }
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 do {
     statements;
@@ -125,12 +173,12 @@ do {
 }while(consition);
                 </code>
             </pre>
-            <h2>Jump Statements</h2>
-            <ul>
-                <li>break</li>
-                <li>continue</li>
-            </ul>
-            <pre>
+                        <h2>Jump Statements</h2>
+                        <ul>
+                            <li>break</li>
+                            <li>continue</li>
+                        </ul>
+                        <pre>
                 <code>
 for(int i=0;i<=10;i++) {
     if(i == 6) break;
@@ -145,8 +193,8 @@ for(int i=0;i<=10;i++) {
 }
                 </code>
             </pre>
-            <p>output for the above program</p>
-            <pre>
+                        <p>output for the above program</p>
+                        <pre>
                 <code>
 i value: 0
 j value: 0	j value: 1	j value: 2	
@@ -162,7 +210,7 @@ i value: 5
 j value: 0	j value: 1	j value: 2	
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 for(int i=0;i<=10;i++) {
     if(i == 6) continue;
@@ -201,7 +249,7 @@ i value: 10
 j value: 0	j value: 1	j value: 2	j value: 4	j value: 5	j value: 6	j value: 7	j value: 8	j value: 9	j value: 10	
                     </code>
                 </pre>
-                <pre>
+                        <pre>
                     <code>
 outer:for(int i=0;i<=10;i++) {
     for(int j=0;j<=10;j++) {
@@ -214,8 +262,8 @@ outer:for(int i=0;i<=10;i++) {
 }
                     </code>
                 </pre>
-                <p>output</p>
-                <pre>
+                        <p>output</p>
+                        <pre>
                     <code>
     0
     0	1
@@ -230,16 +278,21 @@ outer:for(int i=0;i<=10;i++) {
     0	10	20	30	40	50	60	70	80	90	100
                     </code>
                 </pre>
-            </pre>
-            <p><b>Note:</b>The conditional expressions used in the if, for, while and do statements must be valid boolean expressions i.e. their values should be either true or false.</p>
-            <p><b>Note:</b>In Java, switch expression can be any integer expression except long</p>
-        </div>
+                        </pre>
+                        <p><b>Note:</b>The conditional expressions used in the if, for, while and do statements must be
+                            valid boolean expressions i.e. their values should be either true or false.</p>
+                        <p><b>Note:</b>In Java, switch expression can be any integer expression except long</p>
+                    </div>
 
-        <div>
-            <h1>Scanner class:</h1>
-            <p>This is a new class in Java added in JDK1.5-6-7 version to take input of primitivedata type from the user. It is very easy to take input using this class as we have to only create an object of this class and have to call a particular method. This class is available in java.util package.</p>
-            <p><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html">for more information</a></p>
-            <pre>
+                    <div>
+                        <h1>Scanner class:</h1>
+                        <p>This is a new class in Java added in JDK1.5-6-7 version to take input of primitivedata type
+                            from the user. It is very easy to take input using this class as we have to only create an
+                            object of this class and have to call a particular method. This class is available in
+                            java.util package.</p>
+                        <p><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html">for more
+                                information</a></p>
+                        <pre>
                 <code>
 import java.util.Scanner;
 
@@ -266,8 +319,8 @@ public class ScannerExample {
 }
                 </code>
             </pre>
-            <p>test.txt</p>
-            <pre>
+                        <p>test.txt</p>
+                        <pre>
                 <code>
 This is the line 1.
 This is the line 2.
@@ -278,7 +331,7 @@ This is the line 6.
 This is the line 7.
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -302,8 +355,8 @@ public class Example2 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 This is the line 1.
 This is the line 2.
@@ -314,7 +367,7 @@ This is the line 6.
 This is the line 7.
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 import java.util.Scanner;
 
@@ -335,8 +388,8 @@ public class Example2 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 1
 2
@@ -344,7 +397,7 @@ red
 blue
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 Modifier and Type	Method and Description
 void	close()
@@ -459,17 +512,17 @@ Scanner	useRadix(int radix)
 Sets this scanner's default radix to the specified radix.
                 </code>
             </pre>
-        </div>
+                    </div>
 
-        <div>
-            <h1>Array</h1>
-            <p>An array in Java is an ordered collection of the similar type of variables or data
-                items. Java allows arrays of any dimension. An array in Java is a bit different from C/C++.
-                We can not specify the size of the array at the time of declaration. The memory allocation
-                is always dynamic. Every array in Java is treated as an object with one special attribute
-                length, which specifies the number of elements in the array.</p>
-            <h2>One-Dimensional array:</h2>
-            <pre>
+                    <div>
+                        <h1>Array</h1>
+                        <p>An array in Java is an ordered collection of the similar type of variables or data
+                            items. Java allows arrays of any dimension. An array in Java is a bit different from C/C++.
+                            We can not specify the size of the array at the time of declaration. The memory allocation
+                            is always dynamic. Every array in Java is treated as an object with one special attribute
+                            length, which specifies the number of elements in the array.</p>
+                        <h2>One-Dimensional array:</h2>
+                        <pre>
                 <code>
 // Declaration
 type array_name[];
@@ -492,7 +545,7 @@ type array_name[] = new array_name[SIZE]; //SIZE can be constant or a variable
 Long[] phoneNumbers = new Long[10];
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 Long[] phoneNumbers = new Long[10];
 phoneNumbers[0] = 9876543210l;
@@ -504,7 +557,7 @@ phoneNumbers[9] = 1098765432l;
 String[] fruits = {"Apple","Orange","Banana","Grapes"};
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 public class Example2 {
 
@@ -520,8 +573,8 @@ public class Example2 {
 }
                 </code>
             </pre>
-            <h2>Two Dimensional Array</h2>
-            <pre>
+                        <h2>Two Dimensional Array</h2>
+                        <pre>
                 <code>
 type[][] array_name;
 type array_name[][];
@@ -538,7 +591,7 @@ int data[][] = new int[2][2];
 int[][] matrixA = new int[3][3];
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 public class Example2 {
 
@@ -562,14 +615,14 @@ public class Example2 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 9	7	
 6	4	
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 public class Example2 {
 
@@ -589,20 +642,20 @@ public class Example2 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 9	6	3	
 8	5	2	
 7	4	1	
                 </code>
             </pre>
-        </div>
+                    </div>
 
-        <div>
-            <h1>Command Line Arguments</h1>
-            <p>Hello.java</p>
-            <pre>
+                    <div>
+                        <h1>Command Line Arguments</h1>
+                        <p>Hello.java</p>
+                        <pre>
                 <code>
 public class Example2 {
 
@@ -617,24 +670,24 @@ public class Example2 {
 }
                 </code>
             </pre>
-            <p>Running the program</p>
-            <p>javac Hello.java</p>
-            <p>java Hello John Doe Sena</p>
-            <p>output</p>
-            <pre>
+                        <p>Running the program</p>
+                        <p>javac Hello.java</p>
+                        <p>java Hello John Doe Sena</p>
+                        <p>output</p>
+                        <pre>
                 <code>
 Hello John
 Hello Doe
 Hello Sena
                 </code>
             </pre>
-        </div>
+                    </div>
 
-        <div>
-            <h1>class and objects</h1>
-            <h2>this keyword</h2>
-            <p>Observe the below program</p>
-            <pre>
+                    <div>
+                        <h1>class and objects</h1>
+                        <h2>this keyword</h2>
+                        <p>Observe the below program</p>
+                        <pre>
                 <code>
 class Example100{
     int x;
@@ -659,13 +712,15 @@ public class Example10 {
 }
                 </code>
             </pre>
-            <p>ouput</p>
-            <pre><code>
+                        <p>ouput</p>
+                        <pre><code>
 0
             </code></pre>
-            <p>This is because class variable and local variable(x) area same. so JVM thinks it is the same variable, so it assigns itself default valu (0 for int)</p>
-            <p>to over come this problem either you have to change the local variable name or use this keyword like below.</p>
-            <pre>
+                        <p>This is because class variable and local variable(x) area same. so JVM thinks it is the same
+                            variable, so it assigns itself default valu (0 for int)</p>
+                        <p>to over come this problem either you have to change the local variable name or use this
+                            keyword like below.</p>
+                        <pre>
                 <code>
 class Example100{
     int x;
@@ -690,14 +745,15 @@ public class Example10 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 156
                 </code>
             </pre>
-            <p>If you provide different names for local and class variables no need to use this keyword. like below</p>
-            <pre>
+                        <p>If you provide different names for local and class variables no need to use this keyword.
+                            like below</p>
+                        <pre>
                 <code>
 class Example100{
     int x;
@@ -722,14 +778,14 @@ public class Example10 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 156
                 </code>
             </pre>
-            <p>this keyword refers the same object where it is defined.</p>
-            <pre>
+                        <p>this keyword refers the same object where it is defined.</p>
+                        <pre>
                 <code>
 class A{
     int x;
@@ -758,8 +814,8 @@ public class Example2 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 10
 20
@@ -767,8 +823,8 @@ public class Example2 {
 40
                 </code>
             </pre>
-            <h4>class containing member variables & member methods</h4>
-            <pre>
+                        <h4>class containing member variables & member methods</h4>
+                        <pre>
                 <code>
 class Student{
 	
@@ -798,13 +854,13 @@ public class Example2 {
 }
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 First Name: John
 Last Name: Doe
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 class Student{
 	
@@ -840,15 +896,15 @@ public class Example2 {
 }
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 First Name: John
 Last Name: Doe
 Full Name: John Doe
                 </code>
             </pre>
-            <p>Inner class supports</p>
-            <pre>
+                        <p>Inner class supports</p>
+                        <pre>
                 <code>
 public class Example5 {
     class A{}
@@ -861,8 +917,8 @@ public class Example5 {
 }
                 </code>
             </pre>
-            <p>Methods supports following modifiers</p>
-            <pre>
+                        <p>Methods supports following modifiers</p>
+                        <pre>
                 <code>
 abstract class Example6 {
 
@@ -879,8 +935,8 @@ abstract class Example6 {
 }
                 </code>
             </pre>
-            <p>class variables supports following modifiers</p>
-            <pre>
+                        <p>class variables supports following modifiers</p>
+                        <pre>
                 <code>
 public class Example7 {
 
@@ -896,8 +952,8 @@ public class Example7 {
 }
                 </code>
             </pre>
-            <p>local variables only supports default and final modifiers</p>
-            <pre>
+                        <p>local variables only supports default and final modifiers</p>
+                        <pre>
                 <code>
 public class Example8 {
 
@@ -908,8 +964,8 @@ public class Example8 {
 }
                 </code>
             </pre>
-            <p>static blocks automatically called</p>
-            <pre>
+                        <p>static blocks automatically called</p>
+                        <pre>
                 <code>
 public class Example9 {
 
@@ -936,8 +992,8 @@ public class Example9 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 I am static A
 I am static C
@@ -945,16 +1001,17 @@ I am static D
 I am static B
                 </code>
             </pre>
-            <p>problem</p>
-            <pre>
+                        <p>problem</p>
+                        <pre>
                 <code>
 Error: LinkageError occurred while loading main class rough
 java.lang.UnsupportedClassVersionError: rough has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
                 </code>
             </pre>
-            <p>solution</p>
-            <p>This is just a version mismatch. You have compiled your code using java version 17 and your current JRE is version 11. Try upgrading your JRE to 17.</p>
-            <pre>
+                        <p>solution</p>
+                        <p>This is just a version mismatch. You have compiled your code using java version 17 and your
+                            current JRE is version 11. Try upgrading your JRE to 17.</p>
+                        <pre>
                 <code>
 49 = Java 5
 50 = Java 6
@@ -973,34 +1030,34 @@ java.lang.UnsupportedClassVersionError: rough has been compiled by a more recent
 63 = Java 19
                 </code>
             </pre>
-            <p>We can compile the program without main method but we can not execute.</p>
-            <pre>
+                        <p>We can compile the program without main method but we can not execute.</p>
+                        <pre>
                 <code>
 public class Example10 {
 
 }
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 Error: Main method not found in class Example10, please define the main method as:
    public static void main(String[] args)
 or a JavaFX application class must extend javafx.application.Application
                 </code>
             </pre>
-        </div>
+                    </div>
 
-        <div id="MethodOverloading">
-            <h1>Method Overloading:</h1>
-            <p>We can have more than one method with the same name as long as they differ
-                either in numbers of parameters or type of parameters or order of parameters. This is
-                called method overloading.</p>
-                <p>While calling an overloaded method it is possible that type of the actual
-                    parameters passed may not match exactly with the formal parameters of any of the
-                    overloaded methods. In that case parameter are promoted to next higher type till a match
-                    is found. If no match is found even after promoting the parameters then a compilation
-                    error occurs.</p>
-            <pre>
+                    <div id="MethodOverloading">
+                        <h1>Method Overloading:</h1>
+                        <p>We can have more than one method with the same name as long as they differ
+                            either in numbers of parameters or type of parameters or order of parameters. This is
+                            called method overloading.</p>
+                        <p>While calling an overloaded method it is possible that type of the actual
+                            parameters passed may not match exactly with the formal parameters of any of the
+                            overloaded methods. In that case parameter are promoted to next higher type till a match
+                            is found. If no match is found even after promoting the parameters then a compilation
+                            error occurs.</p>
+                        <pre>
                 <code>
 public class Example10 {
 
@@ -1019,7 +1076,7 @@ public class Example10 {
 }
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 Example10.java:7: error: method sayHello() is already defined in class Example10
 public static void sayHello() {
@@ -1027,7 +1084,7 @@ public static void sayHello() {
 1 error
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 public class Example10 {
 
@@ -1046,9 +1103,10 @@ public class Example10 {
 }
                 </code>
             </pre>
-            <p>If we run above program we will get compilation error. saying method addition already defined.</p>
-            <p>The same program we can as like below</p>
-            <pre>
+                        <p>If we run above program we will get compilation error. saying method addition already
+                            defined.</p>
+                        <p>The same program we can as like below</p>
+                        <pre>
                 <code>
 public class Example10 {
 
@@ -1086,43 +1144,46 @@ public class Example10 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 30
 60
                 </code>
             </pre>
-        </div>
+                    </div>
 
-        <div id="constructors">
-            <h1>Constructors</h1>
-            <p>It is very common requirement to initialize an object immediately after creation.
-                We can define instance methods for this purpose but they have to be invoked explicitly.</p>
-                <p>Java has a solution for this requirement. Java allows objects to initialize
-                    themselves when they are created using constructors. It has the same</p>
-            <p>Constructors have the same name as the class and do not have any return type.</p>
-            <p>This is because the implicit return type of class’s constructor is the class itself.
-                Constructors can be overloaded just like methods.</p>
-            <p>When operator new is used to create an instance/object of a class, JVM allocates
-                memory for the object, then initializes the instance variables to their default initial values,
-                and then calls the appropriate constructor to initialize the instance variables.</p>
-            <p>The name constructor is a bit confusing. It appears as if the purpose of the
-                constructor is to create an object/instance. The object is created and instance variables and
-                static variables are initialized to their default initial values before constructor is called.</p>
-            <p>So the purpose of the constructor is to initialize the instance variables with values
-                other than the default values.</p>
-            <h2>Type of constructors</h2>
-            <h3>Default Constructor:</h3>
-            <p>Every class has a default constructor (if no
-                explicit constructor is defined) that does not take any argument and its body
-                does not have any statements. The compiler generates the default
-                constructor automatically.</p>
-            <p>The compiler stops generating default constructor as soon as we add
-                our own constructor. When we do not create any constructor in the class
-                then JVM will create the default constructor and initialize the instance
-                variable with default values null or zero.</p>
-            <pre>
+                    <div id="constructors">
+                        <h1>Constructors</h1>
+                        <p>It is very common requirement to initialize an object immediately after creation.
+                            We can define instance methods for this purpose but they have to be invoked explicitly.</p>
+                        <p>Java has a solution for this requirement. Java allows objects to initialize
+                            themselves when they are created using constructors. It has the same</p>
+                        <p>Constructors have the same name as the class and do not have any return type.</p>
+                        <p>This is because the implicit return type of class’s constructor is the class itself.
+                            Constructors can be overloaded just like methods.</p>
+                        <p>When operator new is used to create an instance/object of a class, JVM allocates
+                            memory for the object, then initializes the instance variables to their default initial
+                            values,
+                            and then calls the appropriate constructor to initialize the instance variables.</p>
+                        <p>The name constructor is a bit confusing. It appears as if the purpose of the
+                            constructor is to create an object/instance. The object is created and instance variables
+                            and
+                            static variables are initialized to their default initial values before constructor is
+                            called.</p>
+                        <p>So the purpose of the constructor is to initialize the instance variables with values
+                            other than the default values.</p>
+                        <h2>Type of constructors</h2>
+                        <h3>Default Constructor:</h3>
+                        <p>Every class has a default constructor (if no
+                            explicit constructor is defined) that does not take any argument and its body
+                            does not have any statements. The compiler generates the default
+                            constructor automatically.</p>
+                        <p>The compiler stops generating default constructor as soon as we add
+                            our own constructor. When we do not create any constructor in the class
+                            then JVM will create the default constructor and initialize the instance
+                            variable with default values null or zero.</p>
+                        <pre>
                 <code>
 class Example111{
     String name;
@@ -1148,8 +1209,8 @@ public class Example11 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 Name     : null
 Age      : 0
@@ -1157,15 +1218,16 @@ Salary   : 0.0
 isMarried: false                    
                 </code>
             </pre>
-            <h3>Default Zero argument constructors</h3>
-            <p>We can replace the default
-                constructor with our own zero argument constructor. This will allow us to
-                initialize the instance variables to any value.</p>
-            <h3>Parameterized Constructors:</h3>
-            <p>A constructor which takes
-                parameters is called as parameterized constructors.</p>
-            <p><b>Note:</b>It is possible to overload the constructor just like methods. It is called as constructor overloading.</p>
-                <pre>
+                        <h3>Default Zero argument constructors</h3>
+                        <p>We can replace the default
+                            constructor with our own zero argument constructor. This will allow us to
+                            initialize the instance variables to any value.</p>
+                        <h3>Parameterized Constructors:</h3>
+                        <p>A constructor which takes
+                            parameters is called as parameterized constructors.</p>
+                        <p><b>Note:</b>It is possible to overload the constructor just like methods. It is called as
+                            constructor overloading.</p>
+                        <pre>
                     <code>
 class Example111{
     String name;
@@ -1230,8 +1292,8 @@ public class Example11 {
 }
                     </code>
                 </pre>
-                <p>output</p>
-                <pre>
+                        <p>output</p>
+                        <pre>
                     <code>
 Name     : null
 Age      : 0
@@ -1260,34 +1322,34 @@ isMarried: true
 *****************************
                     </code>
                 </pre>
-        </div>
+                    </div>
 
-        <div id="TypeofVariables">
-            <h1>Type of Variables</h1>
-            <h3>Instance variables:</h3>
-            <p>Variable declared in a class as a member outside all member methods are known as
-                instance variable. There will be as many copies of that variable as there are number of
-                objects.</p>
-            <p>There is no need to initialize instance variable in Java because these variables are
-                initialized as soon as the object is created and the memory is allocated with the new
-                operator.</p>
-            <h3>Local Variables:</h3>
-            <p>Variables declared inside a method is known as Local variable. It is not same as
-                instance variable. There is no automatic initialization for the Local variable.</p>
-            <h3>Static Variables:</h3>
-            <p>Static variables are also declared outside methods/blocks like instance variables.
-                But the static variables make use of the modifier static before the data type. Static
-                variables are global to a class and all of its instances (objects).</p>
-            <p>They are useful for keeping track of global states. For example, a static variable
-                count in a class can store the number of instances/objects of the class created in the
-                program at any instance of time.</p>
-            <p>For static variables there is only one copy of the
-                variable irrespective of number of instances/objects created in the program, which is
-                shared across all the instances.</p>
-            <p>Static variable is initialized automatically with their default values (zero, false or
-                null) as soon as the class is loaded / used.</p>
-            <p>They can only call other static methods. They must only access static data.</p>
-            <pre>
+                    <div id="TypeofVariables">
+                        <h1>Type of Variables</h1>
+                        <h3>Instance variables:</h3>
+                        <p>Variable declared in a class as a member outside all member methods are known as
+                            instance variable. There will be as many copies of that variable as there are number of
+                            objects.</p>
+                        <p>There is no need to initialize instance variable in Java because these variables are
+                            initialized as soon as the object is created and the memory is allocated with the new
+                            operator.</p>
+                        <h3>Local Variables:</h3>
+                        <p>Variables declared inside a method is known as Local variable. It is not same as
+                            instance variable. There is no automatic initialization for the Local variable.</p>
+                        <h3>Static Variables:</h3>
+                        <p>Static variables are also declared outside methods/blocks like instance variables.
+                            But the static variables make use of the modifier static before the data type. Static
+                            variables are global to a class and all of its instances (objects).</p>
+                        <p>They are useful for keeping track of global states. For example, a static variable
+                            count in a class can store the number of instances/objects of the class created in the
+                            program at any instance of time.</p>
+                        <p>For static variables there is only one copy of the
+                            variable irrespective of number of instances/objects created in the program, which is
+                            shared across all the instances.</p>
+                        <p>Static variable is initialized automatically with their default values (zero, false or
+                            null) as soon as the class is loaded / used.</p>
+                        <p>They can only call other static methods. They must only access static data.</p>
+                        <pre>
                 <code>
 class Example122{
 	
@@ -1310,23 +1372,23 @@ public class Example12 {
 }
                 </code>
             </pre>
-        </div>
+                    </div>
 
-        <div id="TypeofMethods">
-            <h1>Type of Methods</h1>
-            <h3>Instance methods:</h3>
-            <p>Instance methods can be invoked only through
-                object. If we call a instance method inside a static method of same class then also we have
-                to use object name.</p>
-            <h3>Static Methods:</h3>
-            <p>Static methods can be invoked using object as well as class name. Static methods
-                can access only static members. Static methods can be called directly (without object or
-                class name) from a static method of same class.</p>
-            <h4>Initialize & static Block</h4>
-            <p>Initialize block is used to initialize instance member variables of the class</p>
-            <p>static block is used to initialize static member variables of the class.</p>
-            <p>But constructor is called after these blocks.</p>
-            <pre>
+                    <div id="TypeofMethods">
+                        <h1>Type of Methods</h1>
+                        <h3>Instance methods:</h3>
+                        <p>Instance methods can be invoked only through
+                            object. If we call a instance method inside a static method of same class then also we have
+                            to use object name.</p>
+                        <h3>Static Methods:</h3>
+                        <p>Static methods can be invoked using object as well as class name. Static methods
+                            can access only static members. Static methods can be called directly (without object or
+                            class name) from a static method of same class.</p>
+                        <h4>Initialize & static Block</h4>
+                        <p>Initialize block is used to initialize instance member variables of the class</p>
+                        <p>static block is used to initialize static member variables of the class.</p>
+                        <p>But constructor is called after these blocks.</p>
+                        <pre>
                 <code>
 class Example133{
     int x;
@@ -1365,15 +1427,15 @@ public class Example13 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 getSum                             : 40
 getStaticSum using instance(object): 70
 getStaticSum using class name      : 70
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 class Example144{
 
@@ -1408,8 +1470,8 @@ public class Example14 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 I am static block2
 I am static block1
@@ -1418,7 +1480,7 @@ I am initialize block1
 I am constructor.
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 public class Example15 {
 	
@@ -1440,8 +1502,8 @@ public class Example15 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 I am Instance Method
 I am Static method
@@ -1449,16 +1511,16 @@ I am Static method
 I am Static method
                 </code>
             </pre>
-        </div>
+                    </div>
 
-        <div id="final">
-            <h1>Final</h1>
-            <h2>Final Variables:</h2>
-            <p>If a variable is declared as final then we can not change its value final (double
-                PI=3.141;) final variable do not occupy memory on a per instance basis. A final variable
-                is a constant variable its value can not be change. A final variable reference type can not
-                change its reference.</p>
-            <pre>
+                    <div id="final">
+                        <h1>Final</h1>
+                        <h2>Final Variables:</h2>
+                        <p>If a variable is declared as final then we can not change its value final (double
+                            PI=3.141;) final variable do not occupy memory on a per instance basis. A final variable
+                            is a constant variable its value can not be change. A final variable reference type can not
+                            change its reference.</p>
+                        <pre>
                 <code>
 public class Example16 {
 
@@ -1474,14 +1536,14 @@ public class Example16 {
 }
                 </code>
             </pre>
-            <p>outpur</p>
-            <pre>
+                        <p>outpur</p>
+                        <pre>
                 <code>
 X value: 25
 Y value: 23
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 public class Example17 {
 
@@ -1495,8 +1557,8 @@ public class Example17 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
 The final local variable X cannot be assigned. It must be blank and not using a compound assignment
@@ -1504,11 +1566,11 @@ The final local variable X cannot be assigned. It must be blank and not using a 
 at testingTheJava8.Example17.main(Example17.java:8)
                 </code>
             </pre>
-        </div>
+                    </div>
 
-        <div id="Inheritance">
-            <h1>Inheritance</h1>
-            <pre>
+                    <div id="Inheritance">
+                        <h1>Inheritance</h1>
+                        <pre>
                 <code>
 class A{
     private int x;
@@ -1553,15 +1615,15 @@ public class Example17 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 15
 20
 30
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 class A{
     A(){
@@ -1584,13 +1646,13 @@ public class Example18 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 I am construtor from class A
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 class A{
     A(){
@@ -1612,39 +1674,39 @@ public class Example18 {
 }
                 </code>
             </pre>
-            <p>out                    put</p>
-            <pre>
+                        <p>out put</p>
+                        <pre>
                 <code>
 I am construtor from class A
 I am constructor from class B
                 </code>
             </pre>
-        </div>
+                    </div>
 
-        <div id="Usingkeywordsuper">
-            <h2>Member Hiding:</h2>
-            <p>If a sub-class member has the same name (and same signature in case of
-                methods) as that of a super-class member then it hides the super-class member.</p>
-            <p>Although both the members might be available in the sub-class but using member
-                name we can only access sub-class member as it hides the member of the same name in
-                the super-class.</p>
-            <h2>Using keyword super</h2>
-            <p>Whenever a subclass needs to refer to its immediate super class, it can do so by
-                use of keyword super. super has two general uses:</p>
-            <h4>Calling super class’s constructor</h4>
-            <p>A subclass can call a constructor method defined by its super class by use of the
-                following form of super.</p>
-            <p>super (parameter-list);</p>
-            <p>Here, parameter-list specifies any parameters needed by the constructor in the
-                super class. In fact super() must always be the first statement executed inside a
-                subclass’s constructor.</p>
-            <h4>Accessing a member of the super class that has been hidden by a member of a
-                subclass.</h4>
-            <p>The keyword super can be used to access the hidden members of the super as
-                    follows:</p> 
-            <p>super.member;</p>   
-            <p>Here, member can be either a method or a data member.</p>
-            <pre>
+                    <div id="Usingkeywordsuper">
+                        <h2>Member Hiding:</h2>
+                        <p>If a sub-class member has the same name (and same signature in case of
+                            methods) as that of a super-class member then it hides the super-class member.</p>
+                        <p>Although both the members might be available in the sub-class but using member
+                            name we can only access sub-class member as it hides the member of the same name in
+                            the super-class.</p>
+                        <h2>Using keyword super</h2>
+                        <p>Whenever a subclass needs to refer to its immediate super class, it can do so by
+                            use of keyword super. super has two general uses:</p>
+                        <h4>Calling super class’s constructor</h4>
+                        <p>A subclass can call a constructor method defined by its super class by use of the
+                            following form of super.</p>
+                        <p>super (parameter-list);</p>
+                        <p>Here, parameter-list specifies any parameters needed by the constructor in the
+                            super class. In fact super() must always be the first statement executed inside a
+                            subclass’s constructor.</p>
+                        <h4>Accessing a member of the super class that has been hidden by a member of a
+                            subclass.</h4>
+                        <p>The keyword super can be used to access the hidden members of the super as
+                            follows:</p>
+                        <p>super.member;</p>
+                        <p>Here, member can be either a method or a data member.</p>
+                        <pre>
                 <code>
 class Parent{
 	
@@ -1685,13 +1747,13 @@ public class Example19 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 ramu
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 class Parent{
 	
@@ -1733,36 +1795,36 @@ public class Example19 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 Dasarath
 ramu                    
                 </code>
             </pre>
-        </div>
+                    </div>
 
-        <div>
-            <h1>Method Overloading and Method Overriding:</h1>
-            <h2>Method Overloading:</h2>
-            <p>When two or more methods having same name but different parameters then it is
-                said to be a methods overloading. Method overloading is used when object are required to
-                perform similar task but using different input parameters.</p>
-            <p>When we call a method, java matches up the method name first and then the
-                number and type of parameters. To decide which one of the method definition is to called
-                is known as polymorphism.</p>
-            <h2>Method Overriding:</h2>
-            <p>We have seen that a method in a super class is inherited by its subclass and is
-                used by the object created by the subclass. Method inheritance enables us to define and
-                use method repeatedly in subclass without having to define the method again in
-                subclass.</p>
-            <p>In the class hierarchy, when an instance method in a subclass has the same name
-                signature as an instance method (non private) in its super class, then the method in the
-                subclass is said to override the method in the super class.</p>
-            <p>When an overridden method is called from within a subclass, it will always refer
-                to the version of that method defined by the subclass. The version of the method defined
-                by the super class will be hidden.</p>
-            <pre>
+                    <div>
+                        <h1>Method Overloading and Method Overriding:</h1>
+                        <h2>Method Overloading:</h2>
+                        <p>When two or more methods having same name but different parameters then it is
+                            said to be a methods overloading. Method overloading is used when object are required to
+                            perform similar task but using different input parameters.</p>
+                        <p>When we call a method, java matches up the method name first and then the
+                            number and type of parameters. To decide which one of the method definition is to called
+                            is known as polymorphism.</p>
+                        <h2>Method Overriding:</h2>
+                        <p>We have seen that a method in a super class is inherited by its subclass and is
+                            used by the object created by the subclass. Method inheritance enables us to define and
+                            use method repeatedly in subclass without having to define the method again in
+                            subclass.</p>
+                        <p>In the class hierarchy, when an instance method in a subclass has the same name
+                            signature as an instance method (non private) in its super class, then the method in the
+                            subclass is said to override the method in the super class.</p>
+                        <p>When an overridden method is called from within a subclass, it will always refer
+                            to the version of that method defined by the subclass. The version of the method defined
+                            by the super class will be hidden.</p>
+                        <pre>
                 <code>
 class Parent{
 	
@@ -1791,24 +1853,24 @@ public class Example19 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 Hello from class Child
                 </code>
             </pre>
-        </div>
+                    </div>
 
-        <div id="Javasupportthefollowinginheritance">
-            <h1>Java support the following inheritance:</h1>
-            <ul>
-                <li>Single inheritance.</li>
-                <li>Multilevel inheritance.</li>
-                <li>Hierarchical Inheritance.</li>
-            </ul>
-            <h2>Single inheritance</h2>
-            <img src="./images/singleinheritance.jpg" alt="Single inheritance" width="100%">
-            <pre>
+                    <div id="Javasupportthefollowinginheritance">
+                        <h1>Java support the following inheritance:</h1>
+                        <ul>
+                            <li>Single inheritance.</li>
+                            <li>Multilevel inheritance.</li>
+                            <li>Hierarchical Inheritance.</li>
+                        </ul>
+                        <h2>Single inheritance</h2>
+                        <img src="./images/singleinheritance.jpg" alt="Single inheritance" width="100%">
+                        <pre>
                 <code>
 class A{
     //body
@@ -1820,9 +1882,9 @@ class B extends A{
                 </code>
             </pre>
 
-            <h2>Multilevel inheritance</h2>
-            <img src="./images/multilevelinheritance.jpg" alt="Multilevel inheritance" width="100%">
-            <pre>
+                        <h2>Multilevel inheritance</h2>
+                        <img src="./images/multilevelinheritance.jpg" alt="Multilevel inheritance" width="100%">
+                        <pre>
                 <code>
 class A{
     //body
@@ -1837,9 +1899,9 @@ class C extends B{
 }
                 </code>
             </pre>
-            <h2>Hierarchical Inheritance</h2>
-            <img src="./images/hierarchical-inheritance.jpg" alt="Hierarchical inheritance" width="100%">
-            <pre>
+                        <h2>Hierarchical Inheritance</h2>
+                        <img src="./images/hierarchical-inheritance.jpg" alt="Hierarchical inheritance" width="100%">
+                        <pre>
                 <code>
 class A{
     //body
@@ -1870,24 +1932,29 @@ class G extends C{
 }
                 </code>
             </pre>
-        </div>
+                    </div>
 
-        <div id="AbstractMethodsandClasses">
-            <h1>Java Abstraction</h1>
-            <p>Data abstraction is the process of hiding certain details and showing only essential information to the user.</p>
-            <img src="./images/iphone.jpeg" alt="iphone" width="100%">
-            <p> We daily use Mobile/Cell  phones for multiple purposes but we dont know  how it is working.we(customer) no need to know about this </p>
-            <p> Abstraction can be achieved with either abstract classes or interfaces.</p>
-            <h1>Abstract Methods and Classes</h1>
-            <p>An abstract class is a class that is declared abstract—it may or may not include abstract methods. Abstract classes cannot be instantiated, but they can be subclassed.</p>
-            <p>An abstract method is a method that is declared without an implementation (without braces, and followed by a semicolon), like this:</p>
-            <pre>
+                    <div id="AbstractMethodsandClasses">
+                        <h1>Java Abstraction</h1>
+                        <p>Data abstraction is the process of hiding certain details and showing only essential
+                            information to the user.</p>
+                        <img src="./images/iphone.jpeg" alt="iphone" width="100%">
+                        <p> We daily use Mobile/Cell phones for multiple purposes but we dont know how it is
+                            working.we(customer) no need to know about this </p>
+                        <p> Abstraction can be achieved with either abstract classes or interfaces.</p>
+                        <h1>Abstract Methods and Classes</h1>
+                        <p>An abstract class is a class that is declared abstract—it may or may not include abstract
+                            methods. Abstract classes cannot be instantiated, but they can be subclassed.</p>
+                        <p>An abstract method is a method that is declared without an implementation (without braces,
+                            and followed by a semicolon), like this:</p>
+                        <pre>
                 <code>
 abstract void moveTo(double deltaX, double deltaY);
                 </code>
             </pre>
-            <p>If a class includes abstract methods, then the class itself must be declared abstract, as in:</p>
-            <pre>
+                        <p>If a class includes abstract methods, then the class itself must be declared abstract, as in:
+                        </p>
+                        <pre>
                 <code>
 public abstract class GraphicObject {
     // declare fields
@@ -1896,9 +1963,11 @@ public abstract class GraphicObject {
  }
                 </code>
             </pre>
-            <p>When an abstract class is subclassed, the subclass usually provides implementations for all of the abstract methods in its parent class. However, if it does not, then the subclass must also be declared abstract.</p>
-            <p>abstract methods allow only public and protected modifiers</p>
-            <pre>
+                        <p>When an abstract class is subclassed, the subclass usually provides implementations for all
+                            of the abstract methods in its parent class. However, if it does not, then the subclass must
+                            also be declared abstract.</p>
+                        <p>abstract methods allow only public and protected modifiers</p>
+                        <pre>
                 <code>
 abstract class L{
 	
@@ -1908,17 +1977,36 @@ abstract class L{
 }
                 </code>
             </pre>
-            <h6>Consider using abstract classes if any of these statements apply to your situation: </h6>
-            <ul>
-                <li>You want to share code among several closely related classes.</li>
-                <li>You expect that classes that extend your abstract class have many common methods or fields, or require access modifiers other than public (such as protected and private).</li>
-                <li>You want to declare non-static or non-final fields. This enables you to define methods that can access and modify the state of the object to which they belong.</li>
-            </ul>
-            <p>An example of an abstract class in the JDK is AbstractMap, which is part of the Collections Framework. Its subclasses (which include HashMap, TreeMap, and ConcurrentHashMap) share many methods (including get, put, isEmpty, containsKey, and containsValue) that AbstractMap defines.</p>
-            <h5>An Abstract Class Example:</h5>
-            <p>In an object-oriented drawing application, you can draw circles, rectangles, lines, Bezier curves, and many other graphic objects. These objects all have certain states (for example: position, orientation, line color, fill color) and behaviors (for example: moveTo, rotate, resize, draw) in common. Some of these states and behaviors are the same for all graphic objects (for example: position, fill color, and moveTo). Others require different implementations (for example, resize or draw). All GraphicObjects must be able to draw or resize themselves; they just differ in how they do it. This is a perfect situation for an abstract superclass. You can take advantage of the similarities and declare all the graphic objects to inherit from the same abstract parent object (for example, GraphicObject) as shown in the following figure.</p>
-            <p>First, you declare an abstract class, GraphicObject, to provide member variables and methods that are wholly shared by all subclasses, such as the current position and the moveTo method. GraphicObject also declares abstract methods for methods, such as draw or resize, that need to be implemented by all subclasses but must be implemented in different ways. The GraphicObject class can look something like this:</p>
-            <pre>
+                        <h6>Consider using abstract classes if any of these statements apply to your situation: </h6>
+                        <ul>
+                            <li>You want to share code among several closely related classes.</li>
+                            <li>You expect that classes that extend your abstract class have many common methods or
+                                fields, or require access modifiers other than public (such as protected and private).
+                            </li>
+                            <li>You want to declare non-static or non-final fields. This enables you to define methods
+                                that can access and modify the state of the object to which they belong.</li>
+                        </ul>
+                        <p>An example of an abstract class in the JDK is AbstractMap, which is part of the Collections
+                            Framework. Its subclasses (which include HashMap, TreeMap, and ConcurrentHashMap) share many
+                            methods (including get, put, isEmpty, containsKey, and containsValue) that AbstractMap
+                            defines.</p>
+                        <h5>An Abstract Class Example:</h5>
+                        <p>In an object-oriented drawing application, you can draw circles, rectangles, lines, Bezier
+                            curves, and many other graphic objects. These objects all have certain states (for example:
+                            position, orientation, line color, fill color) and behaviors (for example: moveTo, rotate,
+                            resize, draw) in common. Some of these states and behaviors are the same for all graphic
+                            objects (for example: position, fill color, and moveTo). Others require different
+                            implementations (for example, resize or draw). All GraphicObjects must be able to draw or
+                            resize themselves; they just differ in how they do it. This is a perfect situation for an
+                            abstract superclass. You can take advantage of the similarities and declare all the graphic
+                            objects to inherit from the same abstract parent object (for example, GraphicObject) as
+                            shown in the following figure.</p>
+                        <p>First, you declare an abstract class, GraphicObject, to provide member variables and methods
+                            that are wholly shared by all subclasses, such as the current position and the moveTo
+                            method. GraphicObject also declares abstract methods for methods, such as draw or resize,
+                            that need to be implemented by all subclasses but must be implemented in different ways. The
+                            GraphicObject class can look something like this:</p>
+                        <pre>
                 <code>
 abstract class GraphicObject {
     int x, y;
@@ -1931,8 +2019,9 @@ abstract class GraphicObject {
 }
                 </code>
             </pre>
-            <p>Each nonabstract subclass of GraphicObject, such as Circle and Rectangle, must provide implementations for the draw and resize methods:</p>
-            <pre>
+                        <p>Each nonabstract subclass of GraphicObject, such as Circle and Rectangle, must provide
+                            implementations for the draw and resize methods:</p>
+                        <pre>
                 <code>
 class Circle extends GraphicObject {
     void draw() {
@@ -1952,8 +2041,9 @@ class Rectangle extends GraphicObject {
 }
                 </code>
             </pre>
-            <p><a href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html">please refer</a></p>
-            <pre>
+                        <p><a href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html">please refer</a>
+                        </p>
+                        <pre>
                 <code>
 abstract class Vehicle{
     abstract void wheels();
@@ -1985,14 +2075,14 @@ public class Example20 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 Auto has 3 wheels
 Car has 3 wheels
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 abstract class Animal {
     abstract void makeSound();
@@ -2022,21 +2112,24 @@ abstract class Animal {
 }
                 </code>
             </pre>
-            <h6>Key Points to Remember</h6>
-            <ul>
-                <li>We use the abstract keyword to create abstract classes and methods.</li>
-                <li>An abstract method doesn't have any implementation (method body).</li>
-                <li>A class containing abstract methods should also be abstract.</li>
-                <li>We cannot create objects of an abstract class.</li>
-                <li>To implement features of an abstract class, we inherit subclasses from it and create objects of the subclass.</li>
-                <li>A subclass must override all abstract methods of an abstract class. However, if the subclass is declared abstract, it's not mandatory to override abstract methods.</li>
-                <li>We can access the static attributes and methods of an abstract class using the reference of the abstract class. For example, </li>
-            </ul>
-            <h6>Final method:</h6>
-            <p>If we don’t want a method to be overridden by a derived class method then we
-                can define the base class method as final. Any attempt to override that method will cause a
-                compile time error.</p>
-            <pre>
+                        <h6>Key Points to Remember</h6>
+                        <ul>
+                            <li>We use the abstract keyword to create abstract classes and methods.</li>
+                            <li>An abstract method doesn't have any implementation (method body).</li>
+                            <li>A class containing abstract methods should also be abstract.</li>
+                            <li>We cannot create objects of an abstract class.</li>
+                            <li>To implement features of an abstract class, we inherit subclasses from it and create
+                                objects of the subclass.</li>
+                            <li>A subclass must override all abstract methods of an abstract class. However, if the
+                                subclass is declared abstract, it's not mandatory to override abstract methods.</li>
+                            <li>We can access the static attributes and methods of an abstract class using the reference
+                                of the abstract class. For example, </li>
+                        </ul>
+                        <h6>Final method:</h6>
+                        <p>If we don’t want a method to be overridden by a derived class method then we
+                            can define the base class method as final. Any attempt to override that method will cause a
+                            compile time error.</p>
+                        <pre>
                 <code>
 class L{
     final void  sayHello() {
@@ -2059,8 +2152,8 @@ public class Example20 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 Exception in thread "main" java.lang.IncompatibleClassChangeError: class testingTheJava8.M overrides final method testingTheJava8.L.sayHello()V
 at java.base/java.lang.ClassLoader.defineClass1(Native Method)
@@ -2075,7 +2168,7 @@ at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
 at testingTheJava8.Example20.main(Example20.java:18)
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 final class L{
 	 
@@ -2093,8 +2186,8 @@ public class Example20 {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
 The type M cannot subclass the final class L
@@ -2103,8 +2196,8 @@ at testingTheJava8.M.<init>(Example20.java:7)
 at testingTheJava8.Example20.main(Example20.java:14)
                 </code>
             </pre>
-            <p>abstract class allows following methods and variables</p>
-            <pre>
+                        <p>abstract class allows following methods and variables</p>
+                        <pre>
                 <code>
 abstract class AabstractClass{
 	
@@ -2131,13 +2224,15 @@ abstract class AabstractClass{
 }
                 </code>
             </pre>
-        </div>
+                    </div>
 
-        <div id="strings">
-            <h1>Strings</h1>
-            <p>The String class represents character strings. All string literals in Java programs, such as "abc", are implemented as instances of this class. </p>
-            <p> Strings are constant; their values cannot be changed after they are created. String buffers support mutable strings. Because String objects are immutable they can be shared.</p>
-            <pre>
+                    <div id="strings">
+                        <h1>Strings</h1>
+                        <p>The String class represents character strings. All string literals in Java programs, such as
+                            "abc", are implemented as instances of this class. </p>
+                        <p> Strings are constant; their values cannot be changed after they are created. String buffers
+                            support mutable strings. Because String objects are immutable they can be shared.</p>
+                        <pre>
                 <code>
 public class StringMethods {
     public static void main(String[] args) {
@@ -2146,8 +2241,8 @@ public class StringMethods {
 }
                 </code>
             </pre>
-            <p>output</p>
-            <pre>
+                        <p>output</p>
+                        <pre>
                 <code>
 Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
 The constructor String(String) is ambiguous
@@ -2155,7 +2250,7 @@ The constructor String(String) is ambiguous
 at testingTheJava81.StringMethods.main(StringMethods.java:7)
                 </code>
             </pre>
-            <pre>
+                        <pre>
                 <code>
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -2326,8 +2421,8 @@ public class StringMethods {
 }
                 </code>
             </pre>
-            <h4>StringBuffer</h4>
-            <pre>
+                        <h4>StringBuffer</h4>
+                        <pre>
                 <code>
 public class StringBufferMethods {
 
@@ -2355,31 +2450,37 @@ public class StringBufferMethods {
 }
                 </code>
             </pre>
-        </div>
+                    </div>
 
-        <div id="properties">
-            <h1>Properties</h1>
-            <p>Properties are configuration values managed as key/value pairs. In each pair, the key and value are both String values. The key identifies, and is used to retrieve, the value, much as a variable name is used to retrieve the variable's value. For example, an application capable of downloading files might use a property named "download.lastDirectory" to keep track of the directory used for the last download.</p>
-            <p>To manage properties, create instances of java.util.Properties. This class provides methods for the following:</p>
-            <ul>
-                <li>loading key/value pairs into a Properties object from a stream,</li>
-                <li>retrieving a value from its key,</li>
-                <li>listing the keys and their values,</li>
-                <li>enumerating over the keys, and</li>
-                <li>saving the properties to a stream.</li>
-            </ul>
-            <p>Properties extends java.util.Hashtable. Some of the methods inherited from Hashtable support the following actions:</p>
-            <ul>
-                <li>testing to see if a particular key or value is in the Properties object,</li>
-                <li>getting the current number of key/value pairs,</li>
-                <li>removing a key and its value,</li>
-                <li>adding a key/value pair to the Properties list,</li>
-                <li>enumerating over the values or the keys,</li>
-                <li>retrieving a value by its key, and</li>
-                <li>finding out if the Properties object is empty.</li>
-            </ul>
-            <h4>Setting Up the Properties Object</h4>
-            <pre>
+                    <div id="properties">
+                        <h1>Properties</h1>
+                        <p>Properties are configuration values managed as key/value pairs. In each pair, the key and
+                            value are both String values. The key identifies, and is used to retrieve, the value, much
+                            as a variable name is used to retrieve the variable's value. For example, an application
+                            capable of downloading files might use a property named "download.lastDirectory" to keep
+                            track of the directory used for the last download.</p>
+                        <p>To manage properties, create instances of java.util.Properties. This class provides methods
+                            for the following:</p>
+                        <ul>
+                            <li>loading key/value pairs into a Properties object from a stream,</li>
+                            <li>retrieving a value from its key,</li>
+                            <li>listing the keys and their values,</li>
+                            <li>enumerating over the keys, and</li>
+                            <li>saving the properties to a stream.</li>
+                        </ul>
+                        <p>Properties extends java.util.Hashtable. Some of the methods inherited from Hashtable support
+                            the following actions:</p>
+                        <ul>
+                            <li>testing to see if a particular key or value is in the Properties object,</li>
+                            <li>getting the current number of key/value pairs,</li>
+                            <li>removing a key and its value,</li>
+                            <li>adding a key/value pair to the Properties list,</li>
+                            <li>enumerating over the values or the keys,</li>
+                            <li>retrieving a value by its key, and</li>
+                            <li>finding out if the Properties object is empty.</li>
+                        </ul>
+                        <h4>Setting Up the Properties Object</h4>
+                        <pre>
                 <code>
 // create and load default properties
 Properties defaultProps = new Properties();
@@ -2388,29 +2489,40 @@ defaultProps.load(in);
 in.close();
                 </code>
             </pre>
-            <h4>Saving Properties</h4>
-            <pre>
+                        <h4>Saving Properties</h4>
+                        <pre>
                 <code>
 FileOutputStream out = new FileOutputStream("appProperties");
 applicationProps.store(out, "---No Comment---");
 out.close();
                 </code>
             </pre>
-            <h4>Getting Property Information</h4>
-            <p>Once the application has set up its Properties object, the application can query the object for information about various keys and values that it contains. An application gets information from a Properties object after start up so that it can initialize itself based on choices made by the user. The Properties class has several methods for getting property information:</p>
-            <ul>
-                <li>contains(Object value) and containsKey(Object key)</li>
-                <p>Returns true if the value or the key is in the Properties object. Properties inherits these methods from Hashtable. Thus they accept Object arguments, but only String values should be used.</p>
-                <li>getProperty(String key) and getProperty(String key, String default)</li>
-                <p>Returns the value for the specified property. The second version provides for a default value. If the key is not found, the default is returned.</p>
-                <li>list(PrintStream s) and list(PrintWriter w)</li>
-                <p>Writes all of the properties to the specified stream or writer. This is useful for debugging.</p>
-                <li>size()</li>
-                <p>Returns the current number of key/value pairs.</p>
-            </ul>
-            <h4>Setting Properties</h4>
-            <p>A user's interaction with an application during its execution may impact property settings. These changes should be reflected in the Properties object so that they are saved when the application exits (and calls the store method). The following methods change the properties in a Properties object:</p>
-            <pre>
+                        <h4>Getting Property Information</h4>
+                        <p>Once the application has set up its Properties object, the application can query the object
+                            for information about various keys and values that it contains. An application gets
+                            information from a Properties object after start up so that it can initialize itself based
+                            on choices made by the user. The Properties class has several methods for getting property
+                            information:</p>
+                        <ul>
+                            <li>contains(Object value) and containsKey(Object key)</li>
+                            <p>Returns true if the value or the key is in the Properties object. Properties inherits
+                                these methods from Hashtable. Thus they accept Object arguments, but only String values
+                                should be used.</p>
+                            <li>getProperty(String key) and getProperty(String key, String default)</li>
+                            <p>Returns the value for the specified property. The second version provides for a default
+                                value. If the key is not found, the default is returned.</p>
+                            <li>list(PrintStream s) and list(PrintWriter w)</li>
+                            <p>Writes all of the properties to the specified stream or writer. This is useful for
+                                debugging.</p>
+                            <li>size()</li>
+                            <p>Returns the current number of key/value pairs.</p>
+                        </ul>
+                        <h4>Setting Properties</h4>
+                        <p>A user's interaction with an application during its execution may impact property settings.
+                            These changes should be reflected in the Properties object so that they are saved when the
+                            application exits (and calls the store method). The following methods change the properties
+                            in a Properties object:</p>
+                        <pre>
                 <code>
 setProperty(String key, String value)
 Puts the key/value pair in the Properties object.
@@ -2418,13 +2530,18 @@ remove(Object key)
 Removes the key/value pair associated with key.
                 </code>
             </pre>
-        </div>
+                    </div>
 
-        <div id="system_properties">
-            <h1>System Properties</h1>
-            <p>In Properties, we examined the way an application can use Properties objects to maintain its configuration. The Java platform itself uses a Properties object to maintain its own configuration. The System class maintains a Properties object that describes the configuration of the current working environment. System properties include information about the current user, the current version of the Java runtime, and the character used to separate components of a file path name.</p>
-            <p>The following table describes some of the most important system properties</p>
-            <pre>
+                    <div id="system_properties">
+                        <h1>System Properties</h1>
+                        <p>In Properties, we examined the way an application can use Properties objects to maintain its
+                            configuration. The Java platform itself uses a Properties object to maintain its own
+                            configuration. The System class maintains a Properties object that describes the
+                            configuration of the current working environment. System properties include information
+                            about the current user, the current version of the Java runtime, and the character used to
+                            separate components of a file path name.</p>
+                        <p>The following table describes some of the most important system properties</p>
+                        <pre>
                 <code>
     Key	                             Meaning
 "file.separator"	Character that separates components of a file path. This is "/" on UNIX and "\" on Windows.
@@ -2443,12 +2560,14 @@ Removes the key/value pair associated with key.
 "user.name"	        User account name
                 </code>
             </pre>
-            <H4>Reading System Properties</H4>
-            <P>The System class has two methods used to read system properties: getProperty and getProperties.</P>
-            <P>System.getProperty("path.separator");</P>
-            <P>The getProperty method returns a string containing the value of the property. If the property does not exist, this version of getProperty returns null.</P>
-            <H4>Writing System Properties</H4>
-            <pre>
+                        <H4>Reading System Properties</H4>
+                        <P>The System class has two methods used to read system properties: getProperty and
+                            getProperties.</P>
+                        <P>System.getProperty("path.separator");</P>
+                        <P>The getProperty method returns a string containing the value of the property. If the property
+                            does not exist, this version of getProperty returns null.</P>
+                        <H4>Writing System Properties</H4>
+                        <pre>
                 <code>
 import java.io.FileInputStream;
 import java.util.Properties;
@@ -2473,13 +2592,21 @@ public static void main(String[] args)
 }
                 </code>
             </pre>
-        </div>
+                    </div>
 
-        <div id="Environment_Variables">
-            <h1>Environment Variables</h1>
-            <p>Many operating systems use environment variables to pass configuration information to applications. Like properties in the Java platform, environment variables are key/value pairs, where both the key and the value are strings. The conventions for setting and using environment variables vary between operating systems, and also between command line interpreters. To learn how to pass environment variables to applications on your system, refer to your system documentation.</p>
-            <p>On the Java platform, an application uses System.getenv to retrieve environment variable values. Without an argument, getenv returns a read-only instance of java.util.Map, where the map keys are the environment variable names, and the map values are the environment variable values. This is demonstrated in the EnvMap example:</p>
-            <pre>
+                    <div id="Environment_Variables">
+                        <h1>Environment Variables</h1>
+                        <p>Many operating systems use environment variables to pass configuration information to
+                            applications. Like properties in the Java platform, environment variables are key/value
+                            pairs, where both the key and the value are strings. The conventions for setting and using
+                            environment variables vary between operating systems, and also between command line
+                            interpreters. To learn how to pass environment variables to applications on your system,
+                            refer to your system documentation.</p>
+                        <p>On the Java platform, an application uses System.getenv to retrieve environment variable
+                            values. Without an argument, getenv returns a read-only instance of java.util.Map, where the
+                            map keys are the environment variable names, and the map values are the environment variable
+                            values. This is demonstrated in the EnvMap example:</p>
+                        <pre>
                 <code>
 import java.util.Map;
 
@@ -2495,42 +2622,99 @@ public static void main (String[] args) {
 }
                 </code>
             </pre>
+                    </div>
+
+                    <div id="Regular_Expressions">
+                        <h1>Regular Expressions</h1>
+                        <a href="https://docs.oracle.com/javase/tutorial/essential/regex/index.html">Regular
+                            Expressions</a>
+                    </div>
+
+                    <div>
+                        <h1>Exceptions</h1>
+                        <h3>What Is an Exception?</h3>
+                        <p>The term exception is shorthand for the phrase "exceptional event."</p>
+                        <b>Definition: An exception is an event, which occurs during the execution of a program, that
+                            disrupts the normal flow of the program's instructions. </b>
+                        <p>When an error occurs within a method, the method creates an object and hands it off to the
+                            runtime system. The object, called an exception object, contains information about the
+                            error, including its type and the state of the program when the error occurred. Creating an
+                            exception object and handing it to the runtime system is called throwing an exception.</p>
+                        <p>After a method throws an exception, the runtime system attempts to find something to handle
+                            it. The set of possible "somethings" to handle the exception is the ordered list of methods
+                            that had been called to get to the method where the error occurred. The list of methods is
+                            known as the call stack (see the next figure).</p>
+                        <img src="./images/exceptions-callstack.gif" alt="exceptions-callstack" width="100%">
+                        <p>The runtime system searches the call stack for a method that contains a block of code that
+                            can handle the exception. This block of code is called an exception handler. The search
+                            begins with the method in which the error occurred and proceeds through the call stack in
+                            the reverse order in which the methods were called. When an appropriate handler is found,
+                            the runtime system passes the exception to the handler. An exception handler is considered
+                            appropriate if the type of the exception object thrown matches the type that can be handled
+                            by the handler.</p>
+                        <p>The exception handler chosen is said to catch the exception. If the runtime system
+                            exhaustively searches all the methods on the call stack without finding an appropriate
+                            exception handler, as shown in the next figure, the runtime system (and, consequently, the
+                            program) terminates.</p>
+                        <img src="./images/exceptions-errorOccurs.gif" alt="exceptions-callstack" width="100%">
+                        <p>Using exceptions to manage errors has some advantages over traditional error-management
+                            techniques. You can learn more in the Advantages of Exceptions section.</p>
+                        <h3>The Catch or Specify Requirement</h3>
+                        <p>Valid Java programming language code must honor the Catch or Specify Requirement. This means
+                            that code that might throw certain exceptions must be enclosed by either of the following:
+                        </p>
+                        <ul>
+                            <li>A try statement that catches the exception. The try must provide a handler for the
+                                exception.</li>
+                            <li>A method that specifies that it can throw the exception. The method must provide a
+                                throws clause that lists the exception.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
         </div>
-
-        <div id="Regular_Expressions">
-            <h1>Regular Expressions</h1>
-            <a href="https://docs.oracle.com/javase/tutorial/essential/regex/index.html">Regular Expressions</a>
+    </article>
+    <!-- Footer-->
+    <footer class="border-top">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2022</div>
+                </div>
+            </div>
         </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
 
-        <div>
-            <h1>Exceptions</h1>
-        <h3>What Is an Exception?</h3>
-        <p>The term exception is shorthand for the phrase "exceptional event."</p>
-        <b>Definition: An exception is an event, which occurs during the execution of a program, that disrupts the normal flow of the program's instructions. </b>
-        <p>When an error occurs within a method, the method creates an object and hands it off to the runtime system. The object, called an exception object, contains information about the error, including its type and the state of the program when the error occurred. Creating an exception object and handing it to the runtime system is called throwing an exception.</p>
-        <p>After a method throws an exception, the runtime system attempts to find something to handle it. The set of possible "somethings" to handle the exception is the ordered list of methods that had been called to get to the method where the error occurred. The list of methods is known as the call stack (see the next figure).</p>
-        <img src="./images/exceptions-callstack.gif" alt="exceptions-callstack" width="100%">
-        <p>The runtime system searches the call stack for a method that contains a block of code that can handle the exception. This block of code is called an exception handler. The search begins with the method in which the error occurred and proceeds through the call stack in the reverse order in which the methods were called. When an appropriate handler is found, the runtime system passes the exception to the handler. An exception handler is considered appropriate if the type of the exception object thrown matches the type that can be handled by the handler.</p>
-        <p>The exception handler chosen is said to catch the exception. If the runtime system exhaustively searches all the methods on the call stack without finding an appropriate exception handler, as shown in the next figure, the runtime system (and, consequently, the program) terminates.</p>
-        <img src="./images/exceptions-errorOccurs.gif" alt="exceptions-callstack" width="100%">
-        <p>Using exceptions to manage errors has some advantages over traditional error-management techniques. You can learn more in the Advantages of Exceptions section.</p>
-        <h3>The Catch or Specify Requirement</h3>
-        <p>Valid Java programming language code must honor the Catch or Specify Requirement. This means that code that might throw certain exceptions must be enclosed by either of the following:</p>
-        <ul>
-            <li>A try statement that catches the exception. The try must provide a handler for the exception.</li>
-            <li>A method that specifies that it can throw the exception. The method must provide a throws clause that lists the exception.</li>
-        </ul>
-        </div>
-
-        <script>
-        function openNav() {
-        document.getElementById("mySidepanel").style.width = "250px";
-        }
-
-        function closeNav() {
-        document.getElementById("mySidepanel").style.width = "0";
-        }
-        </script>
-   
-    </body>
-</html> 
+</html>

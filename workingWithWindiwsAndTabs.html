@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Clean Blog - Start Bootstrap Theme</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1>Man must explore, and this is exploration at its greatest</h1>
+                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+                        <span class="meta">
+                            Posted by
+                            <a href="#!">Start Bootstrap</a>
+                            on August 24, 2022
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Post Content-->
+    <article class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div>
+                        <h1>Working with windows and tabs</h1>
+                        <h2>Windows and tabs </h2>
+                        <h3>Get window handle </h3>
+                        <p>WebDriver does not make the distinction between windows and tabs. If your site opens a new
+                            tab or window, Selenium will let you work with it using a window handle. Each window has a
+                            unique identifier which remains persistent in a single session. You can get the window
+                            handle of the current window by using:</p>
+                        <pre>driver.getWindowHandle();</pre>
+                        <h3>Switching windows or tabs </h3>
+                        <p>Clicking a link which opens in a new window will focus the new window or tab on screen, but
+                            WebDriver will not know which window the Operating System considers active. To work with the
+                            new window you will need to switch to it. If you have only two tabs or windows open, and you
+                            know which window you start with, by the process of elimination you can loop over both
+                            windows or tabs that WebDriver can see, and switch to the one which is not the original.
+
+                            However, Selenium 4 provides a new api NewWindow which creates a new tab (or) new window and
+                            automatically switches to it.</p>
+                        <pre>
+                                <code>
+//Store the ID of the original window
+String originalWindow = driver.getWindowHandle();
+
+//Check we don't have other windows open already
+assert driver.getWindowHandles().size() == 1;
+
+//Click the link which opens in a new window
+driver.findElement(By.linkText("new window")).click();
+
+//Wait for the new window or tab
+wait.until(numberOfWindowsToBe(2));
+
+//Loop through until we find a new window handle
+for (String windowHandle : driver.getWindowHandles()) {
+    if(!originalWindow.contentEquals(windowHandle)) {
+        driver.switchTo().window(windowHandle);
+        break;
+    }
+}
+
+//Wait for the new tab to finish loading content
+wait.until(titleIs("Selenium documentation"));
+                            
+                                </code>
+                              </pre>
+                        <h3>Closing a window or tab </h3>
+                        <p>When you are finished with a window or tab and it is not the last window or tab open in your
+                            browser, you should close it and switch back to the window you were using previously.
+                            Assuming you followed the code sample in the previous section you will have the previous
+                            window handle stored in a variable. Put this together and you will get:</p>
+                        <pre>
+                                <code>
+//Close the tab or window
+driver.close();
+
+//Switch back to the old tab or window
+driver.switchTo().window(originalWindow);
+                            
+                                </code>
+                              </pre>
+                        <p>Forgetting to switch back to another window handle after closing a window will leave
+                            WebDriver executing on the now closed page, and will trigger a No Such Window Exception. You
+                            must switch back to a valid window handle in order to continue execution.</p>
+                        <h3>Quitting the browser at the end of a session </h3>
+                        <p>When you are finished with the browser session you should call quit, instead of close:</p>
+                        <pre>
+                                <code>driver.quit();</code>
+                              </pre>
+                        <pre>
+                                <code>
+Quit will:
+Close all the windows and tabs associated with that WebDriver session
+Close the browser process
+Close the background driver process
+Notify Selenium Grid that the browser is no longer in use so it can be used by another session (if you are using Selenium Grid)
+
+Failure to call quit will leave extra background processes and ports running on your machine which could cause you problems later.
+                                </code>
+                              </pre>
+                        <p>If not running WebDriver in a test context, you may consider using try / finally which is
+                            offered by most languages so that an exception will still clean up the WebDriver session.
+                        </p>
+                        <pre>
+                                <code>
+try {
+    //WebDriver code here...
+} finally {
+    driver.quit();
+}      
+                                </code>
+                              </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <!-- Footer-->
+    <footer class="border-top">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2022</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
