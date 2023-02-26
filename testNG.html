@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Clean Blog - Start Bootstrap Theme</title>
+    <title>TESTING</title>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
@@ -27,7 +27,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            <a class="navbar-brand" href="index.html">HOME</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -44,18 +44,13 @@
         </div>
     </nav>
     <!-- Page Header-->
-    <header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+    <header class="masthead" style="background-image: url('./images/testng.png')">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <div class="post-heading">
-                        <h1>Man must explore, and this is exploration at its greatest</h1>
-                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
-                        <span class="meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on August 24, 2022
-                        </span>
+                        <h1>TESTNG</h1>
+                        <h2 class="subheading">Next Generation Java Testing</h2>
                     </div>
                 </div>
             </div>
@@ -68,10 +63,25 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <div id="whatIsTestNg">
                         <h2>What is TestNG?</h2>
-                        <a href="https://testng.org/doc/index.html">TestNG official website</a>
+                        <!-- <a href="https://testng.org/doc/index.html">TestNG official website</a> -->
+                        <p>TestNG is a widely-used testing framework for Java applications. It was created to overcome
+                            some limitations of the popular JUnit testing framework, and has since become a popular
+                            choice for testing Java applications.</p>
+                        <p>TestNG provides a number of features that make it a powerful testing tool. For example, it
+                            allows you to group your tests and run them in specific orders, specify dependencies between
+                            tests, and configure how your tests are run using a flexible XML configuration file.
+                            Additionally, TestNG supports advanced features such as parameterization, data-driven
+                            testing, and parallel test execution.</p>
+                        <p>One of the key benefits of using TestNG is that it provides extensive reporting capabilities,
+                            including HTML and XML reports that can be easily integrated into build systems or
+                            continuous integration (CI) tools. This makes it easy to keep track of test results and
+                            identify any issues or failures.</p>
+                        <p>Overall, TestNG is a flexible and powerful testing framework that can help you write and run
+                            effective tests for your Java applications. Whether you're testing a small library or a
+                            large enterprise application, TestNG can help you ensure that your code is working as
+                            expected and that you're delivering high-quality software to your users.</p>
                         <p>TestNG is a testing framework inspired from JUnit and NUnit but introducing some new
                             functionalities that make it more powerful and easier to use, such as:</p>
-                        <h3>What are the Benefits of TestNG?</h3>
                         <ul>
                             <li>Annotations. </li>
                             <li>Run your tests in arbitrarily big thread pools with various policies available (all
@@ -85,6 +95,42 @@
                             <li>Embeds BeanShell for further flexibility. </li>
                             <li>Default JDK functions for runtime and logging (no dependencies). </li>
                             <li>Dependent methods for application server testing.</li>
+                        </ul>
+                        <h3>What are the Benefits of TestNG?</h3>
+                        <ul>
+                            <li>
+                                <p>Flexible Test Configuration: TestNG offers a highly configurable XML-based
+                                    configuration file that allows you to specify how your tests should be run. You can
+                                    define test suites, test groups, test dependencies, and much more.</p>
+                            </li>
+                            <li>
+                                <p>Annotations: TestNG provides a wide range of annotations that can be used to control
+                                    the flow of your tests. For example, you can use annotations to specify test setup
+                                    and teardown methods, to control test execution order, or to ignore specific tests.
+                                </p>
+                            </li>
+                            <li>
+                                <p>Data-Driven Testing: TestNG supports data-driven testing, allowing you to run the
+                                    same test with multiple sets of data. This makes it easy to test different scenarios
+                                    and edge cases.</p>
+                            </li>
+                            <li>
+                                <p>Parallel Test Execution: TestNG allows you to run your tests in parallel, which can
+                                    significantly reduce the time it takes to run your test suite. This is especially
+                                    useful for large test suites or when running tests on a continuous integration
+                                    server.</p>
+                            </li>
+                            <li>
+                                <p>Test Dependency Management: TestNG allows you to specify dependencies between your
+                                    tests, so that tests are only run when their dependencies have passed. This can help
+                                    ensure that your tests are run in the correct order and that any issues are caught
+                                    early.</p>
+                            </li>
+                            <li>
+                                <p>Reporting: TestNG provides rich HTML and XML reports that can be easily integrated
+                                    into build systems or continuous integration tools. These reports provide detailed
+                                    information on test results, including test run time, failures, and errors.</p>
+                            </li>
                         </ul>
                     </div>
 
@@ -109,50 +155,50 @@
                         <p>I created one RetryAnalyzer.java file</p>
                         <pre>
                                 <code>
-                import org.testng.IRetryAnalyzer;
-                import org.testng.ITestResult;
-                
-                public class RetryAnalyzer implements IRetryAnalyzer{
-                
-                    int count = 0;
-                    int retryLimit = 3;
-                    
-                    public boolean retry(ITestResult result) {
-                        
-                        if(count < retryLimit) {
-                            count++;
-                            return true;
-                        }
-                        
-                        return false;
-                    }
-                
-                }
-                                </code>
-                            </pre>
+import org.testng.IRetryAnalyzer;
+import org.testng.ITestResult;
+
+public class RetryAnalyzer implements IRetryAnalyzer{
+
+    int count = 0;
+    int retryLimit = 3;
+    
+    public boolean retry(ITestResult result) {
+        
+        if(count < retryLimit) {
+            count++;
+            return true;
+        }
+        
+        return false;
+    }
+
+}
+                </code>
+            </pre>
                         <p>And my test class is SampleClss1.java </p>
                         <pre>
-                                <code>
-                import org.testng.Assert;
-                import org.testng.annotations.Test;
-                
-                public class SampleClass1 {
-                
-                    @Test(retryAnalyzer = RetryAnalyzer.class)
-                    public void testMethodOne() {
-                        Assert.assertEquals(false, true);
-                    }
-                    
-                    @Test(retryAnalyzer = RetryAnalyzer.class)
-                    public void testMethodTwo() {
-                        Assert.assertEquals(false, true);
-                    }
-                    
-                    @Test(retryAnalyzer = RetryAnalyzer.class)
-                    public void testMethodThree() {
-                        Assert.assertEquals(false, false);
-                    }
-                }
+                <code>
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class SampleClass1 {
+
+    @Test(retryAnalyzer = RetryAnalyzer.class)
+    public void testMethodOne() {
+        Assert.assertEquals(false, true);
+    }
+    
+    @Test(retryAnalyzer = RetryAnalyzer.class)
+    public void testMethodTwo() {
+        Assert.assertEquals(false, true);
+    }
+    
+    @Test(retryAnalyzer = RetryAnalyzer.class)
+    public void testMethodThree() {
+        Assert.assertEquals(false, false);
+    }
+}
                                 </code>
                             </pre>
                         <p>SampleClass1 class has 3 tests in that 2 are failed cases and 1 passed one.</p>
@@ -165,92 +211,92 @@
                         <p>SampleClass1.java</p>
                         <pre>
                                 <code>
-                package rettry;
-                
-                import org.testng.annotations.Test;
-                import org.testng.Assert;
-                
-                
-                public class SampleClass1 {
-                
-                    @Test
-                    public void testMethodOne() {
-                        Assert.assertEquals(false, true);
-                    }
-                    
-                    @Test
-                    public void testMethodTwo() {
-                        Assert.assertEquals(false, true);
-                    }
-                    
-                    @Test
-                    public void testMethodThree() {
-                        Assert.assertEquals(false, false);
-                    }
-                }
+package rettry;
+
+import org.testng.annotations.Test;
+import org.testng.Assert;
+
+
+public class SampleClass1 {
+
+    @Test
+    public void testMethodOne() {
+        Assert.assertEquals(false, true);
+    }
+    
+    @Test
+    public void testMethodTwo() {
+        Assert.assertEquals(false, true);
+    }
+    
+    @Test
+    public void testMethodThree() {
+        Assert.assertEquals(false, false);
+    }
+}
                                 </code>
                             </pre>
                         <p>RetryAnalyzer.java</p>
                         <pre>
                                 <code>
-                package rettry;
-                
-                import org.testng.IRetryAnalyzer;
-                import org.testng.ITestResult;
-                
-                public class RetryAnalyzer implements IRetryAnalyzer{
-                
-                    int count = 0;
-                    int retryLimit = 3;
-                    
-                    public boolean retry(ITestResult result) {
-                        
-                        if(count < retryLimit) {
-                            count++;
-                            return true;
-                        }
-                        
-                        return false;
-                    }
-                
-                }
+package rettry;
+
+import org.testng.IRetryAnalyzer;
+import org.testng.ITestResult;
+
+public class RetryAnalyzer implements IRetryAnalyzer{
+
+    int count = 0;
+    int retryLimit = 3;
+    
+    public boolean retry(ITestResult result) {
+        
+        if(count < retryLimit) {
+            count++;
+            return true;
+        }
+        
+        return false;
+    }
+
+}
                                 </code>
                             </pre>
                         <p>MyTransformerClass.java</p>
                         <pre>
                                 <code>
-                import java.lang.reflect.Constructor;
-                import java.lang.reflect.Method;
-                
-                import org.testng.IAnnotationTransformer;
-                import org.testng.annotations.ITestAnnotation;
-                
-                public class MyTransformerClass implements IAnnotationTransformer {
-                
-                    public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
-                        
-                        annotation.setRetryAnalyzer(RetryAnalyzer.class);
-                        
-                    }
-                
-                }
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+
+import org.testng.IAnnotationTransformer;
+import org.testng.annotations.ITestAnnotation;
+
+public class MyTransformerClass implements IAnnotationTransformer {
+
+    public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
+        
+        annotation.setRetryAnalyzer(RetryAnalyzer.class);
+        
+    }
+
+}
                                 </code>
                             </pre>
                         <p>testng.xml</p>
                         <pre>
                                 <code>
-                &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-                &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-                &lt;suite name=&quot;Suite&quot;&gt;
-                &lt;listeners&gt;
-                    &lt;listener class-name=&quot;rettry.MyTransformerClass&quot; /&gt;
-                &lt;/listeners&gt;
-                  &lt;test  name=&quot;Test&quot;&gt;
-                    &lt;classes&gt;
-                      &lt;class name=&quot;rettry.SampleClass1&quot;/&gt;
-                    &lt;/classes&gt;
-                  &lt;/test&gt;
-                &lt;/suite&gt; 
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Suite&quot;&gt;
+&lt;listeners&gt;
+    &lt;listener class-name=&quot;rettry.MyTransformerClass&quot; /&gt;
+&lt;/listeners&gt;
+  &lt;test  name=&quot;Test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;rettry.SampleClass1&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt;
+&lt;/suite&gt; 
                                 </code>
                             </pre>
                         <p>If you run above testng file you will get output like </p>
@@ -297,21 +343,21 @@
                         <h5> Here is how you can define listeners in your testng.xml file: </h5>
                         <pre>
                                 <code>
-                &lt;suite&gt;
-                 
-                  &lt;listeners&gt;
-                    &lt;listener class-name=&quot;com.example.MyListener&quot; /&gt;
-                    &lt;listener class-name=&quot;com.example.MyMethodInterceptor&quot; /&gt;
-                  &lt;/listeners&gt;
+&lt;suite&gt;
+ 
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;com.example.MyListener&quot; /&gt;
+    &lt;listener class-name=&quot;com.example.MyMethodInterceptor&quot; /&gt;
+  &lt;/listeners&gt;
                                 </code>
                             </pre>
                         <h5> Or if you prefer to define these listeners in Java: </h5>
                         <pre>
                                 <code>
-                @Listeners({ com.example.MyListener.class, com.example.MyMethodInterceptor.class })
-                public class MyTest {
-                  // ...
-                }
+@Listeners({ com.example.MyListener.class, com.example.MyMethodInterceptor.class })
+public class MyTest {
+  // ...
+}
                                 </code>
                             </pre>
                         <p> The @Listeners annotation can contain any class that extends org.testng.ITestNGListener
@@ -331,141 +377,141 @@
                         <p>MyExecutionListener.java</p>
                         <pre>
                                 <code>
-                import java.text.SimpleDateFormat;
-                import java.util.Date;
-                
-                import org.testng.IExecutionListener;
-                
-                public class MyExecutionListener implements IExecutionListener {
-                
-                    public void onExecutionStart() {
-                        System.out.println("Iam going start execution at: "+new SimpleDateFormat("yyyy:MM:dd:hh:mm:ss:SSS").format(new Date()));
-                        
-                    }
-                
-                    public void onExecutionFinish() {
-                        System.out.println("execution finished  at: "+new SimpleDateFormat("yyyy:MM:dd:hh:mm:ss:SSS").format(new Date()));
-                        
-                    }
-                
-                }
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.testng.IExecutionListener;
+
+public class MyExecutionListener implements IExecutionListener {
+
+    public void onExecutionStart() {
+        System.out.println("Iam going start execution at: "+new SimpleDateFormat("yyyy:MM:dd:hh:mm:ss:SSS").format(new Date()));
+        
+    }
+
+    public void onExecutionFinish() {
+        System.out.println("execution finished  at: "+new SimpleDateFormat("yyyy:MM:dd:hh:mm:ss:SSS").format(new Date()));
+        
+    }
+
+}
                                 </code>
                             </pre>
                         <p>Rough.java</p>
                         <pre>
                                 <code>
-                import org.testng.annotations.Listeners;
-                import org.testng.annotations.Test;
-                
-                @Listeners(MyExecutionListener.class)
-                public class Rough {
-                
-                    @Test
-                    public void test0() {
-                        System.out.println("test0");
-                    }
-                    
-                    @Test
-                    public void test6() {
-                        System.out.println("test6");
-                    }
-                }
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+@Listeners(MyExecutionListener.class)
+public class Rough {
+
+    @Test
+    public void test0() {
+        System.out.println("test0");
+    }
+    
+    @Test
+    public void test6() {
+        System.out.println("test6");
+    }
+}
                                 </code>
                             </pre>
                         <p>If you run Rough clas you will get following result</p>
                         <pre>
                                 <code>
-                Iam going start execution at: 2022:08:15:09:23:25:695
-                test0
-                test6
-                PASSED: test0
-                PASSED: test6
-                
-                ===============================================
-                    Default test
-                    Tests run: 2, Failures: 0, Skips: 0
-                ===============================================
-                
-                
-                ===============================================
-                Default suite
-                Total tests run: 2, Failures: 0, Skips: 0
-                ===============================================
-                
-                execution finished  at: 2022:08:15:09:23:25:846
+Iam going start execution at: 2022:08:15:09:23:25:695
+test0
+test6
+PASSED: test0
+PASSED: test6
+
+===============================================
+    Default test
+    Tests run: 2, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 2, Failures: 0, Skips: 0
+===============================================
+
+execution finished  at: 2022:08:15:09:23:25:846
                                 </code>
                             </pre>
                         <h4>ISuiteListener</h4>
                         <p>Rough.java</p>
                         <pre>
                                 <code>
-                import org.testng.annotations.Test;
-                
-                
-                public class Rough {
-                
-                    @Test
-                    public void test0() {
-                        System.out.println("test0");
-                    }
-                    
-                    @Test
-                    public void test6() {
-                        System.out.println("test6");
-                    }
-                }
+import org.testng.annotations.Test;
+
+
+public class Rough {
+
+    @Test
+    public void test0() {
+        System.out.println("test0");
+    }
+    
+    @Test
+    public void test6() {
+        System.out.println("test6");
+    }
+}
                                 </code>
                             </pre>
                         <p>MySuiteListener.java</p>
                         <pre>
                                 <code>
-                import org.testng.ISuite;
-                import org.testng.ISuiteListener;
-                
-                public class MySuiteListener  implements  ISuiteListener {
-                
-                    public void onStart(ISuite suite) {
-                        System.out.println("onStart method in ISuiteListener: "+suite.getName());
-                        
-                    }
-                
-                    public void onFinish(ISuite suite) {
-                        System.out.println("onFinish method in ISuiteListener: "+suite.getName());
-                        
-                    }
-                
-                }
+import org.testng.ISuite;
+import org.testng.ISuiteListener;
+
+public class MySuiteListener  implements  ISuiteListener {
+
+    public void onStart(ISuite suite) {
+        System.out.println("onStart method in ISuiteListener: "+suite.getName());
+        
+    }
+
+    public void onFinish(ISuite suite) {
+        System.out.println("onFinish method in ISuiteListener: "+suite.getName());
+        
+    }
+
+}
                                 </code>
                             </pre>
                         <p>testng.xml</p>
                         <pre>
                                 <code>
-                &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-                &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-                &lt;suite name=&quot;Suite 1&quot;&gt;
-                &lt;listeners&gt;
-                    &lt;listener class-name=&quot;rough.MySuiteListener&quot; /&gt;
-                &lt;/listeners&gt;
-                  &lt;test  name=&quot;Test&quot;&gt;
-                    &lt;classes&gt;
-                      &lt;class name=&quot;rough.Rough&quot;/&gt;
-                    &lt;/classes&gt;
-                  &lt;/test&gt;
-                &lt;/suite&gt; 
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Suite 1&quot;&gt;
+&lt;listeners&gt;
+    &lt;listener class-name=&quot;rough.MySuiteListener&quot; /&gt;
+&lt;/listeners&gt;
+  &lt;test  name=&quot;Test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;rough.Rough&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt;
+&lt;/suite&gt; 
                                 </code>
                             </pre>
                         <p>If you run the above xml file the results look like.</p>
                         <pre>
                                 <code>
-                onStart method in ISuiteListener: Suite 1
-                test0
-                test6
-                onFinish method in ISuiteListener: Suite 1
-                
-                ===============================================
-                Suite 1
-                Total tests run: 2, Failures: 0, Skips: 0
-                ===============================================
+onStart method in ISuiteListener: Suite 1
+test0
+test6
+onFinish method in ISuiteListener: Suite 1
+
+===============================================
+Suite 1
+Total tests run: 2, Failures: 0, Skips: 0
+===============================================
                                 </code>
                             </pre>
                         <h4>ITestListener</h4>
@@ -476,47 +522,47 @@
                         <p>Below is a listener class that implements ITestListener:</p>
                         <pre>
                                 <code>
-                import org.testng.ITestContext;
-                import org.testng.ITestListener;
-                import org.testng.ITestResult;
-                
-                public class MyListener implements ITestListener {
-                
-                    public void onFinish(ITestContext contextFinish) {
-                        System.out.println("onFinish method finished");
-                
-                    }
-                
-                    public void onStart(ITestContext contextStart) {
-                        System.out.println("onStart method started");
-                    }
-                
-                    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-                        System.out.println("Method failed with certain success percentage"+ result.getName());
-                
-                    }
-                
-                    public void onTestFailure(ITestResult result) {
-                        System.out.println("Method failed"+ result.getName());
-                
-                    }
-                
-                    public void onTestSkipped(ITestResult result) {
-                        System.out.println("Method skipped"+ result.getName());
-                
-                    }
-                
-                    public void onTestStart(ITestResult result) {
-                        System.out.println("Method started"+ result.getName());
-                
-                    }
-                
-                    public void onTestSuccess(ITestResult result) {
-                        System.out.println("Method passed"+ result.getName());
-                
-                    }
-                
-                }
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+public class MyListener implements ITestListener {
+
+    public void onFinish(ITestContext contextFinish) {
+        System.out.println("onFinish method finished");
+
+    }
+
+    public void onStart(ITestContext contextStart) {
+        System.out.println("onStart method started");
+    }
+
+    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+        System.out.println("Method failed with certain success percentage"+ result.getName());
+
+    }
+
+    public void onTestFailure(ITestResult result) {
+        System.out.println("Method failed"+ result.getName());
+
+    }
+
+    public void onTestSkipped(ITestResult result) {
+        System.out.println("Method skipped"+ result.getName());
+
+    }
+
+    public void onTestStart(ITestResult result) {
+        System.out.println("Method started"+ result.getName());
+
+    }
+
+    public void onTestSuccess(ITestResult result) {
+        System.out.println("Method passed"+ result.getName());
+
+    }
+
+}
                                 </code>
                             </pre>
                         <p>The class below contains four methods, showcasing one method being passed, one method being
@@ -524,104 +570,104 @@
                             percentage:</p>
                         <pre>
                                 <code>
-                import org.testng.Assert;
-                import org.testng.SkipException;
-                import org.testng.annotations.Test;
-                
-                public class ItestListenerWithExample {
-                
-                    int i=0;
-                
-                    @Test
-                    public void testMethod1()
-                    {
-                        System.out.println("This method will pass and will invoke the onTestSuccess method of ITestlistener");
-                        int i=10;
-                        Assert.assertEquals(i, 10);
-                    }
-                
-                    @Test
-                    public void testMethod2()
-                    {
-                        System.out.println("This method will fail and will invoke the onTestFailure method of ITestlistener");
-                        int i=10;
-                        Assert.assertEquals(i, 11);
-                    }
-                
-                    @Test
-                    public void testMethod3()
-                    {
-                        System.out.println("This method will skip and will invoke the onTestSkipped method of ITestlistener");
-                        throw new SkipException("Skipping this test case.");
-                
-                    }
-                
-                    @Test(successPercentage=50, invocationCount=5)
-                    public void testMethod4()
-                    {
-                        i++;
-                        System.out.println("Test Failed But Within Success Percentage Test Method, invocation count: " + i);
-                        if (i == 1 || i == 2) {
-                            System.out.println("this will be Failed");
-                            Assert.assertEquals(i, 100);
-                        }
-                    }
-                }
+import org.testng.Assert;
+import org.testng.SkipException;
+import org.testng.annotations.Test;
+
+public class ItestListenerWithExample {
+
+    int i=0;
+
+    @Test
+    public void testMethod1()
+    {
+        System.out.println("This method will pass and will invoke the onTestSuccess method of ITestlistener");
+        int i=10;
+        Assert.assertEquals(i, 10);
+    }
+
+    @Test
+    public void testMethod2()
+    {
+        System.out.println("This method will fail and will invoke the onTestFailure method of ITestlistener");
+        int i=10;
+        Assert.assertEquals(i, 11);
+    }
+
+    @Test
+    public void testMethod3()
+    {
+        System.out.println("This method will skip and will invoke the onTestSkipped method of ITestlistener");
+        throw new SkipException("Skipping this test case.");
+
+    }
+
+    @Test(successPercentage=50, invocationCount=5)
+    public void testMethod4()
+    {
+        i++;
+        System.out.println("Test Failed But Within Success Percentage Test Method, invocation count: " + i);
+        if (i == 1 || i == 2) {
+            System.out.println("this will be Failed");
+            Assert.assertEquals(i, 100);
+        }
+    }
+}
                                 </code>
                             </pre>
                         <p>testng.xml</p>
                         <pre>
                                 <code>
-                &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-                &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-                &lt;suite name=&quot;Suite 1&quot;&gt;
-                &lt;listeners&gt;
-                    &lt;listener class-name=&quot;rough.MyListener&quot; /&gt;
-                &lt;/listeners&gt;
-                  &lt;test  name=&quot;Test&quot;&gt;
-                    &lt;classes&gt;
-                      &lt;class name=&quot;rough.ItestListenerWithExample&quot;/&gt;
-                    &lt;/classes&gt;
-                  &lt;/test&gt;
-                &lt;/suite&gt; 
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Suite 1&quot;&gt;
+&lt;listeners&gt;
+    &lt;listener class-name=&quot;rough.MyListener&quot; /&gt;
+&lt;/listeners&gt;
+  &lt;test  name=&quot;Test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;rough.ItestListenerWithExample&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt;
+&lt;/suite&gt; 
                                 </code>
                             </pre>
                         <p>the reslut look like</p>
                         <pre>
                                 <code>
-                onStart method started
-                Method startedtestMethod1
-                This method will pass and will invoke the onTestSuccess method of ITestlistener
-                Method passedtestMethod1
-                Method startedtestMethod2
-                This method will fail and will invoke the onTestFailure method of ITestlistener
-                Method failedtestMethod2
-                Method startedtestMethod3
-                This method will skip and will invoke the onTestSkipped method of ITestlistener
-                Method skippedtestMethod3
-                Method startedtestMethod4
-                Test Failed But Within Success Percentage Test Method, invocation count: 1
-                this will be Failed
-                Method failed with certain success percentagetestMethod4
-                Method startedtestMethod4
-                Test Failed But Within Success Percentage Test Method, invocation count: 2
-                this will be Failed
-                Method failed with certain success percentagetestMethod4
-                Method startedtestMethod4
-                Test Failed But Within Success Percentage Test Method, invocation count: 3
-                Method passedtestMethod4
-                Method startedtestMethod4
-                Test Failed But Within Success Percentage Test Method, invocation count: 4
-                Method passedtestMethod4
-                Method startedtestMethod4
-                Test Failed But Within Success Percentage Test Method, invocation count: 5
-                Method passedtestMethod4
-                onFinish method finished
-                
-                ===============================================
-                Suite 1
-                Total tests run: 8, Failures: 3, Skips: 1
-                ===============================================
+onStart method started
+Method startedtestMethod1
+This method will pass and will invoke the onTestSuccess method of ITestlistener
+Method passedtestMethod1
+Method startedtestMethod2
+This method will fail and will invoke the onTestFailure method of ITestlistener
+Method failedtestMethod2
+Method startedtestMethod3
+This method will skip and will invoke the onTestSkipped method of ITestlistener
+Method skippedtestMethod3
+Method startedtestMethod4
+Test Failed But Within Success Percentage Test Method, invocation count: 1
+this will be Failed
+Method failed with certain success percentagetestMethod4
+Method startedtestMethod4
+Test Failed But Within Success Percentage Test Method, invocation count: 2
+this will be Failed
+Method failed with certain success percentagetestMethod4
+Method startedtestMethod4
+Test Failed But Within Success Percentage Test Method, invocation count: 3
+Method passedtestMethod4
+Method startedtestMethod4
+Test Failed But Within Success Percentage Test Method, invocation count: 4
+Method passedtestMethod4
+Method startedtestMethod4
+Test Failed But Within Success Percentage Test Method, invocation count: 5
+Method passedtestMethod4
+onFinish method finished
+
+===============================================
+Suite 1
+Total tests run: 8, Failures: 3, Skips: 1
+===============================================
                                 </code>
                             </pre>
                         <h4>IReporter</h4>
@@ -642,134 +688,134 @@
                         <p>Base.java</p>
                         <pre>
                                 <code>
-                import java.io.File;
-                import java.io.IOException;
-                import java.text.SimpleDateFormat;
-                import java.util.Date;
-                import java.util.concurrent.TimeUnit;
-                import org.apache.commons.io.FileUtils;
-                import org.openqa.selenium.OutputType;
-                import org.openqa.selenium.TakesScreenshot;
-                import org.openqa.selenium.WebDriver;
-                import org.openqa.selenium.chrome.ChromeDriver;
-                import io.github.bonigarcia.wdm.WebDriverManager;
-                
-                public class Base {
-                
-                  public static WebDriver driver;
-                  
-                  public void initialization() {
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-                    driver.get("https://opensource-demo.orangehrmlive.com/");
-                  }
-                  
-                  public void takeScreenshot() throws IOException {
-                    Date date = new Date();
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss_SSS");
-                    String dateString = sdf.format(date);
-                    File image = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-                    FileUtils.copyFile(image, new File("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/"+dateString+".jpg"));
-                  }
-                }
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Base {
+
+  public static WebDriver driver;
+  
+  public void initialization() {
+    WebDriverManager.chromedriver().setup();
+    driver = new ChromeDriver();
+    driver.manage().window().maximize();
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    driver.get("https://opensource-demo.orangehrmlive.com/");
+  }
+  
+  public void takeScreenshot() throws IOException {
+    Date date = new Date();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss_SSS");
+    String dateString = sdf.format(date);
+    File image = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+    FileUtils.copyFile(image, new File("/home/ranga/eclipse-workspace-testng/TestingPractice/screenshots/"+dateString+".jpg"));
+  }
+}
                                 </code>
                             </pre>
                         <p>CustomListener.java</p>
                         <pre>
                                 <code>
-                import java.io.IOException;
-                import org.testng.ITestContext;
-                import org.testng.ITestListener;
-                import org.testng.ITestResult;
-                
-                public class CustomListener  extends Base implements ITestListener{
-                
-                    public void onTestStart(ITestResult result) {
-                        // TODO Auto-generated method stub
-                        
-                    }
-                
-                    public void onTestSuccess(ITestResult result) {
-                        // TODO Auto-generated method stub
-                        
-                    }
-                
-                    public void onTestFailure(ITestResult result) {
-                        try {
-                            takeScreenshot();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        
-                    }
-                
-                    public void onTestSkipped(ITestResult result) {
-                        // TODO Auto-generated method stub
-                        
-                    }
-                
-                    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-                        // TODO Auto-generated method stub
-                        
-                    }
-                
-                    public void onStart(ITestContext context) {
-                        // TODO Auto-generated method stub
-                        
-                    }
-                
-                    public void onFinish(ITestContext context) {
-                        // TODO Auto-generated method stub
-                        
-                    }
-                
-                }
+import java.io.IOException;
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+public class CustomListener  extends Base implements ITestListener{
+
+    public void onTestStart(ITestResult result) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    public void onTestSuccess(ITestResult result) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    public void onTestFailure(ITestResult result) {
+        try {
+            takeScreenshot();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+    }
+
+    public void onTestSkipped(ITestResult result) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    public void onStart(ITestContext context) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    public void onFinish(ITestContext context) {
+        // TODO Auto-generated method stub
+        
+    }
+
+}
                                 </code>
                             </pre>
                         <p>SampleClass1.java</p>
                         <pre>
                                 <code>
-                import org.openqa.selenium.By;
-                import org.testng.Assert;
-                import org.testng.annotations.AfterMethod;
-                import org.testng.annotations.BeforeMethod;
-                import org.testng.annotations.DataProvider;
-                import org.testng.annotations.Listeners;
-                import org.testng.annotations.Test;
-                
-                @Listeners(CustomListener.class)
-                public class SampleClass1 extends Base{
-                    
-                    @BeforeMethod
-                    public void setUp() {
-                        initialization();
-                    }
-                    
-                    @DataProvider
-                    public Object[][] loginDataProvider() {
-                        
-                        return new Object[][] {
-                            {"admin123","admin123"},
-                            {"Admin","admin123"},
-                            {"Admin","admin456"}
-                        };
-                    }
-                    
-                    @Test(dataProvider = "loginDataProvider")
-                    public void loginTest(String username,String password) {
-                        driver.findElement(By.id("txtUsername")).sendKeys(username);
-                        driver.findElement(By.id("txtPassword")).sendKeys(password);
-                        driver.findElement(By.id("btnLogin")).submit();
-                        Assert.assertTrue(driver.findElement(By.id("welcome")).isDisplayed());
-                    }
-                    
-                    @AfterMethod
-                    public void tearDown() {
-                        driver.quit();
-                    }
-                }
+import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+@Listeners(CustomListener.class)
+public class SampleClass1 extends Base{
+    
+    @BeforeMethod
+    public void setUp() {
+        initialization();
+    }
+    
+    @DataProvider
+    public Object[][] loginDataProvider() {
+        
+        return new Object[][] {
+            {"admin123","admin123"},
+            {"Admin","admin123"},
+            {"Admin","admin456"}
+        };
+    }
+    
+    @Test(dataProvider = "loginDataProvider")
+    public void loginTest(String username,String password) {
+        driver.findElement(By.id("txtUsername")).sendKeys(username);
+        driver.findElement(By.id("txtPassword")).sendKeys(password);
+        driver.findElement(By.id("btnLogin")).submit();
+        Assert.assertTrue(driver.findElement(By.id("welcome")).isDisplayed());
+    }
+    
+    @AfterMethod
+    public void tearDown() {
+        driver.quit();
+    }
+}
                                 </code>
                             </pre>
                     </div>
@@ -801,7 +847,7 @@
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#!">
+                            <a href="https://github.com/mcrsr">
                                 <span class="fa-stack fa-lg">
                                     <i class="fas fa-circle fa-stack-2x"></i>
                                     <i class="fab fa-github fa-stack-1x fa-inverse"></i>
