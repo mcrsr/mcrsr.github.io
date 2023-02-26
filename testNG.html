@@ -61,6 +61,1022 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div id="annotations">
+                        <h2>Annotations</h2>
+                        <h4>@BeforeSuite</h4>
+                        <p>The @BeforeSuite annotation is used to specify a method that should be executed before all the tests in a suite. This annotation is typically used to perform any setup or initialization that is required for the entire suite of tests.</p>
+                        <p>Here is an example code that demonstrates the use of @BeforeSuite annotation:</p>
+                        <pre>
+                            <code>
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+public class ExampleTest {
+
+   @BeforeSuite
+   public void beforeSuiteMethod() {
+      System.out.println("Executing before suite method");
+   }
+
+   @Test
+   public void testMethod() {
+      System.out.println("Executing test method");
+   }
+}                                
+                            </code>
+                        </pre>
+                        <p>In the above code, the beforeSuiteMethod() method is annotated with @BeforeSuite annotation, which indicates that it should be executed before all the tests in the suite. The testMethod() method is annotated with @Test annotation, which indicates that it is a test method.</p>
+                        <p>When you run this code using TestNG, you should see the following output:</p>
+                        <pre>
+                            <code>
+Executing before suite method
+Executing test method
+                            </code>
+                        </pre>
+                        <p>As you can see, the beforeSuiteMethod() method is executed before the testMethod() method. This demonstrates the use of the @BeforeSuite annotation to execute a method before all the tests in a suite.</p>
+                        <h4>@AfterSuite</h4>
+                        <p>The @AfterSuite annotation in TestNG is used to specify a method that should be executed after all the tests in a suite have completed their execution. This annotation is typically used to perform any cleanup or tear-down activities that are required after the entire suite of tests has been executed.</p>
+                        <p>Here is an example code that demonstrates the use of @AfterSuite annotation:</p>
+                        <pre>
+                            <code>
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.Test;
+
+public class ExampleTest {
+
+   @Test
+   public void testMethod1() {
+      System.out.println("Executing test method 1");
+   }
+
+   @Test
+   public void testMethod2() {
+      System.out.println("Executing test method 2");
+   }
+
+   @AfterSuite
+   public void afterSuiteMethod() {
+      System.out.println("Executing after suite method");
+   }
+}
+                            </code>
+                        </pre>
+                        <p>In the above code, the afterSuiteMethod() method is annotated with @AfterSuite annotation, which indicates that it should be executed after all the tests in the suite have completed their execution. The testMethod1() and testMethod2() methods are annotated with @Test annotation, which indicates that they are test methods.</p>
+                        <p>When you run this code using TestNG, you should see the following output:</p>
+                        <pre>
+                            <code>
+Executing test method 1
+Executing test method 2
+Executing after suite method
+                            </code>
+                        </pre>
+                        <p>As you can see, the afterSuiteMethod() method is executed after the testMethod1() and testMethod2() methods have completed their execution. This demonstrates the use of the @AfterSuite annotation to execute a method after all the tests in a suite have been executed.</p>
+                        <h4>@BeforeTest</h4>
+                        <p>The @BeforeTest annotation in TestNG is used to specify a method that should be executed before each test in a <test> tag in the TestNG XML file. This annotation is typically used to perform any setup or initialization that is required before each test in a particular <test> tag.</p>
+                        <p>Here is an example code that demonstrates the use of @BeforeTest annotation:</p>
+                        <pre>
+                            <code>
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class ExampleTest {
+
+   @BeforeTest
+   public void beforeTestMethod() {
+      System.out.println("Executing before test method");
+   }
+
+   @Test
+   public void testMethod1() {
+      System.out.println("Executing test method 1");
+   }
+
+   @Test
+   public void testMethod2() {
+      System.out.println("Executing test method 2");
+   }
+}
+                            </code>
+                        </pre>
+                        <p>In the above code, the beforeTestMethod() method is annotated with @BeforeTest annotation, which indicates that it should be executed before each test in a <test> tag in the TestNG XML file. The testMethod1() and testMethod2() methods are annotated with @Test annotation, which indicates that they are test methods.</p>
+                        <p>When you run this code using TestNG, you should see the following output:</p>
+                        <pre>
+                            <code>
+Executing before test method
+Executing test method 1
+Executing before test method
+Executing test method 2
+                            </code>
+                        </pre>
+                        <p>As you can see, the beforeTestMethod() method is executed before each test method. This demonstrates the use of the @BeforeTest annotation to execute a method before each test in a <test> tag in the TestNG XML file.</p>
+                        <h4>@AfterTest</h4>
+                        <p>The @AfterTest annotation in TestNG is used to specify a method that should be executed after each test in a <test> tag in the TestNG XML file. This annotation is typically used to perform any cleanup or tear-down activities that are required after each test in a particular <test> tag.</p>
+                        <p>Here is an example code that demonstrates the use of @AfterTest annotation:</p>
+                        <pre>
+                            <code>
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.Test;
+
+public class ExampleTest {
+
+   @Test
+   public void testMethod1() {
+      System.out.println("Executing test method 1");
+   }
+
+   @Test
+   public void testMethod2() {
+      System.out.println("Executing test method 2");
+   }
+
+   @AfterTest
+   public void afterTestMethod() {
+      System.out.println("Executing after test method");
+   }
+}
+                            </code>
+                        </pre>
+                        <p>In the above code, the afterTestMethod() method is annotated with @AfterTest annotation, which indicates that it should be executed after each test in a <test> tag in the TestNG XML file. The testMethod1() and testMethod2() methods are annotated with @Test annotation, which indicates that they are test methods.</p>
+                        <p>When you run this code using TestNG, you should see the following output:</p>
+                        <pre>
+                            <code>
+Executing test method 1
+Executing after test method
+Executing test method 2
+Executing after test method
+                            </code>
+                        </pre>
+                        <p>As you can see, the afterTestMethod() method is executed after each test method. This demonstrates the use of the @AfterTest annotation to execute a method after each test in a <test> tag in the TestNG XML file.</p>
+                        <h4>@BeforeGroups</h4>
+                        <p>The TestNG @BeforeGroups annotation is used to mark a method that should be executed before the execution of all the test methods belonging to a specific group. This annotation is particularly useful when you want to perform some setup operations that are common to multiple tests in a group.</p>
+                        <p>Here's an example code that demonstrates the use of @BeforeGroups annotation:</p>
+                        <pre>
+                            <code>
+import org.testng.annotations.BeforeGroups;
+import org.testng.annotations.Test;
+
+public class ExampleTest {
+
+  @BeforeGroups("group1")
+  public void setupGroup1() {
+    System.out.println("Executing setup for group1");
+  }
+
+  @Test(groups = "group1")
+  public void test1() {
+    System.out.println("Executing test1 in group1");
+  }
+
+  @Test(groups = "group1")
+  public void test2() {
+    System.out.println("Executing test2 in group1");
+  }
+
+  @Test(groups = "group2")
+  public void test3() {
+    System.out.println("Executing test3 in group2");
+  }
+
+}
+                            </code>
+                        </pre>
+                        <p>In this example, the setupGroup1 method is annotated with @BeforeGroups("group1"), which means it will be executed before all the test methods that belong to the group1 group.</p>
+                        <p>We have three test methods in this example: test1, test2, and test3. The first two methods belong to the group1 group, while the third method belongs to the group2 group.</p>
+                        <p>When we run this test class, the output will be:</p>
+                        <pre>
+                            <code>
+Executing setup for group1
+Executing test1 in group1
+Executing test2 in group1
+Executing test3 in group2
+                            </code>
+                        </pre>
+                        <p>As you can see, the setupGroup1 method is executed first because it is marked with @BeforeGroups("group1"). Then, the test methods test1 and test2 are executed because they belong to the group1 group. Finally, the test3 method is executed because it belongs to the group2 group.</p>
+                        <p>Note that if you have multiple methods marked with @BeforeGroups for the same group, they will be executed in an unspecified order.</p>
+                        <h4>@AfterGroups</h4>
+                        <p>The TestNG @AfterGroups annotation is used to mark a method that should be executed after the execution of all the test methods belonging to a specific group. This annotation is particularly useful when you want to perform some teardown operations that are common to multiple tests in a group.</p>
+                        <p>Here's an example code that demonstrates the use of @AfterGroups annotation:</p>
+                        <pre>
+                            <code>
+import org.testng.annotations.AfterGroups;
+import org.testng.annotations.Test;
+
+public class ExampleTest {
+
+  @Test(groups = "group1")
+  public void test1() {
+    System.out.println("Executing test1 in group1");
+  }
+
+  @Test(groups = "group1")
+  public void test2() {
+    System.out.println("Executing test2 in group1");
+  }
+
+  @AfterGroups("group1")
+  public void teardownGroup1() {
+    System.out.println("Executing teardown for group1");
+  }
+
+  @Test(groups = "group2")
+  public void test3() {
+    System.out.println("Executing test3 in group2");
+  }
+
+  @Test(groups = "group2")
+  public void test4() {
+    System.out.println("Executing test4 in group2");
+  }
+
+  @AfterGroups("group2")
+  public void teardownGroup2() {
+    System.out.println("Executing teardown for group2");
+  }
+
+}
+                            </code>
+                        </pre>
+                        <p>In this example, the teardownGroup1 method is annotated with @AfterGroups("group1"), which means it will be executed after all the test methods that belong to the group1 group.</p>
+                        <p>We have four test methods in this example: test1, test2, test3, and test4. The first two methods belong to the group1 group, while the last two methods belong to the group2 group.</p>
+                        <pre>
+                            <code>
+Executing test1 in group1
+Executing test2 in group1
+Executing teardown for group1
+Executing test3 in group2
+Executing test4 in group2
+Executing teardown for group2
+                            </code>
+                        </pre>
+                        <p>As you can see, the test1 and test2 methods are executed first because they belong to the group1 group. Then, the teardownGroup1 method is executed because it is marked with @AfterGroups("group1"). Next, the test3 and test4 methods are executed because they belong to the group2 group. Finally, the teardownGroup2 method is executed because it is marked with @AfterGroups("group2").</p>
+                        <p>Note that if you have multiple methods marked with @AfterGroups for the same group, they will be executed in an unspecified order, just like with @BeforeGroups.</p>
+                        <h4>@BeforeClass</h4>
+                        <p>The TestNG @BeforeClass annotation is used to mark a method that should be executed once before the first test method of the current test class is executed. This annotation is typically used to set up some initial state that is common to all the test methods in the class.</p>
+                        <p>Here's an example code that demonstrates the use of @BeforeClass annotation:</p>
+                        <pre>
+                            <code>
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class ExampleTest {
+
+  @BeforeClass
+  public void setup() {
+    System.out.println("Executing setup before the first test method");
+  }
+
+  @Test
+  public void test1() {
+    System.out.println("Executing test1");
+  }
+
+  @Test
+  public void test2() {
+    System.out.println("Executing test2");
+  }
+
+}
+                            </code>
+                        </pre>
+                        <p>In this example, the setup method is annotated with @BeforeClass, which means it will be executed once before the first test method of the ExampleTest class is executed.</p>
+                        <p>We have two test methods in this example: test1 and test2.</p>
+                        <p>When we run this test class, the output will be:</p>
+                        <pre>
+                            <code>
+Executing setup before the first test method
+Executing test1
+Executing test2
+                            </code>
+                        </pre>
+                        <p>As you can see, the setup method is executed before the first test method, and then the two test methods are executed.</p>
+                        <p>Note that if you have multiple methods marked with @BeforeClass in a test class, they will be executed in the order they appear in the code.</p>
+                        <h4>@AfterClass</h4>
+                        <p>The TestNG @AfterClass annotation is used to mark a method that should be executed once after all the test methods of the current test class have been executed. This annotation is typically used to perform some cleanup operations that are common to all the test methods in the class.</p>
+                        <p>Here's an example code that demonstrates the use of @AfterClass annotation:</p>
+                        <pre>
+                            <code>
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+
+public class ExampleTest {
+
+  @Test
+  public void test1() {
+    System.out.println("Executing test1");
+  }
+
+  @Test
+  public void test2() {
+    System.out.println("Executing test2");
+  }
+
+  @AfterClass
+  public void teardown() {
+    System.out.println("Executing teardown after all test methods");
+  }
+
+}
+                            </code>
+                        </pre>
+                        <p>In this example, the teardown method is annotated with @AfterClass, which means it will be executed once after all the test methods of the ExampleTest class have been executed.</p>
+                        <p>We have two test methods in this example: test1 and test2.</p>
+                        <p>When we run this test class, the output will be:</p>
+                        <pre>
+                            <code>
+Executing test1
+Executing test2
+Executing teardown after all test methods
+                            </code>
+                        </pre>
+                        <p>As you can see, the two test methods are executed first, and then the teardown method is executed after both of them.</p>
+                        <p>Note that if you have multiple methods marked with @AfterClass in a test class, they will be executed in the reverse order they appear in the code. In other words, the last method annotated with @AfterClass will be executed first, and the first method annotated with @AfterClass will be executed last.</p>
+                        <h4>@BeforeMethod</h4>
+                        <p>The TestNG @BeforeMethod annotation is used to mark a method that should be executed before each test method in the current test class. This annotation is typically used to set up some initial state that is required by each test method.</p>
+                        <p>Here's an example code that demonstrates the use of @BeforeMethod annotation:</p>
+                        <pre>
+                            <code>
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class ExampleTest {
+
+  @BeforeMethod
+  public void setup() {
+    System.out.println("Executing setup before each test method");
+  }
+
+  @Test
+  public void test1() {
+    System.out.println("Executing test1");
+  }
+
+  @Test
+  public void test2() {
+    System.out.println("Executing test2");
+  }
+
+}
+                            </code>
+                        </pre>
+                        <p>In this example, the setup method is annotated with @BeforeMethod, which means it will be executed before each test method of the ExampleTest class is executed.</p>
+                        <p>have two test methods in this example: test1 and test2.</p>
+                        <p>When we run this test class, the output will be:</p>
+                        <pre>
+                            <code>
+Executing setup before each test method
+Executing test1
+Executing setup before each test method
+Executing test2
+                            </code>
+                        </pre>
+                        <p>As you can see, the setup method is executed before each test method, and then the two test methods are executed.</p>
+                        <p>Note that if you have multiple methods marked with @BeforeMethod in a test class, they will be executed in the order they appear in the code, before each test method.</p>
+                        <h4>@AfterMethod</h4>
+                        <p>The TestNG @AfterMethod annotation is used to mark a method that should be executed after each test method in the current test class. This annotation is typically used to perform some cleanup operations that are required after each test method.</p>
+                        <p>Here's an example code that demonstrates the use of @AfterMethod annotation:</p>
+                        <pre>
+                            <code>
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+
+public class ExampleTest {
+
+  @Test
+  public void test1() {
+    System.out.println("Executing test1");
+  }
+
+  @Test
+  public void test2() {
+    System.out.println("Executing test2");
+  }
+
+  @AfterMethod
+  public void teardown() {
+    System.out.println("Executing teardown after each test method");
+  }
+
+}
+                            </code>
+                        </pre>
+                        <p>In this example, the teardown method is annotated with @AfterMethod, which means it will be executed after each test method of the ExampleTest class is executed.</p>
+                        <p>We have two test methods in this example: test1 and test2.</p>
+                        <p>When we run this test class, the output will be:</p>
+                        <pre>
+                            <code>
+Executing test1
+Executing teardown after each test method
+Executing test2
+Executing teardown after each test method
+                            </code>
+                        </pre>
+                        <p>As you can see, each test method is executed first, and then the teardown method is executed after each of them.</p>
+                        <p>Note that if you have multiple methods marked with @BeforeMethod in a test class, they will be executed in the order they appear in the code, before each test method.</p>
+                        <h5>Configuration information for a TestNG class: </h5>
+                        <pre>
+                            <code>
+@BeforeSuite: The annotated method will be run before all tests in this suite have run.
+@AfterSuite: The annotated method will be run after all tests in this suite have run.
+@BeforeTest: The annotated method will be run before any test method belonging to the classes inside the <test> tag is run.
+@AfterTest: The annotated method will be run after all the test methods belonging to the classes inside the <test> tag have run.
+@BeforeGroups: The list of groups that this configuration method will run before. This method is guaranteed to run shortly before the first test method that belongs to any of these groups is invoked.
+@AfterGroups: The list of groups that this configuration method will run after. This method is guaranteed to run shortly after the last test method that belongs to any of these groups is invoked.
+@BeforeClass: The annotated method will be run before the first test method in the current class is invoked.
+@AfterClass: The annotated method will be run after all the test methods in the current class have been run.
+@BeforeMethod: The annotated method will be run before each test method.
+@AfterMethod: The annotated method will be run after each test method. 
+                            </code>
+                        </pre>
+                        <h6> Behaviour of annotations in superclass of a TestNG class </h6>
+                        <p> The annotations above will also be honored (inherited) when placed on a superclass of a TestNG class. This is useful for example to centralize test setup for multiple test classes in a common superclass. </p>
+                        <p> In that case, TestNG guarantees that the "@Before" methods are executed in inheritance order (highest superclass first, then going down the inheritance chain), and the "@After" methods in reverse order (going up the inheritance chain). </p>
+                        <h5>alwaysRun</h5>
+                        <p> For before methods (beforeSuite, beforeTest, beforeTestClass and beforeTestMethod, but not beforeGroups): If set to true, this configuration method will be run regardless of what groups it belongs to.
+                            For after methods (afterSuite, afterClass, ...): If set to true, this configuration method will be run even if one or more methods invoked previously failed or was skipped. </p>
+                        <p>In TestNG, the alwaysRun attribute is used to ensure that a specific test method or configuration method is executed regardless of the success or failure of the preceding tests or configurations in the same class.</p>
+                        <p>If alwaysRun is set to true for a test method, that method will be executed even if the test methods or configurations that precede it in the same class have failed or been skipped due to some exceptions.</p>
+                        <p>For example, consider the following code snippet:</p>
+                        <pre>
+                            <code>
+@Test
+public void testMethod1() {
+  // Test Method 1 implementation
+}
+
+@Test(dependsOnMethods = { "testMethod1" }, alwaysRun = true)
+public void testMethod2() {
+  // Test Method 2 implementation
+}
+                            </code>
+                        </pre>
+                        <p>Here, testMethod2 depends on testMethod1, and alwaysRun is set to true. So, even if testMethod1 fails, testMethod2 will still be executed.</p>
+                        <p>Similarly, alwaysRun can also be used with configuration methods like @BeforeClass, @AfterClass, @BeforeMethod, and @AfterMethod to ensure that they are executed irrespective of the success or failure of the preceding tests or configurations.</p>
+                        <p>It is important to note that using alwaysRun may result in unexpected test behavior, as the subsequent tests may depend on the state of the application or system that is affected by the preceding test failures. Therefore, it is recommended to use this attribute judiciously and with careful consideration of the overall test design and objectives.</p>
+                        <h5>dependsOnGroups</h5>
+                        <p> The list of groups this method depends on. </p>
+                        <p>In TestNG, dependsOnGroups is an attribute that can be used to define dependencies between test groups. It allows you to specify that a particular group of tests should run only after the successful execution of all the tests belonging to another group or groups.</p>
+                        <p>The dependsOnGroups attribute takes one or more group names as arguments, separated by commas. For example:</p>
+                        <pre>
+                            <code>
+@Test(groups = { "group1" })
+public void testMethod1() {
+  // Test Method 1 implementation
+}
+
+@Test(groups = { "group2" }, dependsOnGroups = { "group1" })
+public void testMethod2() {
+  // Test Method 2 implementation
+}
+                            </code>
+                        </pre>
+                        <p>Here, testMethod2 belongs to group2 and depends on group1. This means that all the tests belonging to group1 must pass before testMethod2 can be executed.</p>
+                        <p>You can also specify multiple groups that testMethod2 depends on, like this:</p>
+                        <pre>
+                            <code>
+@Test(groups = { "group1" })
+public void testMethod1() {
+  // Test Method 1 implementation
+}
+
+@Test(groups = { "group2" }, dependsOnGroups = { "group1", "group3" })
+public void testMethod2() {
+  // Test Method 2 implementation
+}
+                            </code>
+                        </pre>
+                        <p>Here, testMethod2 depends on both group1 and group3, meaning that all the tests belonging to both groups must pass before testMethod2 can be executed.</p>
+                        <p>Using dependsOnGroups can help you to define a specific order for executing your tests and to ensure that all the necessary preconditions have been met before executing a particular group of tests. It can also help you to avoid test failures caused by missing preconditions or dependencies.</p>
+                        <p>Note that if there are any failed tests in the group that dependsOnGroups on, the dependent group will be skipped. To run a group, all its dependent groups must have run and passed successfully. If you want to ignore the results of a group while executing a dependent group, you can use the alwaysRun attribute along with dependsOnGroups.</p>
+                        <h5>dependsOnMethods</h5>
+                        <p> The list of methods this method depends on. </p>
+                        <p>In TestNG, dependsOnMethods is an attribute that allows you to specify a dependency between test methods. This attribute ensures that a test method runs only after the successful execution of another test method or methods.</p>
+                        <p>The dependsOnMethods attribute takes one or more test method names as arguments, separated by commas. For example:</p>
+                        <pre>
+                            <code>
+@Test
+public void testMethod1() {
+  // Test Method 1 implementation
+}
+
+@Test(dependsOnMethods = { "testMethod1" })
+public void testMethod2() {
+  // Test Method 2 implementation
+}
+                            </code>
+                        </pre>
+                        <p>Here, testMethod2 depends on testMethod1. This means that testMethod1 must be executed successfully before testMethod2 can be executed.</p>
+                        <p>You can also specify multiple methods that testMethod2 depends on, like this:</p>
+                        <pre>
+                            <code>
+@Test
+public void testMethod1() {
+  // Test Method 1 implementation
+}
+
+@Test(dependsOnMethods = { "testMethod1", "testMethod3" })
+public void testMethod2() {
+  // Test Method 2 implementation
+}
+
+@Test
+public void testMethod3() {
+  // Test Method 3 implementation
+}
+                            </code>
+                        </pre>
+                        <p>Here, testMethod2 depends on both testMethod1 and testMethod3, meaning that both methods must be executed successfully before testMethod2 can be executed.</p>
+                        <p>Using dependsOnMethods can help you to define a specific order for executing your tests and to ensure that all the necessary preconditions have been met before executing a particular test method. It can also help you to avoid test failures caused by missing preconditions or dependencies.</p>
+                        <p>Note that if a method that dependsOnMethods on fails, the dependent method will be skipped. To run a method, all its dependent methods must have run and passed successfully. If you want to ignore the results of a dependent method while executing a test method, you can use the alwaysRun attribute along with dependsOnMethods.</p>
+                        <h5>enabled</h5>
+                        <p> Whether methods on this class/method are enabled. </p>
+                        <p>In TestNG, the enabled attribute is used to specify whether a test method or configuration method should be executed or not. It is a boolean attribute that takes either true or false as its value.</p>
+                        <p>By default, the enabled attribute is set to true, which means that the corresponding method will be executed during test runs. However, if you set enabled to false, the method will be skipped during test execution.</p>
+                        <p>For example:</p>
+                        <pre>
+                            <code>
+@Test(enabled = true)
+public void testMethod1() {
+  // Test Method 1 implementation
+}
+
+@Test(enabled = false)
+public void testMethod2() {
+  // Test Method 2 implementation
+}
+                            </code>
+                        </pre>
+                        <p>Here, testMethod1 is enabled, which means that it will be executed during test runs. However, testMethod2 is disabled, which means that it will be skipped during test runs.</p>
+                        <p>You can use the enabled attribute to temporarily disable specific test methods or configurations without removing them from the code. This can be useful when you need to skip a particular test method temporarily, perhaps to investigate a failure or to make changes to the system under test.</p>
+                        <p>Note that if you disable a test method that has dependencies, the dependent methods will still be executed. However, the disabled method itself will be skipped, and any assertions or verifications in that method will not be executed.</p>
+                        <h5> groups </h5>
+                        <p> The list of groups this class/method belongs to. </p>
+                        <p>In TestNG, the groups attribute is used to categorize test methods or configuration methods into groups. By grouping related methods together, you can easily run a subset of your tests, based on their group membership.</p>
+                        <p>The groups attribute is a string array that can be added to the @Test, @BeforeGroups, @AfterGroups, @BeforeClass, or @AfterClass annotations. For example:</p>
+                        <pre>
+                            <code>
+@Test(groups = { "smoke" })
+public void testMethod1() {
+  // Test Method 1 implementation
+}
+
+@Test(groups = { "regression" })
+public void testMethod2() {
+  // Test Method 2 implementation
+}
+                            </code>
+                        </pre>
+                        <p>Here, testMethod1 belongs to the smoke group, and testMethod2 belongs to the regression group.</p>
+                        <p>You can also specify multiple groups for a single method, like this:</p>
+                        <pre>
+                            <code>
+@Test(groups = { "smoke", "regression" })
+public void testMethod1() {
+  // Test Method 1 implementation
+}
+                            </code>
+                        </pre>
+                        <p>Here, testMethod1 belongs to both the smoke and regression groups.</p>
+                        <p>To run tests based on their group membership, you can use the TestNG XML file and include a <groups> tag with the include attribute, like this:</p>
+                        <pre>
+                            <code>
+&#x3c;&#x73;&#x75;&#x69;&#x74;&#x65;&#x20;&#x6e;&#x61;&#x6d;&#x65;&#x3d;&#x22;&#x4d;&#x79;&#x20;&#x54;&#x65;&#x73;&#x74;&#x20;&#x53;&#x75;&#x69;&#x74;&#x65;&#x22;&#x3e;&#xa;&#x20;&#x20;&#x3c;&#x74;&#x65;&#x73;&#x74;&#x20;&#x6e;&#x61;&#x6d;&#x65;&#x3d;&#x22;&#x4d;&#x79;&#x20;&#x54;&#x65;&#x73;&#x74;&#x22;&#x3e;&#xa;&#x20;&#x20;&#x20;&#x20;&#x3c;&#x67;&#x72;&#x6f;&#x75;&#x70;&#x73;&#x3e;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x3c;&#x72;&#x75;&#x6e;&#x3e;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x3c;&#x69;&#x6e;&#x63;&#x6c;&#x75;&#x64;&#x65;&#x20;&#x6e;&#x61;&#x6d;&#x65;&#x3d;&#x22;&#x73;&#x6d;&#x6f;&#x6b;&#x65;&#x22;&#x20;&#x2f;&#x3e;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x3c;&#x69;&#x6e;&#x63;&#x6c;&#x75;&#x64;&#x65;&#x20;&#x6e;&#x61;&#x6d;&#x65;&#x3d;&#x22;&#x72;&#x65;&#x67;&#x72;&#x65;&#x73;&#x73;&#x69;&#x6f;&#x6e;&#x22;&#x20;&#x2f;&#x3e;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x3c;&#x2f;&#x72;&#x75;&#x6e;&#x3e;&#xa;&#x20;&#x20;&#x20;&#x20;&#x3c;&#x2f;&#x67;&#x72;&#x6f;&#x75;&#x70;&#x73;&#x3e;&#xa;&#x20;&#x20;&#x20;&#x20;&#x3c;&#x63;&#x6c;&#x61;&#x73;&#x73;&#x65;&#x73;&#x3e;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x3c;&#x63;&#x6c;&#x61;&#x73;&#x73;&#x20;&#x6e;&#x61;&#x6d;&#x65;&#x3d;&#x22;&#x63;&#x6f;&#x6d;&#x2e;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x4d;&#x79;&#x54;&#x65;&#x73;&#x74;&#x43;&#x6c;&#x61;&#x73;&#x73;&#x22;&#x20;&#x2f;&#x3e;&#xa;&#x20;&#x20;&#x20;&#x20;&#x3c;&#x2f;&#x63;&#x6c;&#x61;&#x73;&#x73;&#x65;&#x73;&#x3e;&#xa;&#x20;&#x20;&#x3c;&#x2f;&#x74;&#x65;&#x73;&#x74;&#x3e;&#xa;&#x3c;&#x2f;&#x73;&#x75;&#x69;&#x74;&#x65;&#x3e;&#xa;
+                            </code>
+                        </pre>
+                        <p>This XML file will run all the methods that belong to the smoke group but exclude all the methods that belong to the regression group.</p>
+                        <p>Using the groups attribute can help you to organize your tests and to run specific subsets of tests based on their group membership. It can also help you to easily run tests for a specific functionality or feature, without having to run the entire test suite.</p>
+                        <h5> inheritGroups </h5>
+                        <p> If true, this method will belong to groups specified in the @Test annotation at the class level. </p>
+                        <p>In TestNG, the inheritGroups attribute is used to specify whether a test method or configuration method should inherit the group membership of its parent class or interface.</p>
+                        <p>When you define a group at the class or interface level, all the methods in that class or interface inherit that group membership by default. However, you can use the groups attribute at the method level to add or remove groups for specific methods.</p>
+                        <p>The inheritGroups attribute is a boolean attribute that can be added to the @Test, @BeforeGroups, @AfterGroups, @BeforeClass, or @AfterClass annotations. By default, inheritGroups is set to true.</p>
+                        <p>For Example:</p>
+                        <pre>
+                            <code>
+@Test(groups = { "smoke" }, inheritGroups = true)
+public void testMethod1() {
+  // Test Method 1 implementation
+}
+                            </code>
+                        </pre>
+                        <p>Here, testMethod1 belongs to the smoke group, and because inheritGroups is set to true, it also inherits any groups defined at the class or interface level.</p>
+                        <p>If you set inheritGroups to false, the method will not inherit any group membership from its parent class or interface, and it will only belong to the groups specified in the groups attribute.</p>
+                        <p>For example:</p>
+                        <pre>
+                            <code>
+@Test(groups = { "smoke" }, inheritGroups = false)
+public void testMethod1() {
+  // Test Method 1 implementation
+}
+                            </code>
+                        </pre>
+                        <p>Here, testMethod1 belongs only to the smoke group and will not inherit any group membership from its parent class or interface.</p>
+                        <p>You can use the inheritGroups attribute to control the group membership of your test methods, and to make sure that your tests are organized and executed correctly based on their group membership.</p>
+                        <h5>onlyForGroups</h5>
+                        <p> Only for @BeforeMethod and @AfterMethod. If specified, then this setup/teardown method will only be invoked if the corresponding test method belongs to one of the listed groups. </p>
+                        <p>In TestNG, the onlyForGroups attribute is used to specify that a test method or configuration method should only be executed if all the specified groups are included in the test run.</p>
+                        <p>The onlyForGroups attribute is a string array that can be added to the @Test, @BeforeGroups, @AfterGroups, @BeforeClass, or @AfterClass annotations. For example:</p>
+                        <pre>
+                            <code>
+@Test(groups = { "smoke" }, onlyForGroups = { "regression" })
+public void testMethod1() {
+  // Test Method 1 implementation
+}
+                            </code>
+                        </pre>
+                        <p>Here, testMethod1 belongs to the smoke group, and it will only be executed if the regression group is included in the test run.</p>
+                        <p>You can also specify multiple groups for the onlyForGroups attribute, like this:</p>
+                        <pre>
+                            <code>
+@Test(groups = { "smoke" }, onlyForGroups = { "regression", "sanity" })
+public void testMethod1() {
+  // Test Method 1 implementation
+}
+                            </code>
+                        </pre>
+                        <p>Here, testMethod1 belongs to the smoke group, and it will only be executed if both the regression and sanity groups are included in the test run.</p>
+                        <p>If any of the groups specified in onlyForGroups is not included in the test run, the method will be skipped.</p>
+                        <p>The onlyForGroups attribute can be useful when you have test methods that are dependent on certain groups or configurations, and you want to make sure that those groups or configurations are present before the test method is executed. It can also help you to avoid running unnecessary tests and to optimize your test runs based on the required groups.</p>
+                        <h4>@DataProvider</h4>
+                        <p>Marks a method as supplying data for a test method. The annotated method must return an Object[][] where each Object[] can be assigned the parameter list of the test method. The @Test method that wants to receive data from this DataProvider needs to use a dataProvider name equals to the name of this annotation.</p>
+                        <p>In TestNG, @DataProvider is an annotation that is used to specify a method as a data provider for a test method.</p>
+                        <p>The @DataProvider annotation can be added to any public method that returns a two-dimensional array of objects (Object[][]) or an iterator of array of objects (Iterator<Object[]>) that will be used as test data for one or more test methods.</p>
+                        <p>The @DataProvider annotation can have a name attribute that specifies the name of the data provider, like this:</p>
+                        <pre>
+                            <code>
+@DataProvider(name = "testData")
+public Object[][] getTestData() {
+  // Data provider implementation
+}
+                            </code>
+                        </pre>
+                        <p>Here, getTestData() is a method that returns a two-dimensional array of objects that will be used as test data for one or more test methods. The @DataProvider annotation specifies that this method is a data provider, and the name attribute specifies the name of the data provider (testData).</p>
+                        <p>You can use the @Test annotation's dataProvider attribute to specify the name of the data provider that will be used to supply test data for a test method, like this:</p>
+                        <pre>
+                            <code>
+@Test(dataProvider = "testData")
+public void testMethod(Object[] testData) {
+  // Test method implementation
+}
+                            </code>
+                        </pre>
+                        <p>Here, testMethod() is a test method that receives one array of objects as a parameter, which is supplied by the testData data provider.</p>
+                        <p>You can use data providers to supply different sets of test data to the same test method, or to supply test data to multiple test methods. Data providers can also be used to parameterize your tests, so you can run the same test code with different data inputs.</p>
+                        <h6>Real time Example</h6>
+                        <p>Suppose you are testing a login page that has multiple fields such as username, password, and email. You want to test the login functionality with multiple sets of test data, such as valid username and password combinations, invalid username and password combinations, and empty fields.</p>
+                        <p>To achieve this, you can use the @DataProvider annotation to create a data provider method that returns a two-dimensional array of test data, like this:</p>
+                        <pre>
+                            <code>
+@DataProvider(name = "loginData")
+public Object[][] getLoginData() {
+  return new Object[][] {
+    { "validuser1", "validpass1", "validemail1@example.com" },
+    { "validuser2", "validpass2", "validemail2@example.com" },
+    { "invaliduser1", "invalidpass1", "invalidemail1@example.com" },
+    { "invaliduser2", "invalidpass2", "invalidemail2@example.com" },
+    { "", "", "" },
+  };
+}
+                            </code>
+                        </pre>
+                        <p>Here, the getLoginData() method returns a two-dimensional array of test data that includes valid and invalid username and password combinations, as well as empty fields.</p>
+                        <p>Next, you can use the @Test annotation's dataProvider attribute to specify the name of the data provider that will be used to supply test data to the test method, like this:</p>
+                        <pre>
+                            <code>
+@Test(dataProvider = "loginData")
+public void testLogin(String username, String password, String email) {
+  // Test login functionality with the provided data
+}
+                            </code>
+                        </pre>
+                        <h5>name</h5>
+                        <p> The name of this data provider. If it's not supplied, the name of this data provider will automatically be set to the name of the method. </p>
+                        <p>In TestNG, the @DataProvider annotation is used to specify a method that provides test data to a test method. When using @DataProvider, you can optionally provide a name attribute to give a name to the data provider.</p>
+                        <p>For example:</p>
+                        <pre>
+                            <code>
+@DataProvider(name = "myDataProvider")
+public Object[][] provideData() {
+    // provide test data here
+}
+                            </code>
+                        </pre>
+                        <p>In the above example, the data provider method is named provideData() and the name attribute is set to "myDataProvider". This allows you to reference this data provider in your test methods using the same name:</p>
+                        <pre>
+                            <code>
+@Test(dataProvider = "myDataProvider")
+public void myTest(Object[] data) {
+    // test code here
+}
+                            </code>
+                        </pre>
+                        <p>In this test method, the @Test annotation specifies the dataProvider attribute with the value "myDataProvider", which tells TestNG to use the provideData() method to provide test data for this test method.</p>
+                        <h5>parallel</h5>
+                        <p> If set to true, tests generated using this data provider are run in parallel. Default value is false. </p>
+                        <p>Here's an example of using the parallel attribute with @DataProvider:</p>
+                        <pre>
+                            <code>
+@DataProvider(name = "myDataProvider", parallel = true)
+public Object[][] provideData() {
+    // provide test data here
+}
+                            </code>
+                        </pre>
+                        <p>In this example, the parallel attribute is set to true, which means that TestNG will run the provideData() method in parallel with other data provider methods.</p>
+                        <p>Note that when running data providers in parallel, you should make sure that your data generation logic is thread-safe and does not produce duplicate or inconsistent test data. You may need to use synchronization or other concurrency control mechanisms to ensure that the data provider method executes correctly in a multithreaded environment.</p>
+                        <h4>@Factory</h4>
+                        <p> Marks a method as a factory that returns objects that will be used by TestNG as Test classes. The method must return Object[].</p>
+                        <p>In TestNG, the @Factory annotation is used to create dynamic test instances at runtime. It allows you to generate test classes programmatically based on some runtime conditions or parameters.</p>
+                        <p>Here's an example of using @Factory:</p>
+                        <pre>
+                            <code>
+public class MyTest {
+    private int id;
+
+    @Factory
+    public static Object[] createInstances() {
+        Object[] result = new Object[5];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = new MyTest(i);
+        }
+        return result;
+    }
+
+    public MyTest(int id) {
+        this.id = id;
+    }
+
+    @Test
+    public void test() {
+        System.out.println("Running test with id " + id);
+    }
+}                                
+                            </code>
+                        </pre>
+                        <p>In this example, the @Factory annotation is used to create 5 instances of the MyTest class, each with a different id parameter. The createInstances() method returns an array of these instances, which TestNG uses to generate test classes at runtime.</p>
+                        <p>When TestNG runs the tests, it will create 5 instances of the MyTest class and run the test() method on each instance. Each instance will have a different id value, which is printed out in the test output.</p>
+                        <p>Using @Factory can be useful when you need to generate test classes based on some dynamic criteria, such as data from a database or user input. It allows you to create test classes at runtime and run them as part of your TestNG test suite.</p>
+                        <h4>@Listeners</h4>
+                        <p>In TestNG, the @Listeners annotation is used to specify one or more classes that will be notified of various events during test execution. These classes are known as TestNG listeners and they can perform additional actions before, during, or after test execution.</p>
+                        <p>Here's an example of using @Listeners to specify a listener class:</p>
+                        <pre>
+                            <code>
+@Listeners(MyTestListener.class)
+public class MyTest {
+    @Test
+    public void test() {
+        // test code here
+    }
+}
+                            </code>
+                        </pre>
+                        <p>In this example, the @Listeners annotation is used to specify the MyTestListener class, which is a custom TestNG listener. When TestNG runs the MyTest class, it will notify the MyTestListener class of various events, such as test start, test success, test failure, and so on.</p>
+                        <p>Here's an example of a simple listener class that prints out messages during test execution:</p>
+                        <pre>
+                            <code>
+public class MyTestListener implements ITestListener {
+    public void onTestStart(ITestResult result) {
+        System.out.println("Starting test: " + result.getName());
+    }
+
+    public void onTestSuccess(ITestResult result) {
+        System.out.println("Test passed: " + result.getName());
+    }
+
+    public void onTestFailure(ITestResult result) {
+        System.out.println("Test failed: " + result.getName());
+    }
+
+    public void onTestSkipped(ITestResult result) {
+        System.out.println("Test skipped: " + result.getName());
+    }
+
+    // other methods omitted for brevity
+}                                
+                            </code>
+                        </pre>
+                        <p>In this example, the MyTestListener class implements the ITestListener interface, which defines methods for handling various test events. When TestNG runs the tests, it will call these methods on the listener class to notify it of the events.</p>
+                        <p>Using @Listeners can be useful when you need to perform additional actions during test execution, such as logging, reporting, or capturing screenshots. TestNG provides several built-in listener classes, such as ITestListener, ISuiteListener, and IReporter, that you can use out of the box or extend to customize their behavior.</p>
+                        <h4>@Parameters</h4>
+                        <p>Describes how to pass parameters to a @Test method.</p>
+                        <h5>value</h5>
+                        <p> The list of variables used to fill the parameters of this method. </p>
+                        <p>In TestNG, the @Parameters annotation is used to inject test parameters into test methods. You can use this annotation to pass data or configuration values to your tests from an external source, such as a configuration file or a command-line argument.</p>
+                        <p>Here's an example of using @Parameters to inject test parameters into a test method:</p>
+                        <pre>
+                            <code>
+public class MyTest {
+    @Test
+    @Parameters({"param1", "param2"})
+    public void test(String param1, int param2) {
+        // test code here
+    }
+}                                
+                            </code>
+                        </pre>
+                        <p>In this example, the @Parameters annotation is used to specify two parameters, param1 and param2, which are injected into the test() method. The param1 parameter is a string, and the param2 parameter is an integer.</p>
+                        <p>To provide values for these parameters, you can define a testng.xml file and specify the values in the <parameter> element:</p>
+                        <pre>
+                            <code>
+&#x3c;&#x21;&#x44;&#x4f;&#x43;&#x54;&#x59;&#x50;&#x45;&#x20;&#x73;&#x75;&#x69;&#x74;&#x65;&#x20;&#x53;&#x59;&#x53;&#x54;&#x45;&#x4d;&#x20;&#x22;&#x68;&#x74;&#x74;&#x70;&#x3a;&#x2f;&#x2f;&#x74;&#x65;&#x73;&#x74;&#x6e;&#x67;&#x2e;&#x6f;&#x72;&#x67;&#x2f;&#x74;&#x65;&#x73;&#x74;&#x6e;&#x67;&#x2d;&#x31;&#x2e;&#x30;&#x2e;&#x64;&#x74;&#x64;&#x22;&#x20;&#x3e;&#xa;&#x3c;&#x73;&#x75;&#x69;&#x74;&#x65;&#x20;&#x6e;&#x61;&#x6d;&#x65;&#x3d;&#x22;&#x4d;&#x79;&#x53;&#x75;&#x69;&#x74;&#x65;&#x22;&#x20;&#x3e;&#xa;&#x20;&#x20;&#x3c;&#x74;&#x65;&#x73;&#x74;&#x20;&#x6e;&#x61;&#x6d;&#x65;&#x3d;&#x22;&#x4d;&#x79;&#x54;&#x65;&#x73;&#x74;&#x22;&#x20;&#x3e;&#xa;&#x20;&#x20;&#x20;&#x20;&#x3c;&#x70;&#x61;&#x72;&#x61;&#x6d;&#x65;&#x74;&#x65;&#x72;&#x73;&#x3e;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x3c;&#x70;&#x61;&#x72;&#x61;&#x6d;&#x65;&#x74;&#x65;&#x72;&#x20;&#x6e;&#x61;&#x6d;&#x65;&#x3d;&#x22;&#x70;&#x61;&#x72;&#x61;&#x6d;&#x31;&#x22;&#x20;&#x76;&#x61;&#x6c;&#x75;&#x65;&#x3d;&#x22;&#x74;&#x65;&#x73;&#x74;&#x31;&#x32;&#x33;&#x22;&#x20;&#x2f;&#x3e;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x3c;&#x70;&#x61;&#x72;&#x61;&#x6d;&#x65;&#x74;&#x65;&#x72;&#x20;&#x6e;&#x61;&#x6d;&#x65;&#x3d;&#x22;&#x70;&#x61;&#x72;&#x61;&#x6d;&#x32;&#x22;&#x20;&#x76;&#x61;&#x6c;&#x75;&#x65;&#x3d;&#x22;&#x34;&#x32;&#x22;&#x20;&#x2f;&#x3e;&#xa;&#x20;&#x20;&#x20;&#x20;&#x3c;&#x2f;&#x70;&#x61;&#x72;&#x61;&#x6d;&#x65;&#x74;&#x65;&#x72;&#x73;&#x3e;&#xa;&#x20;&#x20;&#x20;&#x20;&#x3c;&#x63;&#x6c;&#x61;&#x73;&#x73;&#x65;&#x73;&#x3e;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x3c;&#x63;&#x6c;&#x61;&#x73;&#x73;&#x20;&#x6e;&#x61;&#x6d;&#x65;&#x3d;&#x22;&#x63;&#x6f;&#x6d;&#x2e;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x4d;&#x79;&#x54;&#x65;&#x73;&#x74;&#x22;&#x20;&#x2f;&#x3e;&#xa;&#x20;&#x20;&#x20;&#x20;&#x3c;&#x2f;&#x63;&#x6c;&#x61;&#x73;&#x73;&#x65;&#x73;&#x3e;&#xa;&#x20;&#x20;&#x3c;&#x2f;&#x74;&#x65;&#x73;&#x74;&#x3e;&#xa;&#x3c;&#x2f;&#x73;&#x75;&#x69;&#x74;&#x65;&#x3e;&#xa;
+                            </code>
+                        </pre>
+                        <p>In this example, the param1 parameter is set to "test123", and the param2 parameter is set to 42. When TestNG runs the test, it will inject these values into the test() method.</p>
+                        <p>You can also use other sources to provide parameter values, such as command-line arguments or environment variables. TestNG provides several ways to configure parameter injection, including the @Optional annotation for optional parameters, and the @DataProvider annotation for dynamic parameter values.</p>
+                        <h4>@Optional</h4>
+                        <p>In TestNG, the @Optional annotation is used to specify default values for test parameters. You can use this annotation to provide a default value for a parameter in case it is not defined or provided by the test configuration.</p>
+                        <p>Here's an example of using @Optional to provide a default value for a test parameter:</p>
+                        <pre>
+                            <code>
+public class MyTest {
+    @Test
+    public void test(@Optional("default") String param) {
+        // test code here
+    }
+}                                
+                            </code>
+                        </pre>
+                        <p>In this example, the @Optional annotation is used to specify a default value of "default" for the param parameter. If the param parameter is not defined or provided by the test configuration, TestNG will use the default value "default".</p>
+                        <p>You can also use the @Optional annotation with primitive types, arrays, and other data types. Here's an example of using @Optional with an integer parameter:</p>
+                        <pre>
+                            <code>
+public class MyTest {
+    @Test
+    public void test(@Optional("42") int param) {
+        // test code here
+    }
+}                                
+                            </code>
+                        </pre>
+                        <p>In this example, the @Optional annotation is used to specify a default value of 42 for the param parameter. If the param parameter is not defined or provided by the test configuration, TestNG will use the default value 42.</p>
+                        <p>Using @Optional can be useful when you want to provide a default value for a parameter, but you don't want to require the user to provide it every time. You can combine @Optional with other parameter injection techniques, such as @Parameters or @DataProvider, to provide dynamic or configurable test parameters.</p>
+                        <h4>@Test</h4>
+                        <p>Marks a class or a method as part of the test.</p>
+                        <pre>
+                            <code>
+alwaysRun 	        If set to true, this test method will always be run even if it depends on a method that failed.
+dataProvider 	    The name of the data provider for this test method.
+dataProviderClass 	The class where to look for the data provider. If not specified, the data provider will be looked on the class of the current test method or one of its base classes. If this attribute is specified, the data provider method needs to be static on the specified class.
+dependsOnGroups 	The list of groups this method depends on.
+dependsOnMethods 	The list of methods this method depends on.
+description 	    The description for this method.
+enabled 	        Whether methods on this class/method are enabled.
+expectedExceptions 	The list of exceptions that a test method is expected to throw. If no exception or a different than one on this list is thrown, this test will be marked a failure.
+groups 	            The list of groups this class/method belongs to.
+invocationCount 	The number of times this method should be invoked.
+invocationTimeOut 	The maximum number of milliseconds this test should take for the cumulated time of all the invocationcounts. This attribute will be ignored if invocationCount is not specified.
+priority 	        The priority for this test method. Lower priorities will be scheduled first.
+successPercentage 	The percentage of success expected from this method
+singleThreaded 	    If set to true, all the methods on this test class are guaranteed to run in the same thread, even if the tests are currently being run with parallel="methods". This attribute can only be used at the class level and it will be ignored if used at the method level. Note: this attribute used to be called sequential (now deprecated).
+timeOut 	        The maximum number of milliseconds this test should take.
+threadPoolSize 	    The size of the thread pool for this method. The method will be invoked from multiple threads as specified by invocationCount.
+                    Note: this attribute is ignored if invocationCount is not specified                            
+                            </code>
+                        </pre>
+                        <p>priority: Specifies the priority of the test method. TestNG will execute methods in order of priority, with lower priority numbers being executed first. Example:</p>
+                        <pre>
+                            <code>
+@Test(priority = 1)
+public void testMethod1() {
+    // test code here
+}
+
+@Test(priority = 2)
+public void testMethod2() {
+    // test code here
+}
+                            </code>
+                        </pre>
+                        <p>In this example, testMethod1() has a priority of 1, and testMethod2() has a priority of 2. TestNG will execute testMethod1() before testMethod2().</p>
+                        <p>enabled: Specifies whether the test method is enabled or disabled. If set to false, the test method will be skipped during test execution. Example:</p>
+                        <pre>
+                            <code>
+@Test(enabled = false)
+public void disabledTestMethod() {
+    // test code here
+}
+                            </code>
+                        </pre>
+                        <p>In this example, disabledTestMethod() is disabled and will be skipped during test execution.</p>
+                        <p>dataProvider: Specifies the name of the data provider to use for the test method. Data providers are used to supply test data to a test method. Example:</p>
+                        <pre>
+                            <code>
+@Test(dataProvider = "myDataProvider")
+public void testWithData(String data) {
+    // test code here
+}
+
+@DataProvider(name = "myDataProvider")
+public Object[][] provideData() {
+    // provide test data here
+}
+                            </code>
+                        </pre>
+                        <p>In this example, testWithData() uses the myDataProvider data provider to supply test data. The provideData() method defines the test data to be used.</p>
+                        <p>dependsOnMethods: Specifies the name of the test method that this test method depends on. TestNG will only execute the test method if the dependent method succeeds. Example:</p>
+                        <pre>
+                            <code>
+@Test
+public void loginTest() {
+    // test code here
+}
+
+@Test(dependsOnMethods = { "loginTest" })
+public void dashboardTest() {
+    // test code here
+}
+                            </code>
+                        </pre>
+                        <p>In this example, dashboardTest() depends on loginTest(). TestNG will only execute dashboardTest() if loginTest() succeeds.</p>
+                        <p>groups: Specifies the groups that this test method belongs to. Groups are used to organize test methods and execute them selectively. Example:</p>
+                        <pre>
+                            <code>
+@Test(groups = { "smoke", "regression" })
+public void myTest() {
+    // test code here
+}
+                            </code>
+                        </pre>
+                        <p>In this example, myTest() belongs to the smoke and regression groups. You can use TestNG's grouping feature to execute only a subset of tests.</p>
+                        <p>expectedExceptions: Specifies the exception that is expected to be thrown by the test method. If the specified exception is not thrown, the test method will fail. Example:</p>
+                        <pre>
+                            <code>
+@Test(expectedExceptions = ArithmeticException.class)
+public void divisionByZeroTest() {
+    int result = 1 / 0;
+}
+                            </code>
+                        </pre>
+                        <p>In this example, divisionByZeroTest() expects an ArithmeticException to be thrown. If the exception is not thrown, the test method will fail.</p>
+                        <h6>invocationCount</h6>
+                        <p>The invocationCount attribute is an attribute of the @Test annotation in TestNG that specifies how many times a test method should be invoked. When you set the invocationCount attribute to a value greater than 1, TestNG will execute the test method multiple times.</p>
+                        <p>Here's an example of using the invocationCount attribute:</p>
+                        <pre>
+                            <code>
+@Test(invocationCount = 3)
+public void myTest() {
+    // test code here
+}
+                            </code>
+                        </pre>
+                        <p>In this example, the myTest() method will be executed 3 times. TestNG will execute the method once for each invocation, and report the results separately for each invocation.</p>
+                        <p>The invocationCount attribute can be useful when you want to test the behavior of a method under different conditions, or when you want to run a stress test to check how the method behaves when invoked multiple times.</p>
+                        <p>Note that when you use the invocationCount attribute, each invocation of the test method is treated as a separate test, with its own test results and reporting. This means that if any invocation of the test method fails, TestNG will consider the entire test as failed. Therefore, you should make sure that the test method is idempotent (i.e., has the same effect every time it is called) if you use invocationCount.</p>
+                        <h6>invocationTimeOut</h6>
+                        <p>The invocationTimeOut attribute is an attribute of the @Test annotation in TestNG that specifies the maximum amount of time (in milliseconds) that a test method can take to complete. If the test method takes longer than the specified timeout, TestNG will mark the test as failed and terminate the test.</p>
+                        <p>Here's an example of using the invocationTimeOut attribute:</p>
+                        <pre>
+                            <code>
+@Test(invocationTimeOut = 5000)
+public void myTest() {
+    // test code here
+}
+                            </code>
+                        </pre>
+                        <p>In this example, the myTest() method has a timeout of 5000 milliseconds (or 5 seconds). If the method takes longer than 5 seconds to complete, TestNG will terminate the test and mark it as failed.</p>
+                        <p>The invocationTimeOut attribute can be useful when you want to avoid tests getting stuck in an infinite loop or waiting indefinitely for a resource to become available. However, you should use this attribute judiciously, since it can cause tests to fail prematurely if the timeout is too short.</p>
+                        <p>Note that the invocationTimeOut attribute applies to each individual invocation of the test method, not to the entire test method. This means that if you use invocationCount to execute the test method multiple times, each invocation of the method will have its own timeout.</p>
+                        <h6>threadPoolSize</h6>
+                        <p>The threadPoolSize attribute is an attribute of the @Test annotation in TestNG that specifies the number of threads to be used when executing the test method. When you set the threadPoolSize attribute to a value greater than 1, TestNG will execute the test method in parallel, using multiple threads.</p>
+                        <p>Here's an example of using the threadPoolSize attribute:</p>
+                        <pre>
+                            <code>
+@Test(threadPoolSize = 5)
+public void myTest() {
+    // test code here
+}
+                            </code>
+                        </pre>
+                        <p>In this example, the myTest() method will be executed in parallel using 5 threads. Each thread will execute a separate invocation of the test method, and TestNG will report the results separately for each invocation.</p>
+                        <p>The threadPoolSize attribute can be useful when you want to run tests in parallel to save time and speed up the test execution process. However, you should make sure that the test method is thread-safe and does not have any shared state, since running the test in parallel can cause race conditions and other concurrency issues.</p>
+                        <p>Note that when you use the threadPoolSize attribute, each invocation of the test method is treated as a separate test, with its own test results and reporting. This means that if any invocation of the test method fails, TestNG will consider the entire test as failed. Therefore, you should make sure that the test method is idempotent (i.e., has the same effect every time it is called) if you use threadPoolSize.</p>
+                        <h6>timeOut</h6>
+                        <p>The timeOut attribute is an attribute of the @Test annotation in TestNG that specifies the maximum amount of time (in milliseconds) that a test method can take to complete. If the test method takes longer than the specified timeout, TestNG will mark the test as failed and terminate the test.</p>
+                        <p>Here's an example of using the timeOut attribute:</p>
+                        <pre>
+                            <code>
+@Test(timeOut = 5000)
+public void myTest() {
+    // test code here
+}
+                            </code>
+                        </pre>
+                        <p>In this example, the myTest() method has a timeout of 5000 milliseconds (or 5 seconds). If the method takes longer than 5 seconds to complete, TestNG will terminate the test and mark it as failed.</p>
+                        <p>The timeOut attribute can be useful when you want to avoid tests getting stuck in an infinite loop or waiting indefinitely for a resource to become available. However, you should use this attribute judiciously, since it can cause tests to fail prematurely if the timeout is too short.</p>
+                        <p>Note that the timeOut attribute applies to the entire test method, not to individual invocations of the method. This means that if you use invocationCount or threadPoolSize to execute the test method multiple times or in parallel, the timeout applies to the entire set of invocations or threads.</p>
+                        <h6>successPercentage</h6>
+                        <p>The successPercentage attribute is an attribute of the @Test annotation in TestNG that specifies the minimum percentage of test invocations that must pass in order for the entire test to be considered a success. This attribute is useful when a test is known to be flaky and may fail intermittently due to timing issues or other external factors.</p>
+                        <pre>
+                            <code>
+@Test(successPercentage = 80)
+public void myTest() {
+    // test code here
+}
+                            </code>
+                        </pre>
+                        <p>In this example, the myTest() method has a success percentage of 80%. This means that at least 80% of the invocations of the test method must pass for the entire test to be considered a success. If less than 80% of the invocations pass, TestNG will mark the test as failed.</p>
+                        <p>The successPercentage attribute can be useful when you have a test that is known to be flaky or unstable, but still provides valuable information when it passes. By setting a minimum success percentage, you can ensure that the test is still useful even if it fails intermittently.</p>
+                        <p>Note that the successPercentage attribute applies to each invocation of the test method separately, not to the entire set of invocations. This means that if you use invocationCount or threadPoolSize to execute the test method multiple times or in parallel, each invocation is considered separately for the purposes of calculating the success percentage.</p>
+                    </div>
                     <div id="whatIsTestNg">
                         <h2>What is TestNG?</h2>
                         <!-- <a href="https://testng.org/doc/index.html">TestNG official website</a> -->
@@ -819,7 +1835,6 @@ public class SampleClass1 extends Base{
                                 </code>
                             </pre>
                     </div>
-
                 </div>
             </div>
         </div>
