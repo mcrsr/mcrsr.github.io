@@ -61,6 +61,78 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div id="whatIsTestNg">
+                        <h2>What is TestNG?</h2>
+                        <!-- <a href="https://testng.org/doc/index.html">TestNG official website</a> -->
+                        <p>TestNG is a widely-used testing framework for Java applications. It was created to overcome
+                            some limitations of the popular JUnit testing framework, and has since become a popular
+                            choice for testing Java applications.</p>
+                        <p>TestNG provides a number of features that make it a powerful testing tool. For example, it
+                            allows you to group your tests and run them in specific orders, specify dependencies between
+                            tests, and configure how your tests are run using a flexible XML configuration file.
+                            Additionally, TestNG supports advanced features such as parameterization, data-driven
+                            testing, and parallel test execution.</p>
+                        <p>One of the key benefits of using TestNG is that it provides extensive reporting capabilities,
+                            including HTML and XML reports that can be easily integrated into build systems or
+                            continuous integration (CI) tools. This makes it easy to keep track of test results and
+                            identify any issues or failures.</p>
+                        <p>Overall, TestNG is a flexible and powerful testing framework that can help you write and run
+                            effective tests for your Java applications. Whether you're testing a small library or a
+                            large enterprise application, TestNG can help you ensure that your code is working as
+                            expected and that you're delivering high-quality software to your users.</p>
+                        <p>TestNG is a testing framework inspired from JUnit and NUnit but introducing some new
+                            functionalities that make it more powerful and easier to use, such as:</p>
+                        <ul>
+                            <li>Annotations. </li>
+                            <li>Run your tests in arbitrarily big thread pools with various policies available (all
+                                methods in their own thread, one thread per test class, etc...). </li>
+                            <li>Test that your code is multithread safe. </li>
+                            <li>Flexible test configuration. </li>
+                            <li>Support for data-driven testing (with @DataProvider). </li>
+                            <li>Support for parameters. </li>
+                            <li>Powerful execution model (no more TestSuite). </li>
+                            <li>Supported by a variety of tools and plug-ins (Eclipse, IDEA, Maven, etc...). </li>
+                            <li>Embeds BeanShell for further flexibility. </li>
+                            <li>Default JDK functions for runtime and logging (no dependencies). </li>
+                            <li>Dependent methods for application server testing.</li>
+                        </ul>
+                        <h3>What are the Benefits of TestNG?</h3>
+                        <ul>
+                            <li>
+                                <p>Flexible Test Configuration: TestNG offers a highly configurable XML-based
+                                    configuration file that allows you to specify how your tests should be run. You can
+                                    define test suites, test groups, test dependencies, and much more.</p>
+                            </li>
+                            <li>
+                                <p>Annotations: TestNG provides a wide range of annotations that can be used to control
+                                    the flow of your tests. For example, you can use annotations to specify test setup
+                                    and teardown methods, to control test execution order, or to ignore specific tests.
+                                </p>
+                            </li>
+                            <li>
+                                <p>Data-Driven Testing: TestNG supports data-driven testing, allowing you to run the
+                                    same test with multiple sets of data. This makes it easy to test different scenarios
+                                    and edge cases.</p>
+                            </li>
+                            <li>
+                                <p>Parallel Test Execution: TestNG allows you to run your tests in parallel, which can
+                                    significantly reduce the time it takes to run your test suite. This is especially
+                                    useful for large test suites or when running tests on a continuous integration
+                                    server.</p>
+                            </li>
+                            <li>
+                                <p>Test Dependency Management: TestNG allows you to specify dependencies between your
+                                    tests, so that tests are only run when their dependencies have passed. This can help
+                                    ensure that your tests are run in the correct order and that any issues are caught
+                                    early.</p>
+                            </li>
+                            <li>
+                                <p>Reporting: TestNG provides rich HTML and XML reports that can be easily integrated
+                                    into build systems or continuous integration tools. These reports provide detailed
+                                    information on test results, including test run time, failures, and errors.</p>
+                            </li>
+                        </ul>
+                    </div>
                     <div id="annotations">
                         <h2>Annotations</h2>
                         <h4>@BeforeSuite</h4>
@@ -1076,78 +1148,6 @@ public void myTest() {
                         <p>In this example, the myTest() method has a success percentage of 80%. This means that at least 80% of the invocations of the test method must pass for the entire test to be considered a success. If less than 80% of the invocations pass, TestNG will mark the test as failed.</p>
                         <p>The successPercentage attribute can be useful when you have a test that is known to be flaky or unstable, but still provides valuable information when it passes. By setting a minimum success percentage, you can ensure that the test is still useful even if it fails intermittently.</p>
                         <p>Note that the successPercentage attribute applies to each invocation of the test method separately, not to the entire set of invocations. This means that if you use invocationCount or threadPoolSize to execute the test method multiple times or in parallel, each invocation is considered separately for the purposes of calculating the success percentage.</p>
-                    </div>
-                    <div id="whatIsTestNg">
-                        <h2>What is TestNG?</h2>
-                        <!-- <a href="https://testng.org/doc/index.html">TestNG official website</a> -->
-                        <p>TestNG is a widely-used testing framework for Java applications. It was created to overcome
-                            some limitations of the popular JUnit testing framework, and has since become a popular
-                            choice for testing Java applications.</p>
-                        <p>TestNG provides a number of features that make it a powerful testing tool. For example, it
-                            allows you to group your tests and run them in specific orders, specify dependencies between
-                            tests, and configure how your tests are run using a flexible XML configuration file.
-                            Additionally, TestNG supports advanced features such as parameterization, data-driven
-                            testing, and parallel test execution.</p>
-                        <p>One of the key benefits of using TestNG is that it provides extensive reporting capabilities,
-                            including HTML and XML reports that can be easily integrated into build systems or
-                            continuous integration (CI) tools. This makes it easy to keep track of test results and
-                            identify any issues or failures.</p>
-                        <p>Overall, TestNG is a flexible and powerful testing framework that can help you write and run
-                            effective tests for your Java applications. Whether you're testing a small library or a
-                            large enterprise application, TestNG can help you ensure that your code is working as
-                            expected and that you're delivering high-quality software to your users.</p>
-                        <p>TestNG is a testing framework inspired from JUnit and NUnit but introducing some new
-                            functionalities that make it more powerful and easier to use, such as:</p>
-                        <ul>
-                            <li>Annotations. </li>
-                            <li>Run your tests in arbitrarily big thread pools with various policies available (all
-                                methods in their own thread, one thread per test class, etc...). </li>
-                            <li>Test that your code is multithread safe. </li>
-                            <li>Flexible test configuration. </li>
-                            <li>Support for data-driven testing (with @DataProvider). </li>
-                            <li>Support for parameters. </li>
-                            <li>Powerful execution model (no more TestSuite). </li>
-                            <li>Supported by a variety of tools and plug-ins (Eclipse, IDEA, Maven, etc...). </li>
-                            <li>Embeds BeanShell for further flexibility. </li>
-                            <li>Default JDK functions for runtime and logging (no dependencies). </li>
-                            <li>Dependent methods for application server testing.</li>
-                        </ul>
-                        <h3>What are the Benefits of TestNG?</h3>
-                        <ul>
-                            <li>
-                                <p>Flexible Test Configuration: TestNG offers a highly configurable XML-based
-                                    configuration file that allows you to specify how your tests should be run. You can
-                                    define test suites, test groups, test dependencies, and much more.</p>
-                            </li>
-                            <li>
-                                <p>Annotations: TestNG provides a wide range of annotations that can be used to control
-                                    the flow of your tests. For example, you can use annotations to specify test setup
-                                    and teardown methods, to control test execution order, or to ignore specific tests.
-                                </p>
-                            </li>
-                            <li>
-                                <p>Data-Driven Testing: TestNG supports data-driven testing, allowing you to run the
-                                    same test with multiple sets of data. This makes it easy to test different scenarios
-                                    and edge cases.</p>
-                            </li>
-                            <li>
-                                <p>Parallel Test Execution: TestNG allows you to run your tests in parallel, which can
-                                    significantly reduce the time it takes to run your test suite. This is especially
-                                    useful for large test suites or when running tests on a continuous integration
-                                    server.</p>
-                            </li>
-                            <li>
-                                <p>Test Dependency Management: TestNG allows you to specify dependencies between your
-                                    tests, so that tests are only run when their dependencies have passed. This can help
-                                    ensure that your tests are run in the correct order and that any issues are caught
-                                    early.</p>
-                            </li>
-                            <li>
-                                <p>Reporting: TestNG provides rich HTML and XML reports that can be easily integrated
-                                    into build systems or continuous integration tools. These reports provide detailed
-                                    information on test results, including test run time, failures, and errors.</p>
-                            </li>
-                        </ul>
                     </div>
 
                     <div id="howToInstallTestNG">
