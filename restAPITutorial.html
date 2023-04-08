@@ -91,7 +91,106 @@
                         </ul>
                     </div>
 
+                    <div id="">
+                        <h1>different types of API</h1>
+                        <p>There are several types of APIs (Application Programming Interfaces) used in software development. Here are some of the most common types:</p>
+                        <ul>
+                            <li>REST API: REST (Representational State Transfer) is a web-based API that uses HTTP requests to retrieve and manipulate data. It is a popular choice for building web applications because it uses simple HTTP requests and responses, making it easy to understand and use.</li>
+                            <li>SOAP API: SOAP (Simple Object Access Protocol) is another web-based API that uses XML to send and receive messages between applications. It is a more complex protocol than REST, but it is still widely used in enterprise environments.</li>
+                            <li>GraphQL API: GraphQL is a query language for APIs that allows clients to request exactly the data they need and nothing more. It provides a more efficient way of fetching data from a server, especially when dealing with large, complex data sets.</li>
+                            <li>Webhooks API: A webhook is a way for an application to notify another application when a specific event occurs. For example, when a user creates a new post on a social media platform, the platform can send a webhook to notify a third-party application that the post has been created.</li>
+                            <li>Real-time APIs: Real-time APIs are used to provide real-time data to applications. Examples include APIs that provide real-time stock prices, weather information, or traffic updates.</li>
+                            <li>Open APIs: Open APIs are publicly available and can be accessed by anyone. They are often used by third-party developers to build applications that integrate with other services.</li>
+                            <li>Internal APIs: Internal APIs are used within a company or organization to share data and functionality between different applications or services.</li>
+                        </ul>
+                        <p>These are just a few examples of the types of APIs that are commonly used in software development. There are many other types of APIs, and new ones are being developed all the time to meet the changing needs of the industry.</p>
+                    </div>
 
+                    <div>
+                        <h1>difference between API and web service</h1>
+                        <p>API and web service are two terms that are often used interchangeably, but they are not the same thing. Here's the difference:</p>
+                        <h6>API:</h6>
+                        <p>API stands for Application Programming Interface. An API is a set of protocols, routines, and tools for building software applications. It defines how different components of a software application can interact with each other. In other words, an API is a way for one software application to communicate with another.</p>
+                        <h6>Web Service:</h6>
+                        <p>A web service is a specific type of API that is accessed over the internet using a standardized protocol such as HTTP. It is a software system designed to support interoperable machine-to-machine interaction over a network. Web services provide a way for different applications to communicate with each other, regardless of the platform, language, or operating system they are using.</p>
+                        <p>The key difference between an API and a web service is the medium used for communication. While an API can be accessed over a local network or directly within an application, a web service is accessed over the internet using standardized protocols. Web services are often used to integrate disparate systems or to provide a platform-independent interface to an application. APIs, on the other hand, can be used for a variety of purposes, such as accessing data or controlling an application's functionality.</p>
+                        <p><b>NOTE:</b>All webserices are APIs but not all APIs are webservices.</p>
+                    </div>
+                    
+                    <div id="http">
+                        <h1>HTTP</h1>
+                        <p>HTTP stands for Hypertext Transfer Protocol. It is an application layer protocol that is used for communication between web servers and clients (such as web browsers). HTTP is the foundation of data communication on the World Wide Web.</p>
+                        <p>When a client (such as a web browser) sends an HTTP request to a web server, the request is typically in the form of a URL (Uniform Resource Locator), which specifies the location of the requested resource (such as a webpage, an image, or a video). The web server processes the request and sends back an HTTP response, which typically contains the requested resource.</p>
+                        <p>HTTP is a stateless protocol, which means that each request/response pair is independent of any previous request/response pairs. In other words, the web server does not maintain any state information about previous requests from a client. This makes HTTP simple and scalable, but it also means that applications that require stateful communication (such as e-commerce applications) need to use additional techniques (such as cookies or session management) to maintain state information.</p>
+                        <p>HTTP is based on a client-server model, where the client (such as a web browser) sends requests to the server, and the server responds with the requested data. HTTP requests are composed of a request line, headers, and a message body (which is optional). HTTP responses are composed of a response line, headers, and a message body (which is also optional).</p>
+                        <p>HTTP is a text-based protocol, which means that messages are represented using text characters (such as ASCII or Unicode). HTTP messages can be transferred using a variety of transport protocols, but the most common transport protocol used with HTTP is TCP (Transmission Control Protocol).</p>
+                        <p>Overall, HTTP is a fundamental protocol for web communication, and it enables clients and servers to exchange data and resources on the World Wide Web.</p>
+                        <h5>different types of http versions:</h5>
+                        <p>There are several versions of HTTP that have been developed over time, including:</p>
+                        <ul>
+                            <li>HTTP/0.9: This was the first version of HTTP, which was released in 1991. It was a simple protocol that only supported GET requests and did not include headers.</li>
+                            <li>HTTP/1.0: This version of HTTP was released in 1996 and added support for headers, allowing for more complex requests and responses. It also introduced the concept of status codes, such as 404 Not Found.</li>
+                            <li>HTTP/1.1: This version of HTTP was released in 1999 and is the most widely used version of HTTP today. It introduced several new features, such as support for persistent connections, chunked encoding, and caching. It also improved performance by allowing multiple requests to be sent over a single connection.</li>
+                            <li>HTTP/2: This version of HTTP was released in 2015 and is designed to improve performance by reducing latency and improving throughput. It uses a binary protocol instead of a text-based protocol, and includes features such as multiplexing, header compression, and server push.</li>
+                            <li>HTTP/3: This version of HTTP is currently in development and is designed to improve performance even further by using a new transport protocol called QUIC (Quick UDP Internet Connections). QUIC is designed to reduce latency and improve reliability, especially for connections over the internet.</li>
+                        </ul>
+                        <p>Each version of HTTP has built upon the previous version and added new features and improvements. The most recent versions of HTTP (HTTP/2 and HTTP/3) are designed to improve performance and security for modern web applications.</p>
+                    </div>
+                    
+                    <div>
+                        <h1>difference between http and https</h1>
+                        <p>HTTP and HTTPS are both protocols for communication between web servers and clients (such as web browsers), but they differ in terms of security.</p>
+                        <p>HTTP (Hypertext Transfer Protocol) is an application layer protocol that is used for communication between web servers and clients. It is a text-based protocol and is not encrypted, which means that data transmitted using HTTP can be intercepted and read by attackers. For example, if you submit a form on a website using HTTP, the data you submit (such as your username and password) can be intercepted and read by an attacker.</p>
+                        <p>HTTPS (Hypertext Transfer Protocol Secure) is a secure version of HTTP that uses encryption to protect data transmitted between web servers and clients. HTTPS uses the SSL/TLS protocol (Secure Sockets Layer/Transport Layer Security) to encrypt data, which means that data transmitted using HTTPS is protected from interception and reading by attackers. When you submit a form on a website using HTTPS, the data you submit is encrypted and cannot be intercepted and read by an attacker.</p>
+                        <p>In addition to providing encryption, HTTPS also provides authentication and integrity protection. HTTPS uses digital certificates to verify the identity of web servers, which helps to prevent attackers from impersonating a website. HTTPS also uses message authentication codes (MACs) to ensure that data transmitted between web servers and clients has not been tampered with.</p>
+                        <p>Overall, the main difference between HTTP and HTTPS is that HTTPS provides encryption to protect data transmitted between web servers and clients, while HTTP does not provide encryption and is therefore not secure for transmitting sensitive information. It is recommended that all websites use HTTPS to protect user data and ensure the security of web communication.</p>
+                    </div>
+
+                    <div>
+                        <h1>URI</h1>
+                        <p>URI stands for Uniform Resource Identifier. It is a string of characters that identifies a name or a resource on the Internet. A URI can be used to identify a web page, an image, a file, or any other resource that can be accessed over the Internet.</p>
+                        <p>Here are some examples of URIs:</p>
+                        <ul>
+                            <li>https://www.example.com: This is the URI for the homepage of a website named "example.com". It uses the HTTPS protocol to encrypt communication between the client and server.</li>
+                            <li>ftp://ftp.example.com/pub/file.txt: This is the URI for a file named "file.txt" located in a directory named "pub" on an FTP server named "ftp.example.com". It uses the FTP protocol to transfer files between the client and server.</li>
+                            <li>mailto:user@example.com: This is the URI for an email address "user@example.com". When a user clicks on a link with this URI, it will open their default email client and create a new email addressed to "user@example.com".</li>
+                            <li>tel:+1-123-456-7890: This is the URI for a phone number. When a user clicks on a link with this URI, it will open their default phone application and dial the number.</li>
+                            <li>data:text/plain;base64,SGVsbG8gV29ybGQ=: This is the URI for a data URL that contains a base64-encoded string of text. When a user clicks on a link with this URI, it will display the text "Hello World" in the browser.</li>
+                        </ul>
+                        <p>In summary, a URI is a string of characters that identifies a resource on the Internet. It can be used to access web pages, files, email addresses, phone numbers, and other resources.</p>
+                    </div>
+
+                    <div>
+                        <h1>URL</h1>
+                        <p>A URL stands for Uniform Resource Locator. It is a type of URI that specifies the address of a resource on the internet. A URL consists of several components, including the protocol, domain name, path, and query parameters.</p>
+                        <p>Here are some examples of URLs:</p>
+                        <ul>
+                            <li>https://www.google.com: This is the URL for the homepage of the Google search engine. It uses the HTTPS protocol to encrypt communication between the client and server.</li>
+                            <li>http://www.example.com/page1.html: This is the URL for a web page named "page1.html" located on a website named "example.com". It uses the HTTP protocol to transfer data between the client and server.</li>
+                            <li>ftp://ftp.example.com/file.txt: This is the URL for a file named "file.txt" located on an FTP server named "ftp.example.com". It uses the FTP protocol to transfer files between the client and server.</li>
+                            <li>mailto:user@example.com: This is the URL for an email address "user@example.com". When a user clicks on a link with this URL, it will open their default email client and create a new email addressed to "user@example.com".</li>
+                            <li>tel:+1-123-456-7890: This is the URL for a phone number. When a user clicks on a link with this URL, it will open their default phone application and dial the number.</li>
+                            <li>https://www.example.com/search?q=example: This is the URL for a search query for the keyword "example" on the website named "example.com". It includes a query parameter "q" with the value "example".</li>
+                        </ul>
+                        <p>In summary, a URL is a type of URI that specifies the address of a resource on the internet. It can be used to access web pages, files, email addresses, phone numbers, and other resources.</p>
+                    </div>
+
+                    <div>
+                        <h1>difference between URI and URL with examples</h1>
+                        <p>URI (Uniform Resource Identifier) and URL (Uniform Resource Locator) are related concepts, but they are not the same thing. A URL is a type of URI that specifies the location of a resource on the internet.</p>
+                        <p>Here's the difference between URI and URL:</p>
+                        <ul>
+                            <li>URI is a string of characters that identifies the name or a resource on the internet.</li>
+                            <li>URL is a type of URI that specifies the location of a resource on the internet.</li>
+                        </ul>
+                        <p>Here are some examples to illustrate the difference:</p>
+                        <ul>
+                            <li>mailto:user@example.com: This is a URI that identifies an email address "user@example.com". It is not a URL because it doesn't specify the location of any resource on the internet.</li>
+                            <li>https://www.example.com: This is a URL that specifies the location of the homepage of the website "example.com". It is also a URI because it identifies the resource.</li>
+                            <li>http://www.example.com/search?q=example: This is a URL that specifies the location of a search query for the keyword "example" on the website "example.com". It is also a URI because it identifies the resource.</li>
+                        </ul>
+                        <p>In summary, a URL is a type of URI that specifies the location of a resource on the internet. URI is a more general term that can identify any resource on the internet, not just its location.</p>
+                    </div>
 
                     <div id="WhyAPITesting">
                         <h1>API Testing: What It Is, Why It’s Important & How to Do It</h1>
@@ -334,10 +433,10 @@
                         <pre>
                                 <p>URI examples</p>
                                 <code>
-                http://www.appdomain.com/users
-                http://www.appdomain.com/users?size=20&page=5
-                http://www.appdomain.com/users/123
-                http://www.appdomain.com/users/123/address
+http://www.appdomain.com/users
+http://www.appdomain.com/users?size=20&page=5
+http://www.appdomain.com/users/123
+http://www.appdomain.com/users/123/address
                                 </code>
                             </pre>
                         <p>refer the <a href="https://restfulapi.net/rest-architectural-constraints/">link</a></p>
@@ -356,7 +455,7 @@
                         <h4>Syntax</h4>
                         <pre>
                                 <code>
-                                    GET /index.html
+GET /index.html
                                 </code>
                             </pre>
                         <h2>HEAD</h2>
@@ -371,7 +470,7 @@
                         <h4>Syntax</h4>
                         <pre>
                                 <code>
-                                    HEAD /index.html
+HEAD /index.html
                                 </code>
                             </pre>
                         <h2>POST</h2>
@@ -411,30 +510,30 @@
                         <p>A simple form using the default application/x-www-form-urlencoded content type:</p>
                         <pre>
                                 <code>
-                POST /test HTTP/1.1
-                Host: foo.example
-                Content-Type: application/x-www-form-urlencoded
-                Content-Length: 27
-                
-                field1=value1&field2=value2
+POST /test HTTP/1.1
+Host: foo.example
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 27
+
+field1=value1&field2=value2
                                 </code>
                             </pre>
                         <p>A form using the multipart/form-data content type:</p>
                         <pre>
                                 <code>
-                POST /test HTTP/1.1
-                Host: foo.example
-                Content-Type: multipart/form-data;boundary="boundary"
-                
-                --boundary
-                Content-Disposition: form-data; name="field1"
-                
-                value1
-                --boundary
-                Content-Disposition: form-data; name="field2"; filename="example.txt"
-                
-                value2
-                --boundary--
+POST /test HTTP/1.1
+Host: foo.example
+Content-Type: multipart/form-data;boundary="boundary"
+
+--boundary
+Content-Disposition: form-data; name="field1"
+
+value1
+--boundary
+Content-Disposition: form-data; name="field2"; filename="example.txt"
+
+value2
+--boundary--
                                 </code>
                             </pre>
                         <h2>PUT</h2>
@@ -447,12 +546,12 @@
                         <h4>Syntax</h4>
                         <pre>
                                 <code>
-                PUT /new.html HTTP/1.1
-                Host: example.com
-                Content-type: text/html
-                Content-length: 16
-                
-                &lt;p&gt;New File&lt;/p&gt;
+PUT /new.html HTTP/1.1
+Host: example.com
+Content-type: text/html
+Content-length: 16
+
+&lt;p&gt;New File&lt;/p&gt;
                                 </code>
                             </pre>
                         <h4>Responses</h4>
@@ -461,8 +560,8 @@
                             (Created) response.</p>
                         <pre>
                                 <code>
-                HTTP/1.1 201 Created
-                Content-Location: /new.html
+HTTP/1.1 201 Created
+Content-Location: /new.html
                                 </code>
                             </pre>
                         <p>If the target resource does have a current representation and that representation is
@@ -471,8 +570,8 @@
                             successful completion of the request.</p>
                         <pre>
                                 <code>
-                HTTP/1.1 204 No Content
-                Content-Location: /existing.html
+HTTP/1.1 204 No Content
+Content-Location: /existing.html
                                 </code>
                             </pre>
                         <h2>DELETE</h2>
@@ -480,14 +579,14 @@
                         <h4>Syntax</h4>
                         <pre>
                                 <code>
-                DELETE /file.html HTTP/1.1
+DELETE /file.html HTTP/1.1
                                 </code>
                             </pre>
                         <h4>Request</h4>
                         <pre>
                                 <code>
-                DELETE /file.html HTTP/1.1
-                Host: example.com
+DELETE /file.html HTTP/1.1
+Host: example.com
                                 </code>
                             </pre>
                         <h4>Response</h4>
@@ -515,21 +614,21 @@
                         <h4>Request</h4>
                         <pre>
                                 <code>
-                PATCH /file.txt HTTP/1.1
-                Host: www.example.com
-                Content-Type: application/example
-                If-Match: "e0023aa4e"
-                Content-Length: 100
-                
-                [description of changes]
+PATCH /file.txt HTTP/1.1
+Host: www.example.com
+Content-Type: application/example
+If-Match: "e0023aa4e"
+Content-Length: 100
+
+[description of changes]
                                 </code>
                             </pre>
                         <h4>Response</h4>
                         <pre>
                                 <code>
-                HTTP/1.1 204 No Content
-                Content-Location: /file.txt
-                ETag: "e0023aa4f"
+HTTP/1.1 204 No Content
+Content-Location: /file.txt
+ETag: "e0023aa4f"
                                 </code>
                             </pre>
                     </div>
