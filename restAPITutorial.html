@@ -192,6 +192,58 @@
                         <p>In summary, a URL is a type of URI that specifies the location of a resource on the internet. URI is a more general term that can identify any resource on the internet, not just its location.</p>
                     </div>
 
+                    <div id="payload">
+                        <h1>payload</h1>
+                        <p>In the context of APIs, a payload refers to the data that is carried within a request or response message. It is the actual content of the message, as opposed to the metadata that describes how the message should be handled.</p>
+                        <p>For example, in an HTTP POST request to create a new resource in an API, the payload would be the data that describes the resource being created. This might include information such as the resource's name, description, and other relevant attributes. In a response message, the payload would be the data returned by the API in response to the client's request.</p>
+                        <p>The payload can be formatted in a variety of ways, depending on the data format used by the API. Common data formats used in APIs include JSON, XML, and binary formats such as Protobuf and Avro.</p>
+                        <p>It's important to note that the payload is just one component of an API message. In addition to the payload, messages may also include headers, which provide additional metadata about the message, such as the content type, encoding, and authentication information.</p>
+                    </div>
+
+                    <div>
+                        <h1>end point</h1>
+                        <p>In the context of APIs, an endpoint is a specific URL that a client application can access to interact with the API. Each endpoint represents a specific function or operation within the API, and is typically associated with a specific resource.</p>
+                        <p>For example, in a hypothetical e-commerce API, an endpoint might be "/products", which would allow clients to access a list of all available products. Another endpoint might be "/products/{product_id}", which would allow clients to access details about a specific product identified by its unique ID.</p>
+                        <p>Endpoints can be accessed using HTTP methods such as GET, POST, PUT, and DELETE, which allow clients to retrieve, create, update, and delete resources, respectively. The specific method used to interact with an endpoint depends on the operation that the endpoint performs.</p>
+                        <p>Endpoints are a key component of RESTful APIs (Representational State Transfer), which is a popular architectural style used for building web APIs. In a RESTful API, each endpoint represents a specific resource, and clients can use the HTTP methods to interact with those resources in a standardized way.</p>
+                    </div>
+
+                    <div id="request">
+                        <h1>request</h1>
+                        <p>In the context of APIs, a request is a message sent by a client application to an API endpoint, asking for a specific action to be performed or for specific information to be returned.</p>
+                        <p>Requests typically include the following components:</p>
+                        <ul>
+                            <li>HTTP Method: The HTTP method (also known as a verb) specifies the type of action the client wants the API to perform on a resource. The most commonly used HTTP methods in APIs are GET, POST, PUT, and DELETE.</li>
+                            <li>URL: The URL specifies the endpoint that the client wants to access, along with any additional parameters or data needed to complete the request.</li>
+                            <li>Headers: Headers are additional information about the request, such as the type of data being sent or received, authentication information, and other metadata.</li>
+                            <li>Body/Payload: The body or payload of the request contains any data that the client wants to send to the API, such as form data, JSON, or XML.</li>
+                        </ul>
+                        <p>Once the API receives the request, it processes the request according to the specified method and returns a response message to the client. The response typically includes a status code, which indicates whether the request was successful or not, along with any data or metadata returned by the API.</p>
+                        <p>Requests are a fundamental component of API development and usage, and understanding how to construct and send requests is critical for interacting with APIs effectively.</p>
+                    </div>
+
+                    <div>
+                        <h1>Introducing JSON</h1>
+                        <p>JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. It is based on a subset of the JavaScript Programming Language Standard ECMA-262 3rd Edition - December 1999. JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language.</p>
+                        <pre>
+                            <code>
+{
+    "name":"John",
+    "age":30,
+    "employee":{"name":"John", "age":30, "city":"New York"},
+    "employees":["John", "Anna", "Peter"],
+    "scale":true,
+    "middlename":null
+}
+                            </code>
+                        </pre>
+                        <p>For more information please refer:</p>
+                        <ul>
+                            <li><a href="https://www.json.org/json-en.html">Introducing JSON</a></li>
+                            <li><a href="https://www.w3schools.com/js/js_json_intro.asp">JSON - Introduction</a></li>
+                        </ul>
+                    </div>
+
                     <div id="WhyAPITesting">
                         <h1>API Testing: What It Is, Why It’s Important & How to Do It</h1>
                         <p>The global API testing market is projected to reach 1.8 billion USD by 2026, up from 641.6

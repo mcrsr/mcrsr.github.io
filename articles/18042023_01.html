@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Clean Blog - Start Bootstrap Theme</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('../assets/img/post-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1>JAVA THREADLOCAL</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by
+                            <a href="#!">MCRSR</a>
+                            on April 18, 2023
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Post Content-->
+    <article class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+
+                    <div>
+                        <h1>ThreadLocal</h1>
+                        <p>In Java, ThreadLocal is a class that provides a way to create variables that are local to a
+                            particular thread. A ThreadLocal variable is a special type of variable that is created and
+                            maintained separately for each thread, and its value can be accessed and modified only by
+                            the same thread that created it.</p>
+                        <p>The ThreadLocal class provides two methods to interact with its instances:</p>
+                        <ul>
+                            <li>get(): This method returns the value of the ThreadLocal variable for the current thread.
+                                If no value has been set for the current thread, it returns null.</li>
+                            <li>set(): This method sets the value of the ThreadLocal variable for the current thread.
+                            </li>
+                        </ul>
+                        <p>One of the primary use cases of ThreadLocal is to maintain state that is specific to a
+                            particular thread. For example, consider a web application that handles multiple requests
+                            concurrently. Each request may require some state information to be stored (such as a user's
+                            session information). Using ThreadLocal, you can create a session object that is local to
+                            the current thread and store the state information in that object. This way, each thread can
+                            maintain its own copy of the session object, and there will be no interference between
+                            different threads.</p>
+                        <p>Here is an example of how to use ThreadLocal in Java:</p>
+                        <pre>
+            <code>
+public class MyThreadLocalClass {
+    private static ThreadLocal<String> myThreadLocal = new ThreadLocal<>();
+
+    public static void setValue(String value) {
+        myThreadLocal.set(value);
+    }
+
+    public static String getValue() {
+        return myThreadLocal.get();
+    }
+}                
+            </code>
+        </pre>
+                        <p>In this example, we have created a ThreadLocal variable named myThreadLocal. We have also
+                            defined two methods setValue() and getValue() to set and get the value of this variable.
+                            When a value is set using setValue(), it is set only for the current thread. Similarly, when
+                            the value is retrieved using getValue(), it is retrieved only for the current thread.</p>
+                    </div>
+                    <div>
+                        <h1>use of ThreadLocal in java selenium with examples</h1>
+                        <p>In Selenium, ThreadLocal can be used to maintain a separate instance of the WebDriver object
+                            for each thread. This can be useful when running Selenium tests in parallel, as it ensures
+                            that each thread has its own WebDriver instance and avoids interference between different
+                            threads.</p>
+                        <p>Here's an example of how to use ThreadLocal in Java Selenium:</p>
+                        <pre>
+            <code>
+public class WebDriverFactory {
+    private static ThreadLocal<WebDriver> webDriverThreadLocal = new ThreadLocal<>();
+
+    public static WebDriver getDriver() {
+        return webDriverThreadLocal.get();
+    }
+
+    public static void setDriver(WebDriver driver) {
+        webDriverThreadLocal.set(driver);
+    }
+
+    public static void removeDriver() {
+        webDriverThreadLocal.remove();
+    }
+}
+            </code>
+        </pre>
+                        <p>In this example, we have created a ThreadLocal variable named webDriverThreadLocal to store a
+                            separate instance of the WebDriver object for each thread. We have also defined three
+                            methods getDriver(), setDriver(), and removeDriver() to get, set, and remove the WebDriver
+                            instance for the current thread.</p>
+                        <p>To use this WebDriverFactory class, we can create a new instance of the WebDriver object for
+                            each thread and set it using the setDriver() method. Here's an example of how to use this
+                            class in a test:</p>
+                        <pre>
+            <code>
+public class MySeleniumTest {
+    @Test
+    public void test() {
+        WebDriver driver = new ChromeDriver();
+        WebDriverFactory.setDriver(driver);
+
+        // Test code here
+
+        WebDriverFactory.removeDriver();
+        driver.quit();
+    }
+}                
+            </code>
+        </pre>
+                        <p>In this example, we create a new instance of the ChromeDriver object and set it using the
+                            setDriver() method. We can then use the getDriver() method to retrieve the WebDriver
+                            instance for the current thread and perform our test code. Finally, we remove the WebDriver
+                            instance for the current thread using the removeDriver() method and quit the WebDriver. This
+                            ensures that each thread has its own WebDriver instance and avoids interference between
+                            different threads.</p>
+                            <pre>
+                                <code>
+                                    import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class DriverFactory {
+
+	public WebDriver driver;
+
+	public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+
+	/**
+	 * This method is used to initialize the thradlocal driver on the basis of given
+	 * browser
+	 * 
+	 * @param browser
+	 * @return this will return tldriver.
+	 */
+	public WebDriver init_driver(String browser) {
+
+		System.out.println("browser value is: " + browser);
+
+		if (browser.equals("chrome")) {
+			WebDriverManager.chromedriver().setup();
+			tlDriver.set(new ChromeDriver());
+		} else if (browser.equals("firefox")) {
+			WebDriverManager.firefoxdriver().setup();
+			tlDriver.set(new FirefoxDriver());
+		} else if (browser.equals("safari")) {
+			tlDriver.set(new SafariDriver());
+		} else {
+			System.out.println("Please pass the correct browser value: " + browser);
+		}
+
+		getDriver().manage().deleteAllCookies();
+		getDriver().manage().window().maximize();
+		return getDriver();
+
+	}
+
+	/**
+	 * this is used to get the driver with ThreadLocal
+	 * 
+	 * @return
+	 */
+	public static synchronized WebDriver getDriver() {
+		return tlDriver.get();
+	}
+}
+                                </code>
+                            </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <!-- Footer-->
+    <footer class="border-top">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2022</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="../js/scripts.js"></script>
+</body>
+
+</html>
