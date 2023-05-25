@@ -312,6 +312,112 @@ public class ExcelReader2 {
                                 </code>
                               </pre>
                     </div>
+                    <div>
+                        <pre>
+                            <code>
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class ExcelToJsonConverterV4 {
+    public static void main(String[] args) {
+        String excelFilePath = "/home/ranga/IdeaProjects/javaTutorial/src/users.xlsx";
+        String jsonFilePath = "/home/ranga/IdeaProjects/javaTutorial/src/usersV4.json";
+
+        try {
+            FileInputStream fileInputStream = new FileInputStream(excelFilePath);
+            Workbook workbook = new XSSFWorkbook(fileInputStream);
+
+            JSONObject jsonObject = new JSONObject();
+            int numberOfSheets = workbook.getNumberOfSheets();
+
+            for (int i = 0; i < numberOfSheets; i++) {
+                Sheet sheet = workbook.getSheetAt(i);
+                String sheetName = sheet.getSheetName();
+
+                JSONObject sheetData = new JSONObject();
+                Row headerRow = sheet.getRow(0);
+                int columnCount = headerRow.getLastCellNum();
+
+                for (int k = 0; k < columnCount; k++) {
+                    JSONArray columnValues = new JSONArray();
+                    String columnName = headerRow.getCell(k).getStringCellValue();
+
+                    for (int j = 1; j <= sheet.getLastRowNum(); j++) {
+                        Row currentRow = sheet.getRow(j);
+                        Cell cell = currentRow.getCell(k);
+
+                        if (cell != null) {
+                            switch (cell.getCellType()) {
+                                case STRING:
+                                    columnValues.put(cell.getStringCellValue());
+                                    break;
+                                case NUMERIC:
+                                    columnValues.put(cell.getNumericCellValue());
+                                    break;
+                                case BOOLEAN:
+                                    columnValues.put(cell.getBooleanCellValue());
+                                    break;
+                                case BLANK:
+                                    columnValues.put("");
+                                    break;
+                                default:
+                                    columnValues.put("");
+                                    break;
+                            }
+                        } else {
+                            columnValues.put("");
+                        }
+                    }
+                    sheetData.put(columnName, columnValues);
+                }
+                jsonObject.put(sheetName, sheetData);
+            }
+
+            FileOutputStream fileOutputStream = new FileOutputStream(jsonFilePath);
+            fileOutputStream.write(jsonObject.toString(4).getBytes());
+            fileOutputStream.flush();
+            fileOutputStream.close();
+
+            System.out.println("Excel to JSON conversion completed successfully!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+                            </code>
+                        </pre>
+                        <p>dependencies</p>
+                        <pre>
+                            <code>
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20230227</version>
+  </dependency>
+  <dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>5.2.3</version>
+  </dependency>
+  <dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>5.2.3</version>
+  </dependency>
+                            </code>
+                        </pre>
+                    </div>
                 </div>
             </div>
         </div>

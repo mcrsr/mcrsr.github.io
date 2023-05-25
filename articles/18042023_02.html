@@ -183,6 +183,54 @@ public class SshConnection {
 }
                             </code>
                         </pre>
+                        <h4>how can we read log files which are availbale un another machine using java?</h4>
+                        <pre>
+                            <code>
+import com.jcraft.jsch.*;
+
+import java.io.*;
+
+public class ReadRemoteLogFile {
+    public static void main(String[] args) {
+        String username = "remote-username";
+        String password = "remote-password";
+        String hostname = "remote-hostname";
+        int port = 22;
+        String logFilePath = "/path/to/log/file";
+        
+        try {
+            JSch jsch = new JSch();
+            Session session = jsch.getSession(username, hostname, port);
+            session.setPassword(password);
+            session.setConfig("StrictHostKeyChecking", "no");
+            session.connect();
+            
+            ChannelSftp sftpChannel = (ChannelSftp) session.openChannel("sftp");
+            sftpChannel.connect();
+            
+            InputStream inputStream = sftpChannel.get(logFilePath);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+            }
+            
+            bufferedReader.close();
+            inputStream.close();
+            
+            sftpChannel.disconnect();
+            session.disconnect();
+        } catch (JSchException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+                            </code>
+                        </pre>
+                        <p>Replace /path/to/log/file with the actual path to the log file on the remote machine.</p>
+                        <p>This code creates an InputStream from the log file on the remote machine and then reads its contents using a BufferedReader. Each line of the log file is printed to the console.</p>
+                        <p>Note that you may need to handle exceptions and errors that can occur during file I/O operations or the SSH connection. Also, be sure to close the input stream and the SFTP channel when you're done reading the log file.</p>
                     </div>
                 </div>
             </div>
