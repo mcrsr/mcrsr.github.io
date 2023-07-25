@@ -8,6 +8,12 @@ public class FeatureFileTagger {
     public static void main(String[] args) {
         String featureFilePath = "/home/ranga/IdeaProjects/cucumberTutorial/src/test/resources/example.feature";
         String tagMappingFilePath = "/home/ranga/IdeaProjects/cucumberTutorial/src/test/java/mapping.json";
+        /*{
+            "TC_001": ["@odd1"],
+            "TC_002": ["@even2", "@TC_002"],
+            "TC_003": ["@odd3"],
+            "TC_004": ["@even4"]
+        }*/
         try {
             String featureFileContent = readFeatureFile(featureFilePath);
             JSONObject tagMapping = readTagMapping(tagMappingFilePath);
