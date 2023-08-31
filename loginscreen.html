@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <label>
+                <input type="checkbox" id="rememberMe" name="rememberMe">
+                Remember Me
+            </label>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginForm = document.getElementById("loginForm");
+            const rememberMeCheckbox = document.getElementById("rememberMe");
+
+            // Load stored credentials on page load if "Remember Me" was checked before
+            if (rememberMeCheckbox && getCookie("remembered")) {
+                const storedUsername = getCookie("username");
+                const storedPassword = getCookie("password");
+                if (storedUsername && storedPassword) {
+                    loginForm.username.value = storedUsername;
+                    loginForm.password.value = storedPassword;
+                }
+            }
+
+            loginForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const username = loginForm.username.value;
+                const password = loginForm.password.value;
+
+                // In a real application, you would perform actual login validation here.
+                // For demonstration purposes, we'll just set cookies if "Remember Me" is checked.
+                if (rememberMeCheckbox.checked) {
+                    setCookie("username", username, 7);
+                    setCookie("password", password, 7);
+                    setCookie("remembered", "true", 7);
+                } else {
+                    deleteCookie("username");
+                    deleteCookie("password");
+                    deleteCookie("remembered");
+                }
+
+                alert("Logged in successfully!");
+
+                // Redirect to a logged-in page or perform other actions.
+            });
+
+            // Function to set a cookie
+            function setCookie(key, value, expirationDays) {
+                const date = new Date();
+                date.setTime(date.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+                const expires = "expires=" + date.toUTCString();
+                document.cookie = key + "=" + value + ";" + expires + ";path=/";
+            }
+
+            // Function to delete a cookie
+            function deleteCookie(key) {
+                document.cookie = key + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            }
+
+            // Function to get a cookie value
+            function getCookie(key) {
+                // ... (same as previous getCookie function)
+            }
+        });
+
+    </script>
+</body>
+
+</html>
