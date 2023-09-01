@@ -101,49 +101,194 @@
                     <p>Tracking and Analytics: Websites use cookies to collect data on user behavior, such as pages visited, time spent on pages, and interactions. This data is then used for analytics to understand user engagement and improve website performance.</p>
                     <p>Targeted Advertising: Third-party cookies are frequently used by advertisers to track users across various websites and deliver targeted ads based on their browsing habits and interests.</p>
                     <p>to test cookies functionality <a href="cookies/login.html">Login Screen</a> username: user and password: pass</p>
-                    <pre>
-                        <code>
-        Method                                Description
-addCookie(Cookie cookie)                  Add a specific cookie.
-deleteAllCookies()                        Delete all the cookies for the current domain.
-deleteCookie(Cookie cookie)               Delete a cookie from the browser's "cookie jar".
-deleteCookieNamed(java.lang.String name)  Delete the named cookie from the current domain.
-getCookieNamed(java.lang.String name)     Get a cookie with a given name.
-getCookies()                              Get all the cookies for the current domain.   
-                        </code>
-                    </pre>
+                    <p>Working with cookies:</p>
+                    <ul>
+                        <li><pre><code>void addCookie(Cookie cookie);</code></pre><br><p>Add a specific cookie.</p></li>
+                        <li><pre><code>void deleteAllCookies();</code></pre><br><p>Delete all the cookies for the current domain.</p></li>
+                        <li><pre><code>void deleteCookieNamed(String name);</code></pre><br><p>Delete the named cookie from the current domain. This is equivalent to setting the named cookie's expiry date to some time in the past.</p></li>
+                        <li><pre><code>void deleteCookie(Cookie cookie);</code></pre><br><p>Delete a cookie from the browser's "cookie jar". The domain of the cookie will be ignored.</p></li>
+                        <li><pre><code>Cookie getCookieNamed(String name);</code></pre><br><p>Get a cookie with a given name.</p></li>
+                        <li><pre><code>Set&lt;Cookie&gt; getCookies();</code></pre><br><p>Get all the cookies for the current domain.</p></li>
+                    </ul>
                     <br><br>
                     <pre>
                       <code>
-import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import io.github.bonigarcia.wdm.WebDriverManager;
-  
-public class CookieExample1 {
-  public static void main(String[] args) throws Exception {
-    WebDriverManager.chromedriver().setup();
-    WebDriver driver = new ChromeDriver();
-    driver.manage().window().maximize();
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    driver.get("https://www.w3schools.com");
-    System.out.println(driver.manage().getCookies());
-    driver.manage().addCookie(new Cookie("testername", "mcrsr"));
-    System.out.println(driver.manage().getCookieNamed("testername"));
-    driver.manage().deleteCookieNamed("testername");
-    System.out.println(driver.manage().getCookieNamed("testername"));
-    Cookie testerCookie = new Cookie("testrname","mcrsr");
-    driver.manage().addCookie(testerCookie);
-    System.out.println(driver.manage().getCookies());
-    driver.manage().deleteCookie(testerCookie);
-    System.out.println(driver.manage().getCookies());
-    driver.manage().deleteAllCookies();
-    System.out.println(driver.manage().getCookies());
-    driver.quit();
-  }
+
+public class addCookie {
+
+    public static void main(String[] args) {
+        
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://127.0.0.1:5502/cookies/login.html");
+        driver.manage().window().maximize();
+        driver.findElement(By.id("username")).sendKeys("user");
+        driver.findElement(By.id("password")).sendKeys("pass");
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        System.out.println(driver.findElement(By.className("dashboard-heading")).getText());
+        System.out.println("Before Adding the cookies: "+driver.manage().getCookies());
+        driver.manage().addCookie(new Cookie("username", "user"));
+        Cookie password = new Cookie("password","pass");
+        driver.manage().addCookie(password);
+        System.out.println("After Adding the cookies: "+driver.manage().getCookies());
+        driver.findElement(By.id("logoutButton")).click();
+        driver.quit();
+
+    }
+
 }
                       </code>
+                    </pre>
+                    <pre>
+                        <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class deleteAllCookies {
+
+    public static void main(String[] args) {
+        
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://127.0.0.1:5502/cookies/login.html");
+        driver.manage().window().maximize();
+        driver.findElement(By.id("username")).sendKeys("user");
+        driver.findElement(By.id("password")).sendKeys("pass");
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        
+        driver.manage().addCookie(new Cookie("test1", "cookie1"));
+        Cookie cookie1 = new Cookie("test2", "cookie2");
+        driver.manage().addCookie(cookie1);
+        
+        System.out.println("Available Cookies: "+driver.manage().getCookies());
+        
+        driver.manage().deleteAllCookies();
+        
+        System.out.println("Available Cookies: "+driver.manage().getCookies());
+       
+        driver.quit();
+
+    }
+
+}
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class deleteCookie {
+
+    public static void main(String[] args) {
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://127.0.0.1:5502/cookies/login.html");
+        driver.manage().window().maximize();
+        driver.findElement(By.id("username")).sendKeys("user");
+        driver.findElement(By.id("password")).sendKeys("pass");
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        
+        driver.manage().addCookie(new Cookie("test1", "cookie1"));
+        Cookie cookie1 = new Cookie("test2", "cookie2");
+        driver.manage().addCookie(cookie1);
+        
+        System.out.println("Available Cookies: "+driver.manage().getCookies());
+        
+        driver.manage().deleteCookie(cookie1);
+        driver.manage().deleteCookieNamed("test1");
+        
+        System.out.println("Available Cookies: "+driver.manage().getCookies());
+       
+        driver.quit();
+    }
+
+}
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class getAllCookies {
+
+    public static void main(String[] args) {
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://127.0.0.1:5502/cookies/login.html");
+        driver.manage().window().maximize();
+        driver.findElement(By.id("username")).sendKeys("user");
+        driver.findElement(By.id("password")).sendKeys("pass");
+        driver.findElement(By.id("remember")).click();
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        System.out.println("Cookies available: "+driver.manage().getCookies());
+        driver.quit();
+    }
+
+}
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class getCookieNamed {
+
+    public static void main(String[] args) {
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://127.0.0.1:5502/cookies/login.html");
+        driver.manage().window().maximize();
+        driver.findElement(By.id("username")).sendKeys("user");
+        driver.findElement(By.id("password")).sendKeys("pass");
+        driver.findElement(By.id("remember")).click();
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        System.out.println(driver.findElement(By.className("dashboard-heading")).getText());
+        System.out.println("Cookies available: "+driver.manage().getCookies());
+        System.out.println("username cookie: "+driver.manage().getCookieNamed("username"));
+        driver.quit();
+    }
+
+}
+                        </code>
+                    </pre>
+                    <p><b>Same-Site Cookie Attribute</b></p>
+                    <p>It allows a user to instruct browsers to control whether cookies are sent along with the request initiated by third party sites. It is introduced to prevent CSRF (Cross-Site Request Forgery) attacks.</p>
+                    <p>Same-Site cookie attribute accepts two parameters as instructions</p>
+                    <p><b>Strict: </b></p>
+                    <p>When the sameSite attribute is set as Strict, the cookie will not be sent along with requests initiated by third party websites.</p>
+                    <p><b>Lax: </b></p>
+                    <p>When you set a cookie sameSite attribute to Lax, the cookie will be sent along with the GET request initiated by third party website.</p>
+                    <p><b>Note:</b>As of now this feature is landed in chrome(80+version), Firefox(79+version) and works with Selenium 4 and later versions.</p>
+                    <pre>
+                        <code>
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class cookieTest {
+  public static void main(String[] args) {
+    WebDriver driver = new ChromeDriver();
+    try {
+      driver.get("http://www.example.com");
+      Cookie cookie = new Cookie.Builder("key", "value").sameSite("Strict").build();
+      Cookie cookie1 = new Cookie.Builder("key", "value").sameSite("Lax").build();
+      driver.manage().addCookie(cookie);
+      driver.manage().addCookie(cookie1);
+      System.out.println(cookie.getSameSite());
+      System.out.println(cookie1.getSameSite());
+    } finally {
+      driver.quit();
+    }
+  }
+}
+                        </code>
                     </pre>
                 </div>
             </div>
