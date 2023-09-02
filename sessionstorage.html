@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Clean Blog - Start Bootstrap Theme</title>
+    <title>Sessions</title>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="images/Chocolate_Chip_Cookies.jpg" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -27,7 +27,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="index.html">MCRSR</a>
+            <a class="navbar-brand" href="index.html">Selenium Tutorial</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -44,17 +44,17 @@
         </div>
     </nav>
     <!-- Page Header-->
-    <header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+    <header class="masthead" style="background-image: url('images/Chocolate_Chip_Cookies.jpg')">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <div class="post-heading">
-                        <h1>Browser Navigation</h1>
-                        <h2 class="subheading"></h2>
+                        <h1>Sessions</h1>
+                        <h2 class="subheading">A session is a way to store and manage data associated with a specific user's interactions with a web application. Sessions are typically used to maintain user-specific information, such as user authentication, shopping cart contents, and preferences, across multiple HTTP requests. Sessions help make web applications more interactive and personalized.</h2>
                         <span class="meta">
                             Posted by
                             <a href="#!">MCRSR</a>
-                            on August 24, 2022
+                            on Sept 02, 2023
                         </span>
                     </div>
                 </div>
@@ -66,60 +66,42 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    <h2>Navigation</h2>
+                    <h2>What is a Session?</h2>
+                    <p>A session is a way to store and manage data associated with a specific user's interactions with a web application. Sessions are typically used to maintain user-specific information, such as user authentication, shopping cart contents, and preferences, across multiple HTTP requests. Sessions help make web applications more interactive and personalized.</p>
+                    <h2>How Sessions Work:</h2>
+                    <p>Session Initiation: When a user visits a website for the first time, a session is initiated on the server. The server generates a unique session identifier (usually a session ID or token) for the user and sends it to the client's browser. This identifier is often stored in a cookie on the client-side, but it can also be included in URLs or hidden form fields.</p>
+                    <p>Data Storage: The server uses the session identifier to associate the user's subsequent requests with their session. It creates a data structure (often a server-side data store like a database or an in-memory data structure) to store session-specific data. This data can include variables, objects, or any information needed to maintain the user's state.</p>
+                    <p>Data Retrieval and Update: In each HTTP request from the client, the session identifier is sent back to the server, allowing it to look up the corresponding session data. This allows the server to access and modify session-specific information. For example, a user's shopping cart contents can be updated as they add or remove items.</p>
+                    <p>Session Expiry: Sessions typically have an expiration time. If a user remains inactive for a certain period (often configurable by the developer), the session data may be cleared, and the session considered expired. The user will need to re-authenticate or start a new session to continue their interaction.</p>
+                    <p>Logout and Termination: A user can explicitly log out of a session, which invalidates the session identifier and clears the associated data on the server. Additionally, sessions can be terminated programmatically based on certain conditions or when a user logs out.</p>
+                    <h2>Importance of Sessions:</h2>
+                    <p>User Authentication: Sessions are commonly used to track whether a user is logged in or not. User authentication data is stored in the session, allowing users to access secure parts of a website without needing to re-authenticate on every request.</p>
+                    <p>Shopping Carts and E-commerce: Sessions are used to maintain the contents of a user's shopping cart as they browse an online store. This enables users to add, remove, and purchase items seamlessly.</p>
+                    <p>Personalization: Sessions allow websites to personalize content and user experiences. For example, a user's language preference, theme choice, or recently viewed items can be stored in a session.</p>
+                    <p>Form Data: Sessions can be used to persist form data across multiple pages, making it easier for users to complete multi-step processes or forms.</p>
+                    <p>State Management: Sessions help maintain the state of a web application. This is critical for complex web applications that require users to navigate through various pages and workflows while retaining their data and context.</p>
+                    <h2>SesionStorage using JavaScript</h2>
                     <pre>
-                          <code>
-interface Navigation {
+                        <code>
+sessionStorage.setItem('token', 'abc123');
 
-  void back();
-  
-  void forward();
-  
-  void to(String url);
-  
-  void to(URL url);
-  
-  void refresh();
-}
-                          </code>                
-                        </pre>
-                    <br><br>
-                    <pre>
-                          <code>
-import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import io.github.bonigarcia.wdm.WebDriverManager;
-  
-public class NavigationExample1 {
-  public static void main(String[] args) throws Exception {
-    WebDriverManager.chromedriver().setup();
-    WebDriver driver = new ChromeDriver();
-    driver.manage().window().maximize();
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    driver.navigate().to("https://www.w3schools.com/html/default.asp");
-    Thread.sleep(1000);
-    System.out.println(driver.getCurrentUrl());
-    driver.findElement(By.xpath("//a[text()='Next ❯']")).click();
-    Thread.sleep(1000);
-    System.out.println(driver.getCurrentUrl());
-    driver.findElement(By.xpath("//a[text()='Next ❯']")).click();
-    Thread.sleep(1000);
-    System.out.println(driver.getCurrentUrl());
-    driver.navigate().back();
-    Thread.sleep(1000);
-    System.out.println(driver.getCurrentUrl());
-    driver.navigate().forward();
-    Thread.sleep(1000);
-    System.out.println(driver.getCurrentUrl());
-    driver.navigate().refresh();
-    Thread.sleep(1000);
-    driver.quit();
-  }
-}
-                          </code>
-                        </pre>
+const token = sessionStorage.getItem('token');
+console.log('Token:', token);
+
+sessionStorage.removeItem('token');
+
+sessionStorage.clear();
+
+
+// Storing an object in localStorage
+const user = { name: 'John Doe', email: 'john@example.com' };
+localStorage.setItem('user', JSON.stringify(user));
+
+// Retrieving the object from localStorage
+const storedUser = JSON.parse(localStorage.getItem('user'));
+console.log('User:', storedUser);
+                        </code>
+                    </pre>
                 </div>
             </div>
         </div>
