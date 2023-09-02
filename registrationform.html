@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+
+<body>
+    <form action="#">
+        <table>
+            <tr>
+                <th><label for="firstname">First Name:</label></th>
+                <td><input type="text" name="firstname" id="firstname"></td>
+            </tr>
+            <tr>
+                <th><label for="lastname">Last Name:</label></th>
+                <td><input type="text" name="lastname" id="lastname"></td>
+            </tr>
+            <tr>
+                <th><label for="age">Age:</label></th>
+                <td><input type="number" name="age" id="age" min="0" max="100"></td>
+            </tr>
+            <tr>
+                <th><label for="email">Email:</label></th>
+                <td><input type="email" name="email" id="email"></td>
+            </tr>
+            <tr>
+                <th><label for="address">Address:</label></th>
+                <td><textarea name="address" id="address" cols="30" rows="10" placeholder="address..."></textarea></td>
+            </tr>
+            <tr>
+                <th><label for="password">Password:</label></th>
+                <td><input type="password" name="password" id="password"></td>
+            </tr>
+            <tr>
+                <th><label for="favouritecolor">Favourite Color:</label></th>
+                <td><input type="color" name="favouritecolor" id="favouritecolor"></td>
+            </tr>
+            <tr>
+                <th><label>Gender:</label></th>
+                <td>
+                    <input type="radio" name="Gender" id="male">
+                    <label for="male">Male</label>
+                    <input type="radio" name="Gender" id="female">
+                    <label for="female">Female</label>
+                    <input type="radio" name="Gender" id="others">
+                    <label for="others">Others</label>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="dob">Date Of Birth:</label></th>
+                <td><input type="date" name="dob" id="dob"></td>
+            </tr>
+            <tr>
+                <th><label for="Faouritelanguages">Favourite Languages:</label></th>
+                <td>
+                    <label for="java">Java</label>
+                    <input type="checkbox" name="Java" id="java">
+                    <label for="python">Python</label>
+                    <input type="checkbox" name="python" id="python">
+                    <label for="javascript">Javascript</label>
+                    <input type="checkbox" name="javascript" id="javascript">
+                </td>
+            </tr>
+            <tr>
+                <th><label for="registrationdate">Registration Date:</label></th>
+                <td><input type="datetime-local" name="registrationdate" id="registrationdate"></td>
+            </tr>
+            <tr>
+                <th><label for="image">Upload Photo:</label></th>
+                <td><input type="file" name="image" id="image"></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><input type="hidden" id="postId" name="postId" value="34657" /></td>
+            </tr>
+            <tr>
+                <th><label for="start">Start month:</label></th>
+                <td><input type="month" id="start" name="start" min="2018-03" value="2018-05" /></td>
+            </tr>
+            <tr>
+                <th>
+                    <p>Audio settings:</p>
+                </th>
+                <td>
+                    <div>
+                        <input type="range" id="volume" name="volume" min="0" max="11" />
+                        <label for="volume">Volume</label>
+                    </div>
+
+                    <div>
+                        <input type="range" id="cowbell" name="cowbell" min="0" max="100" value="90" step="10" />
+                        <label for="cowbell">Cowbell</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="appt">Choose a time for your meeting:</label></th>
+                <td><input type="time" id="appt" name="appt" min="09:00" max="18:00" /></td>
+            </tr>
+            <tr>
+                <th><label for="url">Enter your URL:</label></th>
+                <td><input type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*"
+                        size="30" /></td>
+            </tr>
+            <tr>
+                <th><label for="cars">Choose a car:</label></th>
+                <td>
+                    <select name="cars" id="cars">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="opel">Opel</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="cars">Choose a car:(selection disabled)</label></th>
+                <td>
+                    <select name="cars" id="cars" disabled>
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="cars">Choose a car:(multiple)</label></th>
+                <td>
+                    <select name="cars" id="cars" multiple>
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="opel">Opel</option>
+                        <option value="audi">Audi</option>
+                      </select>
+                </td>
+            </tr>
+        </table>
+        <div>
+            <p>Buttons</p>
+            <button type="button" onclick="alert('Hello!');">Hello</button>
+            <button disabled="disabled">disabled button</button>
+        </div>
+    </form>
+</body>
+
+</html>
