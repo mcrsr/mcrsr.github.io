@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-java.js"></script>
+    <style>
+        pre {
+            background-color: #000;
+            /* Black background color */
+            color: #fff;
+            /* White text color for contrast */
+            padding: 10px;
+            border: 1px solid #333;
+            /* Dark border color */
+            white-space: pre-wrap;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <pre>
+        <button class="copy-button" style="float: right;">Copy</button>
+    <code class="language-java">
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class cookieTest {
+  public static void main(String[] args) {
+    WebDriver driver = new ChromeDriver();
+    try {
+      driver.get("http://www.example.com");
+      Cookie cookie = new Cookie.Builder("key", "value").sameSite("Strict").build();
+      Cookie cookie1 = new Cookie.Builder("key", "value").sameSite("Lax").build();
+      driver.manage().addCookie(cookie);
+      driver.manage().addCookie(cookie1);
+      System.out.println(cookie.getSameSite());
+      System.out.println(cookie1.getSameSite());
+    } finally {
+      driver.quit();
+    }
+  }
+}
+    </code>
+</pre>
+<script>
+    // Find the copy button and code block
+    const copyButton = document.querySelector('.copy-button');
+    const codeBlock = document.querySelector('code');
+
+    // Add a click event listener to the copy button
+    copyButton.addEventListener('click', () => {
+        // Create a new text area element
+        const textArea = document.createElement('textarea');
+        textArea.value = codeBlock.textContent;
+
+        // Append the text area to the document
+        document.body.appendChild(textArea);
+
+        // Select the text in the text area
+        textArea.select();
+
+        // Execute the copy command
+        document.execCommand('copy');
+
+        // Remove the text area from the document
+        document.body.removeChild(textArea);
+
+        // Change the button text to indicate success
+        copyButton.textContent = 'Copied!';
+    });
+</script>
+
+</body>
+
+</html>

@@ -7,9 +7,12 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Cookies</title>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script> -->
+    <!-- <script>hljs.highlightAll();</script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-java.js"></script>
     <link rel="icon" type="image/x-icon" href="images/Chocolate_Chip_Cookies.jpg" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -103,16 +106,16 @@
                     <p>to test cookies functionality <a href="cookies/login.html">Login Screen</a> username: user and password: pass</p>
                     <p>Working with cookies:</p>
                     <ul>
-                        <li><pre><code>void addCookie(Cookie cookie);</code></pre><br><p>Add a specific cookie.</p></li>
-                        <li><pre><code>void deleteAllCookies();</code></pre><br><p>Delete all the cookies for the current domain.</p></li>
-                        <li><pre><code>void deleteCookieNamed(String name);</code></pre><br><p>Delete the named cookie from the current domain. This is equivalent to setting the named cookie's expiry date to some time in the past.</p></li>
-                        <li><pre><code>void deleteCookie(Cookie cookie);</code></pre><br><p>Delete a cookie from the browser's "cookie jar". The domain of the cookie will be ignored.</p></li>
-                        <li><pre><code>Cookie getCookieNamed(String name);</code></pre><br><p>Get a cookie with a given name.</p></li>
-                        <li><pre><code>Set&lt;Cookie&gt; getCookies();</code></pre><br><p>Get all the cookies for the current domain.</p></li>
+                        <li><pre><code class="language-java">void addCookie(Cookie cookie);</code></pre><br><p>Add a specific cookie.</p></li>
+                        <li><pre><code class="language-java">void deleteAllCookies();</code></pre><br><p>Delete all the cookies for the current domain.</p></li>
+                        <li><pre><code class="language-java">void deleteCookieNamed(String name);</code></pre><br><p>Delete the named cookie from the current domain. This is equivalent to setting the named cookie's expiry date to some time in the past.</p></li>
+                        <li><pre><code class="language-java">void deleteCookie(Cookie cookie);</code></pre><br><p>Delete a cookie from the browser's "cookie jar". The domain of the cookie will be ignored.</p></li>
+                        <li><pre><code class="language-java">Cookie getCookieNamed(String name);</code></pre><br><p>Get a cookie with a given name.</p></li>
+                        <li><pre><code class="language-java">Set&lt;Cookie&gt; getCookies();</code></pre><br><p>Get all the cookies for the current domain.</p></li>
                     </ul>
                     <br><br>
                     <pre>
-                      <code>
+                      <code class="language-java">
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
@@ -143,7 +146,7 @@ public class addCookie {
                       </code>
                     </pre>
                     <pre>
-                        <code>
+                        <code class="language-java">
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
@@ -178,7 +181,7 @@ public class deleteAllCookies {
                         </code>
                     </pre>
                     <pre>
-                        <code>
+                        <code class="language-java">
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
@@ -212,7 +215,7 @@ public class deleteCookie {
                         </code>
                     </pre>
                     <pre>
-                        <code>
+                        <code class="language-java">
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -235,7 +238,7 @@ public class getAllCookies {
                         </code>
                     </pre>
                     <pre>
-                        <code>
+                        <code class="language-java">
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -268,7 +271,7 @@ public class getCookieNamed {
                     <p>When you set a cookie sameSite attribute to Lax, the cookie will be sent along with the GET request initiated by third party website.</p>
                     <p><b>Note:</b>As of now this feature is landed in chrome(80+version), Firefox(79+version) and works with Selenium 4 and later versions.</p>
                     <pre>
-                        <code>
+                        <code class="language-java">
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
